@@ -3,35 +3,23 @@ version: '3.8'
 services:
   dev:
     image: node:16-alpine
-    container_name: kabal-web-components_dev
+    container_name: altinn-design-system_dev
     working_dir: /app
     command:
       [
         'sh',
         '-c',
-        'yarn install --prefer-offline --cache-folder ./.yarn/npm-cache && yarn start',
+        'yarn start',
       ]
     volumes:
       - type: bind
         source: .
         target: /app
-      - type: volume
-        source: node-modules
-        target: /app/node_modules
-      - type: volume
-        source: yarn-npm-cache
-        target: /app/.yarn/npm-cache
     networks:
-      - kabal
+      - altinn-design-system
     ports:
       - '3333:3333'
 
-volumes:
-  node-modules:
-    name: kabal-web-components_node-modules
-  yarn-npm-cache:
-    name: kabal-web-components_yarn-npm-cache
-
 networks:
-  kabal:
-    name: kabal-web-components
+  altinn-design-system:
+    name: altinn-design-system

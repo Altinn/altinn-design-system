@@ -1,0 +1,15 @@
+{
+  "parserOptions": {
+    "ecmaFeatures": { "jsx": true },
+    "project": "./tsconfig.json"
+  },
+  "extends": ["plugin:prettier/recommended"],
+  "rules": {
+    "react/jsx-no-bind": "off"
+  },
+  "settings": {
+    "react": {
+      "version": "17"
+    }
+  }
+}

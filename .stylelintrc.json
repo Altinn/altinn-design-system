@@ -1,0 +1,13 @@
+{
+  "plugins": ["stylelint-prettier", "stylelint-order"],
+  "extends": ["stylelint-prettier/recommended", "stylelint-config-prettier"],
+  "rules": {
+    "prettier/prettier": true,
+    "order/properties-alphabetical-order": true,
+    "declaration-empty-line-before": "never",
+    "rule-empty-line-before": [
+      "always",
+      { "ignore": ["after-comment", "first-nested"] }
+    ]
+  }
+}

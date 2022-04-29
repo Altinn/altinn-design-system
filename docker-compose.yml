@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  dev:
+    image: node:16-alpine
+    container_name: altinn-design-system_dev
+    working_dir: /app
+    command:
+      [
+        'sh',
+        '-c',
+        'yarn start',
+      ]
+    volumes:
+      - type: bind
+        source: .
+        target: /app
+    networks:
+      - altinn-design-system
+    ports:
+      - '3333:3333'
+
+networks:
+  altinn-design-system:
+    name: altinn-design-system

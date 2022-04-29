@@ -53,8 +53,7 @@ jobs:
       - name: Publish npm package
         run: yarn npm publish --access public
         env:
-          GITHUB_PACKAGES_PAT: ${{ secrets.GITHUB_TOKEN }}
-          NODE_AUTH_TOKEN: $GITHUB_PACKAGES_PAT
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create GitHub release
         uses: actions/create-release@v1

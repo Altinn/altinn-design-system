@@ -2,7 +2,7 @@ import React from 'react';
 
 import { tokens } from '../../DesignTokens';
 
-export enum Variant {
+export enum InformationPanelVariant {
   Info = 'info',
   Warning = 'warning',
   Success = 'success',
@@ -11,11 +11,15 @@ export enum Variant {
 export interface InformationPanelProps {
   icon?: React.ReactNode;
   children: React.ReactNode;
-  variant?: Variant;
+  variant?: InformationPanelVariant;
   showPointer?: boolean;
 }
 
-const getBackgroundColor = ({ variant }: { variant: Variant }) => {
+const getBackgroundColor = ({
+  variant,
+}: {
+  variant: InformationPanelVariant;
+}) => {
   switch (variant) {
     case Variant.Info:
       return tokens.ComponentPanelBackgroundDefault;
@@ -29,7 +33,7 @@ const getBackgroundColor = ({ variant }: { variant: Variant }) => {
 export const InformationPanel = ({
   icon,
   children,
-  variant = Variant.Info,
+  variant = InformationPanelVariant.Info,
   showPointer = false,
 }: InformationPanelProps) => {
   const backgroundColor = getBackgroundColor({ variant });

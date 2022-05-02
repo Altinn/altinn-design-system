@@ -56,13 +56,16 @@ export const InformationPanel = ({
           }}
         ></div>
       )}
+
       <div
         style={{
           backgroundColor,
-          padding: tokens.SpaceX4,
+          paddingTop: tokens.panel.padding.top.default,
+          paddingRight: tokens.panel.padding.right.default,
+          paddingBottom: tokens.panel.padding.bottom.default,
+          paddingLeft: tokens.panel.padding.left.default,
         }}
       >
-        {variant}
         <div>{icon}</div>
         <div>{children}</div>
       </div>

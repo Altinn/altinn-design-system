@@ -2,26 +2,31 @@ import React from 'react';
 
 import { tokens } from '../../DesignTokens';
 
-export enum Variant {
+export enum InformationPanelVariant {
   Info = 'info',
   Warning = 'warning',
   Success = 'success',
 }
 
 export interface InformationPanelProps {
-  icon?: React.ReactNode;
   children: React.ReactNode;
-  variant?: Variant;
+  icon?: React.ReactNode;
+  variant?: InformationPanelVariant;
   showPointer?: boolean;
+  showIcon?: boolean;
 }
 
-const getBackgroundColor = ({ variant }: { variant: Variant }) => {
+const getBackgroundColor = ({
+  variant,
+}: {
+  variant: InformationPanelVariant;
+}) => {
   switch (variant) {
-    case Variant.Info:
+    case InformationPanelVariant.Info:
       return tokens.ComponentPanelBackgroundDefault;
-    case Variant.Warning:
-      return tokens.ComponentPanelBackgroundWarnning;
-    case Variant.Success:
+    case InformationPanelVariant.Warning:
+      return tokens.ComponentPanelBackgroundWarning;
+    case InformationPanelVariant.Success:
       return tokens.ComponentPanelBackgroundSuccess;
   }
 };
@@ -29,8 +34,9 @@ const getBackgroundColor = ({ variant }: { variant: Variant }) => {
 export const InformationPanel = ({
   icon,
   children,
-  variant = Variant.Info,
+  variant = InformationPanelVariant.Info,
   showPointer = false,
+  showIcon = true,
 }: InformationPanelProps) => {
   const backgroundColor = getBackgroundColor({ variant });
   const pointerSize = tokens.SpaceX2;
@@ -56,14 +62,17 @@ export const InformationPanel = ({
           }}
         ></div>
       )}
+
       <div
         style={{
           backgroundColor,
-          padding: tokens.SpaceX4,
+          paddingTop: tokens.PanelPaddingTopDefault,
+          paddingRight: tokens.PanelPaddingRightDefault,
+          paddingBottom: tokens.PanelPaddingBottomDefault,
+          paddingLeft: tokens.PanelPaddingLeftDefault,
         }}
       >
-        {variant}
-        <div>{icon}</div>
+        {showIcon && <div>{icon}</div>}
         <div>{children}</div>
       </div>
     </div>

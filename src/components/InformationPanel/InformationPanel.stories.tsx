@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { InformationPanel, Variant } from './InformationPanel';
+import { InformationPanel, InformationPanelVariant } from './InformationPanel';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -22,5 +22,5 @@ HelloWorld.args = {
 export const ClickMe = Template.bind({});
 ClickMe.args = {
   children: <div>child</div>,
-  variant: Variant.Warning,
+  variant: InformationPanelVariant.Warning,
 };

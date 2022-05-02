@@ -1,1 +1,1 @@
-export { InformationPanel } from './InformationPanel';
+export { InformationPanel, InformationPanelVariant } from './InformationPanel';

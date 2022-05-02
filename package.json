@@ -15,11 +15,10 @@
     "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
+    "start": "start-storybook -p 6006",
+    "test": "jest --runInBand",
     "lint": "eslint \"./**/src/**/*.ts*\"",
     "build": "rollup -c",
-    "test": "jest --runInBand",
-    "storybook": "start-storybook -p 6006",
-    "release": "yarn node ./release.mjs",
     "build-storybook": "build-storybook --output-dir dist/storybook"
   },
   "dependencies": {

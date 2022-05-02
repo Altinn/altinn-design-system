@@ -9,10 +9,11 @@ export enum InformationPanelVariant {
 }
 
 export interface InformationPanelProps {
-  icon?: React.ReactNode;
   children: React.ReactNode;
+  icon?: React.ReactNode;
   variant?: InformationPanelVariant;
   showPointer?: boolean;
+  showIcon?: boolean;
 }
 
 const getBackgroundColor = ({
@@ -21,11 +22,11 @@ const getBackgroundColor = ({
   variant: InformationPanelVariant;
 }) => {
   switch (variant) {
-    case Variant.Info:
+    case InformationPanelVariant.Info:
       return tokens.ComponentPanelBackgroundDefault;
-    case Variant.Warning:
-      return tokens.ComponentPanelBackgroundWarnning;
-    case Variant.Success:
+    case InformationPanelVariant.Warning:
+      return tokens.ComponentPanelBackgroundWarning;
+    case InformationPanelVariant.Success:
       return tokens.ComponentPanelBackgroundSuccess;
   }
 };
@@ -35,6 +36,7 @@ export const InformationPanel = ({
   children,
   variant = InformationPanelVariant.Info,
   showPointer = false,
+  showIcon = true,
 }: InformationPanelProps) => {
   const backgroundColor = getBackgroundColor({ variant });
   const pointerSize = tokens.SpaceX2;
@@ -64,13 +66,13 @@ export const InformationPanel = ({
       <div
         style={{
           backgroundColor,
-          paddingTop: tokens.panel.padding.top.default,
-          paddingRight: tokens.panel.padding.right.default,
-          paddingBottom: tokens.panel.padding.bottom.default,
-          paddingLeft: tokens.panel.padding.left.default,
+          paddingTop: tokens.PanelPaddingTopDefault,
+          paddingRight: tokens.PanelPaddingRightDefault,
+          paddingBottom: tokens.PanelPaddingBottomDefault,
+          paddingLeft: tokens.PanelPaddingLeftDefault,
         }}
       >
-        <div>{icon}</div>
+        {showIcon && <div>{icon}</div>}
         <div>{children}</div>
       </div>
     </div>

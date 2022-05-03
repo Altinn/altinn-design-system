@@ -1,45 +1,55 @@
 import React from 'react';
 
+import InfoIcon from './info.svg';
+
 import { tokens } from '../../DesignTokens';
 
-export enum InformationPanelVariant {
+export enum PanelVariant {
   Info = 'info',
   Warning = 'warning',
   Success = 'success',
 }
 
-export interface InformationPanelProps {
+interface IRenderIconProps {
+  size: number;
+}
+
+export interface PanelProps {
+  title: React.ReactNode;
   children: React.ReactNode;
-  icon?: React.ReactNode;
-  variant?: InformationPanelVariant;
+  renderIcon?: ({ size }: IRenderIconProps) => React.ReactNode;
+  variant?: PanelVariant;
   showPointer?: boolean;
   showIcon?: boolean;
 }
 
-const getBackgroundColor = ({
-  variant,
-}: {
-  variant: InformationPanelVariant;
-}) => {
+const getBackgroundColor = ({ variant }: { variant: PanelVariant }) => {
   switch (variant) {
-    case InformationPanelVariant.Info:
+    case PanelVariant.Info:
       return tokens.ComponentPanelBackgroundDefault;
-    case InformationPanelVariant.Warning:
+    case PanelVariant.Warning:
       return tokens.ComponentPanelBackgroundWarning;
-    case InformationPanelVariant.Success:
+    case PanelVariant.Success:
       return tokens.ComponentPanelBackgroundSuccess;
   }
 };
 
-export const InformationPanel = ({
-  icon,
+const defaultRenderIcon = ({ size }: IRenderIconProps) => {
+  return <InfoIcon width={size} height={size} />;
+};
+
+export const Panel = ({
+  renderIcon = defaultRenderIcon,
+  title,
   children,
-  variant = InformationPanelVariant.Info,
+  variant = PanelVariant.Info,
   showPointer = false,
   showIcon = true,
-}: InformationPanelProps) => {
+}: PanelProps) => {
   const backgroundColor = getBackgroundColor({ variant });
   const pointerSize = tokens.SpaceX2;
+  // const iconSize = tokens.SizeIconMedium; // Should use this token, but currently it is 60rem which is incorrect
+  const iconSize = 60;
 
   return (
     <div
@@ -65,6 +75,8 @@ export const InformationPanel = ({
 
       <div
         style={{
+          display: 'flex',
+          gap: tokens.PanelPaddingGapHorizontalDefault,
           backgroundColor,
           paddingTop: tokens.PanelPaddingTopDefault,
           paddingRight: tokens.PanelPaddingRightDefault,
@@ -72,8 +84,17 @@ export const InformationPanel = ({
           paddingLeft: tokens.PanelPaddingLeftDefault,
         }}
       >
-        {showIcon && <div>{icon}</div>}
-        <div>{children}</div>
+        {showIcon && renderIcon({ size: iconSize })}
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: tokens.PanelTextAreaGapVerticalDefault,
+          }}
+        >
+          <h3 style={{ margin: 0 }}>{title}</h3>
+          <div>{children}</div>
+        </div>
       </div>
     </div>
   );

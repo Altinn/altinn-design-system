@@ -35,11 +35,7 @@ const getBackgroundColor = ({ variant }: { variant: PanelVariant }) => {
 };
 
 const defaultRenderIcon = ({ size }: IRenderIconProps) => {
-  return (
-    <div style={{ flex: 'none', display: 'flex' }}>
-      <InfoIcon width={size} height={size} />
-    </div>
-  );
+  return <InfoIcon width={size} height={size} />;
 };
 
 export const Panel = ({
@@ -68,11 +64,13 @@ export const Panel = ({
           style={{
             position: 'absolute',
             transform: 'rotate(45deg)',
+            transformOrigin: 'bottom',
+            zIndex: -1,
             backgroundColor,
             width: pointerSize,
             height: pointerSize,
-            top: pointerSize / 4,
-            left: tokens.SpaceX8,
+            top: 2,
+            left: 106,
           }}
         ></div>
       )}
@@ -88,7 +86,11 @@ export const Panel = ({
           paddingLeft: tokens.PanelPaddingLeftDefault,
         }}
       >
-        {showIcon && renderIcon({ size: iconSize })}
+        {showIcon && (
+          <div style={{ flex: 'none', display: 'flex' }}>
+            {renderIcon({ size: iconSize })}
+          </div>
+        )}
         <div
           style={{
             display: 'flex',

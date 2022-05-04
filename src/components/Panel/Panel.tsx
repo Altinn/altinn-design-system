@@ -1,6 +1,6 @@
 import React from 'react';
 
-import InfoIcon from './info.svg';
+import { ReactComponent as InfoIcon } from './info.svg';
 
 import { tokens } from '../../DesignTokens';
 
@@ -35,7 +35,11 @@ const getBackgroundColor = ({ variant }: { variant: PanelVariant }) => {
 };
 
 const defaultRenderIcon = ({ size }: IRenderIconProps) => {
-  return <InfoIcon width={size} height={size} />;
+  return (
+    <div style={{ flex: 'none', display: 'flex' }}>
+      <InfoIcon width={size} height={size} />
+    </div>
+  );
 };
 
 export const Panel = ({

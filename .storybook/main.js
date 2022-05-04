@@ -13,6 +13,9 @@ module.exports = {
     'storybook-addon-turbo-build',
     'storybook-dark-mode',
   ],
+  core: {
+    builder: 'webpack5',
+  },
   framework: '@storybook/react',
   webpackFinal: async (config) => {
     const svgRule = config.module.rules.find((rule) =>
@@ -24,7 +27,14 @@ module.exports = {
     config.module.rules.push({
       test: /\.svg$/i,
       include: [AppSourceDir],
-      use: ['@svgr/webpack'],
+      use: [
+        {
+          loader: '@svgr/webpack',
+          options: {
+            exportType: 'named',
+          },
+        },
+      ],
     });
 
     return config;

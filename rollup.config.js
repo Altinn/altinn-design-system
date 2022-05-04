@@ -5,11 +5,9 @@ import json from '@rollup/plugin-json';
 import dts from 'rollup-plugin-dts';
 import postcss from 'rollup-plugin-postcss';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
-import svgr from '@svgr/rollup'
-
-// import { terser } from 'rollup-plugin-terser';
-
-const packageJson = require('./package.json');
+import svgr from '@svgr/rollup';
+// import { terser } from 'rollup-plugin-terser'; // Temporarily disabled because of issues with yarn PnP
+import packageJson from './package.json';
 
 export default [
   {
@@ -26,14 +24,14 @@ export default [
         sourcemap: true,
       },
     ],
-    external: [ '@altinn/figma-design-tokens' ],
+    external: ['@altinn/figma-design-tokens'],
     plugins: [
-      svgr(),
       peerDepsExternal(),
       resolve(),
       commonjs(),
       json(),
       typescript({ tsconfig: './tsconfig.json' }),
+      svgr({ exportType: 'named' }),
       postcss(),
       // terser(),
     ],

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { ReactComponent as InfoIcon } from './info.svg';
+import { ReactComponent as SuccessIcon } from './success.svg';
 
 import { tokens } from '../../DesignTokens';
 
@@ -12,12 +13,13 @@ export enum PanelVariant {
 
 interface IRenderIconProps {
   size: number;
+  variant: PanelVariant;
 }
 
 export interface PanelProps {
   title: React.ReactNode;
   children: React.ReactNode;
-  renderIcon?: ({ size }: IRenderIconProps) => React.ReactNode;
+  renderIcon?: ({ size, variant }: IRenderIconProps) => React.ReactNode;
   variant?: PanelVariant;
   showPointer?: boolean;
   showIcon?: boolean;
@@ -34,8 +36,14 @@ const getBackgroundColor = ({ variant }: { variant: PanelVariant }) => {
   }
 };
 
-const defaultRenderIcon = ({ size }: IRenderIconProps) => {
-  return <InfoIcon width={size} height={size} />;
+const defaultRenderIcon = ({ size, variant }: IRenderIconProps) => {
+  switch (variant) {
+    case PanelVariant.Info:
+    case PanelVariant.Warning:
+      return <InfoIcon width={size} height={size} />;
+    case PanelVariant.Success:
+      return <SuccessIcon width={size} height={size} />;
+  }
 };
 
 export const Panel = ({
@@ -88,7 +96,7 @@ export const Panel = ({
       >
         {showIcon && (
           <div style={{ flex: 'none', display: 'flex' }}>
-            {renderIcon({ size: iconSize })}
+            {renderIcon({ size: iconSize, variant })}
           </div>
         )}
         <div

@@ -5,9 +5,9 @@ import json from '@rollup/plugin-json';
 import dts from 'rollup-plugin-dts';
 import postcss from 'rollup-plugin-postcss';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+import svgr from '@svgr/rollup';
 import terser from './rollup-terser';
-
-const packageJson = require('./package.json');
+import packageJson from './package.json';
 
 export default [
   {
@@ -31,6 +31,7 @@ export default [
       commonjs(),
       json(),
       typescript({ tsconfig: './tsconfig.json' }),
+      svgr({ exportType: 'named' }),
       postcss(),
       terser(),
     ],

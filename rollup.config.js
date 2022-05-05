@@ -5,7 +5,7 @@ import json from '@rollup/plugin-json';
 import dts from 'rollup-plugin-dts';
 import postcss from 'rollup-plugin-postcss';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
-// import { terser } from 'rollup-plugin-terser';
+import terser from './rollup-terser';
 
 const packageJson = require('./package.json');
 
@@ -24,7 +24,7 @@ export default [
         sourcemap: true,
       },
     ],
-    external: [ '@altinn/figma-design-tokens' ],
+    external: [/@altinn\/figma-design-tokens/],
     plugins: [
       peerDepsExternal(),
       resolve(),
@@ -32,13 +32,13 @@ export default [
       json(),
       typescript({ tsconfig: './tsconfig.json' }),
       postcss(),
-      // terser(),
+      terser(),
     ],
   },
   {
     input: 'dist/esm/types/index.d.ts',
     output: [{ file: 'dist/index.d.ts', format: 'esm' }],
     plugins: [dts()],
-    external: [/\.css$/],
+    external: [/@altinn\/figma-design-tokens/, /\.css$/],
   },
 ];

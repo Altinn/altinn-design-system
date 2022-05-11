@@ -1,9 +1,15 @@
 import React from 'react';
+import cn from 'classnames';
 
 import { ReactComponent as InfoIcon } from './info.svg';
 import { ReactComponent as SuccessIcon } from './success.svg';
 
 import { tokens } from '../../DesignTokens';
+
+import './Panel.css';
+
+// TODO: Should not import tokens directly in the components
+import '../../DesignTokens/index.css';
 
 export enum PanelVariant {
   Info = 'info',
@@ -24,17 +30,6 @@ export interface PanelProps {
   showPointer?: boolean;
   showIcon?: boolean;
 }
-
-const getBackgroundColor = ({ variant }: { variant: PanelVariant }) => {
-  switch (variant) {
-    case PanelVariant.Info:
-      return tokens.ComponentPanelBackgroundDefault;
-    case PanelVariant.Warning:
-      return tokens.ComponentPanelBackgroundWarning;
-    case PanelVariant.Success:
-      return tokens.ComponentPanelBackgroundSuccess;
-  }
-};
 
 const defaultRenderIcon = ({ size, variant }: RenderIconProps) => {
   switch (variant) {
@@ -62,63 +57,37 @@ export const Panel = ({
   showPointer = false,
   showIcon = true,
 }: PanelProps) => {
-  const backgroundColor = getBackgroundColor({ variant });
-  const pointerSize = tokens.SpaceX2;
-  // const iconSize = tokens.SizeIconMedium; // Should use this token, but currently it is 60rem which is incorrect
-  const iconSize = 60;
+  const iconSize = tokens.ComponentPanelSizeIconMd;
 
   return (
     <div
-      style={{
-        position: 'relative',
-        width: '100%',
-        paddingTop: showPointer ? pointerSize / 2 + pointerSize / 4 : 0,
-      }}
+      className={cn('ads-panel', {
+        'ads-panel--has-pointer': showPointer,
+      })}
     >
       {showPointer && (
         <div
           data-testid='panel-pointer'
-          style={{
-            position: 'absolute',
-            transform: 'rotate(45deg)',
-            transformOrigin: 'bottom',
-            zIndex: -1,
-            backgroundColor,
-            width: pointerSize,
-            height: pointerSize,
-            top: 2,
-            left: 106,
-          }}
+          className={cn('ads-panel__pointer', `ads-panel__pointer--${variant}`)}
         ></div>
       )}
 
       <div
-        style={{
-          display: 'flex',
-          gap: tokens.PanelPaddingGapHorizontalDefault,
-          backgroundColor,
-          paddingTop: tokens.PanelPaddingTopDefault,
-          paddingRight: tokens.PanelPaddingRightDefault,
-          paddingBottom: tokens.PanelPaddingBottomDefault,
-          paddingLeft: tokens.PanelPaddingLeftDefault,
-        }}
+        className={cn(
+          'ads-panel__content-wrapper',
+          `ads-panel__content-wrapper--${variant}`,
+        )}
       >
         {showIcon && (
           <div
             data-testid='panel-icon-wrapper'
-            style={{ flex: 'none', display: 'flex' }}
+            className='ads-panel__icon-wrapper'
           >
             {renderIcon({ size: iconSize, variant })}
           </div>
         )}
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: tokens.PanelTextAreaGapVerticalDefault,
-          }}
-        >
-          <h3 style={{ margin: 0 }}>{title}</h3>
+        <div className='ads-panel__content'>
+          <h3 className='ads-panel__header'>{title}</h3>
           <div>{children}</div>
         </div>
       </div>

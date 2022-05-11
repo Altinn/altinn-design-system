@@ -16,6 +16,8 @@
 # Local env variables should stay local
 .env
 
+coverage/
+
 # Folder metadata
 .DS_Store
 Thumbs.db

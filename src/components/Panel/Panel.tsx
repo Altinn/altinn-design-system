@@ -11,7 +11,7 @@ export enum PanelVariant {
   Success = 'success',
 }
 
-interface IRenderIconProps {
+interface RenderIconProps {
   size: number;
   variant: PanelVariant;
 }
@@ -19,7 +19,7 @@ interface IRenderIconProps {
 export interface PanelProps {
   title: React.ReactNode;
   children: React.ReactNode;
-  renderIcon?: ({ size, variant }: IRenderIconProps) => React.ReactNode;
+  renderIcon?: ({ size, variant }: RenderIconProps) => React.ReactNode;
   variant?: PanelVariant;
   showPointer?: boolean;
   showIcon?: boolean;
@@ -36,13 +36,21 @@ const getBackgroundColor = ({ variant }: { variant: PanelVariant }) => {
   }
 };
 
-const defaultRenderIcon = ({ size, variant }: IRenderIconProps) => {
+const defaultRenderIcon = ({ size, variant }: RenderIconProps) => {
   switch (variant) {
     case PanelVariant.Info:
     case PanelVariant.Warning:
-      return <InfoIcon width={size} height={size} />;
+      return (
+        <InfoIcon width={size} height={size} data-testid='panel-icon-info' />
+      );
     case PanelVariant.Success:
-      return <SuccessIcon width={size} height={size} />;
+      return (
+        <SuccessIcon
+          width={size}
+          height={size}
+          data-testid='panel-icon-success'
+        />
+      );
   }
 };
 
@@ -69,6 +77,7 @@ export const Panel = ({
     >
       {showPointer && (
         <div
+          data-testid='panel-pointer'
           style={{
             position: 'absolute',
             transform: 'rotate(45deg)',
@@ -95,7 +104,10 @@ export const Panel = ({
         }}
       >
         {showIcon && (
-          <div style={{ flex: 'none', display: 'flex' }}>
+          <div
+            data-testid='panel-icon-wrapper'
+            style={{ flex: 'none', display: 'flex' }}
+          >
             {renderIcon({ size: iconSize, variant })}
           </div>
         )}

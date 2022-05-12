@@ -6,10 +6,11 @@ on:
         description: "The type of release (one of 'patch', 'minor', or 'major')"
         required: true
         default: patch
-        type: string
-  push:
-    tags:
-      - "v*.*.*"
+        type: choice
+        options:
+        - patch
+        - minor
+        - major
 
 jobs:
   build_release:
@@ -45,11 +46,7 @@ jobs:
           npm version  ${{ github.event.inputs.release_type }}
           echo "release_version=`git describe`" >> $GITHUB_ENV
           git push --follow-tags
-      - name: Get release version
-        # This step runs if a tag "v*.*.*" is pushed; the version is assumed created
-        if: ${{ github.event.after }}
-        run: |
-          echo "release_version=${{ github.ref }}" >> $GITHUB_ENV
+
       - name: Publish npm package
         run: yarn npm publish --access public
         env:

@@ -89,6 +89,7 @@
     "rollup-plugin-postcss": "^4.0.2",
     "semver": "^7.3.7",
     "simple-git": "^3.7.1",
+    "storybook-addon-designs": "^6.2.1",
     "storybook-addon-turbo-build": "^1.1.0",
     "storybook-dark-mode": "^1.1.0",
     "terser": "^5.13.1",

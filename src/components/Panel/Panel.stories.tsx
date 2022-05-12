@@ -1,28 +1,42 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { config } from 'storybook-addon-designs';
+
 import { Panel, PanelVariant } from './Panel';
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
+const figmaLink =
+  'https://www.figma.com/file/wnBveAG2ikUspFsQwM3GNE/Altinn-Studio-Apps?node-id=15055%3A17514';
 export default {
-  title: 'ReactComponentLibrary/Panel',
+  title: `Components/Panel`,
   component: Panel,
+  parameters: {
+    design: config([
+      {
+        type: 'figma',
+        url: figmaLink,
+      },
+      {
+        type: 'link',
+        url: figmaLink,
+      },
+    ]),
+  },
+  args: {
+    title: 'Panel tittel',
+    children: <div>Her kommer litt informasjon</div>,
+  },
 } as ComponentMeta<typeof Panel>;
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Panel> = (args) => (
-  <Panel {...args} />
-);
+const Template: ComponentStory<typeof Panel> = (args) => <Panel {...args} />;
 
-export const HelloWorld = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-HelloWorld.args = {
-  title: 'Her er litt ekstra info',
-  children: <div>child</div>,
+export const Info = Template.bind({});
+
+export const Warning = Template.bind({});
+Warning.args = {
+  variant: PanelVariant.Warning,
 };
 
-export const ClickMe = Template.bind({});
-ClickMe.args = {
-  children: <div>child</div>,
-  title: 'Her er litt ekstra info',
-  variant: PanelVariant.Warning,
+export const Success = Template.bind({});
+Success.args = {
+  variant: PanelVariant.Success,
 };

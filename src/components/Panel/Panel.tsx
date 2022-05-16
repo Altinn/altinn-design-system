@@ -6,7 +6,7 @@ import { ReactComponent as SuccessIcon } from './success.svg';
 
 import { tokens } from '../../DesignTokens';
 
-import './Panel.module.css';
+import classes from './Panel.module.css';
 
 // TODO: Should not import tokens directly in the components
 // eslint-disable-next-line
@@ -62,30 +62,36 @@ export const Panel = ({
 
   return (
     <div
-      className={cn('panel', {
-        'panel--has-pointer': showPointer,
+      className={cn(classes.panel, {
+        [classes['panel--has-pointer']]: showPointer,
       })}
     >
       {showPointer && (
         <div
           data-testid='panel-pointer'
-          className={cn('panel__pointer', `panel__pointer--${variant}`)}
+          className={cn(
+            classes.panel__pointer,
+            classes[`panel__pointer--${variant}`],
+          )}
         ></div>
       )}
 
       <div
         className={cn(
-          'panel__content-wrapper',
-          `panel__content-wrapper--${variant}`,
+          classes['panel__content-wrapper'],
+          classes[`panel__content-wrapper--${variant}`],
         )}
       >
         {showIcon && (
-          <div data-testid='panel-icon-wrapper' className='panel__icon-wrapper'>
+          <div
+            data-testid='panel-icon-wrapper'
+            className={classes['panel__icon-wrapper']}
+          >
             {renderIcon({ size: iconSize, variant })}
           </div>
         )}
-        <div className='panel__content'>
-          <h3 className='panel__header'>{title}</h3>
+        <div className={classes.panel__content}>
+          <h3 className={classes.panel__header}>{title}</h3>
           <div>{children}</div>
         </div>
       </div>

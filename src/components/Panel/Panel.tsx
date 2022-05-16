@@ -18,7 +18,7 @@ export enum PanelVariant {
 }
 
 interface RenderIconProps {
-  size: number;
+  size: string;
   variant: PanelVariant;
 }
 

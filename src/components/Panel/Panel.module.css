@@ -1,3 +1,11 @@
+:root {
+  --panel-top-padding: var(--component-panel-space-padding-top-md);
+  --panel-right-padding: var(--component-panel-space-padding-right-md);
+  --panel-bottom-padding: var(--component-panel-space-padding-bottom-md);
+  --panel-left-padding: var(--component-panel-space-padding-left-md);
+  --panel-content-gap: var(--component-panel-space-padding-gap-horizontal-md);
+}
+
 .panel {
   position: relative;
   width: 100%;
@@ -13,7 +21,7 @@
   width: var(--component-panel-size-icon-md);
   height: calc(var(--component-panel-size-icon-md) / 2);
   top: 0;
-  left: var(--component-panel-space-padding-left-md);
+  left: var(--panel-left-padding);
   clip-path: polygon(50% 0, 100% 100%, 0 100%);
 }
 
@@ -34,11 +42,11 @@
 
 .panel__content-wrapper {
   display: flex;
-  gap: var(--component-panel-space-padding-gap-horizontal-md);
-  padding-top: var(--component-panel-space-padding-top-md);
-  padding-right: var(--component-panel-space-padding-right-md);
-  padding-bottom: var(--component-panel-space-padding-bottom-md);
-  padding-left: var(--component-panel-space-padding-left-md);
+  gap: var(--panel-content-gap);
+  padding-top: var(--panel-top-padding);
+  padding-right: var(--panel-right-padding);
+  padding-bottom: var(--panel-bottom-padding);
+  padding-left: var(--panel-left-padding);
 }
 
 .panel__icon-wrapper {
@@ -54,4 +62,16 @@
 
 .panel__header {
   margin: 0;
+}
+
+/* TODO: cannot use css variables in media queries.. Consider using https://github.com/postcss/postcss-custom-media */
+/* @media only screen and (max-width: var(--breakpoints-sm)) { */
+@media only screen and (max-width: 540px) {
+  :root {
+    --panel-top-padding: var(--component-panel-space-padding-top-xs);
+    --panel-right-padding: var(--component-panel-space-padding-right-xs);
+    --panel-bottom-padding: var(--component-panel-space-padding-bottom-xs);
+    --panel-left-padding: var(--component-panel-space-padding-left-xs);
+    --panel-content-gap: var(--component-panel-space-padding-gap-horizontal-xs);
+  }
 }

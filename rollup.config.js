@@ -24,7 +24,7 @@ export default [
         sourcemap: true,
       },
     ],
-    external: [/@altinn\/figma-design-tokens/],
+    // external: [/@altinn\/figma-design-tokens/],
     plugins: [
       peerDepsExternal(),
       resolve(),

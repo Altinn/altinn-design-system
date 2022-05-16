@@ -9,7 +9,8 @@ import { tokens } from '../../DesignTokens';
 import './Panel.module.css';
 
 // TODO: Should not import tokens directly in the components
-import '../../DesignTokens/index.css';
+// eslint-disable-next-line
+import '@altinn/figma-design-tokens/dist/tokens.css';
 
 export enum PanelVariant {
   Info = 'info',

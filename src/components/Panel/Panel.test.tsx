@@ -90,7 +90,7 @@ describe('Panel', () => {
       render({ renderIcon });
 
       expect(renderIcon).toHaveBeenCalledWith({
-        size: 60,
+        size: '3.75rem',
         variant: PanelVariant.Info,
       });
     });

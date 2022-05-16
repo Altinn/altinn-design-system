@@ -6,7 +6,7 @@ import { ReactComponent as SuccessIcon } from './success.svg';
 
 import { tokens } from '../../DesignTokens';
 
-import './Panel.css';
+import './Panel.module.css';
 
 // TODO: Should not import tokens directly in the components
 import '../../DesignTokens/index.css';
@@ -61,33 +61,30 @@ export const Panel = ({
 
   return (
     <div
-      className={cn('ads-panel', {
-        'ads-panel--has-pointer': showPointer,
+      className={cn('panel', {
+        'panel--has-pointer': showPointer,
       })}
     >
       {showPointer && (
         <div
           data-testid='panel-pointer'
-          className={cn('ads-panel__pointer', `ads-panel__pointer--${variant}`)}
+          className={cn('panel__pointer', `panel__pointer--${variant}`)}
         ></div>
       )}
 
       <div
         className={cn(
-          'ads-panel__content-wrapper',
-          `ads-panel__content-wrapper--${variant}`,
+          'panel__content-wrapper',
+          `panel__content-wrapper--${variant}`,
         )}
       >
         {showIcon && (
-          <div
-            data-testid='panel-icon-wrapper'
-            className='ads-panel__icon-wrapper'
-          >
+          <div data-testid='panel-icon-wrapper' className='panel__icon-wrapper'>
             {renderIcon({ size: iconSize, variant })}
           </div>
         )}
-        <div className='ads-panel__content'>
-          <h3 className='ads-panel__header'>{title}</h3>
+        <div className='panel__content'>
+          <h3 className='panel__header'>{title}</h3>
           <div>{children}</div>
         </div>
       </div>

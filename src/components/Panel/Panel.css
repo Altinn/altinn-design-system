@@ -1,0 +1,60 @@
+/* ads - Altinn Design System prefix to avoid naming collisions
+May consider using some css-in-js approach later
+*/
+.ads-panel {
+  position: relative;
+  width: 100%;
+  padding-top: 0;
+}
+
+.ads-panel--has-pointer {
+  padding-top: calc(var(--component-panel-size-icon-md) / 2);
+}
+
+.ads-panel__pointer {
+  position: absolute;
+  width: var(--component-panel-size-icon-md);
+  height: calc(var(--component-panel-size-icon-md) / 2);
+  top: 0;
+  left: var(--component-panel-space-padding-left-md);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+.ads-panel__content-wrapper--info,
+.ads-panel__pointer--info {
+  background-color: var(--component-panel-color-background-default);
+}
+
+.ads-panel__content-wrapper--success,
+.ads-panel__pointer--success {
+  background-color: var(--component-panel-color-background-success);
+}
+
+.ads-panel__content-wrapper--warning,
+.ads-panel__pointer--warning {
+  background-color: var(--component-panel-color-background-warning);
+}
+
+.ads-panel__content-wrapper {
+  display: flex;
+  gap: var(--component-panel-space-padding-gap-horizontal-md);
+  padding-top: var(--component-panel-space-padding-top-md);
+  padding-right: var(--component-panel-space-padding-right-md);
+  padding-bottom: var(--component-panel-space-padding-bottom-md);
+  padding-left: var(--component-panel-space-padding-left-md);
+}
+
+.ads-panel__icon-wrapper {
+  display: flex;
+  flex: none;
+}
+
+.ads-panel__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--component-panel-space-text-area-gap-vertical-xs);
+}
+
+.ads-panel__header {
+  margin: 0;
+}

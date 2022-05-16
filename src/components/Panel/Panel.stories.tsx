@@ -1,28 +1,84 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { config } from 'storybook-addon-designs';
+import {
+  Title,
+  ArgsTable,
+  Stories,
+  Description,
+  Heading,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
+
 import { Panel, PanelVariant } from './Panel';
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
+const figmaLink =
+  'https://www.figma.com/file/wnBveAG2ikUspFsQwM3GNE/Altinn-Studio-Apps?node-id=15055%3A17514';
 export default {
-  title: 'ReactComponentLibrary/Panel',
+  title: `Components/Panel`,
   component: Panel,
+  parameters: {
+    design: config([
+      {
+        type: 'figma',
+        url: figmaLink,
+      },
+      {
+        type: 'link',
+        url: figmaLink,
+      },
+    ]),
+    docs: {
+      page: () => (
+        <div>
+          <Title />
+          <Description>
+            Generell beskrivelse av komponenten kommer her
+          </Description>
+          <Stories includePrimary={true} />
+          <Heading>Props</Heading>
+          <ArgsTable story={PRIMARY_STORY} />
+        </div>
+      ),
+    },
+  },
+  args: {
+    title: 'Panel tittel',
+    children: <div>Her kommer litt informasjon</div>,
+  },
 } as ComponentMeta<typeof Panel>;
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Panel> = (args) => (
-  <Panel {...args} />
-);
+const Template: ComponentStory<typeof Panel> = (args) => <Panel {...args} />;
 
-export const HelloWorld = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-HelloWorld.args = {
-  title: 'Her er litt ekstra info',
-  children: <div>child</div>,
+export const Info = Template.bind({});
+Info.parameters = {
+  docs: {
+    description: {
+      story: 'Info beskrivelse',
+    },
+  },
 };
 
-export const ClickMe = Template.bind({});
-ClickMe.args = {
-  children: <div>child</div>,
-  title: 'Her er litt ekstra info',
+export const Warning = Template.bind({});
+Warning.args = {
   variant: PanelVariant.Warning,
+};
+Warning.parameters = {
+  docs: {
+    description: {
+      story: 'Warning beskrivelse',
+    },
+  },
+};
+
+export const Success = Template.bind({});
+Success.args = {
+  variant: PanelVariant.Success,
+};
+Success.parameters = {
+  docs: {
+    description: {
+      story: 'Success beskrivelse',
+    },
+  },
 };

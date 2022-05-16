@@ -6,13 +6,13 @@ const AppSourceDir = Path.join(__dirname, '..', 'src');
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
-    'storybook-addon-designs',
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
     '@storybook/addon-a11y',
     'storybook-addon-turbo-build',
     'storybook-dark-mode',
+    'storybook-addon-designs',
   ],
   core: {
     builder: 'webpack5',

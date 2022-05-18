@@ -19,7 +19,8 @@
     "test": "jest --runInBand",
     "lint": "eslint \"./**/src/**/*.ts*\"",
     "build": "rollup -c",
-    "build-storybook": "build-storybook --output-dir dist/storybook"
+    "build-storybook": "build-storybook --output-dir dist/storybook",
+    "postinstall": "husky install"
   },
   "dependencies": {
     "@altinn/figma-design-tokens": "^0.0.27"
@@ -73,12 +74,15 @@
     "eslint-import-resolver-typescript": "^2.7.1",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.5.0",
     "eslint-plugin-storybook": "^0.5.11",
+    "husky": "^8.0.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^28.1.0",
     "jest-environment-jsdom": "^28.1.0",
+    "lint-staged": "^12.4.1",
     "postcss": "^8.4.13",
     "prettier": "^2.6.2",
     "react": "^18.1.0",
@@ -107,5 +111,9 @@
     "open@7.4.2": {
       "unplugged": true
     }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": "eslint --cache --fix",
+    "*.{css,md,mdx,json}": "prettier --write"
   }
 }

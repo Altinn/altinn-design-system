@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { ReactComponent as InfoIcon } from './info.svg';
 import { ReactComponent as SuccessIcon } from './success.svg';
 
-import { tokens } from '../../DesignTokens';
+import { tokens } from '@/DesignTokens';
 
 import classes from './Panel.module.css';
 

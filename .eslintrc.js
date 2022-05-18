@@ -21,5 +21,13 @@ module.exports = {
     react: {
       version: '18',
     },
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
+    },
+    'import/resolver': {
+      typescript: {
+        project: '.',
+      },
+    },
   },
 };

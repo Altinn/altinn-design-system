@@ -5,6 +5,7 @@ module.exports = {
   moduleNameMapper: {
     '.(css|less|scss)$': 'identity-obj-proxy',
     '\\.svg$': '<rootDir>/__mocks__/svg.ts',
+    "^@/(.*)$": "<rootDir>/src/$1",
   },
   modulePathIgnorePatterns: ["<rootDir>/dist/"],
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],

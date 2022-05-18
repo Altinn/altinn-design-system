@@ -9,6 +9,9 @@ import svgr from '@svgr/rollup';
 import terser from './rollup-terser';
 import packageJson from './package.json';
 
+// css files needs to be bundled
+const altinnFigmaTokensExceptCss = /@altinn\/figma-design-tokens.*(?<!css)$/;
+
 export default [
   {
     input: 'src/index.ts',
@@ -24,7 +27,7 @@ export default [
         sourcemap: true,
       },
     ],
-    // external: [/@altinn\/figma-design-tokens/],
+    external: [altinnFigmaTokensExceptCss],
     plugins: [
       peerDepsExternal(),
       resolve(),

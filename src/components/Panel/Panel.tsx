@@ -9,7 +9,6 @@ import { tokens } from '../../DesignTokens';
 import classes from './Panel.module.css';
 
 // TODO: Should not import tokens directly in the components
-// eslint-disable-next-line
 import '@altinn/figma-design-tokens/dist/tokens.css';
 
 export enum PanelVariant {

@@ -17,6 +17,7 @@
 .env
 
 coverage/
+.eslintcache
 
 # Folder metadata
 .DS_Store

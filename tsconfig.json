@@ -22,7 +22,4 @@
     }
   },
   "include": ["**/*.ts", "**/*.tsx"],
-  // "exclude": [
-  //   "scripts/templates/**/*"
-  // ]
 }

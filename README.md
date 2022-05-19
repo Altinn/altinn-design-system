@@ -2,6 +2,15 @@
 
 Design system v2
 
+## Getting started
+
+We are currently using Github registry to publish packages. This means you need to setup a PAT (Personal Access Token) on your machine.
+
+- Acquire a [GitHub PAT](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token). The only permission you need to grant is read:packages.
+- Assign the PAT to the GITHUB_PACKAGES_PAT environment variable:
+  - Mac/Linux: add the line export GITHUB_PACKAGES_PAT=<PAT> to ~/.bash_profile and restart the terminal
+  - Windows: Run setx GITHUB_PACKAGES_PAT <PAT> /m and restart the terminal
+
 ## Adding components
 
 New components can be added by executing `yarn add-component <ComponentName>`. The name of the component should be written using PascalCase. This will generate all important files for you in the correct location, and also update the index file for exporting the component. The generated code includes some `TODO` statements that you should fix.

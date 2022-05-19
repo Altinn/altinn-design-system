@@ -1,14 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { config } from 'storybook-addon-designs';
-import {
-  Title,
-  ArgsTable,
-  Stories,
-  Description,
-  Heading,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs';
+
+import { StoryPage } from '@sb/StoryPage';
 
 import { Panel, PanelVariant } from './Panel';
 
@@ -30,15 +24,9 @@ export default {
     ]),
     docs: {
       page: () => (
-        <div>
-          <Title />
-          <Description>
-            Generell beskrivelse av komponenten kommer her
-          </Description>
-          <Stories includePrimary={true} />
-          <Heading>Props</Heading>
-          <ArgsTable story={PRIMARY_STORY} />
-        </div>
+        <StoryPage
+          description={`TODO: Add a description (supports markdown)`}
+        />
       ),
     },
   },

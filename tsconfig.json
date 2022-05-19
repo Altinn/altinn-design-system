@@ -17,7 +17,12 @@
     "target": "es2016",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"],
+      "@sb/*": ["./.storybook/*"]
     }
-  }
+  },
+  "include": ["**/*.ts", "**/*.tsx"],
+  // "exclude": [
+  //   "scripts/templates/**/*"
+  // ]
 }

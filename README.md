@@ -2,7 +2,9 @@
 
 Design system v2
 
-Using [storybook-addon-turbo-build](https://storybook.js.org/addons/storybook-addon-turbo-build) to avoid a build error when using the default build pipeline (which uses Terser). This also requires `webpack 4` as a dev dependency.
+## Adding components
+
+New components can be added by executing `yarn add-component <ComponentName>`. The name of the component should be written using PascalCase. This will generate all important files for you in the correct location, and also update the index file for exporting the component. The generated code includes some `TODO` statements that you should fix.
 
 ## Code style
 

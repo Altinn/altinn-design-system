@@ -4,6 +4,10 @@ Design system v2
 
 ## Getting started
 
+### Node and Corepack
+
+We are using the latest LTS release of node, but minimum version 16.9.0, since we are using [corepack](https://nodejs.org/api/corepack.html). To enable corepack, execute `corepack enable` from the terminal.
+
 ### Setup Github PAT Token
 
 We are currently using Github registry to publish packages. This means you need to setup a PAT (Personal Access Token) on your machine.

@@ -19,5 +19,5 @@
       "@sb/*": ["./.storybook/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": ["**/*.ts", "**/*.tsx", "**/*.js"]
 }

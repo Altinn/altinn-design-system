@@ -38,6 +38,11 @@ module.exports = {
       ],
     });
 
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@': AppSourceDir,
+    };
+
     return config;
   },
 };

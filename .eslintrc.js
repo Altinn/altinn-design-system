@@ -16,6 +16,22 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   rules: {
     'react/jsx-no-bind': 'off',
+    '@typescript-eslint/consistent-type-exports': 'warn',
+    '@typescript-eslint/consistent-type-imports': 'warn',
+    'import/order': [
+      'warn',
+      {
+        'newlines-between': 'always',
+        groups: [
+          'builtin',
+          'external',
+          'internal',
+          'parent',
+          'sibling',
+          'index',
+        ],
+      },
+    ],
   },
   settings: {
     react: {

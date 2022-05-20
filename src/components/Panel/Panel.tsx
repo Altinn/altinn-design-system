@@ -1,6 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
-import { useMediaQuery } from 'usehooks-ts';
+import { useMediaQuery } from '@react-hookz/web';
 import * as tokens from '@altinn/figma-design-tokens';
 
 import { ReactComponent as InfoIcon } from './info.svg';

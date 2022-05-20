@@ -12,6 +12,7 @@ __metadata:
     "@altinn/figma-design-tokens": ^0.0.27
     "@babel/core": ^7.17.10
     "@mdx-js/react": ^2.1.1
+    "@react-hookz/web": ^14.2.2
     "@rollup/plugin-commonjs": ^22.0.0
     "@rollup/plugin-json": ^4.1.0
     "@rollup/plugin-node-resolve": ^13.3.0
@@ -81,7 +82,6 @@ __metadata:
     ts-jest: ^28.0.2
     tslib: ^2.4.0
     typescript: ^4.6.4
-    usehooks-ts: ^2.5.3
     webpack: ^5.72.1
     yargs: ^17.4.1
   peerDependencies:
@@ -2787,6 +2787,29 @@ __metadata:
   version: 2.11.4
   resolution: "@popperjs/core@npm:2.11.4"
   checksum: 36168d274aa164368a50aef2e7b2f858e1b9145d9250af9dc1315ff719d874a367177760f8285efb75c8cf48267194a50e7dc9cdb41bf0b1958c38805c13564c
+  languageName: node
+  linkType: hard
+
+"@react-hookz/deep-equal@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "@react-hookz/deep-equal@npm:1.0.2"
+  checksum: a5d3f5012c34fae3d573e9245d00f2162b0f35a163700a325459090f18996408211f30ad51692fcec3d1de50859d496900ddffe18696f4a9e843623f95c2e6a3
+  languageName: node
+  linkType: hard
+
+"@react-hookz/web@npm:^14.2.2":
+  version: 14.2.2
+  resolution: "@react-hookz/web@npm:14.2.2"
+  dependencies:
+    "@react-hookz/deep-equal": ^1.0.2
+  peerDependencies:
+    js-cookie: ^3.0.1
+    react: ^16.8 || ^17 || ^18
+    react-dom: ^16.8 || ^17 || ^18
+  peerDependenciesMeta:
+    js-cookie:
+      optional: true
+  checksum: b85f3bdb64c569e5046d58cea838e23e92b6381241688ee77844c94055b46b86c278d3d1892ac79f00a2b9ad389bab0b68fd020125fe3832a5b1cbcd4606b9ab
   languageName: node
   linkType: hard
 
@@ -18884,15 +18907,6 @@ __metadata:
   version: 3.1.1
   resolution: "use@npm:3.1.1"
   checksum: 08a130289f5238fcbf8f59a18951286a6e660d17acccc9d58d9b69dfa0ee19aa038e8f95721b00b432c36d1629a9e32a464bf2e7e0ae6a244c42ddb30bdd8b33
-  languageName: node
-  linkType: hard
-
-"usehooks-ts@npm:^2.5.3":
-  version: 2.5.3
-  resolution: "usehooks-ts@npm:2.5.3"
-  peerDependencies:
-    react: ">=16.8.0"
-  checksum: 22edb98c6003d34b4e1340c407353451b2c7afc9c8f50773e03bf2eab4dcab72cd8790dd6c7d4cf11ab3be8cfbd9beaa925fe07af7dbbf57bb914685b3816e84
   languageName: node
   linkType: hard
 

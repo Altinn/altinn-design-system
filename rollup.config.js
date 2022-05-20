@@ -26,7 +26,7 @@ export default [
         format: 'esm',
       },
     ],
-    external: [altinnFigmaTokensExceptCss, 'usehooks-ts'],
+    external: [altinnFigmaTokensExceptCss, /@react-hookz\/web/],
     plugins: [
       peerDepsExternal(),
       resolve(),

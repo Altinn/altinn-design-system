@@ -1,2 +1,4 @@
 **/*.d.ts*
 scripts/templates/*
+dist/
+coverage/

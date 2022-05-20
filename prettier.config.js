@@ -1,3 +1,4 @@
+/* eslint-env node */
 module.exports = {
   trailingComma: 'all',
   tabWidth: 2,

@@ -16,8 +16,9 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@sb/*": ["./.storybook/*"]
+      "@sb/*": ["./.storybook/*"],
+      "@test/*": ["./test/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/.eslintrc.js"]
 }

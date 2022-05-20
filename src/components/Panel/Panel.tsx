@@ -1,5 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
+import { useMediaQuery } from '@react-hookz/web';
 import * as tokens from '@altinn/figma-design-tokens';
 
 import { ReactComponent as InfoIcon } from './info.svg';
@@ -55,7 +56,10 @@ export const Panel = ({
   showPointer = false,
   showIcon = true,
 }: PanelProps) => {
-  const iconSize = tokens.ComponentPanelSizeIconMd;
+  const isMobile = useMediaQuery(`(max-width: ${tokens.BreakpointsSm})`);
+  const iconSize = isMobile
+    ? tokens.ComponentPanelSizeIconXs
+    : tokens.ComponentPanelSizeIconMd;
 
   return (
     <div
@@ -89,7 +93,7 @@ export const Panel = ({
         )}
         <div className={classes.panel__content}>
           <h3 className={classes.panel__header}>{title}</h3>
-          <div>{children}</div>
+          <div className={classes.panel__body}>{children}</div>
         </div>
       </div>
     </div>

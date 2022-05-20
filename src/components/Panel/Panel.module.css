@@ -6,6 +6,9 @@
   --panel-content-gap: var(--component-panel-space-padding-gap-horizontal-md);
   --panel-pointer-width: calc(var(--component-panel-size-icon-md) / 2);
   --panel-pointer-height: calc(var(--panel-pointer-width) / 2);
+
+  --panel-body-font-size: var(--component-panel-font-size-body-lg);
+  --panel-header-font-size: var(--component-panel-font-size-header-lg);
 }
 
 .panel {
@@ -64,6 +67,12 @@
 
 .panel__header {
   margin: 0;
+  font-size: var(--panel-header-font-size);
+  /* // TODO: font-weight */
+}
+
+.panel__body {
+  font-size: var(--panel-body-font-size);
 }
 
 /* TODO: cannot use css variables in media queries.. Consider using https://github.com/postcss/postcss-custom-media */
@@ -75,5 +84,7 @@
     --panel-bottom-padding: var(--component-panel-space-padding-bottom-xs);
     --panel-left-padding: var(--component-panel-space-padding-left-xs);
     --panel-content-gap: var(--component-panel-space-padding-gap-horizontal-xs);
+    --panel-body-font-size: var(--component-panel-font-size-body-xs);
+    --panel-header-font-size: var(--component-panel-font-size-header-xs);
   }
 }

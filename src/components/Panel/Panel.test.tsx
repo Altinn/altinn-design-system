@@ -1,10 +1,18 @@
+import { mockMediaQuery } from '@test/testUtils';
 import React from 'react';
 import { render as renderRtl, screen } from '@testing-library/react';
 
 import type { PanelProps } from './Panel';
 import { Panel, PanelVariant } from './Panel';
 
+const mediaQueryBreakPoint = 500;
+const { setScreenWidth } = mockMediaQuery(mediaQueryBreakPoint);
+
 describe('Panel', () => {
+  beforeEach(() => {
+    setScreenWidth(mediaQueryBreakPoint + 100);
+  });
+
   describe('Pointer', () => {
     it('should show pointer when "showPointer" is true', () => {
       render({ showPointer: true });
@@ -92,6 +100,18 @@ describe('Panel', () => {
 
       expect(renderIcon).toHaveBeenCalledWith({
         size: '3.75rem',
+        variant: PanelVariant.Info,
+      });
+    });
+
+    it('should pass smaller size and variant to renderIcon callback when viewport is small', () => {
+      setScreenWidth(mediaQueryBreakPoint - 100);
+
+      const renderIcon = jest.fn();
+      render({ renderIcon });
+
+      expect(renderIcon).toHaveBeenCalledWith({
+        size: '2.25rem',
         variant: PanelVariant.Info,
       });
     });

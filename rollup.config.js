@@ -6,6 +6,7 @@ import dts from 'rollup-plugin-dts';
 import postcss from 'rollup-plugin-postcss';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import svgr from '@svgr/rollup';
+
 import terser from './rollup-terser';
 import packageJson from './package.json';
 
@@ -25,7 +26,7 @@ export default [
         format: 'esm',
       },
     ],
-    external: [altinnFigmaTokensExceptCss],
+    external: [altinnFigmaTokensExceptCss, /@react-hookz\/web/],
     plugins: [
       peerDepsExternal(),
       resolve(),

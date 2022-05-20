@@ -17,14 +17,15 @@
   "scripts": {
     "start": "start-storybook -p 6006",
     "test": "jest --runInBand",
-    "lint": "eslint \"./**/src/**/*.ts*\"",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx,.mjs,.cjs",
     "build": "rollup -c",
     "build-storybook": "build-storybook --output-dir dist/storybook",
     "postinstall": "husky install",
     "add-component": "node scripts/add-component.mjs"
   },
   "dependencies": {
-    "@altinn/figma-design-tokens": "^0.0.27"
+    "@altinn/figma-design-tokens": "^0.0.27",
+    "@react-hookz/web": "^14.2.2"
   },
   "resolutions": {
     "@storybook/react/webpack": "^5"
@@ -114,7 +115,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": "yarn lint --cache --fix",
+    "*.{js,jsx,ts,tsx,cjs,mjs}": "yarn lint --cache --fix",
     "*.{css,md,mdx,json}": "yarn prettier --write"
   }
 }

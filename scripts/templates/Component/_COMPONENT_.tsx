@@ -4,9 +4,11 @@ import cn from 'classnames';
 import classes from './_COMPONENT_.module.css';
 
 export interface _COMPONENT_Props {
-  // TODO: add props
+  greeting?: string; // TODO: add props
 }
 
-export const _COMPONENT_ = ({}: _COMPONENT_Props) => {
-  return <div className={classes._COMPONENT_}>Hello from _COMPONENT_</div>;
+export const _COMPONENT_ = ({ greeting }: _COMPONENT_Props) => {
+  return (
+    <div className={cn(classes._COMPONENT_)}>{greeting} from _COMPONENT_</div>
+  );
 };

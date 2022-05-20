@@ -1,6 +1,8 @@
+/* eslint-env node */
 import path from 'node:path';
 import fs from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
+
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 

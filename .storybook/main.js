@@ -2,6 +2,7 @@
 
 const Path = require('path');
 const AppSourceDir = Path.join(__dirname, '..', 'src');
+const StorybookSourceDir = Path.join(__dirname);
 
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -41,6 +42,7 @@ module.exports = {
     config.resolve.alias = {
       ...config.resolve.alias,
       '@': AppSourceDir,
+      '@sb': StorybookSourceDir,
     };
 
     return config;

@@ -1,11 +1,9 @@
 import React from 'react';
 import cn from 'classnames';
+import * as tokens from '@altinn/figma-design-tokens';
 
 import { ReactComponent as InfoIcon } from './info.svg';
 import { ReactComponent as SuccessIcon } from './success.svg';
-
-import { tokens } from '@/DesignTokens';
-
 import classes from './Panel.module.css';
 
 // TODO: Should not import tokens directly in the components

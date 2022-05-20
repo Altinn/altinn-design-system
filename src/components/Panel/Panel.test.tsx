@@ -1,7 +1,8 @@
 import React from 'react';
-import { Panel, PanelVariant } from './Panel';
-import type { PanelProps } from './Panel';
 import { render as renderRtl, screen } from '@testing-library/react';
+
+import type { PanelProps } from './Panel';
+import { Panel, PanelVariant } from './Panel';
 
 describe('Panel', () => {
   describe('Pointer', () => {

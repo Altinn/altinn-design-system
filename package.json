@@ -20,7 +20,8 @@
     "lint": "eslint \"./**/src/**/*.ts*\"",
     "build": "rollup -c",
     "build-storybook": "build-storybook --output-dir dist/storybook",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "add-component": "node scripts/add-component.mjs"
   },
   "dependencies": {
     "@altinn/figma-design-tokens": "^0.0.27"
@@ -113,7 +114,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": "eslint --cache --fix",
-    "*.{css,md,mdx,json}": "prettier --write"
+    "*.{js,jsx,ts,tsx}": "yarn lint --cache --fix",
+    "*.{css,md,mdx,json}": "yarn prettier --write"
   }
 }

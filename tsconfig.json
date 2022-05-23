@@ -20,5 +20,11 @@
       "@test/*": ["./test/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/.eslintrc.js"]
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "**/.eslintrc.js",
+    "scripts/add-component.mjs"
+  ]
 }

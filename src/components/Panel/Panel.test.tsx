@@ -99,7 +99,7 @@ describe('Panel', () => {
       render({ renderIcon });
 
       expect(renderIcon).toHaveBeenCalledWith({
-        size: '3.75rem',
+        size: 'calc(3.75rem * 1.6)',
         variant: PanelVariant.Info,
       });
     });
@@ -111,7 +111,7 @@ describe('Panel', () => {
       render({ renderIcon });
 
       expect(renderIcon).toHaveBeenCalledWith({
-        size: '2.25rem',
+        size: 'calc(2.25rem * 1.6)',
         variant: PanelVariant.Info,
       });
     });

@@ -2,13 +2,12 @@ import React from 'react';
 import cn from 'classnames';
 import { useMediaQuery } from '@react-hookz/web';
 import * as tokens from '@altinn/figma-design-tokens';
+// TODO: Should not import tokens directly in the components
+import '@altinn/figma-design-tokens/dist/tokens.css';
 
 import { ReactComponent as InfoIcon } from './info.svg';
 import { ReactComponent as SuccessIcon } from './success.svg';
 import classes from './Panel.module.css';
-
-// TODO: Should not import tokens directly in the components
-import '@altinn/figma-design-tokens/dist/tokens.css';
 
 export enum PanelVariant {
   Info = 'info',
@@ -57,9 +56,16 @@ export const Panel = ({
   showIcon = true,
 }: PanelProps) => {
   const isMobile = useMediaQuery(`(max-width: ${tokens.BreakpointsSm})`);
-  const iconSize = isMobile
+  const size = isMobile
     ? tokens.ComponentPanelSizeIconXs
     : tokens.ComponentPanelSizeIconMd;
+
+  // TODO: remove this workaround
+  // We need this temporary font size factor to make sure the icon is rendered correctly
+  // Because of font-size: 62.5% set on html/body in the old design system
+  const fontSizeFactor = 1.6;
+
+  const iconSize = `calc(${size} * ${fontSizeFactor})`;
 
   return (
     <div

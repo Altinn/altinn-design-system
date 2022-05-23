@@ -1,15 +1,58 @@
-:root {
-  --panel-top-padding: var(--component-panel-space-padding-top-md);
-  --panel-right-padding: var(--component-panel-space-padding-right-md);
-  --panel-bottom-padding: var(--component-panel-space-padding-bottom-md);
-  --panel-left-padding: var(--component-panel-space-padding-left-md);
-  --panel-content-gap: var(--component-panel-space-padding-gap-horizontal-md);
-  --panel-pointer-width: calc(var(--component-panel-size-icon-md) / 2);
-  --panel-pointer-height: calc(var(--panel-pointer-width) / 2);
-
-  --panel-body-font-size: var(--component-panel-font-size-body-lg);
-  --panel-header-font-size: var(--component-panel-font-size-header-lg);
+/* override design system tokens, because new design system is based on 100% / 16px font size.
+Old design system is based on 62.5% / 10px font size.
+These are temporary until we figure out a permanent solution for the new design system moving forward
+*/
+.panel {
+  --component-panel-space-padding-top-xs: calc(1.5rem * 1.6);
+  --component-panel-space-padding-right-xs: calc(1.5rem * 1.6);
+  --component-panel-space-padding-bottom-xs: calc(1.5rem * 1.6);
+  --component-panel-space-padding-left-xs: calc(1.5rem * 1.6);
+  --component-panel-space-padding-gap-horizontal-xs: calc(0.75rem * 1.6);
+  --component-panel-size-icon-xs: calc(2.25rem * 1.6);
+  --component-panel-font-size-body-xs: calc(1rem * 1.6);
+  --component-panel-font-size-header-xs: calc(1.125rem * 1.6);
+  --component-panel-space-padding-top-md: calc(2.25rem * 1.6);
+  --component-panel-space-padding-right-md: calc(6rem * 1.6);
+  --component-panel-space-padding-bottom-md: calc(2.25rem * 1.6);
+  --component-panel-space-padding-left-md: calc(6rem * 1.6);
+  --component-panel-space-padding-gap-horizontal-md: calc(0.75rem * 1.6);
+  --component-panel-size-icon-md: calc(3.75rem * 1.6);
+  --component-panel-font-size-body-lg: calc(1.125rem * 1.6);
+  --component-panel-font-size-header-lg: calc(1.375rem * 1.6);
 }
+
+/* TODO: cannot use css variables in media queries.. Consider using https://github.com/postcss/postcss-custom-media */
+/* breakpoints-xs */
+@media only screen and (min-width: 0) {
+  .panel {
+    --panel-top-padding: var(--component-panel-space-padding-top-xs);
+    --panel-right-padding: var(--component-panel-space-padding-right-xs);
+    --panel-bottom-padding: var(--component-panel-space-padding-bottom-xs);
+    --panel-left-padding: var(--component-panel-space-padding-left-xs);
+    --panel-content-gap: var(--component-panel-space-padding-gap-horizontal-xs);
+    --panel-pointer-width: calc(var(--component-panel-size-icon-xs) / 2);
+    --panel-pointer-height: calc(var(--panel-pointer-width) / 2);
+    --panel-body-font-size: var(--component-panel-font-size-body-xs);
+    --panel-header-font-size: var(--component-panel-font-size-header-xs);
+  }
+}
+
+/* breakpoints-sm */
+@media only screen and (min-width: 540px) {
+  .panel {
+    --panel-top-padding: var(--component-panel-space-padding-top-md);
+    --panel-right-padding: var(--component-panel-space-padding-right-md);
+    --panel-bottom-padding: var(--component-panel-space-padding-bottom-md);
+    --panel-left-padding: var(--component-panel-space-padding-left-md);
+    --panel-content-gap: var(--component-panel-space-padding-gap-horizontal-md);
+    --panel-pointer-width: calc(var(--component-panel-size-icon-md) / 2);
+    --panel-pointer-height: calc(var(--panel-pointer-width) / 2);
+    --panel-body-font-size: var(--component-panel-font-size-body-lg);
+    --panel-header-font-size: var(--component-panel-font-size-header-lg);
+  }
+}
+
+/* TODO: Implement missing breakpoints */
 
 .panel {
   position: relative;
@@ -25,7 +68,7 @@
   position: absolute;
   width: var(--panel-pointer-width);
   height: var(--panel-pointer-height);
-  top: 0;
+  top: 1px; /* slight offset to avoid mini gap between component and pointer */
   left: calc(var(--panel-left-padding) + (var(--panel-pointer-width) / 2));
   clip-path: polygon(50% 0, 100% 100%, 0 100%);
 }
@@ -73,18 +116,4 @@
 
 .panel__body {
   font-size: var(--panel-body-font-size);
-}
-
-/* TODO: cannot use css variables in media queries.. Consider using https://github.com/postcss/postcss-custom-media */
-/* @media only screen and (max-width: var(--breakpoints-sm)) { */
-@media only screen and (max-width: 540px) {
-  :root {
-    --panel-top-padding: var(--component-panel-space-padding-top-xs);
-    --panel-right-padding: var(--component-panel-space-padding-right-xs);
-    --panel-bottom-padding: var(--component-panel-space-padding-bottom-xs);
-    --panel-left-padding: var(--component-panel-space-padding-left-xs);
-    --panel-content-gap: var(--component-panel-space-padding-gap-horizontal-xs);
-    --panel-body-font-size: var(--component-panel-font-size-body-xs);
-    --panel-header-font-size: var(--component-panel-font-size-header-xs);
-  }
 }

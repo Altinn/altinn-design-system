@@ -31,17 +31,45 @@ export default {
     },
   },
   args: {
-    //TODO: Add default args
+    children: `I'm a button`,
+    type: 'button',
+    onClick: (params) => {
+      alert(`${JSON.stringify((params.target as Element).innerHTML)} clicked!`);
+    },
   },
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
-export const Example = Template.bind({});
-Example.args = {
-  // TODO: Add story specific args
+export const Primary = Template.bind({});
+Primary.args = {
+  children: `Primary button`,
 };
-Example.parameters = {
+Primary.parameters = {
+  docs: {
+    description: {
+      story: '', // TODO: add story description, supports markdown
+    },
+  },
+};
+export const Submit = Template.bind({});
+Submit.args = {
+  children: `Submit button`,
+  mode: 'submit',
+};
+Submit.parameters = {
+  docs: {
+    description: {
+      story: '', // TODO: add story description, supports markdown
+    },
+  },
+};
+export const Secondary = Template.bind({});
+Secondary.args = {
+  children: `Secondary button`,
+  mode: 'secondary',
+};
+Secondary.parameters = {
   docs: {
     description: {
       story: '', // TODO: add story description, supports markdown

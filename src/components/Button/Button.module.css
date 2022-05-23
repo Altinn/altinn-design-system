@@ -1,3 +1,44 @@
-Button {
-  /* TODO_ add some style */
+.button {
+  font-family: inherit;
+  border: 0;
+  font-size: var(--typography-default-font-size);
+  text-align: center;
+  box-sizing: border-box;
+  height: 3.6rem; /* TODO: get the token for this*/
+  min-width: 9rem; /* TODO: get the token for this*/
+  padding: 1rem 2.4rem 0.8rem 2.4rem; /* TODO: get the token for this */
+  --letter-spacing: 0.03rem;
+  letter-spacing: var(--letter-spacing);
+}
+
+.button:focus-visible {
+  outline: var(--colors-neutral-900) solid var(--border-width-standard);
+  outline-offset: calc(0px - var(--border-width-standard));
+}
+
+.button__primary {
+  background: var(--semantic-primary-700);
+  color: var(--colors-neutral-000);
+}
+.button__primary:hover,
+.button__primary:focus-visible {
+  background: #1a72c1; /* TODO: token for the color*/
+}
+.button__secondary {
+  background: var(--colors-neutral-000);
+  outline: var(--semantic-primary-700) solid 1px;
+  outline-offset: -1px;
+  color: var(--semantic-primary-700);
+}
+.button__secondary:hover {
+  background: var(--semantic-primary-700);
+  color: var(--colors-neutral-000);
+}
+.button__submit {
+  background: var(--semantic-success-intens);
+  color: var(--colors-neutral-900); /* TODO: token for the color*/
+}
+.button__submit:hover,
+.button__submit:focus-visible {
+  background: #45d489; /* TODO: token for the color*/
 }

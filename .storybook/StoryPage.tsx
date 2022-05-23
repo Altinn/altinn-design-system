@@ -7,6 +7,7 @@ import {
   Heading,
   PRIMARY_STORY,
 } from '@storybook/addon-docs';
+import './StoryPage.css';
 
 interface StoryPageProps {
   description: string; // supports markdown

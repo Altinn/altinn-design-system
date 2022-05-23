@@ -60,7 +60,7 @@ These are temporary until we figure out a permanent solution for the new design 
   padding-top: 0;
 }
 
-.panel--has-pointer {
+.panel__has-pointer {
   padding-top: var(--panel-pointer-height);
 }
 

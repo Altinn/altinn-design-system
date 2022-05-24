@@ -1,6 +1,7 @@
 // @ts-check
 
 const Path = require('path');
+const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
 const AppSourceDir = Path.join(__dirname, '..', 'src');
 const StorybookSourceDir = Path.join(__dirname);
 
@@ -44,6 +45,13 @@ module.exports = {
       '@': AppSourceDir,
       '@sb': StorybookSourceDir,
     };
+
+    config.plugins = [...config.plugins, new NodePolyfillPlugin()];
+
+    return config;
+  },
+  managerWebpack: async (config) => {
+    config.plugins = [...config.plugins, new NodePolyfillPlugin()];
 
     return config;
   },

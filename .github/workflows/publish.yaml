@@ -18,11 +18,7 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
 
       - name: install dependencies
-        run: |
-          yarn --version
-          corepack enable
-          yarn --version
-          yarn --immutable
+        run: yarn --immutable
 
       - name: Build Storybook
         run: yarn build-storybook

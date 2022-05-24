@@ -19,7 +19,7 @@
     "test": "jest --runInBand",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx,.mjs,.cjs",
     "build": "rollup -c",
-    "build-storybook": "build-storybook --output-dir dist/storybook",
+    "build-storybook": "build-storybook --output-dir ./storybook-static",
     "postinstall": "husky install",
     "add-component": "node scripts/add-component.mjs"
   },

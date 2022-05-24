@@ -1,5 +1,6 @@
 # Built files
 /dist/
+/storybook-static/
 
 # Yarn stuff; we're using PnP/Zero installs
 .yarn/*

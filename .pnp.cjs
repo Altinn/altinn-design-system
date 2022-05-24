@@ -90,6 +90,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-environment-jsdom", "npm:28.1.0"],\
             ["lint-staged", "npm:12.4.1"],\
             ["node-polyfill-webpack-plugin", "virtual:7d69a3a69852a0e9055ed3b5fdb5a65ed94a23b236d3ed1ddcff9e47ce5ff346d13a4e2fb43f7fd0870d44fbb16180838d7b0d3f66b4732761c6da62ed8923e9#npm:1.1.4"],\
+            ["pinst", "npm:3.0.0"],\
             ["postcss", "npm:8.4.14"],\
             ["prettier", "npm:2.6.2"],\
             ["react", "npm:18.1.0"],\
@@ -175,6 +176,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-environment-jsdom", "npm:28.1.0"],\
             ["lint-staged", "npm:12.4.1"],\
             ["node-polyfill-webpack-plugin", "virtual:7d69a3a69852a0e9055ed3b5fdb5a65ed94a23b236d3ed1ddcff9e47ce5ff346d13a4e2fb43f7fd0870d44fbb16180838d7b0d3f66b4732761c6da62ed8923e9#npm:1.1.4"],\
+            ["pinst", "npm:3.0.0"],\
             ["postcss", "npm:8.4.14"],\
             ["prettier", "npm:2.6.2"],\
             ["react", "npm:18.1.0"],\
@@ -22694,6 +22696,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["pinkie-promise", "npm:2.0.1"],\
             ["pinkie", "npm:2.0.4"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["pinst", [\
+        ["npm:3.0.0", {\
+          "packageLocation": "./.yarn/cache/pinst-npm-3.0.0-5d2b6c1dda-4ae48a6a60.zip/node_modules/pinst/",\
+          "packageDependencies": [\
+            ["pinst", "npm:3.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\

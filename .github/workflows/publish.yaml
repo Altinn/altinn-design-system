@@ -1,5 +1,6 @@
 name: Build and deploy Storybook
 on:
+  workflow_dispatch:
   release:
     types: [published]
 

@@ -1,3 +1,4 @@
 **/*.d.ts*
 dist/
 coverage/
+storybook-static/

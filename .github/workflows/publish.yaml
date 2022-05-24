@@ -1,0 +1,33 @@
+name: Build and deploy Storybook
+on:
+  release:
+    types: [published]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: install node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          registry-url: 'https://npm.pkg.github.com'
+
+      - name: install dependencies
+        run: |
+          yarn --version
+          corepack enable
+          yarn --version
+          yarn --immutable
+
+      - name: Build Storybook
+        run: yarn build-storybook
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.3.3
+        with:
+          branch: gh-pages
+          folder: storybook-static # Source folder (output from build step)

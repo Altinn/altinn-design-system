@@ -28,12 +28,6 @@ describe('Button', () => {
     await userEvent.click(screen.getByRole('button'));
     expect(fn).toHaveBeenCalled();
   });
-  it('should not handle onClick event if button is disabled', async () => {
-    const fn = jest.fn();
-    render({ disabled: true, onClick: fn });
-    await userEvent.click(screen.getByRole('button'));
-    expect(fn).not.toHaveBeenCalled();
-  });
 });
 
 const render = (

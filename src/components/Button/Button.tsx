@@ -1,4 +1,5 @@
 import React, {
+  type FC,
   type ButtonHTMLAttributes,
   type PropsWithChildren,
 } from 'react';
@@ -12,11 +13,11 @@ export enum ButtonVariant {
   Submit = 'submit',
 }
 
-export interface ButtonProps extends ButtonHTMLAttributes<unknown> {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
 }
 
-export const Button = ({
+export const Button: FC<ButtonProps> = ({
   children,
   variant = ButtonVariant.Primary,
   type = 'button',

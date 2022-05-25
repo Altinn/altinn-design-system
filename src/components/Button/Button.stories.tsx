@@ -32,6 +32,9 @@ export default {
   },
   args: {
     children: `I'm a button`,
+    onClick: (params) => {
+      alert(`${JSON.stringify((params.target as Element).innerHTML)} clicked!`);
+    },
     disabled: false,
   },
 } as ComponentMeta<typeof Button>;

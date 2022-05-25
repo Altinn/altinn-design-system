@@ -1,6 +1,6 @@
 import React from 'react';
 import type { ButtonProps } from '@/components/Button/Button';
-import { Button } from '@/components/Button/Button';
+import { Button, ButtonVariant } from '@/components/Button/Button';
 import { render as renderRtl, screen } from '@testing-library/react';
 import { userEvent } from '@storybook/testing-library';
 
@@ -11,11 +11,11 @@ describe('Button', () => {
     expect(screen.getByText('button text')).toBeInTheDocument();
   });
   it(`should render a button in it's submit state`, () => {
-    render({ variant: 'submit' });
+    render({ variant: ButtonVariant.Submit });
     expect(screen.getByTestId('submit-button')).toBeInTheDocument();
   });
   it(`should render a button in it's secondary state`, () => {
-    render({ variant: 'secondary' });
+    render({ variant: ButtonVariant.Secondary });
     expect(screen.getByTestId('secondary-button')).toBeInTheDocument();
   });
   it('should render different button text', () => {

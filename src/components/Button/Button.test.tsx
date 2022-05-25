@@ -11,11 +11,11 @@ describe('Button', () => {
     expect(screen.getByText('button text')).toBeInTheDocument();
   });
   it(`should render a button in it's submit state`, () => {
-    render({ mode: 'submit' });
+    render({ variant: 'submit' });
     expect(screen.getByTestId('submit-button')).toBeInTheDocument();
   });
   it(`should render a button in it's secondary state`, () => {
-    render({ mode: 'secondary' });
+    render({ variant: 'secondary' });
     expect(screen.getByTestId('secondary-button')).toBeInTheDocument();
   });
   it('should render different button text', () => {

@@ -70,7 +70,7 @@ export const Panel = ({
   return (
     <div
       className={cn(classes.panel, {
-        [classes['panel__has-pointer']]: showPointer,
+        [classes['panel--has-pointer']]: showPointer,
       })}
     >
       {showPointer && (

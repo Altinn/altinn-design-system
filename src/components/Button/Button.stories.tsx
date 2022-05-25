@@ -3,7 +3,7 @@ import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import { config } from 'storybook-addon-designs';
 import { StoryPage } from '@sb/StoryPage';
 
-import { Button } from './Button';
+import { Button, ButtonVariant } from './Button';
 
 const figmaLink =
   'https://www.figma.com/file/wnBveAG2ikUspFsQwM3GNE/Altinn-Studio-Apps?node-id=2064%3A496';
@@ -32,10 +32,7 @@ export default {
   },
   args: {
     children: `I'm a button`,
-    type: 'button',
-    onClick: (params) => {
-      alert(`${JSON.stringify((params.target as Element).innerHTML)} clicked!`);
-    },
+    disabled: false,
   },
 } as ComponentMeta<typeof Button>;
 
@@ -55,7 +52,7 @@ Primary.parameters = {
 export const Submit = Template.bind({});
 Submit.args = {
   children: `Submit button`,
-  mode: 'submit',
+  variant: ButtonVariant.Submit,
 };
 Submit.parameters = {
   docs: {
@@ -67,7 +64,7 @@ Submit.parameters = {
 export const Secondary = Template.bind({});
 Secondary.args = {
   children: `Secondary button`,
-  mode: 'secondary',
+  variant: ButtonVariant.Secondary,
 };
 Secondary.parameters = {
   docs: {

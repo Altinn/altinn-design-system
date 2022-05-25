@@ -6,21 +6,28 @@ import cn from 'classnames';
 
 import classes from './Button.module.css';
 
-export interface ButtonProps extends ButtonHTMLAttributes<unknown> {
-  mode?: 'primary' | 'secondary' | 'submit';
+export enum ButtonVariant {
+  Primary = 'primary',
+  Secondary = 'secondary',
+  Submit = 'submit',
 }
+
+export interface ButtonProps extends ButtonHTMLAttributes<unknown> {
+  variant?: ButtonVariant;
+}
+
 export const Button = ({
   children,
-  mode = 'primary',
+  variant = ButtonVariant.Primary,
   type = 'button',
-  ...HTMLProps
+  ...restHTMLProps
 }: PropsWithChildren<ButtonProps>) => {
   return (
     <button
-      data-testid={`${mode}-button`}
-      className={cn(classes.button, classes[`button__${mode}`])}
+      data-testid={`${variant}-button`}
+      className={cn(classes.button, classes[`button--${variant}`])}
       type={type}
-      {...HTMLProps}
+      {...restHTMLProps}
     >
       {children}
     </button>

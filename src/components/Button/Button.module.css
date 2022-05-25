@@ -9,6 +9,7 @@
   padding: 1rem 2.4rem 0.8rem 2.4rem; /* TODO: get the token for this */
   --letter-spacing: 0.03rem;
   letter-spacing: var(--letter-spacing);
+  cursor: pointer;
 }
 
 .button:focus-visible {
@@ -16,29 +17,29 @@
   outline-offset: calc(0px - var(--border-width-standard));
 }
 
-.button__primary {
+.button--primary {
   background: var(--semantic-primary-700);
   color: var(--colors-neutral-000);
 }
-.button__primary:hover,
-.button__primary:focus-visible {
+.button--primary:hover,
+.button--primary:focus-visible {
   background: #1a72c1; /* TODO: token for the color*/
 }
-.button__secondary {
+.button--secondary {
   background: var(--colors-neutral-000);
   outline: var(--semantic-primary-700) solid 1px;
   outline-offset: -1px;
   color: var(--semantic-primary-700);
 }
-.button__secondary:hover {
+.button--secondary:hover {
   background: var(--semantic-primary-700);
   color: var(--colors-neutral-000);
 }
-.button__submit {
+.button--submit {
   background: var(--semantic-success-intens);
   color: var(--colors-neutral-900); /* TODO: token for the color*/
 }
-.button__submit:hover,
-.button__submit:focus-visible {
+.button--submit:hover,
+.button--submit:focus-visible {
   background: #45d489; /* TODO: token for the color*/
 }

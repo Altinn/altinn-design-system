@@ -1,20 +1,23 @@
-import React from 'react';
+import React, {
+  type ButtonHTMLAttributes,
+  type PropsWithChildren,
+} from 'react';
 import cn from 'classnames';
 
 import classes from './Button.module.css';
 
-export interface ButtonProps extends React.ButtonHTMLAttributes<unknown> {
-  mode: 'primary' | 'secondary' | 'submit';
+export interface ButtonProps extends ButtonHTMLAttributes<unknown> {
+  mode?: 'primary' | 'secondary' | 'submit';
 }
-
 export const Button = ({
   children,
   mode = 'primary',
   type = 'button',
   ...HTMLProps
-}: React.PropsWithChildren<ButtonProps>) => {
+}: PropsWithChildren<ButtonProps>) => {
   return (
     <button
+      data-testid={`${mode}-button`}
       className={cn(classes.button, classes[`button__${mode}`])}
       type={type}
       {...HTMLProps}

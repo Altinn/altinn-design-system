@@ -29,6 +29,7 @@ module.exports = {
   ],
   core: {
     builder: 'webpack5',
+    disableTelemetry: true,
   },
   framework: '@storybook/react',
   webpackFinal: async (config) => {
@@ -82,6 +83,26 @@ module.exports = {
           loader: '@svgr/webpack',
           options: {
             exportType: 'named',
+          },
+        },
+      ],
+    });
+
+    config.module.rules.find(
+      (rule) => rule.test.toString() === '/\\.css$/',
+    ).exclude = /\.module\.css$/;
+
+    config.module.rules.push({
+      test: /\.module\.css$/,
+      use: [
+        'style-loader',
+        {
+          loader: 'css-loader',
+          options: {
+            modules: {
+              auto: true,
+              localIdentName: '[local]',
+            },
           },
         },
       ],

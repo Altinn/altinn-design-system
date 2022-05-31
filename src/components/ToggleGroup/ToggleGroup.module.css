@@ -1,0 +1,37 @@
+.toggle-group{
+  --component-toggle-group-label-font-size: 16px;
+  --component-toggle-group-label-padding-sides: 26px;
+}
+
+.toggle-group__div{
+  border-color: #1eaef7;
+  border-width: 2px;
+  border-style: solid;
+}
+
+@media only screen and (min-width: 0) {
+}
+
+/* breakpoints-sm */
+@media only screen and (min-width: 540px) {
+}
+
+.toggle-group__button{
+  border-radius: 0px;
+  border: none;
+  padding-left: var(--component-toggle-group-label-padding-sides);
+  padding-right: var(--component-toggle-group-label-padding-sides);
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+.toggle-group__button--active{
+  background-color: #1eaef7;
+  border: none;
+}
+
+.toggle-group__label{
+  font-size: 16px;
+  font-family: inherit;
+}
+

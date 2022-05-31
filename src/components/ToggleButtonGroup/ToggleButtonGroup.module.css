@@ -1,0 +1,17 @@
+.toggle-button-group{
+  --component-toggle-button-group-label-font-size: 16px;
+  --component-toggle-button-group-label-padding-sides: 26px;
+}
+
+.toggle-button-group__div{
+  border-color: var(--colors-blue-700);
+  border-width: 2px;
+  border-style: solid;
+}
+
+@media only screen and (min-width: 0) {
+}
+
+/* breakpoints-sm */
+@media only screen and (min-width: 540px) {
+}

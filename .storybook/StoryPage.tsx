@@ -8,19 +8,28 @@ import {
   PRIMARY_STORY,
 } from '@storybook/addon-docs';
 import './StoryPage.css';
+import { AppWrapper } from '@/components/AppWrapper/AppWrapper';
 
 interface StoryPageProps {
   description: string; // supports markdown
+  showStories?: boolean;
 }
 
-export const StoryPage = ({ description }: StoryPageProps) => {
+export const StoryPage = ({
+  description,
+  showStories = true,
+}: StoryPageProps) => {
   return (
-    <div>
+    <AppWrapper>
       <Title />
       <Description>{description}</Description>
-      <Stories includePrimary={true} />
-      <Heading>Props</Heading>
-      <ArgsTable story={PRIMARY_STORY} />
-    </div>
+      {showStories && (
+        <>
+          <Stories includePrimary={true} />
+          <Heading>Props</Heading>
+          <ArgsTable story={PRIMARY_STORY} />
+        </>
+      )}
+    </AppWrapper>
   );
 };

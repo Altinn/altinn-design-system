@@ -1,0 +1,6 @@
+@import 'https://altinncdn.no/fonts/altinn-din/altinn-din.css';
+
+html {
+  /* TODO: Add proper fallbacks */
+  font-family: 'altinn-din', sans-serif;
+}

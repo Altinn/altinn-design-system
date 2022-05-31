@@ -4,13 +4,10 @@ import { config } from 'storybook-addon-designs';
 import { StoryPage } from '@sb/StoryPage';
 
 import { ToggleButtonGroup } from './ToggleButtonGroup';
+import { ToggleButton } from '../ToggleButton/ToggleButton';
+import { useState } from 'react';
 
 const figmaLink = ''; // TODO: Add figma link
-
-const handleCallback = (index) => {
-  console.log("funker");
-  console.log(index);
-}
 
 export default {
   title: `Components/ToggleButtonGroup`,
@@ -35,15 +32,27 @@ export default {
     },
   },
   args: {
-    children: ['Venstre valg', 'Høyre valg'],
-    callback: () => {handleCallback},
+    children: [
+      <ToggleButton
+        key={0}
+        label={'Venstre'}
+        isActive={toggleIndex === 0 ? true : false}
+        handleClick={() => console.log('Hey')}
+      ></ToggleButton>,
+      <ToggleButton
+        key={1}
+        label={'Høyre'}
+        isActive={false}
+        handleClick={() => console.log('Hey')}
+      ></ToggleButton>,
+    ],
   },
 } as ComponentMeta<typeof ToggleButtonGroup>;
 
-const Template: ComponentStory<typeof ToggleButtonGroup> = (args) => (
-  <ToggleButtonGroup {...args} />
-);
-
+const Template: ComponentStory<typeof ToggleButtonGroup> = (args) => {
+  const [toggleIndex, setToggleIndex] = useState(0);
+  return <ToggleButtonGroup {...args} />;
+};
 export const Example = Template.bind({});
 Example.args = {
   // TODO: Add story specific args

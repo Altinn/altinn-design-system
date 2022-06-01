@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /**
  * A PostCSS plugin to recalculate all `rem` values to work with a different
  * ratio than the default `1rem` = `16px`.

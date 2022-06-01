@@ -32,26 +32,24 @@ export default {
     },
   },
   args: {
-    children: [
-      <ToggleButton
-        key={0}
-        label={'Venstre'}
-        isActive={toggleIndex === 0 ? true : false}
-        handleClick={() => console.log('Hey')}
-      ></ToggleButton>,
-      <ToggleButton
-        key={1}
-        label={'Høyre'}
-        isActive={false}
-        handleClick={() => console.log('Hey')}
-      ></ToggleButton>,
-    ],
+    children: 'Verdi',
+    value: 'left',
   },
 } as ComponentMeta<typeof ToggleButtonGroup>;
 
 const Template: ComponentStory<typeof ToggleButtonGroup> = (args) => {
-  const [toggleIndex, setToggleIndex] = useState(0);
-  return <ToggleButtonGroup {...args} />;
+  const [selected, setSelected] = useState('left');
+
+  const handleChange = ({ selectedValue }) => {
+    setSelected(selectedValue);
+  };
+
+  return (
+    <ToggleButtonGroup onChange={handleChange} selectedValue={selected}>
+      <ToggleButton value='left'>Venstre valg</ToggleButton>
+      <ToggleButton value='right'>Høyre valg</ToggleButton>
+    </ToggleButtonGroup>
+  );
 };
 export const Example = Template.bind({});
 Example.args = {

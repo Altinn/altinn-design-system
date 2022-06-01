@@ -30,8 +30,8 @@ export default {
     },
   },
   args: {
-    label: 'Label',
-    isActive: true,
+    children: 'Verdi',
+    value: 'left',
   },
 } as ComponentMeta<typeof ToggleButton>;
 

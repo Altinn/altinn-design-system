@@ -3,16 +3,37 @@ import cn from 'classnames';
 
 import classes from './ToggleButtonGroup.module.css';
 
-const ToggleButtonGroupContext = createContext('left');
+export const ToggleButtonGroupContext = createContext('left');
 
 export interface ToggleButtonGroupProps {
-  children?: any;
+  children?: React.ReactNode;
+  onChange: ({ selectedValue }: ChangeProps) => any;
+  selectedValue: string;
 }
 
-export const ToggleButtonGroup = ({ children }: ToggleButtonGroupProps) => {
+interface ChangeProps {
+  selectedValue: string;
+}
+
+export const ToggleButtonGroup = ({
+  children,
+  onChange,
+  selectedValue,
+}: ToggleButtonGroupProps) => {
+  const handleChange = ({ selectedValue: val }: ChangeProps) => {
+    onChange({ selectedValue: val });
+  };
+
   return (
-    <div className={cn(classes['toggle-button-group__div'])} role='radiogroup'>
-      {children}
-    </div>
+    <ToggleButtonGroupContext.Provider
+      value={{ onChange: handleChange, selectedValue }}
+    >
+      <div
+        className={cn(classes['toggle-button-group__div'])}
+        role='radiogroup'
+      >
+        {children}
+      </div>
+    </ToggleButtonGroupContext.Provider>
   );
 };

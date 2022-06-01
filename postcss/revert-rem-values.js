@@ -5,6 +5,7 @@
 
 const REM_RATIO = 1.6;
 
+const figmaTokensRegEx = /@altinn\/figma-design-tokens/;
 const remRegEx = /(\d*\.?\d+)rem(?=\W|$)/gim;
 const processed = Symbol('processed');
 
@@ -18,6 +19,11 @@ module.exports = () => {
     postcssPlugin: 'revert-rem-values',
     Declaration(decl) {
       if (decl[processed]) {
+        return;
+      }
+
+      if (!figmaTokensRegEx.test(decl.source.input.file)) {
+        decl[processed] = true;
         return;
       }
 

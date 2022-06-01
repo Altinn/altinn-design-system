@@ -3,41 +3,28 @@
  * ratio than the default `1rem` = `16px`.
  */
 
+const REM_RATIO = 1.6;
+
 const remRegEx = /(\d*\.?\d+)rem(?=\W|$)/gim;
 const processed = Symbol('processed');
-const REM_RATIO = 1.6;
+
+const decimalRound = (input, decimals = 2) => {
+  const factor = 10 ** decimals;
+  return Math.round((input + Number.EPSILON) * factor) / factor;
+};
 
 module.exports = () => {
   return {
     postcssPlugin: 'revert-rem-values',
-    // Rule(rule) {
-    //   if (rule[processed]) {
-    //     return;
-    //   }
-
-    //   if (rule.selectors.includes('html')) {
-    //     rule.walkDecls('font-size', (decl) => {
-    //       decl.remove();
-    //     });
-    //   }
-
-    //   rule[processed] = true;
-    // },
     Declaration(decl) {
       if (decl[processed]) {
         return;
       }
 
-      const willMatch = remRegEx.test(decl.value);
-
       decl.value = decl.value.replace(remRegEx, (_match, numericValue) => {
-        const patchedValue =
-          Math.round((numericValue * REM_RATIO + Number.EPSILON) * 100) / 100;
-        console.log('MATCHED', decl.value);
+        const patchedValue = decimalRound(numericValue * REM_RATIO);
         return `${patchedValue}rem`;
       });
-
-      if (willMatch) console.log('  -->', decl.value);
 
       decl[processed] = true;
     },

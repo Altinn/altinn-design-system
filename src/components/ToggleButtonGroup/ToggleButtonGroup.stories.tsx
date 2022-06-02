@@ -1,16 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import { config } from 'storybook-addon-designs';
 import { StoryPage } from '@sb/StoryPage';
 
 import { ToggleButtonGroup } from './ToggleButtonGroup';
-import { ToggleButton } from '../ToggleButton/ToggleButton';
-import { useState } from 'react';
+import { ToggleButton } from './ToggleButton';
 
 const figmaLink = ''; // TODO: Add figma link
 
 export default {
-  title: `Components/ToggleButtonGroup`,
+  title: `Components/Toggle button group`,
   component: ToggleButtonGroup,
   parameters: {
     design: config([
@@ -52,13 +51,9 @@ const Template: ComponentStory<typeof ToggleButtonGroup> = (args) => {
   );
 };
 export const Example = Template.bind({});
-Example.args = {
-  // TODO: Add story specific args
-};
+Example.args = {};
 Example.parameters = {
   docs: {
-    description: {
-      story: '', // TODO: add story description, supports markdown
-    },
+    description: {},
   },
 };

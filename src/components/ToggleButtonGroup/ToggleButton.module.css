@@ -5,35 +5,32 @@
 .toggle-button{
   border-radius: 0px;
   border: none;
-  width: 100px;
+  width: 125px;
   padding-top: 7px;
   padding-bottom: 7px;
   font-family: inherit;
-}
-
-.toggle-button--not-active{
   background-color: var(--colors-neutral-000);
   color: var(--colors-neutral-700);
 }
 
-.toggle-button--not-active:hover{
+.toggle-button:hover{
   background-color: var(--colors-blue-300);
 }
 
-.toggle-button--active{
+.toggle-button--selected{
   background-color: var(--colors-blue-700);
   border: none;
   color: var(--colors-neutral-000);
+}
+
+.toggle-button--selected:hover{
+  background-color: var(--colors-blue-700);
 }
 
 .toggle-button__label{
   font-size: var(--component-toggle-button-label-font-size);
 }
 
-.toggle-button__label--active{
+.toggle-button__label--selected{
   color: var(--colors-neutral-000);
-}
-
-.toggle-button__label--not-active{
-  color: var(--colors-neutral-900);
 }

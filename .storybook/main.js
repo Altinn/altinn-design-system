@@ -101,7 +101,7 @@ module.exports = {
           options: {
             modules: {
               auto: true,
-              localIdentName: '[local]',
+              localIdentName: '[local]---[hash:base64:5]',
             },
           },
         },

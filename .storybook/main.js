@@ -49,7 +49,7 @@ module.exports = {
 
     if (cssRule) {
       const cssLoader = cssRule.use.find(
-        (use) => use.loader && /\/css-loader/.test(use.loader),
+        (use) => use.loader && /css-loader/.test(use.loader),
       );
 
       if (cssLoader) {

@@ -1,0 +1,88 @@
+<svg width="1035" height="531" viewBox="-0.5 -0.5 1035 531" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    svg {
+      fill: black;
+      stroke: black;
+    }
+
+    @media (prefers-color-scheme:dark) {
+      svg {
+        fill: white;
+        stroke: white;
+      }
+    }
+  </style>
+  <path d="M152 212h73.63" fill="none" stroke-miterlimit="10" pointer-events="stroke" />
+  <path d="m230.88 212-7 3.5 1.75-3.5-1.75-3.5z" stroke-miterlimit="10" pointer-events="all" />
+  <path pointer-events="all" fill="none" d="M32 182h120v60H32z" /><text x="91.5" y="215.5" font-family="Helvetica"
+    font-size="12" text-anchor="middle" stroke="none">Figma</text>
+  <path d="M352 212h73.63" fill="none" stroke-miterlimit="10" pointer-events="stroke" />
+  <path d="m430.88 212-7 3.5 1.75-3.5-1.75-3.5z" stroke-miterlimit="10" pointer-events="all" />
+  <path fill="none" pointer-events="all" d="M232 182h120v60H232z" /><text x="291.5" y="215.5" font-family="Helvetica"
+    font-size="12" text-anchor="middle" stroke="none">Design tokens</text>
+  <path fill="none" pointer-events="all" stroke="none" d="M32 242h150v30H32z" /><text x="33.5" y="260.5"
+    font-family="Helvetica" font-size="12" stroke="none">1rem = 16px (assumed)</text>
+  <path d="M552 212h73.63" fill="none" stroke-miterlimit="10" pointer-events="stroke" />
+  <path stroke-miterlimit="10" pointer-events="all" d="m630.88 212-7 3.5 1.75-3.5-1.75-3.5z" />
+  <rect x="432" y="182" width="120" height="60" rx="30" ry="30" fill="none" pointer-events="all" stroke="none" />
+  <path
+    d="M462 182c18.17.45 35.69.24 60 0m0 0c20.1.24 30.71 11.04 30 30m0 0v0m0 0v0m0 0c1.93 21.47-10.46 29.02-30 30m0 0c-24.77-.45-45.5.93-60 0m60 0c-20.23-.77-40.38.41-60 0m0 0c-18.44 1.73-28.82-10.57-30-30m0 0v0m0 0v0m0 0c1.43-18.27 10.94-28.15 30-30"
+    fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-dasharray="3, 3"
+    pointer-events="all" /><text x="491.5" y="215.5" font-family="Helvetica" font-size="12" text-anchor="middle"
+    stroke="none">Recalculate</text>
+  <path d="M352 112h140v63.63" fill="none" stroke-miterlimit="10" pointer-events="stroke" />
+  <path d="m492 180.88-3.5-7 3.5 1.75 3.5-1.75z" stroke-miterlimit="10" pointer-events="all" />
+  <path pointer-events="all" fill="none" d="M232 82h120v60H232z" /><text x="291.5" y="115.5" font-family="Helvetica"
+    font-size="12" text-anchor="middle" stroke="none">Old design system</text>
+  <path fill="none" pointer-events="all" stroke="none" d="M232 142h150v30H232z" /><text x="233.5" y="160.5"
+    font-family="Helvetica" font-size="12" stroke="none">1rem = 10px (forced)</text>
+  <path d="M752 212h73.63" fill="none" stroke-miterlimit="10" pointer-events="stroke" />
+  <path d="m830.88 212-7 3.5 1.75-3.5-1.75-3.5z" stroke-miterlimit="10" pointer-events="all" />
+  <path fill="none" pointer-events="all" d="M632 182h120v60H632z" /><text x="691.5" y="215.5" font-family="Helvetica"
+    font-size="12" text-anchor="middle" stroke="none">Design system</text>
+  <path fill="none" pointer-events="all" stroke="none" d="M232 242h150v30H232z" /><text x="233.5" y="260.5"
+    font-family="Helvetica" font-size="12" stroke="none">{token=1rem=16px}</text>
+  <path fill="none" pointer-events="all" stroke="none" d="M632 242h170v30H632z" /><text x="633.5" y="260.5"
+    font-family="Helvetica" font-size="12" stroke="none">
+    <tspan x="633.5" y="260.5">{token=1.6rem=16px}</tspan>
+    <tspan x="633.5" y="275.5">1rem = 10px (don&apos;t do this)</tspan>
+  </text>
+  <path fill="none" pointer-events="all" d="M832 182h120v60H832z" /><text x="891.5" y="215.5" font-family="Helvetica"
+    font-size="12" text-anchor="middle" stroke="none">Some app</text><text x="833.5" y="260.5" font-family="Helvetica"
+    font-size="12" stroke="none">
+    <tspan x="833.5" y="260.5">{token=1.6rem=16px}</tspan>
+    <tspan x="833.5" y="275.5">1rem = 10px (don&apos;t do this)</tspan>
+  </text>
+  <path d="M152 432h73.63" fill="none" stroke-miterlimit="10" pointer-events="stroke" />
+  <path d="m230.88 432-7 3.5 1.75-3.5-1.75-3.5z" stroke-miterlimit="10" pointer-events="all" />
+  <path fill="none" pointer-events="all" d="M32 402h120v60H32z" /><text x="91.5" y="435.5" font-family="Helvetica"
+    font-size="12" text-anchor="middle" stroke="none">Figma</text>
+  <path d="M352 432h73.63" fill="none" stroke-miterlimit="10" pointer-events="stroke" />
+  <path d="m430.88 432-7 3.5 1.75-3.5-1.75-3.5z" stroke-miterlimit="10" pointer-events="all" />
+  <path fill="none" pointer-events="all" d="M232 402h120v60H232z" /><text x="291.5" y="435.5" font-family="Helvetica"
+    font-size="12" text-anchor="middle" stroke="none">Design tokens</text>
+  <path fill="none" pointer-events="all" stroke="none" d="M32 462h150v30H32z" /><text x="33.5" y="480.5"
+    font-family="Helvetica" font-size="12" stroke="none">1rem = 16px (assumed)</text>
+  <path d="M552 432h73.63" fill="none" stroke-miterlimit="10" pointer-events="stroke" />
+  <path d="m630.88 432-7 3.5 1.75-3.5-1.75-3.5z" stroke-miterlimit="10" pointer-events="all" />
+  <path fill="none" pointer-events="all" d="M432 402h120v60H432z" /><text x="491.5" y="435.5" font-family="Helvetica"
+    font-size="12" text-anchor="middle" stroke="none">Design system</text>
+  <path fill="none" pointer-events="all" stroke="none" d="M232 462h150v30H232z" /><text x="233.5" y="480.5"
+    font-family="Helvetica" font-size="12" stroke="none">{token=1rem=16px}</text>
+  <path fill="none" pointer-events="all" stroke="none" d="M432 462h170v30H432z" /><text x="433.5" y="480.5"
+    font-family="Helvetica" font-size="12" stroke="none">
+    <tspan x="433.5" y="480.5">{token=1rem=16px}</tspan>
+    <tspan x="433.5" y="495.5">1rem = 16px (still, don&apos;t do this)</tspan>
+  </text>
+  <path fill="none" pointer-events="all" d="M632 402h120v60H632z" /><text x="691.5" y="435.5" font-family="Helvetica"
+    font-size="12" text-anchor="middle" stroke="none">Some app</text>
+  <path fill="none" pointer-events="all" stroke="none" d="M632 462h170v30H632z" /><text x="633.5" y="480.5"
+    font-family="Helvetica" font-size="12" stroke="none">
+    <tspan x="633.5" y="480.5">{token=1rem=16px}</tspan>
+    <tspan x="633.5" y="495.5">1rem = 16px (still, don&apos;t do this)</tspan>
+  </text>
+  <path fill="none" pointer-events="all" stroke="none" d="M32 32h60v30H32z" /><text x="34" y="55"
+    font-family="Helvetica" font-size="26" font-weight="bold" stroke="none">Now</text>
+  <path fill="none" pointer-events="all" stroke="none" d="M32 352h60v30H32z" /><text x="33.5" y="374.5"
+    font-family="Helvetica" font-size="26" font-weight="bold" stroke="none">Later</text>
+</svg>

@@ -1,26 +1,3 @@
-/* override design system tokens, because new design system is based on 100% / 16px font size.
-Old design system is based on 62.5% / 10px font size.
-These are temporary until we figure out a permanent solution for the new design system moving forward
-*/
-.panel {
-  --component-panel-space-padding-top-xs: calc(1.5rem * 1.6);
-  --component-panel-space-padding-right-xs: calc(1.5rem * 1.6);
-  --component-panel-space-padding-bottom-xs: calc(1.5rem * 1.6);
-  --component-panel-space-padding-left-xs: calc(1.5rem * 1.6);
-  --component-panel-space-padding-gap-horizontal-xs: calc(0.75rem * 1.6);
-  --component-panel-size-icon-xs: calc(2.25rem * 1.6);
-  --component-panel-font-size-body-xs: calc(1rem * 1.6);
-  --component-panel-font-size-header-xs: calc(1.125rem * 1.6);
-  --component-panel-space-padding-top-md: calc(2.25rem * 1.6);
-  --component-panel-space-padding-right-md: calc(6rem * 1.6);
-  --component-panel-space-padding-bottom-md: calc(2.25rem * 1.6);
-  --component-panel-space-padding-left-md: calc(6rem * 1.6);
-  --component-panel-space-padding-gap-horizontal-md: calc(0.75rem * 1.6);
-  --component-panel-size-icon-md: calc(3.75rem * 1.6);
-  --component-panel-font-size-body-lg: calc(1.125rem * 1.6);
-  --component-panel-font-size-header-lg: calc(1.375rem * 1.6);
-}
-
 /* TODO: cannot use css variables in media queries.. Consider using https://github.com/postcss/postcss-custom-media */
 /* breakpoints-xs */
 @media only screen and (min-width: 0) {

@@ -1,6 +1,6 @@
 // @ts-check
 
-const Path = require('path');
+const Path = require('node:path');
 const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
 const { logger } = require('@storybook/node-logger');
 

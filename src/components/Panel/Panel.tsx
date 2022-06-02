@@ -34,7 +34,11 @@ const defaultRenderIcon = ({ size, variant }: RenderIconProps) => {
     case PanelVariant.Info:
     case PanelVariant.Warning:
       return (
-        <InfoIcon width={size} height={size} data-testid='panel-icon-info' />
+        <InfoIcon
+          width={size}
+          height={size}
+          data-testid='panel-icon-info'
+        />
       );
     case PanelVariant.Success:
       return (

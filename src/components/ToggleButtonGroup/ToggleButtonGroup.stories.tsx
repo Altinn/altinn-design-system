@@ -3,6 +3,7 @@ import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import { config } from 'storybook-addon-designs';
 import { StoryPage } from '@sb/StoryPage';
 
+import type { ChangeProps } from './ToggleButtonGroup';
 import { ToggleButtonGroup } from './ToggleButtonGroup';
 import { ToggleButton } from './ToggleButton';
 
@@ -30,16 +31,12 @@ export default {
       ),
     },
   },
-  args: {
-    children: 'Verdi',
-    value: 'left',
-  },
 } as ComponentMeta<typeof ToggleButtonGroup>;
 
-const Template: ComponentStory<typeof ToggleButtonGroup> = (args) => {
+const Template: ComponentStory<typeof ToggleButtonGroup> = () => {
   const [selected, setSelected] = useState('left');
 
-  const handleChange = ({ selectedValue }) => {
+  const handleChange = ({ selectedValue }: ChangeProps) => {
     setSelected(selectedValue);
   };
 

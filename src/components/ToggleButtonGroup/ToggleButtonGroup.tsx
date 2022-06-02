@@ -16,7 +16,7 @@ export interface ToggleButtonGroupProps {
   selectedValue: string;
 }
 
-interface ChangeProps {
+export interface ChangeProps {
   selectedValue: string;
 }
 

@@ -88,26 +88,6 @@ module.exports = {
       ],
     });
 
-    config.module.rules.find(
-      (rule) => rule.test.toString() === '/\\.css$/',
-    ).exclude = /\.module\.css$/;
-
-    config.module.rules.push({
-      test: /\.module\.css$/,
-      use: [
-        'style-loader',
-        {
-          loader: 'css-loader',
-          options: {
-            modules: {
-              auto: true,
-              localIdentName: '[local]---[hash:base64:5]',
-            },
-          },
-        },
-      ],
-    });
-
     config.resolve.alias = {
       ...config.resolve.alias,
       '@': AppSourceDir,

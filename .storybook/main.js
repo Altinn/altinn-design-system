@@ -57,6 +57,12 @@ module.exports = {
           'Monkey-patching css-loader version forced by @storybook/addon-postcss',
         );
         cssLoader.loader = require.resolve('css-loader');
+        cssLoader.options = {
+          modules: {
+            auto: true,
+            localIdentName: '[local]---[hash:base64:5]',
+          },
+        };
       }
     }
 

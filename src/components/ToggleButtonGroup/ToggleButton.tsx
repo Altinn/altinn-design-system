@@ -19,13 +19,12 @@ export const ToggleButton = ({ children, value }: ToggleButtonProps) => {
   return (
     <button
       data-testid='toggle-button'
-      role='radio'
       className={cn(classes['toggle-button'], {
         [classes['toggle-button--selected']]: value === selectedValue,
       })}
       onClick={handleClick}
       type='button'
-      aria-checked={value == selectedValue}
+      aria-pressed={value == selectedValue}
     >
       <span
         data-testid='toggle-button-span'

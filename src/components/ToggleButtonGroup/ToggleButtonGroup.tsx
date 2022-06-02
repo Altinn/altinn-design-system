@@ -33,9 +33,7 @@ export const ToggleButtonGroup = ({
     <ToggleButtonGroupContext.Provider
       value={{ onChange: handleChange, selectedValue }}
     >
-      <div className={cn(classes['toggle-button-group'])} role='radiogroup'>
-        {children}
-      </div>
+      <div className={cn(classes['toggle-button-group'])}>{children}</div>
     </ToggleButtonGroupContext.Provider>
   );
 };

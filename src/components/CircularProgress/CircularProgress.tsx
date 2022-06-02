@@ -1,6 +1,6 @@
 import type { AriaAttributes } from 'react';
 import React from 'react';
-import * as tokens from '@altinn/figma-design-tokens';
+import { tokens } from '@/DesignTokens';
 
 import classes from './CircularProgress.module.css';
 

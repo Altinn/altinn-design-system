@@ -30,9 +30,6 @@ export default {
       ),
     },
   },
-  args: {
-    //TODO: Add default args
-  },
 } as ComponentMeta<typeof CircularProgress>;
 
 const CircularTemplate: ComponentStory<typeof CircularProgress> = (args) => (

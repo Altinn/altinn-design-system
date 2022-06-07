@@ -6,7 +6,7 @@
 
 const REM_RATIO = 1.6;
 
-const figmaTokensRegEx = /@altinn\/figma-design-tokens/;
+const figmaTokensRegEx = /@altinn[/\\]figma-design-tokens/;
 const remRegEx = /(\d*\.?\d+)rem(?=\W|$)/gim;
 const processed = Symbol('processed');
 

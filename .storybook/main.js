@@ -49,7 +49,7 @@ module.exports = {
 
     if (cssRule) {
       const cssLoader = cssRule.use.find(
-        (use) => use.loader && /\/css-loader/.test(use.loader),
+        (use) => use.loader && /css-loader/.test(use.loader),
       );
 
       if (cssLoader) {
@@ -57,6 +57,12 @@ module.exports = {
           'Monkey-patching css-loader version forced by @storybook/addon-postcss',
         );
         cssLoader.loader = require.resolve('css-loader');
+        cssLoader.options = {
+          modules: {
+            auto: true,
+            localIdentName: '[local]---[hash:base64:5]',
+          },
+        };
       }
     }
 

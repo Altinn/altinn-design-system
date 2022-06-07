@@ -1,18 +1,9 @@
 import React from 'react';
-import { render as renderRtl, screen, fireEvent, getByText } from '@testing-library/react';
+import { render as renderRtl, screen, fireEvent } from '@testing-library/react';
 
 import { ToggleButtonGroup } from './ToggleButtonGroup';
 import type { ToggleButtonGroupProps } from './ToggleButtonGroup';
 import { ToggleButton } from './ToggleButton';
-
-const ToggleButtonGroupComponent = ({ handleOnClick }: any) => {
-  return (
-    <ToggleButtonGroup onChange={handleOnClick} selectedValue='left'>
-      <ToggleButton value='left'>Left</ToggleButton>
-      <ToggleButton value='right'>Right</ToggleButton>
-    </ToggleButtonGroup>
-  );
-};
 
 const render = (props: Partial<ToggleButtonGroupProps> = {}) => {
   const allProps = {

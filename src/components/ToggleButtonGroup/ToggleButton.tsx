@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import cn from 'classnames';
 
-import { ToggleButtonGroupContext } from './ToggleButtonGroup';
+import { useToggleButtonContext } from './Context';
 import classes from './ToggleButton.module.css';
 
 export interface ToggleButtonProps {
@@ -10,7 +10,7 @@ export interface ToggleButtonProps {
 }
 
 export const ToggleButton = ({ children, value }: ToggleButtonProps) => {
-  const { onChange, selectedValue } = useContext(ToggleButtonGroupContext);
+  const { onChange, selectedValue } = useToggleButtonContext();
 
   const handleClick = () => {
     onChange({ selectedValue: value });

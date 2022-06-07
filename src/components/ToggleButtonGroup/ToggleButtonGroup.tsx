@@ -1,22 +1,13 @@
-import React, { createContext } from 'react';
+import React from 'react';
 import cn from 'classnames';
 
+import { ToggleButtonGroupContext } from './Context';
+import type { ChangeProps, ChangeHandler } from './Context';
 import classes from './ToggleButtonGroup.module.css';
-
-export const ToggleButtonGroupContext = createContext({
-  selectedValue: '',
-  onChange: ({ selectedValue }: ChangeProps) => {
-    return selectedValue;
-  },
-});
 
 export interface ToggleButtonGroupProps {
   children?: React.ReactNode;
-  onChange: ({ selectedValue }: ChangeProps) => string;
-  selectedValue: string;
-}
-
-export interface ChangeProps {
+  onChange: ChangeHandler;
   selectedValue: string;
 }
 
@@ -33,7 +24,12 @@ export const ToggleButtonGroup = ({
     <ToggleButtonGroupContext.Provider
       value={{ onChange: handleChange, selectedValue }}
     >
-      <div className={cn(classes['toggle-button-group'])}>{children}</div>
+      <div
+        className={cn(classes['toggle-button-group'])}
+        data-testid='toggle-button-group'
+      >
+        {children}
+      </div>
     </ToggleButtonGroupContext.Provider>
   );
 };

@@ -11,24 +11,16 @@ import { AppWrapper } from '@/components/AppWrapper/AppWrapper';
 
 interface StoryPageProps {
   description: string; // supports markdown
-  showStories?: boolean;
 }
 
-export const StoryPage = ({
-  description,
-  showStories = true,
-}: StoryPageProps) => {
+export const StoryPage = ({ description }: StoryPageProps) => {
   return (
     <AppWrapper>
       <Title />
       <Description>{description}</Description>
-      {showStories && (
-        <>
-          <Stories includePrimary={true} />
-          <Heading>Props</Heading>
-          <ArgsTable story={PRIMARY_STORY} />
-        </>
-      )}
+      <Stories includePrimary={true} />
+      <Heading>Props</Heading>
+      <ArgsTable story={PRIMARY_STORY} />
     </AppWrapper>
   );
 };

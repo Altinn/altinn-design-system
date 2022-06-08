@@ -15,7 +15,7 @@
   font-family: inherit;
   background-color: var(--colors-neutral-000);
   color: var(--colors-neutral-700);
-  font-size: var(--typography-default-font-size);
+  font-size: var(--font-size-300);
 }
 
 .toggle-button:hover{

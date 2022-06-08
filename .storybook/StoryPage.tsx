@@ -7,7 +7,6 @@ import {
   Heading,
   PRIMARY_STORY,
 } from '@storybook/addon-docs';
-import './StoryPage.css';
 import { AppWrapper } from '@/components/AppWrapper/AppWrapper';
 
 interface StoryPageProps {

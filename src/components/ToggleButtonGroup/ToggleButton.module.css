@@ -1,16 +1,20 @@
 .toggle-button{
   --component-toggle-button-label-font-size: 16px;
+  --component-toggle-button-padding-left-right: 10px;
 }
 
 .toggle-button{
   border-radius: 0px;
   border: none;
-  width: 125px;
+  min-width: 125px;
   padding-top: 7px;
   padding-bottom: 7px;
+  padding-left: var(--component-toggle-button-padding-left-right);
+  padding-right: var(--component-toggle-button-padding-left-right);
   font-family: inherit;
   background-color: var(--colors-neutral-000);
   color: var(--colors-neutral-700);
+  font-size: var(--typography-default-font-size)*1.6;
 }
 
 .toggle-button:hover{
@@ -25,12 +29,4 @@
 
 .toggle-button--selected:hover{
   background-color: var(--colors-blue-700);
-}
-
-.toggle-button__label{
-  font-size: var(--component-toggle-button-label-font-size);
-}
-
-.toggle-button__label--selected{
-  color: var(--colors-neutral-000);
 }

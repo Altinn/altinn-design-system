@@ -26,14 +26,7 @@ export const ToggleButton = ({ children, value }: ToggleButtonProps) => {
       type='button'
       aria-pressed={value == selectedValue}
     >
-      <span
-        data-testid='toggle-button-span'
-        className={cn(classes['toggle-button__label'], {
-          [classes['toggle-button__label--selected']]: value === selectedValue,
-        })}
-      >
-        {children}
-      </span>
+      {children}
     </button>
   );
 };

@@ -1,20 +1,21 @@
 .toggle-button{
   --component-toggle-button-label-font-size: 16px;
   --component-toggle-button-padding-left-right: 10px;
+  --component-toggle-button-padding-top-bottom: 7px;
 }
 
 .toggle-button{
   border-radius: 0px;
   border: none;
   min-width: 125px;
-  padding-top: 7px;
-  padding-bottom: 7px;
+  padding-top: var(--component-toggle-button-padding-top-bottom);
+  padding-bottom: var(--component-toggle-button-padding-top-bottom);
   padding-left: var(--component-toggle-button-padding-left-right);
   padding-right: var(--component-toggle-button-padding-left-right);
   font-family: inherit;
   background-color: var(--colors-neutral-000);
   color: var(--colors-neutral-700);
-  font-size: var(--typography-default-font-size)*1.6;
+  font-size: var(--typography-default-font-size);
 }
 
 .toggle-button:hover{

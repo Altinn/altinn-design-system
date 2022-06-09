@@ -53,27 +53,21 @@ describe('ToggleButtonGroup', () => {
     ).toBeInTheDocument();
   });
 
-  it('should have aria-pressed=true on left button when left button is clicked by enter', () => {
-    render({ selectedValue: 'left' });
-    userEvent.keyboard('{Tab}');
-    userEvent.keyboard('{Enter}');
-    expect(
-      screen.getByRole('button', { name: 'Left', pressed: true }),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByRole('button', { name: 'Right', pressed: false }),
-    ).toBeInTheDocument();
+  it('should have aria-pressed=true on left button when left button is clicked by enter', async () => {
+    const handleChange = jest.fn();
+    render({ onChange: handleChange });
+    await user.keyboard('{Tab}');
+    await user.keyboard('{Enter}');
+    expect(handleChange).toHaveBeenCalledWith({ selectedValue: 'left' });
   });
 
-  it('should have aria-pressed=true on left button when left button is clicked by space', () => {
-    render({ selectedValue: 'left' });
-    userEvent.keyboard('{Tab}');
-    userEvent.keyboard('{Space}');
-    expect(
-      screen.getByRole('button', { name: 'Left', pressed: true }),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByRole('button', { name: 'Right', pressed: false }),
-    ).toBeInTheDocument();
+  it('should have aria-pressed=true on left button when left button is clicked by space', async () => {
+    const handleChange = jest.fn();
+    render({ onChange: handleChange });
+    const toggleButton = screen.getByRole('button', {
+      name: 'Right',
+    });
+    await userEvent.type(toggleButton, '{Space}');
+    expect(handleChange).toHaveBeenCalledWith({ selectedValue: 'right' });
   });
 });

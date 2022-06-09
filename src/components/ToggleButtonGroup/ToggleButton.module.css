@@ -1,17 +1,19 @@
 .toggle-button{
-  --component-toggle-button-label-font-size: 16px;
-  --component-toggle-button-padding-left-right: 10px;
-  --component-toggle-button-padding-top-bottom: 7px;
-}
-
-.toggle-button{
-  border-radius: 0px;
-  border: none;
-  min-width: 125px;
-  padding-top: var(--component-toggle-button-padding-top-bottom);
-  padding-bottom: var(--component-toggle-button-padding-top-bottom);
-  padding-left: var(--component-toggle-button-padding-left-right);
-  padding-right: var(--component-toggle-button-padding-left-right);
+  --toggle-button-label-font-size: 16px;
+  --toggle-button-padding-left-right: 10px;
+  --toggle-button-padding-top-bottom: 7px;
+  --toggle-button-border-radius: 0px;
+  --toggle-button-border: none;
+  --toggle-button-min-width: 125px;
+  --toggle-buton-selected-border: none;
+  --toggle-button-hover: (--colors-blue-300);
+  border-radius: var(--toggle-button-border-radius);
+  border: var(--toggle-button-border);
+  min-width: var(--toggle-button-min-width);
+  padding-top: var(--toggle-button-padding-top-bottom);
+  padding-bottom: var(--toggle-button-padding-top-bottom);
+  padding-left: var(--toggle-button-padding-left-right);
+  padding-right: var(--toggle-button-padding-left-right);
   font-family: inherit;
   background-color: var(--colors-neutral-000);
   color: var(--colors-neutral-700);
@@ -19,15 +21,15 @@
 }
 
 .toggle-button:hover{
-  background-color: var(--colors-blue-300);
+  background-color: var(--toggle-button-hover);
 }
 
 .toggle-button--selected{
-  background-color: var(--colors-blue-700);
-  border: none;
-  color: var(--colors-neutral-000);
+  background-color: var(--component-button-primary-color-background-default);
+  border: var(--toggle-buton-selected-border);
+  color: var(--component-button-primary-color-text-default);
 }
 
 .toggle-button--selected:hover{
-  background-color: var(--colors-blue-700);
+  background-color: var(--component-button-primary-color-background-default);
 }

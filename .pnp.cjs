@@ -33,7 +33,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {\
           "packageLocation": "./",\
           "packageDependencies": [\
-            ["@altinn/figma-design-tokens", "npm:0.0.27::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40altinn%2Ffigma-design-tokens%2F0.0.27%2F1e86bbc282ea2400ceb3b010cb20219dcf775c2c05b2bd215cbe545adaa2fd54"],\
+            ["@altinn/figma-design-tokens", "npm:0.0.28::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40altinn%2Ffigma-design-tokens%2F0.0.28%2F06c66d04b282d0d9c0f135e1a9a9d047b457ca729aa090be5b3f3c39738a514a"],\
             ["@babel/core", "npm:7.18.0"],\
             ["@mdx-js/react", "virtual:7d69a3a69852a0e9055ed3b5fdb5a65ed94a23b236d3ed1ddcff9e47ce5ff346d13a4e2fb43f7fd0870d44fbb16180838d7b0d3f66b4732761c6da62ed8923e9#npm:2.1.1"],\
             ["@react-hookz/web", "virtual:7d69a3a69852a0e9055ed3b5fdb5a65ed94a23b236d3ed1ddcff9e47ce5ff346d13a4e2fb43f7fd0870d44fbb16180838d7b0d3f66b4732761c6da62ed8923e9#npm:14.2.2"],\
@@ -121,7 +121,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["@altinn/altinn-design-system", "workspace:."],\
-            ["@altinn/figma-design-tokens", "npm:0.0.27::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40altinn%2Ffigma-design-tokens%2F0.0.27%2F1e86bbc282ea2400ceb3b010cb20219dcf775c2c05b2bd215cbe545adaa2fd54"],\
+            ["@altinn/figma-design-tokens", "npm:0.0.28::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40altinn%2Ffigma-design-tokens%2F0.0.28%2F06c66d04b282d0d9c0f135e1a9a9d047b457ca729aa090be5b3f3c39738a514a"],\
             ["@babel/core", "npm:7.18.0"],\
             ["@mdx-js/react", "virtual:7d69a3a69852a0e9055ed3b5fdb5a65ed94a23b236d3ed1ddcff9e47ce5ff346d13a4e2fb43f7fd0870d44fbb16180838d7b0d3f66b4732761c6da62ed8923e9#npm:2.1.1"],\
             ["@react-hookz/web", "virtual:7d69a3a69852a0e9055ed3b5fdb5a65ed94a23b236d3ed1ddcff9e47ce5ff346d13a4e2fb43f7fd0870d44fbb16180838d7b0d3f66b4732761c6da62ed8923e9#npm:14.2.2"],\
@@ -205,10 +205,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@altinn/figma-design-tokens", [\
-        ["npm:0.0.27::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40altinn%2Ffigma-design-tokens%2F0.0.27%2F1e86bbc282ea2400ceb3b010cb20219dcf775c2c05b2bd215cbe545adaa2fd54", {\
-          "packageLocation": "./.yarn/cache/@altinn-figma-design-tokens-npm-0.0.27-87bb5c776c-cfc0063123.zip/node_modules/@altinn/figma-design-tokens/",\
+        ["npm:0.0.28::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40altinn%2Ffigma-design-tokens%2F0.0.28%2F06c66d04b282d0d9c0f135e1a9a9d047b457ca729aa090be5b3f3c39738a514a", {\
+          "packageLocation": "./.yarn/cache/@altinn-figma-design-tokens-npm-0.0.28-5a4a7b97e1-f95493447d.zip/node_modules/@altinn/figma-design-tokens/",\
           "packageDependencies": [\
-            ["@altinn/figma-design-tokens", "npm:0.0.27::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40altinn%2Ffigma-design-tokens%2F0.0.27%2F1e86bbc282ea2400ceb3b010cb20219dcf775c2c05b2bd215cbe545adaa2fd54"]\
+            ["@altinn/figma-design-tokens", "npm:0.0.28::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40altinn%2Ffigma-design-tokens%2F0.0.28%2F06c66d04b282d0d9c0f135e1a9a9d047b457ca729aa090be5b3f3c39738a514a"]\
           ],\
           "linkType": "HARD"\
         }]\

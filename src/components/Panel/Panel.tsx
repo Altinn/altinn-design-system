@@ -1,9 +1,9 @@
 import React from 'react';
 import cn from 'classnames';
 import { useMediaQuery } from '@react-hookz/web';
-import * as tokens from '@altinn/figma-design-tokens';
 // TODO: Should not import tokens directly in the components
 import '@altinn/figma-design-tokens/dist/tokens.css';
+import { tokens } from '@/DesignTokens';
 
 import { ReactComponent as InfoIcon } from './info.svg';
 import { ReactComponent as SuccessIcon } from './success.svg';
@@ -34,13 +34,15 @@ const defaultRenderIcon = ({ size, variant }: RenderIconProps) => {
     case PanelVariant.Info:
     case PanelVariant.Warning:
       return (
-        <InfoIcon width={size} height={size} data-testid='panel-icon-info' />
+        <InfoIcon
+          style={{ width: size, height: size }}
+          data-testid='panel-icon-info'
+        />
       );
     case PanelVariant.Success:
       return (
         <SuccessIcon
-          width={size}
-          height={size}
+          style={{ width: size, height: size }}
           data-testid='panel-icon-success'
         />
       );
@@ -56,16 +58,9 @@ export const Panel = ({
   showIcon = true,
 }: PanelProps) => {
   const isMobile = useMediaQuery(`(max-width: ${tokens.BreakpointsSm})`);
-  const size = isMobile
+  const iconSize = isMobile
     ? tokens.ComponentPanelSizeIconXs
     : tokens.ComponentPanelSizeIconMd;
-
-  // TODO: remove this workaround
-  // We need this temporary font size factor to make sure the icon is rendered correctly
-  // Because of font-size: 62.5% set on html/body in the old design system
-  const fontSizeFactor = 1.6;
-
-  const iconSize = `calc(${size} * ${fontSizeFactor})`;
 
   return (
     <div

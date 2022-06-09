@@ -9,6 +9,7 @@ export interface CircularProgressProps {
   strokeWidth?: number;
   ariaLabel?: string;
   label?: string;
+  id?: string;
 }
 
 export const CircularProgress = ({
@@ -17,11 +18,14 @@ export const CircularProgress = ({
   strokeWidth = 2.5,
   ariaLabel,
   label,
+  id = 'progress',
 }: CircularProgressProps) => {
-  const id = useId();
-  const ariaLabelledby = !ariaLabel && label ? id : undefined;
+  const labelId = `${id}-label`;
+  const ariaLabelledby = !ariaLabel && label ? labelId : undefined;
   return (
     <div
+      id={id}
+      className={classes.container}
       style={{ width: `${width}px` }}
       aria-valuenow={value}
       role='progressbar'
@@ -30,7 +34,7 @@ export const CircularProgress = ({
     >
       {label && (
         <div
-          id={id}
+          id={labelId}
           className={classes.label}
         >
           {label}

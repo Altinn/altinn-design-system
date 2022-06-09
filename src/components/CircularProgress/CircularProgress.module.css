@@ -9,6 +9,10 @@
   transition: stroke-dashoffset 1s ease-in-out;
 }
 
+.container {
+  position: relative;
+}
+
 .label {
   font-size: var(--font-size-300);
   position: absolute;

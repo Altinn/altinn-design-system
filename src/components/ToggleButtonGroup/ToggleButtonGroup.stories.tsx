@@ -38,7 +38,6 @@ const Template: ComponentStory<typeof ToggleButtonGroup> = () => {
 
   const handleChange = ({ selectedValue }: ChangeProps) => {
     setSelected(selectedValue);
-    return selectedValue;
   };
 
   return (

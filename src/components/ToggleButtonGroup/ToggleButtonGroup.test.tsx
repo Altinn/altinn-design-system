@@ -1,5 +1,6 @@
 import React from 'react';
 import { render as renderRtl, screen, fireEvent } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import { ToggleButtonGroup } from './ToggleButtonGroup';
 import type { ToggleButtonGroupProps } from './ToggleButtonGroup';
@@ -20,20 +21,19 @@ const render = (props: Partial<ToggleButtonGroupProps> = {}) => {
   renderRtl(<ToggleButtonGroup {...allProps} />);
 };
 
+const user = userEvent.setup();
+
 describe('ToggleButtonGroup', () => {
-  it('Button calls handleChange 1 time and selectedValue is left', () => {
+  it('should call handleChange with correct selectedValue when ToggleButton is clicked', async () => {
     const handleChange = jest.fn();
     render({ onChange: handleChange });
-    fireEvent.click(screen.getByRole('button', { name: 'Left' }));
-    expect(handleChange).toHaveBeenCalledTimes(1);
+    await user.click(screen.getByRole('button', { name: 'Left' }));
     expect(handleChange).toHaveBeenCalledWith({ selectedValue: 'left' });
-
-    fireEvent.click(screen.getByRole('button', { name: 'Right' }));
-    expect(handleChange).toHaveBeenCalledTimes(2);
+    await user.click(screen.getByRole('button', { name: 'Right' }));
     expect(handleChange).toHaveBeenCalledWith({ selectedValue: 'right' });
   });
 
-  it('should have left aria label pressed when selectedValue left is pressed', () => {
+  it('should have aria-pressed=true on left button when selectedValue is left', () => {
     render({ selectedValue: 'left' });
     expect(
       screen.getByRole('button', { name: 'Left', pressed: true }),
@@ -55,16 +55,8 @@ describe('ToggleButtonGroup', () => {
 
   it('should have aria label of left button pressed when left button is clicked by enter', () => {
     render({ selectedValue: 'left' });
-    fireEvent.keyDown(screen.getByTestId('toggle-button-group'), {
-      key: 'Tab',
-      code: 'Tab',
-      charCode: 9,
-    });
-    fireEvent.keyDown(screen.getByTestId('toggle-button-group'), {
-      key: 'Enter',
-      code: 'Enter',
-      charCode: 13,
-    });
+    userEvent.keyboard('{Tab}');
+    userEvent.keyboard('{Enter}');
     expect(
       screen.getByRole('button', { name: 'Left', pressed: true }),
     ).toBeInTheDocument();
@@ -75,16 +67,8 @@ describe('ToggleButtonGroup', () => {
 
   it('should have aria label of left button pressed when left button is clicked by space', () => {
     render({ selectedValue: 'left' });
-    fireEvent.keyDown(screen.getByTestId('toggle-button-group'), {
-      key: 'Tab',
-      code: 'Tab',
-      charCode: 9,
-    });
-    fireEvent.keyDown(screen.getByRole('button', { name: 'Left' }), {
-      key: 'Space',
-      code: 'Space',
-      charCode: 32,
-    });
+    userEvent.keyboard('{Tab}');
+    userEvent.keyboard('{Enter}');
     expect(
       screen.getByRole('button', { name: 'Left', pressed: true }),
     ).toBeInTheDocument();

@@ -42,7 +42,10 @@ const Template: ComponentStory<typeof ToggleButtonGroup> = () => {
   };
 
   return (
-    <ToggleButtonGroup onChange={handleChange} selectedValue={selected}>
+    <ToggleButtonGroup
+      onChange={handleChange}
+      selectedValue={selected}
+    >
       <ToggleButton value='left'>Venstre valg</ToggleButton>
       <ToggleButton value='right'>Høyre valg</ToggleButton>
     </ToggleButtonGroup>

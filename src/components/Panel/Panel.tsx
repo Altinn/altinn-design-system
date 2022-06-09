@@ -1,8 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
 import { useMediaQuery } from '@react-hookz/web';
-// TODO: Should not import tokens directly in the components
-import '@altinn/figma-design-tokens/dist/tokens.css';
 import { tokens } from '@/DesignTokens';
 
 import { ReactComponent as InfoIcon } from './info.svg';

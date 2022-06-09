@@ -1,6 +1,6 @@
 // @ts-check
 
-const Path = require('path');
+const Path = require('node:path');
 const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
 const { logger } = require('@storybook/node-logger');
 
@@ -8,7 +8,7 @@ const AppSourceDir = Path.join(__dirname, '..', 'src');
 const StorybookSourceDir = Path.join(__dirname);
 
 module.exports = {
-  stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
+  stories: ['../docs/**/*.stories.mdx', '../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
@@ -29,6 +29,7 @@ module.exports = {
   ],
   core: {
     builder: 'webpack5',
+    disableTelemetry: true,
   },
   framework: '@storybook/react',
   webpackFinal: async (config) => {

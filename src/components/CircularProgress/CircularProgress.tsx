@@ -9,13 +9,15 @@ export interface CircularProgressProps {
   width: number;
   strokeWidth?: number;
   aria?: AriaAttributes;
+  label?: string;
 }
 
 export const CircularProgress = ({
   value,
-  width = 100,
-  strokeWidth = 2,
+  width = 70,
+  strokeWidth = 2.5,
   aria,
+  label,
 }: CircularProgressProps) => {
   return (
     <div
@@ -24,6 +26,7 @@ export const CircularProgress = ({
       role='progressbar'
       {...aria}
     >
+      {label && <div className={classes.label}>{label}</div>}
       <svg
         className={classes.svg}
         viewBox='0 0 35.8 35.8'

@@ -39,33 +39,6 @@ const CircularTemplate: ComponentStory<typeof CircularProgress> = (args) => (
 export const SimpleExample = CircularTemplate.bind({});
 SimpleExample.args = {
   width: 100,
-  value: 75,
-};
-
-const CircularWithLabelTemplate: ComponentStory<typeof CircularProgress> = (
-  args,
-) => (
-  <div style={{ position: 'relative', width: '200px', textAlign: 'center' }}>
-    <div
-      style={{
-        position: 'absolute',
-        top: 0,
-        right: 0,
-        left: 0,
-        bottom: 0,
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
-      <CircularProgress {...args} />
-    </div>
-    <h1>35%</h1>
-  </div>
-);
-
-export const CircularWithLabel = CircularWithLabelTemplate.bind({});
-CircularWithLabel.args = {
-  width: 100,
-  value: 35,
+  value: 60,
+  label: '3/5',
 };

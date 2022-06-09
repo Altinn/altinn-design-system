@@ -8,3 +8,15 @@
 .circleTransition {
   transition: stroke-dashoffset 1s ease-in-out;
 }
+
+.label {
+  font-size: var(--font-size-300);
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

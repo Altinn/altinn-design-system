@@ -1,5 +1,5 @@
 import React from 'react';
-import { render as renderRtl, screen, fireEvent } from '@testing-library/react';
+import { render as renderRtl, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { ToggleButtonGroup } from './ToggleButtonGroup';

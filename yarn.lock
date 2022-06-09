@@ -23,6 +23,7 @@ __metadata:
     "@storybook/addon-essentials": ^6.5.4
     "@storybook/addon-interactions": ^6.5.4
     "@storybook/addon-links": ^6.5.4
+    "@storybook/addon-postcss": ^2.0.0
     "@storybook/addons": ^6.5.4
     "@storybook/api": ^6.5.4
     "@storybook/builder-webpack5": ^6.5.4
@@ -51,6 +52,7 @@ __metadata:
     babel-loader: ^8.2.5
     classnames: ^2.3.1
     core-js: ^3.22.6
+    css-loader: ^6.7.1
     eslint: ^8.16.0
     eslint-config-prettier: ^8.5.0
     eslint-import-resolver-typescript: ^2.7.1
@@ -3352,6 +3354,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/addon-postcss@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@storybook/addon-postcss@npm:2.0.0"
+  dependencies:
+    "@storybook/node-logger": ^6.1.14
+    css-loader: ^3.6.0
+    postcss: ^7.0.35
+    postcss-loader: ^4.2.0
+    style-loader: ^1.3.0
+  checksum: 3dee9003a5fa3d6348c093308b3264d58d415be06b01092c1f62e52a22c3a44f4575a49f3960fbc0f211de0608728fdb139fa0501897221fed5ffc04cd11fa09
+  languageName: node
+  linkType: hard
+
 "@storybook/addon-toolbars@npm:6.5.4":
   version: 6.5.4
   resolution: "@storybook/addon-toolbars@npm:6.5.4"
@@ -4156,6 +4171,19 @@ __metadata:
     npmlog: ^5.0.1
     pretty-hrtime: ^1.0.3
   checksum: 40cba30ac4ac258aa259b9060e56d9bef486f82b6018b1223bdbfe947c62597325fd943829dffaecbeb2700dc47abddc61b6334ace0ad1939c81ab373f199858
+  languageName: node
+  linkType: hard
+
+"@storybook/node-logger@npm:^6.1.14":
+  version: 6.5.6
+  resolution: "@storybook/node-logger@npm:6.5.6"
+  dependencies:
+    "@types/npmlog": ^4.1.2
+    chalk: ^4.1.0
+    core-js: ^3.8.2
+    npmlog: ^5.0.1
+    pretty-hrtime: ^1.0.3
+  checksum: 55be7c4f2cb537008853a5b1ddcbd12026ef17fe0c9448bed5a608b43ad6e00532d46f0873bb6eb0b765ecfc60a9a7ccd5add55ebd46014187d15d7228074f23
   languageName: node
   linkType: hard
 
@@ -8418,6 +8446,24 @@ __metadata:
   peerDependencies:
     webpack: ^4.27.0 || ^5.0.0
   checksum: fb0742b30ac0919f94b99a323bdefe6d48ae46d66c7d966aae59031350532f368f8bba5951fcd268f2e053c5e6e4655551076268e9073ccb58e453f98ae58f8e
+  languageName: node
+  linkType: hard
+
+"css-loader@npm:^6.7.1":
+  version: 6.7.1
+  resolution: "css-loader@npm:6.7.1"
+  dependencies:
+    icss-utils: ^5.1.0
+    postcss: ^8.4.7
+    postcss-modules-extract-imports: ^3.0.0
+    postcss-modules-local-by-default: ^4.0.0
+    postcss-modules-scope: ^3.0.0
+    postcss-modules-values: ^4.0.0
+    postcss-value-parser: ^4.2.0
+    semver: ^7.3.5
+  peerDependencies:
+    webpack: ^5.0.0
+  checksum: 170fdbc630a05a43679ef60fa97694766b568dbde37adccc0faafa964fc675f08b976bc68837bb73b61d60240e8d2cbcbf51540fe94ebc9dafc56e7c46ba5527
   languageName: node
   linkType: hard
 
@@ -15945,7 +15991,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^7.0.14, postcss@npm:^7.0.26, postcss@npm:^7.0.32, postcss@npm:^7.0.36, postcss@npm:^7.0.5, postcss@npm:^7.0.6":
+"postcss@npm:^7.0.14, postcss@npm:^7.0.26, postcss@npm:^7.0.32, postcss@npm:^7.0.35, postcss@npm:^7.0.36, postcss@npm:^7.0.5, postcss@npm:^7.0.6":
   version: 7.0.39
   resolution: "postcss@npm:7.0.39"
   dependencies:
@@ -15966,7 +16012,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.4.14":
+"postcss@npm:^8.4.14, postcss@npm:^8.4.7":
   version: 8.4.14
   resolution: "postcss@npm:8.4.14"
   dependencies:

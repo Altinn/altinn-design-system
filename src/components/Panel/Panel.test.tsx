@@ -1,6 +1,7 @@
 import { mockMediaQuery } from '@test/testUtils';
 import React from 'react';
 import { render as renderRtl, screen } from '@testing-library/react';
+import { tokens } from '@/DesignTokens';
 
 import type { PanelProps } from './Panel';
 import { Panel, PanelVariant } from './Panel';
@@ -99,7 +100,7 @@ describe('Panel', () => {
       render({ renderIcon });
 
       expect(renderIcon).toHaveBeenCalledWith({
-        size: 'calc(3.75rem * 1.6)',
+        size: tokens.ComponentPanelSizeIconMd,
         variant: PanelVariant.Info,
       });
     });
@@ -111,7 +112,7 @@ describe('Panel', () => {
       render({ renderIcon });
 
       expect(renderIcon).toHaveBeenCalledWith({
-        size: 'calc(2.25rem * 1.6)',
+        size: tokens.ComponentPanelSizeIconXs,
         variant: PanelVariant.Info,
       });
     });

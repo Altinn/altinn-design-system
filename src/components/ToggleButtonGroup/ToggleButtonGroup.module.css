@@ -1,5 +1,6 @@
 .toggle-button-group{
-  border-color: var(--colors-blue-700);
-  border-width: 2px;
-  border-style: solid;
+  --toggle-button-group-border-style: solid;
+  border-color: var(--component-button-secondary-color-border-default);
+  border-width: var(--border-width-standard);
+  border-style: var(--toggle-button-group-border-style);
 }

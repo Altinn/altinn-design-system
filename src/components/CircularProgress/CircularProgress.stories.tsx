@@ -41,4 +41,5 @@ SimpleExample.args = {
   width: 100,
   value: 60,
   label: '3/5',
+  id: 'progress',
 };

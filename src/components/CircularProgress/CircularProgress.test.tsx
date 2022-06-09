@@ -5,12 +5,18 @@ import { CircularProgress } from './CircularProgress';
 
 describe('CircularProgress', () => {
   it('should render progressbar', () => {
-    render(<CircularProgress value={25} />);
+    render(
+      <CircularProgress
+        id='progress'
+        value={25}
+      />,
+    );
     screen.getByRole('progressbar');
   });
   it('should render progressbar with ariaLabel', () => {
     render(
       <CircularProgress
+        id='progress'
         value={25}
         ariaLabel={'Test label'}
       />,
@@ -23,6 +29,7 @@ describe('CircularProgress', () => {
   it('should render progressbar with name from label', () => {
     render(
       <CircularProgress
+        id='progress'
         value={25}
         label={'Test label'}
       />,
@@ -35,6 +42,7 @@ describe('CircularProgress', () => {
   it('should render progressbar with name from aria when label and aria is defined', () => {
     render(
       <CircularProgress
+        id='progress'
         value={25}
         ariaLabel={'Test label from aria'}
         label={'Test label from label'}

@@ -1,15 +1,15 @@
-import React, { useId } from 'react';
+import React from 'react';
 import { tokens } from '@/DesignTokens';
 
 import classes from './CircularProgress.module.css';
 
 export interface CircularProgressProps {
+  id: string;
   value: number;
   width?: number;
   strokeWidth?: number;
   ariaLabel?: string;
   label?: string;
-  id?: string;
 }
 
 export const CircularProgress = ({
@@ -18,7 +18,7 @@ export const CircularProgress = ({
   strokeWidth = 2.5,
   ariaLabel,
   label,
-  id = 'progress',
+  id,
 }: CircularProgressProps) => {
   const labelId = `${id}-label`;
   const ariaLabelledby = !ariaLabel && label ? labelId : undefined;

@@ -43,7 +43,7 @@ describe('ToggleButtonGroup', () => {
     ).toBeInTheDocument();
   });
 
-  it('should have aria label of right button pressed when selectedValue is right', () => {
+  it('should have aria-pressed=true on right button when selectedValue is right', () => {
     render({ selectedValue: 'right' });
     expect(
       screen.getByRole('button', { name: 'Right', pressed: true }),
@@ -53,7 +53,7 @@ describe('ToggleButtonGroup', () => {
     ).toBeInTheDocument();
   });
 
-  it('should have aria label of left button pressed when left button is clicked by enter', () => {
+  it('should have aria-pressed=true on left button when left button is clicked by enter', () => {
     render({ selectedValue: 'left' });
     userEvent.keyboard('{Tab}');
     userEvent.keyboard('{Enter}');
@@ -65,10 +65,10 @@ describe('ToggleButtonGroup', () => {
     ).toBeInTheDocument();
   });
 
-  it('should have aria label of left button pressed when left button is clicked by space', () => {
+  it('should have aria-pressed=true on left button when left button is clicked by space', () => {
     render({ selectedValue: 'left' });
     userEvent.keyboard('{Tab}');
-    userEvent.keyboard('{Enter}');
+    userEvent.keyboard('{Space}');
     expect(
       screen.getByRole('button', { name: 'Left', pressed: true }),
     ).toBeInTheDocument();

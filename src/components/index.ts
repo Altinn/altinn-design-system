@@ -1,2 +1,2 @@
 export { Panel, PanelVariant } from './Panel';
-export { Button } from './Button';
+export { Button, ButtonVariant } from './Button';

@@ -1,5 +1,4 @@
 import React, {
-  type FC,
   type ButtonHTMLAttributes,
   type PropsWithChildren,
 } from 'react';
@@ -17,7 +16,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
 }
 
-export const Button: FC<ButtonProps> = ({
+export const Button = ({
   children,
   variant = ButtonVariant.Primary,
   type = 'button',

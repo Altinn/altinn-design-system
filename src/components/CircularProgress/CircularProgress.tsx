@@ -1,14 +1,13 @@
-import type { AriaAttributes } from 'react';
-import React from 'react';
+import React, { useId } from 'react';
 import { tokens } from '@/DesignTokens';
 
 import classes from './CircularProgress.module.css';
 
 export interface CircularProgressProps {
   value: number;
-  width: number;
+  width?: number;
   strokeWidth?: number;
-  aria?: AriaAttributes;
+  ariaLabel?: string;
   label?: string;
 }
 
@@ -16,17 +15,27 @@ export const CircularProgress = ({
   value,
   width = 70,
   strokeWidth = 2.5,
-  aria,
+  ariaLabel,
   label,
 }: CircularProgressProps) => {
+  const id = useId();
+  const ariaLabelledby = !ariaLabel && label ? id : undefined;
   return (
     <div
       style={{ width: `${width}px` }}
       aria-valuenow={value}
       role='progressbar'
-      {...aria}
+      aria-labelledby={ariaLabelledby}
+      aria-label={ariaLabel}
     >
-      {label && <div className={classes.label}>{label}</div>}
+      {label && (
+        <div
+          id={id}
+          className={classes.label}
+        >
+          {label}
+        </div>
+      )}
       <svg
         className={classes.svg}
         viewBox='0 0 35.8 35.8'

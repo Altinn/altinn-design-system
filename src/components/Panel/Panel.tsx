@@ -18,7 +18,10 @@ interface RenderIconProps {
   variant: PanelVariant;
 }
 
-export interface PanelProps {
+interface UseMobileLayoutProps {
+  forceMobileLayout?: boolean;
+}
+export interface PanelProps extends UseMobileLayoutProps {
   title: React.ReactNode;
   children: React.ReactNode;
   renderIcon?: ({ size, variant }: RenderIconProps) => React.ReactNode;
@@ -47,6 +50,18 @@ const defaultRenderIcon = ({ size, variant }: RenderIconProps) => {
   }
 };
 
+const useMobileLayout = ({ forceMobileLayout }: UseMobileLayoutProps) => {
+  const matchesMobileQuery = useMediaQuery(
+    `(max-width: ${tokens.BreakpointsSm})`,
+  );
+
+  if (forceMobileLayout) {
+    return true;
+  }
+
+  return matchesMobileQuery;
+};
+
 export const Panel = ({
   renderIcon = defaultRenderIcon,
   title,
@@ -54,9 +69,11 @@ export const Panel = ({
   variant = PanelVariant.Info,
   showPointer = false,
   showIcon = true,
+  forceMobileLayout = false,
 }: PanelProps) => {
-  const isMobile = useMediaQuery(`(max-width: ${tokens.BreakpointsSm})`);
-  const iconSize = isMobile
+  const isMobileLayout = useMobileLayout({ forceMobileLayout });
+
+  const iconSize = isMobileLayout
     ? tokens.ComponentPanelSizeIconXs
     : tokens.ComponentPanelSizeIconMd;
 
@@ -64,6 +81,7 @@ export const Panel = ({
     <div
       className={cn(classes.panel, {
         [classes['panel--has-pointer']]: showPointer,
+        [classes['panel--mobile-layout']]: isMobileLayout,
       })}
     >
       {showPointer && (

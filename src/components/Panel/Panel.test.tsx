@@ -116,6 +116,16 @@ describe('Panel', () => {
         variant: PanelVariant.Info,
       });
     });
+
+    it('should pass smaller size and variant to renderIcon callback when viewport is big and forceMobileLayout is true', () => {
+      const renderIcon = jest.fn();
+      render({ renderIcon, forceMobileLayout: true });
+
+      expect(renderIcon).toHaveBeenCalledWith({
+        size: tokens.ComponentPanelSizeIconXs,
+        variant: PanelVariant.Info,
+      });
+    });
   });
 });
 

@@ -1,15 +1,7 @@
-.toggle-button{
-  --toggle-button-label-font-size: --toggle-button-label-font-size: var(--font-size-300);;
-  --toggle-button-padding-left-right: 10px;
-  --toggle-button-padding-top-bottom: 7px;
-  --toggle-button-border-radius: 0;
-  --toggle-button-border: none;
-  --toggle-button-min-width: var(--component-button-size-min-width);
-  --toggle-buton-selected-border: none;
-  --toggle-button-hover: (--colors-blue-300);
-  border-radius: var(--toggle-button-border-radius);
-  border: var(--toggle-button-border);
-  min-width: var(--toggle-button-min-width);
+.toggle-button {
+  border-radius: 0;
+  border: none;
+  min-width: var(--component-button-size-min-width);
   padding-top: var(--component-button-space-padding-top);
   padding-bottom: var(--component-button-space-padding-bottom);
   padding-left: var(--component-button-space-padding-y);
@@ -20,11 +12,10 @@
   font-size: var(--font-size-300);
 }
 
-.toggle-button--selected{
+.toggle-button--selected {
   background-color: var(--component-button-primary-color-background-default);
-  border: var(--toggle-buton-selected-border);
   color: var(--component-button-primary-color-text-default);
 }
-.toggle-button:not(.toggle-button--selected):hover{
-  background-color: var(--toggle-button-hover);
+.toggle-button:not(.toggle-button--selected):hover {
+  background-color: var(--colors-blue-300);
 }

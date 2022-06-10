@@ -1,0 +1,21 @@
+.toggle-button {
+  border-radius: 0;
+  border: none;
+  min-width: var(--component-button-size-min-width);
+  padding-top: var(--component-button-space-padding-top);
+  padding-bottom: var(--component-button-space-padding-bottom);
+  padding-left: var(--component-button-space-padding-y);
+  padding-right: var(--component-button-space-padding-y);
+  font-family: inherit;
+  background-color: var(--colors-neutral-000);
+  color: var(--colors-neutral-700);
+  font-size: var(--font-size-300);
+}
+
+.toggle-button--selected {
+  background-color: var(--component-button-primary-color-background-default);
+  color: var(--component-button-primary-color-text-default);
+}
+.toggle-button:not(.toggle-button--selected):hover {
+  background-color: var(--colors-blue-300);
+}

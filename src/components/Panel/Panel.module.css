@@ -2,10 +2,8 @@
 /* breakpoints-xs */
 @media only screen and (min-width: 0) {
   .panel {
-    --panel-top-padding: var(--component-panel-space-padding-top-xs);
-    --panel-right-padding: var(--component-panel-space-padding-right-xs);
-    --panel-bottom-padding: var(--component-panel-space-padding-bottom-xs);
-    --panel-left-padding: var(--component-panel-space-padding-left-xs);
+    --panel-y-padding: var(--component-panel-space-padding-y-xs);
+    --panel-x-padding: var(--component-panel-space-padding-x-xs);
     --panel-content-gap: var(--component-panel-space-padding-gap-horizontal-xs);
     --panel-pointer-width: calc(var(--component-panel-size-icon-xs) / 2);
     --panel-pointer-height: calc(var(--panel-pointer-width) / 2);
@@ -17,10 +15,8 @@
 /* breakpoints-sm */
 @media only screen and (min-width: 540px) {
   .panel {
-    --panel-top-padding: var(--component-panel-space-padding-top-md);
-    --panel-right-padding: var(--component-panel-space-padding-right-md);
-    --panel-bottom-padding: var(--component-panel-space-padding-bottom-md);
-    --panel-left-padding: var(--component-panel-space-padding-left-md);
+    --panel-y-padding: var(--component-panel-space-padding-y-md);
+    --panel-x-padding: var(--component-panel-space-padding-x-md);
     --panel-content-gap: var(--component-panel-space-padding-gap-horizontal-md);
     --panel-pointer-width: calc(var(--component-panel-size-icon-md) / 2);
     --panel-pointer-height: calc(var(--panel-pointer-width) / 2);
@@ -46,7 +42,7 @@
   width: var(--panel-pointer-width);
   height: var(--panel-pointer-height);
   top: 1px; /* slight offset to avoid mini gap between component and pointer */
-  left: calc(var(--panel-left-padding) + (var(--panel-pointer-width) / 2));
+  left: calc(var(--panel-x-padding) + (var(--panel-pointer-width) / 2));
   clip-path: polygon(50% 0, 100% 100%, 0 100%);
 }
 
@@ -68,10 +64,7 @@
 .panel__content-wrapper {
   display: flex;
   gap: var(--panel-content-gap);
-  padding-top: var(--panel-top-padding);
-  padding-right: var(--panel-right-padding);
-  padding-bottom: var(--panel-bottom-padding);
-  padding-left: var(--panel-left-padding);
+  padding: var(--panel-y-padding) var(--panel-x-padding);
 }
 
 .panel__icon-wrapper {

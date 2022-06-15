@@ -5,7 +5,8 @@ import { StoryPage } from '@sb/StoryPage';
 
 import { Combobox } from './Combobox';
 
-const figmaLink = ''; // TODO: Add figma link
+const figmaLink =
+  'https://www.figma.com/file/VAvGOqkMhKM8HL8h4xBeDH7b/Re-design-Altinn-Studio?node-id=2039%3A87921';
 
 export default {
   title: `Components/Combobox`,

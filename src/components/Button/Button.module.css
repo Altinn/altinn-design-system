@@ -1,0 +1,52 @@
+.button {
+  font-family: inherit;
+  border: 0;
+  font-size: var(--font-size-300);
+  text-align: center;
+  box-sizing: border-box;
+  min-height: 3.6rem; /* Should really use this variable, but its incorrect var(--component-button-size-height) */
+  min-width: var(--component-button-size-min-width);
+  padding: var(--component-button-space-padding-top)
+    var(--component-button-space-padding-y)
+    var(--component-button-space-padding-bottom);
+  letter-spacing: var(--typography-default-letter-spacing);
+  cursor: pointer;
+}
+
+.button:focus-visible {
+  outline: var(--colors-neutral-900) solid var(--border-width-standard);
+  outline-offset: calc(0px - var(--border-width-standard));
+}
+
+.button--primary {
+  background: var(--component-button-primary-color-background-default);
+  color: var(--component-button-primary-color-text-default);
+}
+
+.button--primary:hover,
+.button--primary:focus-visible {
+  background: var(--component-button-primary-color-background-hover);
+}
+
+.button--secondary {
+  background: var(--component-button-secondary-color-background-default);
+  outline: var(--component-button-secondary-color-border-default) solid
+    var(--component-button-border-width-default);
+  outline-offset: calc(var(--component-button-border-width-default) * -1);
+  color: var(--component-button-secondary-color-text-default);
+}
+
+.button--secondary:hover {
+  background: var(--component-button-secondary-color-background-hover);
+  color: var(--component-button-secondary-color-text-hover);
+}
+
+.button--submit {
+  background: var(--component-button-submit-color-background-default);
+  color: var(--component-button-submit-color-text-default);
+}
+
+.button--submit:hover,
+.button--submit:focus-visible {
+  background: var(--component-button-submit-color-background-hover);
+}

@@ -11,6 +11,7 @@
     var(--component-button-space-padding-bottom);
   letter-spacing: var(--typography-default-letter-spacing);
   cursor: pointer;
+  line-height: normal;
 }
 
 .button:focus-visible {

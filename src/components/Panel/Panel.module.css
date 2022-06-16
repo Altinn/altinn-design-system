@@ -1,4 +1,3 @@
-/* TODO: cannot use css variables in media queries.. Consider using https://github.com/postcss/postcss-custom-media */
 /* breakpoints-xs */
 @media only screen and (min-width: 0) {
   .panel {
@@ -14,7 +13,7 @@
 
 /* breakpoints-sm */
 @media only screen and (min-width: 540px) {
-  .panel {
+  .panel:not(.panel--mobile-layout) {
     --panel-y-padding: var(--component-panel-space-padding-y-md);
     --panel-x-padding: var(--component-panel-space-padding-x-md);
     --panel-content-gap: var(--component-panel-space-padding-gap-horizontal-md);
@@ -24,8 +23,6 @@
     --panel-header-font-size: var(--component-panel-font-size-header-lg);
   }
 }
-
-/* TODO: Implement missing breakpoints */
 
 .panel {
   position: relative;
@@ -81,7 +78,6 @@
 .panel__header {
   margin: 0;
   font-size: var(--panel-header-font-size);
-  /* // TODO: font-weight */
 }
 
 .panel__body {

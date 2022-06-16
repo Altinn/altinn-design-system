@@ -4,7 +4,7 @@
   font-size: var(--font-size-300);
   text-align: center;
   box-sizing: border-box;
-  min-height: var(--component-button-size-height);
+  min-height: 3.6rem; /* Should really use this variable, but its incorrect var(--component-button-size-height) */
   min-width: var(--component-button-size-min-width);
   padding: var(--component-button-space-padding-top)
     var(--component-button-space-padding-y)

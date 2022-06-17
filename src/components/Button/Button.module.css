@@ -8,7 +8,7 @@
   min-height: 3.6rem; /* Should really use this variable, but its incorrect var(--component-button-size-height) */
   min-width: var(--component-button-size-min-width);
   padding: var(--component-button-space-padding-top)
-    var(--component-button-space-padding-y)
+    var(--component-button-space-padding-x)
     var(--component-button-space-padding-bottom);
   letter-spacing: var(--typography-default-letter-spacing);
   cursor: pointer;

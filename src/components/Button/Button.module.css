@@ -1,4 +1,5 @@
 .button {
+  all: initial; /* reset all styles to default, to avoid style overrides/surprises caused by other css (from Design system v1 f.ex) */
   font-family: inherit;
   border: 0;
   font-size: var(--font-size-300);
@@ -11,7 +12,6 @@
     var(--component-button-space-padding-bottom);
   letter-spacing: var(--typography-default-letter-spacing);
   cursor: pointer;
-  line-height: normal;
 }
 
 .button:focus-visible {

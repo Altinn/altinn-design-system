@@ -18,6 +18,8 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
 
       - name: install dependencies
+        env:
+          GITHUB_PACKAGES_PAT: ${{ secrets.GITHUB_TOKEN }}
         run: yarn --immutable
 
       - name: Build Storybook

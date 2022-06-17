@@ -34,22 +34,7 @@ export const AccordionHeader = ({ children, onClick } : AccordionHeaderProps) =>
         aria-expanded={context.open}
       >
         {children}
-        <Expand
-          aria-hidden
-          className={cl('navds-accordion__expand-icon', {
-            'navds-accordion__expand-icon--flip': context.open,
-          })}
-        />
-        <ExpandFilled
-          aria-hidden
-          className={cl(
-            'navds-accordion__expand-icon',
-            'navds-accordion__expand-icon--filled',
-            {
-              'navds-accordion__expand-icon--flip': context.open,
-            },
-          )}
-        />
+        
       </button>
     );
   },

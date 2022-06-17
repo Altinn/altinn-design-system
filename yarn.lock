@@ -91,9 +91,6 @@ __metadata:
   peerDependencies:
     react: ^17.0.0 || ^18.0.0
     react-dom: ^17.0.0 || ^18.0.0
-  dependenciesMeta:
-    open@7.4.2:
-      unplugged: true
   languageName: unknown
   linkType: soft
 

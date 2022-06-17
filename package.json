@@ -115,11 +115,6 @@
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0"
   },
-  "dependenciesMeta": {
-    "open@7.4.2": {
-      "unplugged": true
-    }
-  },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,cjs,mjs}": "yarn lint --cache --fix",
     "*.{css,md,mdx,json}": "yarn prettier --write"

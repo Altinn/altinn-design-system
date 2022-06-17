@@ -1,24 +1,33 @@
 import React from 'react';
 import cn from 'classnames';
 
+import type { ValueChangeProps, ValueChangeHandler } from './ValueContext';
+import { AccordionValueContext } from './ValueContext';
+import { AccordionCollapsibleContext } from './CollapsibleContext';
 import classes from './Accordion.module.css';
-
-export interface AccordionChangeProps {
-  isCollapsed: boolean;
-}
-
-export type AccordionChangeHandler = ({ isCollapsed: isExpanded }: AccordionChangeProps) => void;
 
 export interface AccordionProps {
   children?: React.ReactNode;
-  onCollapse: AccordionChangeHandler;
-  isCollapsed: boolean;
+  value?: string;
+  onValueChange: ValueChangeHandler;
 }
 
-export const Accordion = ({ children, onCollapse, isCollapsed }: AccordionProps) => {
+export const Accordion = ({
+  children,
+  value,
+  onValueChange,
+}: AccordionProps) => {
+  const handleOnValueChange = ({ value: val }: ValueChangeProps) => {
+    onValueChange({ value: val });
+  };
+
   return (
-    <div className={cn(classes['accordion'])} onClick={onCollapse}>
-      {!isCollapsed && children}
-    </div>
+    <AccordionValueContext.Provider
+      value={{ onValueChange: handleOnValueChange, value }}
+    >
+      <AccordionCollapsibleContext.Provider value={{}}>
+        {children}
+      </AccordionCollapsibleContext.Provider>
+    </AccordionValueContext.Provider>
   );
 };

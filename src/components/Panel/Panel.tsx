@@ -22,7 +22,7 @@ interface UseMobileLayoutProps {
   forceMobileLayout?: boolean;
 }
 export interface PanelProps extends UseMobileLayoutProps {
-  title: React.ReactNode;
+  title?: React.ReactNode;
   children: React.ReactNode;
   renderIcon?: ({ size, variant }: RenderIconProps) => React.ReactNode;
   variant?: PanelVariant;
@@ -109,7 +109,7 @@ export const Panel = ({
           </div>
         )}
         <div className={classes.panel__content}>
-          <h3 className={classes.panel__header}>{title}</h3>
+          {title && <h2 className={classes.panel__header}>{title}</h2>}
           <div className={classes.panel__body}>{children}</div>
         </div>
       </div>

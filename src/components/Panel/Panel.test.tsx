@@ -1,6 +1,7 @@
-import { mockMediaQuery } from '@test/testUtils';
 import React from 'react';
 import { render as renderRtl, screen } from '@testing-library/react';
+
+import { mockMediaQuery } from '@test/testUtils';
 import { tokens } from '@/DesignTokens';
 
 import type { PanelProps } from './Panel';
@@ -12,6 +13,24 @@ const { setScreenWidth } = mockMediaQuery(mediaQueryBreakPoint);
 describe('Panel', () => {
   beforeEach(() => {
     setScreenWidth(mediaQueryBreakPoint + 100);
+  });
+
+  describe('title', () => {
+    it('should show title when "title" prop is set', () => {
+      render({ title: 'Hello from Panel' });
+
+      expect(
+        screen.getByRole('heading', {
+          name: /hello from panel/i,
+        }),
+      ).toBeInTheDocument();
+    });
+
+    it('should not show title when "title" prop is not set', () => {
+      render({ title: undefined });
+
+      expect(screen.queryByRole('heading')).not.toBeInTheDocument();
+    });
   });
 
   describe('Pointer', () => {

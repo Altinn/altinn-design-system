@@ -1,6 +1,7 @@
 import React from 'react';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import { config } from 'storybook-addon-designs';
+
 import { StoryPage } from '@sb/StoryPage';
 
 import { _COMPONENT_ } from './_COMPONENT_';

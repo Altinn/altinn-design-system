@@ -1,33 +1,33 @@
 import React from 'react';
 import cn from 'classnames';
 
-import type { ValueChangeProps, ValueChangeHandler } from './ValueContext';
-import { AccordionValueContext } from './ValueContext';
-import { AccordionCollapsibleContext } from './CollapsibleContext';
+import type { ClickHandler, AccordionContextProps } from './Context';
+import { AccordionContext } from './Context';
 import classes from './Accordion.module.css';
 
-export interface AccordionProps {
-  children?: React.ReactNode;
-  value?: string;
-  onValueChange: ValueChangeHandler;
+export interface AccordionItemProps {
+  children: React.ReactNode;
+  onClick: ClickHandler;
+  open: boolean;
 }
 
-export const Accordion = ({
-  children,
-  value,
-  onValueChange,
-}: AccordionProps) => {
-  const handleOnValueChange = ({ value: val }: ValueChangeProps) => {
-    onValueChange({ value: val });
+export const Accordion = ({ children, open, onClick }: AccordionItemProps) => {
+  const handleClick = ({ open: isOpen }: AccordionContextProps) => {
+    onClick({ open: isOpen });
   };
 
   return (
-    <AccordionValueContext.Provider
-      value={{ onValueChange: handleOnValueChange, value }}
-    >
-      <AccordionCollapsibleContext.Provider value={{}}>
+    <div className={cn(classes['accordion'])}>
+      <AccordionContext.Provider
+        value={{
+          onClick: handleClick,
+          open,
+        }}
+      >
         {children}
-      </AccordionCollapsibleContext.Provider>
-    </AccordionValueContext.Provider>
+      </AccordionContext.Provider>
+    </div>
   );
 };
+
+export default Accordion;

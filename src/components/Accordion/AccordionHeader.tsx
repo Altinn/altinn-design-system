@@ -1,43 +1,32 @@
-import cl from 'classnames';
-import React, { useContext } from 'react';
+import React from 'react';
+import cn from 'classnames';
 
-import { AccordionItemContext } from './Contexts';
+import classes from './AccordionHeader.module.css';
+import { useAccordionContext } from './Context';
 
-export interface AccordionHeaderProps{
-  children: React.ReactNode;
-  onClick: () => boolean;
+export interface AccordionHeaderProps {
+  children?: React.ReactNode;
+  open: boolean;
 }
 
-export const AccordionHeader = ({ children, onClick } : AccordionHeaderProps) => {
-    const context = useContext(AccordionItemContext);
+export const AccordionHeader = ({ children }: AccordionHeaderProps) => {
+  const { onClick, open } = useAccordionContext();
 
+  const handleClick = () => {
+    onClick({ open });
+  };
 
-    if (context === null) {
-      console.error(
-        '<Accordion.Header> has to be used within an <Accordion.Item>',
-      );
-      return null;
-    }
-
-    const handleClick = (
-      e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-    ) => {
-      context.toggleOpen();
-      onClick && onClick(e);
-    };
-
-    return (
-      <button
-        className={
-        }
-        onClick={handleClick}
-        aria-expanded={context.open}
-      >
-        {children}
-        
-      </button>
-    );
-  },
-);
+  return (
+    <button
+      className={cn(classes['accordion-header'], {
+        [classes['accordion-header--opened']]: open,
+      })}
+      onClick={handleClick}
+      aria-expanded={open}
+    >
+      {children}
+    </button>
+  );
+};
 
 export default AccordionHeader;

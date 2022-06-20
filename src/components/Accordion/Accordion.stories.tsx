@@ -4,7 +4,9 @@ import { config } from 'storybook-addon-designs';
 import { StoryPage } from '@sb/StoryPage';
 
 import { Accordion } from './Accordion';
-import type { AccordionChangeProps } from './Accordion';
+import type { AccordionContextProps } from './Context';
+import { AccordionHeader } from './AccordionHeader';
+import { AccordionContent } from './AccordionContent';
 
 const figmaLink = ''; // TODO: Add figma link
 
@@ -33,20 +35,37 @@ export default {
 } as ComponentMeta<typeof Accordion>;
 
 const Template: ComponentStory<typeof Accordion> = () => {
-  const [collapse, setCollapse] = useState(true);
+  const [open1, setOpen1] = useState(false);
+  const [open2, setOpen2] = useState(false);
 
-  const handleCollapse = ({ isCollapsed: isCollapsed }: AccordionChangeProps) =>
-  {
-    setCollapse(isCollapsed);
+
+  const handleChange1 = ({ open: isOpen }: AccordionContextProps) => {
+    setOpen1(!isOpen);
+  };
+
+  const handleChange2 = ({ open: isOpen }: AccordionContextProps) => {
+    setOpen2(!isOpen);
   };
 
   return (
-    <Accordion onCollapse={handleCollapse} isCollapsed={collapse} children={<div>Test</div>}>
-
-    </Accordion>
+    <div>
+      <Accordion
+        onClick={handleChange1}
+        open={open1}
+      >
+        <AccordionHeader open={open1}>Hei</AccordionHeader>
+        <AccordionContent open={open1}>Test</AccordionContent>
+      </Accordion>
+      <Accordion
+        onClick={handleChange2}
+        open={open2}
+      >
+        <AccordionHeader open={open2}>Hei</AccordionHeader>
+        <AccordionContent open={open2}>Test</AccordionContent>
+      </Accordion>
+    </div>
   );
-}
-
+};
 
 export const Example = Template.bind({});
 Example.args = {

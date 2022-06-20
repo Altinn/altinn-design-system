@@ -1,6 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 import { useMediaQuery } from '@react-hookz/web';
+
 import { tokens } from '@/DesignTokens';
 
 import { ReactComponent as InfoIcon } from './info.svg';

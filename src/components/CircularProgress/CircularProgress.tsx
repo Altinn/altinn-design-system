@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { tokens } from '@/DesignTokens';
 
 import classes from './CircularProgress.module.css';

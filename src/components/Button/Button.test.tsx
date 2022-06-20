@@ -1,8 +1,9 @@
 import React from 'react';
-import type { ButtonProps } from '@/components/Button/Button';
-import { Button, ButtonVariant } from '@/components/Button/Button';
 import { render as renderRtl, screen } from '@testing-library/react';
 import { userEvent } from '@storybook/testing-library';
+
+import type { ButtonProps } from '@/components/Button/Button';
+import { Button, ButtonVariant } from '@/components/Button/Button';
 
 describe('Button', () => {
   it(`should render a button in it's primary state`, () => {

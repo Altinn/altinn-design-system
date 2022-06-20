@@ -4,10 +4,10 @@ export interface AccordionContextProps {
   open: boolean;
 }
 
-export type ClickHandler = ({ open }: AccordionContextProps) => void;
+export type ChangeHandler = ({ open }: AccordionContextProps) => void;
 
 export const AccordionContext = createContext<
-  { open: boolean; onClick: ClickHandler } | undefined
+  { open: boolean; onChange: ChangeHandler } | undefined
 >(undefined);
 
 export const useAccordionContext = () => {

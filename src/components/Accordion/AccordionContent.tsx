@@ -10,11 +10,7 @@ export interface AccordionContentProps {
 }
 
 export const AccordionContent = ({ children }: AccordionContentProps) => {
-  const { onClick, open } = useAccordionContext();
-
-  const handleClick = () => {
-    onClick({ open });
-  };
+  const { open } = useAccordionContext();
 
   return (
     <div>

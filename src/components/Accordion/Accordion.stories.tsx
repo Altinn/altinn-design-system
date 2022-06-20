@@ -50,14 +50,14 @@ const Template: ComponentStory<typeof Accordion> = () => {
   return (
     <div>
       <Accordion
-        onClick={handleChange1}
+        onChange={handleChange1}
         open={open1}
       >
         <AccordionHeader open={open1}>Hei</AccordionHeader>
         <AccordionContent open={open1}>Test</AccordionContent>
       </Accordion>
       <Accordion
-        onClick={handleChange2}
+        onChange={handleChange2}
         open={open2}
       >
         <AccordionHeader open={open2}>Hei</AccordionHeader>

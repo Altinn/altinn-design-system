@@ -10,10 +10,10 @@ export interface AccordionHeaderProps {
 }
 
 export const AccordionHeader = ({ children }: AccordionHeaderProps) => {
-  const { onClick, open } = useAccordionContext();
+  const { onChange, open } = useAccordionContext();
 
-  const handleClick = () => {
-    onClick({ open });
+  const handleChange = () => {
+    onChange({ open });
   };
 
   return (
@@ -21,7 +21,7 @@ export const AccordionHeader = ({ children }: AccordionHeaderProps) => {
       className={cn(classes['accordion-header'], {
         [classes['accordion-header--opened']]: open,
       })}
-      onClick={handleClick}
+      onClick={handleChange}
       aria-expanded={open}
     >
       {children}

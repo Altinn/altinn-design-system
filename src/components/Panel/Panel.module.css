@@ -78,6 +78,7 @@
 .panel__header {
   margin: 0;
   font-size: var(--panel-header-font-size);
+  font-weight: var(--component-panel-weight-heading);
 }
 
 .panel__body {

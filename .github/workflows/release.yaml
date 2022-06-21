@@ -32,6 +32,8 @@ jobs:
           registry-url: "https://npm.pkg.github.com"
 
       - name: Install dependencies
+        env:
+          GITHUB_PACKAGES_PAT: ${{ secrets.GITHUB_TOKEN }}
         run: yarn install --immutable
 
       - name: Build

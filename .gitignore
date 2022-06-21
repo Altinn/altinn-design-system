@@ -2,9 +2,9 @@
 /dist/
 /storybook-static/
 
-# Yarn stuff; we're using PnP/Zero installs
+# Yarn stuff; we're not using PnP/Zero installs
+.pnp.*
 .yarn/*
-!.yarn/cache
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases

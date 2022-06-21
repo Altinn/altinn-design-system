@@ -1,13 +1,14 @@
 .accordion {
-  --component-accordion-border-style: solid;
-  --component-accordion-border-color: var(--colors-neutral-200);
-  --component-accordion-border-width: var(--border-width-thin);
-  --component-accordion-background: var();
-  border-bottom-width: var(--component-accordion-border-bottom);
-  border-bottom-style: var(--component-accordion-border-style);
-  border-bottom-color: var(--component-accordion-border-color);
-  background-color: var(--colors-neutral-000);
-  padding: 10px;
-  width: stretch;
+  --component-accordion-border-top-style: solid;
+  --component-accordion-border-top-color: var(--colors-neutral-200);
+  --component-accordion-border-top-width: var(--border-width-thin);
+  --component-accordion-background: var(--colors-neutral-000);
+  --component-accordion-width: 100%;
   font-family: inherit;
+  border-top-width: var(--component-accordion-border-top-width);
+  border-top-style: var(--component-accordion-border-top-style);
+  border-top-color: var(--component-accordion-border-top-color);
+  background-color: var(--component-accordion-background);
+  padding: var(--component-panel-space-padding-gap-horizontal-md);
+  width: var(--component-accordion-width);
 }

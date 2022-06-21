@@ -6,7 +6,6 @@ import { useAccordionContext } from './Context';
 
 export interface AccordionHeaderProps {
   children?: React.ReactNode;
-  open: boolean;
 }
 
 export const AccordionHeader = ({ children }: AccordionHeaderProps) => {

@@ -7,6 +7,8 @@ import { Accordion } from './Accordion';
 import type { AccordionContextProps } from './Context';
 import { AccordionHeader } from './AccordionHeader';
 import { AccordionContent } from './AccordionContent';
+import cn from 'classnames';
+import classes from './Accordion.stories.module.css';
 
 const figmaLink = ''; // TODO: Add figma link
 
@@ -46,23 +48,32 @@ const Template: ComponentStory<typeof Accordion> = () => {
     setOpen2(!isOpen);
   };
 
+  const AccordionExampleContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '+
+  'Cras ut ultricies erat. Maecenas interdum euismod libero id sollicitudin.'+
+  'id urna semper molestie nec in est. Ut in auctor est, eu euismod nulla. '+
+  'Duis et malesuada risus. Duis condimentum mi vel massa elementum, eget'+
+  'gravida orci lobortis. Ut imperdiet porttitor ligula at fringilla. '+
+  'Praesent rhoncus neque id commodo commodo. Morbi tincidunt pulvinar'+
+  ' ex sit amet tincidunt. Cras quis sapien maximus nisi vestibulum efficitur'+
+   'nec nec massa. Nullam ornare mollis sapien, sed sodales magna tincidunt quis.';
+
   return (
-    <>
+    <div className={cn(classes['accordion-div-1'])}>
       <Accordion
         onChange={handleChange1}
         open={open1}
       >
-        <AccordionHeader open={open1}> {'>'} Accordion 1</AccordionHeader>
-        <AccordionContent open={open1}>Accordion content 1</AccordionContent>
+        <AccordionHeader>Accordion 1</AccordionHeader>
+        <AccordionContent>{AccordionExampleContent}</AccordionContent>
       </Accordion>
       <Accordion
         onChange={handleChange2}
         open={open2}
       >
-        <AccordionHeader open={open2}> {'>'} Accordion 2</AccordionHeader>
-        <AccordionContent open={open2}>Accordion content 2</AccordionContent>
+        <AccordionHeader>Accordion 2</AccordionHeader>
+        <AccordionContent>{AccordionExampleContent}</AccordionContent>
       </Accordion>
-    </>
+    </div>
   );
 };
 

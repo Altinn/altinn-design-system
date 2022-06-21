@@ -1,12 +1,19 @@
 .accordion-header{
-    width: 100%;
-    padding: 0;
-    border: none;
-    background: none;
+    --component-accordion-header-width: 100%;
+    --component-accordion-header-padding: 0;
+    --component-accordion-header-border: none;
+    --component-accordion-header-background: none;
+    --component-accordion-header-text-align: start;
+    --component-accordion-header-margin-left: 20px;
+    --component-accordion-header-font-size: var(--font-size-300);
+    --component-accordion-header-font-weight: var(--component-panel-weight-heading);
     font-family: inherit;
-}
-
-.accordion-header--opened{
-    background-color: black;
-    color: black;
+    width: var(--component-accordion-header-width);
+    padding: var(--component-accordion-header-padding);
+    border: var(--component-accordion-header-border);
+    background: var(--component-accordion-header-background);
+    text-align: var(--component-accordion-header-text-align);
+    margin-left: var(--component-accordion-header-margin-left);
+    font-size: var(--component-accordion-header-font-size);
+    font-weight: var(--component-accordion-header-font-weight);
 }

@@ -6,7 +6,6 @@ import { useAccordionContext } from './Context';
 
 export interface AccordionContentProps {
   children?: React.ReactNode;
-  open: boolean;
 }
 
 export const AccordionContent = ({ children }: AccordionContentProps) => {

@@ -38,7 +38,6 @@ const Template: ComponentStory<typeof Accordion> = () => {
   const [open1, setOpen1] = useState(false);
   const [open2, setOpen2] = useState(false);
 
-
   const handleChange1 = ({ open: isOpen }: AccordionContextProps) => {
     setOpen1(!isOpen);
   };
@@ -48,22 +47,22 @@ const Template: ComponentStory<typeof Accordion> = () => {
   };
 
   return (
-    <div>
+    <>
       <Accordion
         onChange={handleChange1}
         open={open1}
       >
-        <AccordionHeader open={open1}>Hei</AccordionHeader>
-        <AccordionContent open={open1}>Test</AccordionContent>
+        <AccordionHeader open={open1}> {'>'} Accordion 1</AccordionHeader>
+        <AccordionContent open={open1}>Accordion content 1</AccordionContent>
       </Accordion>
       <Accordion
         onChange={handleChange2}
         open={open2}
       >
-        <AccordionHeader open={open2}>Hei</AccordionHeader>
-        <AccordionContent open={open2}>Test</AccordionContent>
+        <AccordionHeader open={open2}> {'>'} Accordion 2</AccordionHeader>
+        <AccordionContent open={open2}>Accordion content 2</AccordionContent>
       </Accordion>
-    </div>
+    </>
   );
 };
 

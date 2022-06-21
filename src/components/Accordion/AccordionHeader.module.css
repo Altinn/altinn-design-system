@@ -1,3 +1,11 @@
+.accordion-header{
+    width: 100%;
+    padding: 0;
+    border: none;
+    background: none;
+    font-family: inherit;
+}
+
 .accordion-header--opened{
     background-color: black;
     color: black;

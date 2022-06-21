@@ -1,4 +1,13 @@
 .accordion {
-  box-shadow: 1px 1px 1px 1px var(--colors-neutral-400);
+  --component-accordion-border-style: solid;
+  --component-accordion-border-color: var(--colors-neutral-200);
+  --component-accordion-border-width: var(--border-width-thin);
+  --component-accordion-background: var();
+  border-bottom-width: var(--component-accordion-border-bottom);
+  border-bottom-style: var(--component-accordion-border-style);
+  border-bottom-color: var(--component-accordion-border-color);
+  background-color: var(--colors-neutral-000);
   padding: 10px;
+  width: stretch;
+  font-family: inherit;
 }

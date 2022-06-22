@@ -7,7 +7,7 @@ import { Accordion } from './Accordion';
 import { AccordionHeader } from './AccordionHeader';
 import { AccordionContent } from './AccordionContent';
 
-const render = (props: Partial<AccordionProps> = {})=>{
+const render = (props: Partial<AccordionProps> = {}) => {
   const allProps = {
     children: (
       <>

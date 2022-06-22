@@ -14,7 +14,7 @@ export const useAccordionContext = () => {
   const context = useContext(AccordionContext);
   if (context === undefined) {
     throw new Error(
-      'useToggleButtonContext must be used within a ToggleButtonGroupContext',
+      'useAccordionContext must be used within a AccordionContext',
     );
   }
 

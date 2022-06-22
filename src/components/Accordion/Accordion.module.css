@@ -4,7 +4,6 @@
   --component-accordion-border-top-width: var(--border-width-thin);
   --component-accordion-background: var(--colors-neutral-000);
   --component-accordion-width: 100%;
-  font-family: inherit;
   border-top-width: var(--component-accordion-border-top-width);
   border-top-style: var(--component-accordion-border-top-style);
   border-top-color: var(--component-accordion-border-top-color);

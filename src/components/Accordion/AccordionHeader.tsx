@@ -17,11 +17,10 @@ export const AccordionHeader = ({ children }: AccordionHeaderProps) => {
 
   return (
     <button
-      className={cn(classes['accordion-header'], {
-        [classes['accordion-header--opened']]: open,
-      })}
+      className={cn(classes['accordion-header'])}
       onClick={handleChange}
       aria-expanded={open}
+      type='button'
     >
       {children}
     </button>

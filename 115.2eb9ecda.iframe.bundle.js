@@ -1,4 +1,4 @@
-(self.webpackChunk_altinn_altinn_design_system=self.webpackChunk_altinn_altinn_design_system||[]).push([[105],{"./.yarn/cache/axe-core-npm-4.4.1-95b0d6a519-ad14c5b710.zip/node_modules/axe-core/axe.js":function(It,Ju,or){It=or.nmd(It);var mt=or("./.yarn/cache/process-npm-0.11.10-aeb3b641ae-bfcce49814.zip/node_modules/process/browser.js"),lt=or("./.yarn/cache/console-browserify-npm-1.2.0-5619eeb6ff-226591eeff.zip/node_modules/console-browserify/index.js"),ui,tt,tt,Rr,tt;/*! axe v4.4.1
+(self.webpackChunk_altinn_altinn_design_system=self.webpackChunk_altinn_altinn_design_system||[]).push([[115],{"./node_modules/axe-core/axe.js":function(It,Ju,or){It=or.nmd(It);var mt=or("./node_modules/process/browser.js"),lt=or("./node_modules/console-browserify/index.js"),ui,tt,tt,Rr,tt;/*! axe v4.4.1
 * Copyright (c) 2022 Deque Systems, Inc.
 *
 * Your use of this Source Code Form is subject to the terms of the Mozilla Public

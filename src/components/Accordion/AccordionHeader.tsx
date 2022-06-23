@@ -3,6 +3,7 @@ import cn from 'classnames';
 
 import classes from './AccordionHeader.module.css';
 import { useAccordionContext } from './Context';
+import { ReactComponent as ExpandCollapseArrow } from './expand-collapse.svg';
 
 export interface AccordionHeaderProps {
   children?: React.ReactNode;
@@ -17,11 +18,16 @@ export const AccordionHeader = ({
 
   return (
     <div className={cn(classes['accordion-header'])}>
+      <ExpandCollapseArrow
+        className={cn({ [classes['accordion-header-icon__opened']]: open })}
+        width='12'
+        height='18'
+      />
       <button
         className={cn(classes['accordion-header-button'])}
-        onClick={onClick}
         aria-expanded={open}
         type='button'
+        onClick={onClick}
       >
         {children}
       </button>

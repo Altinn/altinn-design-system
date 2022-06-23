@@ -3,7 +3,7 @@
   .panel {
     --panel-y-padding: var(--component-panel-space-padding-y-xs);
     --panel-x-padding: var(--component-panel-space-padding-x-xs);
-    --panel-content-gap: var(--component-panel-space-padding-gap-horizontal-xs);
+    --panel-content-gap: var(--component-panel-space-gap-xs);
     --panel-pointer-width: calc(var(--component-panel-size-icon-xs) / 2);
     --panel-pointer-height: calc(var(--panel-pointer-width) / 2);
     --panel-body-font-size: var(--component-panel-font-size-body-xs);
@@ -16,11 +16,33 @@
   .panel:not(.panel--mobile-layout) {
     --panel-y-padding: var(--component-panel-space-padding-y-md);
     --panel-x-padding: var(--component-panel-space-padding-x-md);
-    --panel-content-gap: var(--component-panel-space-padding-gap-horizontal-md);
+    --panel-content-gap: var(--component-panel-space-gap-md);
     --panel-pointer-width: calc(var(--component-panel-size-icon-md) / 2);
     --panel-pointer-height: calc(var(--panel-pointer-width) / 2);
+  }
+}
+
+/* breakpoints-md */
+@media only screen and (min-width: 768px) {
+  .panel:not(.panel--mobile-layout) {
+    --panel-body-font-size: var(--component-panel-font-size-body-md);
+    --panel-header-font-size: var(--component-panel-font-size-header-md);
+  }
+}
+
+/* breakpoints-lg */
+@media only screen and (min-width: 960px) {
+  .panel:not(.panel--mobile-layout) {
     --panel-body-font-size: var(--component-panel-font-size-body-lg);
     --panel-header-font-size: var(--component-panel-font-size-header-lg);
+  }
+}
+
+/* breakpoints-xl */
+@media only screen and (min-width: 1200px) {
+  .panel:not(.panel--mobile-layout) {
+    --panel-body-font-size: var(--component-panel-font-size-body-xl);
+    --panel-header-font-size: var(--component-panel-font-size-header-xl);
   }
 }
 
@@ -72,13 +94,13 @@
 .panel__content {
   display: flex;
   flex-direction: column;
-  gap: var(--component-panel-space-text-area-gap-vertical-xs);
+  gap: var(--component-panel-space-text-group-gap-xs);
 }
 
 .panel__header {
   margin: 0;
   font-size: var(--panel-header-font-size);
-  font-weight: var(--component-panel-weight-heading);
+  font-weight: var(--component-panel-font-weight-heading);
 }
 
 .panel__body {

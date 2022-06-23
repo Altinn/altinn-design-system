@@ -14,6 +14,8 @@
 }
 
 .label {
+  all: initial;
+  font-family: inherit;
   font-size: var(--font-size-300);
   position: absolute;
   top: 0;

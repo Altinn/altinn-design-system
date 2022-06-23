@@ -1,25 +1,54 @@
-.accordion_header {
+.accordion-header {
   --component-accordion_header-space-width: 100%;
   --component-accordion_header-space-padding: 0;
-  --component-accordion_header-border_style: none;
-  --component-accordion_header-color-background: none;
-  --component-accordion_header-text-align: start;
-  --component-accordion_header-space-margin_left: 20px;
-  --component-accordion_header-font_size: var(--font-size-300);
-  --component-accordion_header-font_weight: var(
-    --component-panel-weight-heading
-  );
-  font-family: inherit;
+  --component-accordion_header-border_top_style: solid;
+  --component-accordion_header-border_top_color: var(--colors-neutral-200);
+  --component-accordion_header-border_top_width: var(--border-width-thin);
+  --component-accordion_header-color-background: var(--colors-neutral-000);
   width: var(--component-accordion_header-space-width);
   padding: var(--component-accordion_header-space-padding);
-  border: var(--component-accordion_header-border_style);
-  background: var(--component-accordion_header-color-background);
+  border-top-width: var(--component-accordion_header-border_top_width);
+  border-top-style: var(--component-accordion_header-border_top_style);
+  border-top-color: var(--component-accordion_header-border_top_color);
+  border-bottom-style: var(--component-accordion_header-border_bottom_style);
+  background-color: var(--component-accordion_header-color-background);
   text-align: var(--component-accordion_header-text-align);
   margin-left: var(--component-accordion_header-margin-left);
-  font-size: var(--component-accordion_header-font-size);
-  font-weight: var(--component-accordion_header-font_weight);
 }
 
-.acoordion-header-actions {
-  display: inline-block;
+.accordion-header-button {
+  --component-accordion_header-button-space-width: 100%;
+  --component-accordion_header-button-space-padding: 0;
+  --component-accordion_header-button-border_top_style: none;
+  --component-accordion_header-button-border_bottom_style: none;
+  --component-accordion_header-button-border_right_style: none;
+  --component-accordion_header-button-border_left_style: none;
+  --component-accordion_header-button-font_size: var(--font-size-300);
+  --component-accordion_header-button-font_weight: var(
+    --component-panel-weight-heading
+  );
+  --component-accordion_header-button-space-padding: 1.2rem;
+  --component-accordion_header-button-color-background: none;
+  font-family: inherit;
+  width: auto;
+  padding: var(--component-accordion_header-button-space-padding);
+  border-top-style: var(--component-accordion_header-button-border_top_style);
+  border-bottom-style: var(
+    --component-accordion_header-button-border_bottom_style
+  );
+  border-left-style: var(--component-accordion_header-button-border_left_style);
+  border-right-style: var(
+    --component-accordion_header-button-border_right_style
+  );
+  background-color: var(--component-accordion_header-button-color-background);
+  text-align: var(--component-accordion_header-button-text-align);
+  margin-left: var(--component-accordion_header-button-margin-left);
+  font-size: var(--component-accordion_header-button-font-size);
+  font-weight: var(--component-accordion_header-button-font_weight);
+}
+
+.accordion-header__actions {
+  margin-top: 0.3rem;
+  float: right;
+  width: max-content;
 }

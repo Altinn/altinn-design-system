@@ -13,8 +13,8 @@ export const AccordionContent = ({ children }: AccordionContentProps) => {
 
   return (
     <div>
-      {open && ( // eslint-disable-next-line
-      <div
+      {open && (
+        <div
           className={cn(classes['accordion-content'], {
             [classes['accordion-content--opened']]: open,
           })}

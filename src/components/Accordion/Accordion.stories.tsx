@@ -5,8 +5,9 @@ import cn from 'classnames';
 
 import { StoryPage } from '@sb/StoryPage';
 
+import { Button } from '../Button';
+
 import { Accordion } from './Accordion';
-import type { AccordionContextProps } from './Context';
 import { AccordionHeader } from './AccordionHeader';
 import { AccordionContent } from './AccordionContent';
 import classes from './Accordion.stories.module.css';
@@ -41,28 +42,29 @@ const Template: ComponentStory<typeof Accordion> = () => {
   const [open1, setOpen1] = useState(false);
   const [open2, setOpen2] = useState(false);
 
-  const handleChange1 = ({ open: isOpen }: AccordionContextProps) => {
-    setOpen1(!isOpen);
+  const handleClick1 = () => {
+    setOpen1(!open1);
   };
 
-  const handleChange2 = ({ open: isOpen }: AccordionContextProps) => {
-    setOpen2(!isOpen);
+  const handleClick2 = () => {
+    setOpen2(!open2);
   };
 
   const AccordionExampleContent =
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit';
 
+  const ActionButton = <Button>Separat funksjonsknapp</Button>;
   return (
-    <div className={cn(classes['accordion-div'])}>
+    <div className={cn(classes['container'])}>
       <Accordion
-        onChange={handleChange1}
+        onClick={handleClick1}
         open={open1}
       >
-        <AccordionHeader>Accordion 1</AccordionHeader>
+        <AccordionHeader actions={ActionButton}>Accordion 1</AccordionHeader>
         <AccordionContent>{AccordionExampleContent}</AccordionContent>
       </Accordion>
       <Accordion
-        onChange={handleChange2}
+        onClick={handleClick2}
         open={open2}
       >
         <AccordionHeader>Accordion 2</AccordionHeader>

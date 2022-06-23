@@ -5,8 +5,6 @@
   font-size: var(--font-size-300);
   text-align: center;
   box-sizing: border-box;
-  min-height: 3.6rem; /* Should really use this variable, but its incorrect var(--component-button-size-height) */
-  min-width: var(--component-button-size-min-width);
   padding: var(--component-button-space-padding-top)
     var(--component-button-space-padding-x)
     var(--component-button-space-padding-bottom);
@@ -15,8 +13,9 @@
 }
 
 .button:focus-visible {
-  outline: var(--colors-neutral-900) solid var(--border-width-standard);
-  outline-offset: calc(0px - var(--border-width-standard));
+  outline: var(--colors-neutral-900) solid
+    var(--component-button-border-width-default);
+  outline-offset: calc(0px - var(--component-button-border-width-default));
 }
 
 .button--primary {

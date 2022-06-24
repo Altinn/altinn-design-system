@@ -20,14 +20,14 @@ export const AccordionHeader = ({
     <div className={cn(classes['accordion-header'])}>
       <ExpandCollapseArrow
         className={cn(classes['accordion-header-icon'], {
-          [classes['accordion-header-icon__opened']]: open,
+          [classes['accordion-header-icon--opened']]: open,
         })}
         width='12'
         height='18'
         onClick={onClick}
       />
       <button
-        className={cn(classes['accordion-header-title'])}
+        className={cn(classes['accordion-header__title'])}
         aria-expanded={open}
         type='button'
         onClick={onClick}

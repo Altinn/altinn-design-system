@@ -10,7 +10,7 @@
   background-color: var(--component-accordion_header-color-background);
 }
 
-.accordion-header-title {
+.accordion-header__title {
   --component-accordion_header_title-spacing-margin_left: 2.5rem;
   --component-accordion_header_title-border_top_style: none;
   --component-accordion_header_title-border_bottom_style: none;
@@ -48,7 +48,7 @@
   margin-left: 2.5rem;
 }
 
-.accordion-header-icon__opened {
+.accordion-header-icon--opened {
   transform: rotate(90deg);
   margin-left: 3rem;
 }

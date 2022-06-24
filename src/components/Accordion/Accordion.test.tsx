@@ -67,15 +67,4 @@ describe('Accordion', () => {
     await user.type(AccordionHeader, '{Space}');
     expect(handleClick).toHaveBeenCalledTimes(1);
   });
-
-  it('should call handleClick when AccordionHeader is clicked using key press enter', async () => {
-    const handleClick = jest.fn();
-    render({ onClick: handleClick });
-
-    const AccordionHeader = screen.getByRole('button', {
-      name: 'AccordionHeader',
-    });
-    await user.type(AccordionHeader, '{Enter}');
-    expect(handleClick).toHaveBeenCalledTimes(1);
-  });
 });

@@ -1,7 +1,3 @@
 .accordion-content {
-  --component-accordion-content-space-margin_left: 20px;
-  --component-accordion-content-space-margin_top: 10px;
   font-family: inherit;
-  margin-left: var(--component-accordion-content-space-margin_left);
-  margin-top: var(--component-accordion-content-space-margin_top);
 }

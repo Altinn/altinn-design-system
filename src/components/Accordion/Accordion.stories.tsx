@@ -51,7 +51,7 @@ const Template: ComponentStory<typeof Accordion> = () => {
   };
 
   const AccordionExampleContent =
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit';
+    'Accordion content (No preset top spacing, enabling full customization).';
 
   const ActionButton = <Button>Separat funksjonsknapp</Button>;
   return (
@@ -67,7 +67,7 @@ const Template: ComponentStory<typeof Accordion> = () => {
         onClick={handleClick2}
         open={open2}
       >
-        <AccordionHeader>Accordion 2</AccordionHeader>
+        <AccordionHeader actions={ActionButton}>Accordion 2</AccordionHeader>
         <AccordionContent>{AccordionExampleContent}</AccordionContent>
       </Accordion>
     </div>

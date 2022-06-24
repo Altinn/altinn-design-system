@@ -48,7 +48,7 @@ describe('Accordion', () => {
     ).toBeInTheDocument();
   });
 
-  it('should have aria-expanded=true when open=true', async () => {
+  it('should have aria-expanded=false when open=false', async () => {
     const handleClick = jest.fn();
     render({ onClick: handleClick, open: false });
 

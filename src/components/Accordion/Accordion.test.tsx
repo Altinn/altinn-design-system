@@ -52,10 +52,10 @@ describe('Accordion', () => {
     const handleClick = jest.fn();
     render({ onClick: handleClick });
 
-    const AccordionHeader = screen.getByRole('button', {
+    const accordionHeader = screen.getByRole('button', {
       name: 'AccordionHeader',
     });
-    await user.type(AccordionHeader, '{Space}');
+    await user.type(accordionHeader, '{Space}');
     expect(handleClick).toHaveBeenCalledTimes(1);
   });
 

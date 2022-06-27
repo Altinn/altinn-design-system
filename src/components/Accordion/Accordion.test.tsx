@@ -33,14 +33,6 @@ describe('Accordion', () => {
     expect(handleClick).toHaveBeenCalledTimes(1);
   });
 
-  it('should call handleClick when AccordionHeader is clicked', async () => {
-    const handleClick = jest.fn();
-    render({ onClick: handleClick });
-
-    await user.click(screen.getByRole('button', { name: 'AccordionHeader' }));
-    expect(handleClick).toHaveBeenCalledTimes(1);
-  });
-
   it('should have aria-expanded=true when open=true', () => {
     render({ open: true });
     expect(
@@ -49,8 +41,7 @@ describe('Accordion', () => {
   });
 
   it('should have aria-expanded=false when open=false', async () => {
-    const handleClick = jest.fn();
-    render({ onClick: handleClick, open: false });
+    render({ open: false });
 
     expect(
       screen.getByRole('button', { name: 'AccordionHeader', expanded: false }),

@@ -40,7 +40,7 @@ describe('Accordion', () => {
     ).toBeInTheDocument();
   });
 
-  it('should have aria-expanded=false when open=false', async () => {
+  it('should have aria-expanded=false when open=false', () => {
     render({ open: false });
 
     expect(
@@ -48,7 +48,7 @@ describe('Accordion', () => {
     ).toBeInTheDocument();
   });
 
-  it('should call handleClick when AccordionHeader is clicked using key press space', async () => {
+  it('should call handleClick when AccordionHeader is clicked using key press Space', async () => {
     const handleClick = jest.fn();
     render({ onClick: handleClick });
 
@@ -56,6 +56,15 @@ describe('Accordion', () => {
       name: 'AccordionHeader',
     });
     await user.type(AccordionHeader, '{Space}');
+    expect(handleClick).toHaveBeenCalledTimes(1);
+  });
+
+  it('should call handleClick when AccordionHeader is clicked using key press Enter', async () => {
+    const handleClick = jest.fn();
+    render({ onClick: handleClick });
+
+    await user.keyboard('{Tab}');
+    await user.keyboard('{Enter}');
     expect(handleClick).toHaveBeenCalledTimes(1);
   });
 });

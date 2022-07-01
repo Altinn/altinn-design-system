@@ -6,7 +6,6 @@ import { StoryPage } from '@sb/StoryPage';
 
 import { List } from './List';
 import { ListItem } from './ListItem';
-import classNames from 'classnames';
 import classes from './List.stories.modules.css';
 
 const figmaLink = ''; // TODO: Add figma link
@@ -41,9 +40,9 @@ export default {
 const Template: ComponentStory<typeof List> = () => (
   <div className={classes['container']}>
     <List>
-      <ListItem>ListItem 1</ListItem>
-      <ListItem>ListItem 2</ListItem>
-      <ListItem>ListItem 3</ListItem>
+      <ListItem>List Item 1</ListItem>
+      <ListItem>List Item 2</ListItem>
+      <ListItem>List Item 3</ListItem>
     </List>
   </div>
 );

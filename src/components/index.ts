@@ -3,3 +3,4 @@ export { CircularProgress } from './CircularProgress';
 export { AppWrapper } from './AppWrapper';
 export { ToggleButton, ToggleButtonGroup } from './ToggleButtonGroup';
 export { Button, ButtonVariant } from './Button';
+export { List, ListItem } from './List';

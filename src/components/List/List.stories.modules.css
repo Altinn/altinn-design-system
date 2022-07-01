@@ -1,0 +1,9 @@
+.container{
+    width: 720px;
+}
+
+@media only screen and (max-width: 960px) {
+    .container{
+       width: 300px;
+    }
+}

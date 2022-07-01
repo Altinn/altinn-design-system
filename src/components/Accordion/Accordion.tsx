@@ -1,23 +1,32 @@
 import React from 'react';
-import cn from 'classnames';
 
 import type { ClickHandler } from './Context';
 import { AccordionContext } from './Context';
 import classes from './Accordion.module.css';
 
 export interface AccordionProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   onClick: ClickHandler;
   open: boolean;
+  headerId: string;
+  contentId: string;
 }
 
-export const Accordion = ({ children, open, onClick }: AccordionProps) => {
+export const Accordion = ({
+  children,
+  open,
+  onClick,
+  headerId,
+  contentId,
+}: AccordionProps) => {
   return (
-    <div className={cn(classes['accordion'])}>
+    <div className={classes['accordion']}>
       <AccordionContext.Provider
         value={{
           onClick,
           open,
+          headerId,
+          contentId,
         }}
       >
         {children}

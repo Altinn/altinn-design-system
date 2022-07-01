@@ -14,13 +14,13 @@ export const AccordionHeader = ({
   children,
   actions,
 }: AccordionHeaderProps) => {
-  const { onClick, open } = useAccordionContext();
+  const { onClick, open, headerId, contentId } = useAccordionContext();
 
   return (
     <div className={cn(classes['accordion-header'])}>
       <ExpandCollapseArrow
-        className={cn(classes['accordion-header-icon'], {
-          [classes['accordion-header-icon--opened']]: open,
+        className={cn(classes['accordion-header__icon'], {
+          [classes['accordion-header__icon--opened']]: open,
         })}
         width='12'
         height='18'
@@ -31,6 +31,8 @@ export const AccordionHeader = ({
         aria-expanded={open}
         type='button'
         onClick={onClick}
+        id={headerId}
+        aria-controls={contentId}
       >
         {children}
       </button>

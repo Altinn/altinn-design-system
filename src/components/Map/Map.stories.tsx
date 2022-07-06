@@ -34,7 +34,7 @@ export default {
 } as ComponentMeta<typeof Map>;
 
 const Template: ComponentStory<typeof Map> = (args) => {
-  const [location, setLocation] = useState<Location | undefined>(undefined);
+  const [location, setLocation] = useState<Location | undefined>(args.marker);
 
   const mapClicked = (location: Location) => {
     setLocation(location);
@@ -57,6 +57,26 @@ Default.parameters = {
     description: {
       story:
         'This is the default map you get if you do not specify any map layers. Kartverket with layers "europa_forenklet" and "norgeskart_bakgrunn2"',
+    },
+  },
+};
+
+export const MapWithMarkerZoomAndCenter = Template.bind({});
+MapWithMarkerZoomAndCenter.args = {
+  marker: {
+    latitude: 59.2641592,
+    longitude: 10.4036248,
+  },
+  zoom: 16,
+  center: {
+    latitude: 59.2641592,
+    longitude: 10.4036248,
+  },
+};
+MapWithMarkerZoomAndCenter.parameters = {
+  docs: {
+    description: {
+      story: '',
     },
   },
 };

@@ -4,6 +4,7 @@ import { config } from 'storybook-addon-designs';
 
 import { StoryPage } from '@sb/StoryPage';
 
+import type { Location } from './Map';
 import { Map } from './Map';
 
 const figmaLink = '';
@@ -33,20 +34,18 @@ export default {
 } as ComponentMeta<typeof Map>;
 
 const Template: ComponentStory<typeof Map> = (args) => {
-  const [location, setLocation] = useState<[number, number] | undefined>(
-    undefined,
-  );
+  const [location, setLocation] = useState<Location | undefined>(undefined);
 
-  const mapClicked = (lat: number, lon: number) => {
-    setLocation([lat, lon]);
-    console.log(`Map clicked at [${lat},${lon}]`);
+  const mapClicked = (location: Location) => {
+    setLocation(location);
+    console.log(`Map clicked at [${location.latitude},${location.longitude}]`);
   };
 
   return (
     <Map
       {...args}
       marker={location}
-      mapClicked={mapClicked}
+      onClick={mapClicked}
     />
   );
 };
@@ -67,9 +66,9 @@ OpenStreetMap.args = {
   layers: [
     {
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+      subdomains: ['a', 'b', 'c'],
       attribution:
         '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>',
-      subdomains: ['a', 'b', 'c'],
     },
   ],
 };
@@ -120,8 +119,8 @@ GoogleMaps.args = {
   layers: [
     {
       url: 'http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',
-      attribution: '© Google Maps',
       subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+      attribution: '© Google Maps',
     },
   ],
 };

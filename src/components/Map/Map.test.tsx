@@ -9,7 +9,7 @@ import userEvent from '@testing-library/user-event';
 
 import { mockMediaQuery } from '@test/testUtils';
 
-import type { MapProps } from './Map';
+import type { MapProps, Location } from './Map';
 import { Map } from './Map';
 
 const mediaQueryBreakPoint = 500;
@@ -26,7 +26,9 @@ describe('Map', () => {
 
   describe('Marker', () => {
     it('should show marker when marker is set', () => {
-      render({ marker: [59.2641592, 10.4036248] });
+      render({
+        marker: { latitude: 59.2641592, longitude: 10.4036248 },
+      });
       expect(locationMarker()).toBeInTheDocument();
     });
 
@@ -40,43 +42,43 @@ describe('Map', () => {
     it('should call mapClicked with correct coordinates when map is clicked', async () => {
       const handleMapClicked = jest.fn();
       render({
-        mapClicked: handleMapClicked,
+        onClick: handleMapClicked,
       });
 
       clickMap();
 
-      expect(handleMapClicked).toHaveBeenCalledWith(
-        59.265880628258095,
-        10.371093750000002,
-      );
+      expect(handleMapClicked).toHaveBeenCalledWith({
+        latitude: 59.265880628258095,
+        longitude: 10.371093750000002,
+      } as Location);
     });
 
     it('should get different coordinates when map is clicked at a different location', () => {
       const mapClicked = jest.fn();
       render({
-        mapClicked: mapClicked,
+        onClick: mapClicked,
       });
 
       clickMap(50, 50);
 
-      expect(mapClicked).toHaveBeenCalledWith(
-        56.9449741808516,
-        14.765625000000002,
-      );
+      expect(mapClicked).toHaveBeenCalledWith({
+        latitude: 56.9449741808516,
+        longitude: 14.765625000000002,
+      } as Location);
     });
 
-    it('should call mapClicked multiple times when map is clicked twice', async () => {
+    it('should call mapClicked two times when map is clicked twice', async () => {
       const mapClicked = jest.fn();
       render({
-        mapClicked: mapClicked,
+        onClick: mapClicked,
       });
 
       // First click
       clickMap();
-      expect(mapClicked).toHaveBeenLastCalledWith(
-        59.265880628258095,
-        10.371093750000002,
-      );
+      expect(mapClicked).toHaveBeenCalledWith({
+        latitude: 59.265880628258095,
+        longitude: 10.371093750000002,
+      } as Location);
 
       // Zoom out
       const zoomInButton = screen.getByRole('button', { name: 'Zoom out' });
@@ -86,10 +88,10 @@ describe('Map', () => {
 
       // Second click at different location
       clickMap(50, 50);
-      expect(mapClicked).toHaveBeenLastCalledWith(
-        54.470037612805754,
-        19.16015625,
-      );
+      expect(mapClicked).toHaveBeenCalledWith({
+        latitude: 54.470037612805754,
+        longitude: 19.16015625,
+      } as Location);
     });
   });
 });
@@ -107,10 +109,16 @@ const render = (props: Partial<MapProps> = {}) => {
   const allProps = {
     readOnly: false,
     layers: undefined,
-    center: [59.2641592, 10.4036248] as [number, number],
+    center: {
+      latitude: 59.2641592,
+      longitude: 10.4036248,
+    } as Location,
     zoom: 4,
-    marker: [59.2641592, 10.4036248] as [number, number],
-    mapClicked: () => {
+    marker: {
+      latitude: 59.2641592,
+      longitude: 10.4036248,
+    } as Location,
+    onClick: () => {
       return;
     },
     ...props,

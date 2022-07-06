@@ -15,11 +15,14 @@ import classes from './Map.module.css';
 import 'leaflet/dist/leaflet.css';
 
 // Default is center of Norway
-const DefaultCenter: [number, number] = [64.888996, 12.8186054];
+const DefaultCenter: Location = {
+  latitude: 64.888996,
+  longitude: 12.8186054,
+};
 const DefaultZoom = 4;
 
 // Default map layers from Kartverket
-const DefaultMapLayers = [
+const DefaultMapLayers: MapLayer[] = [
   {
     url: 'https://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=europa_forenklet&zoom={z}&x={x}&y={y}',
     attribution: 'Data © <a href="http://www.kartverket.no/">Kartverket</a>',
@@ -30,17 +33,24 @@ const DefaultMapLayers = [
   },
 ];
 
+export interface Location {
+  latitude: number;
+  longitude: number;
+}
+
+export interface MapLayer {
+  url: string;
+  attribution?: string;
+  subdomains?: string[];
+}
+
 export interface MapProps {
-  readOnly: boolean;
-  layers?: {
-    url: string;
-    attribution?: string;
-    subdomains?: string[];
-  }[];
-  center?: [number, number];
+  readOnly?: boolean;
+  layers?: MapLayer[];
+  center?: Location;
   zoom?: number;
-  marker?: [number, number];
-  mapClicked?: (lat: number, lon: number) => void;
+  marker?: Location;
+  onClick?: (location: Location) => void;
 }
 
 export const Map = ({
@@ -49,8 +59,9 @@ export const Map = ({
   center,
   zoom,
   marker,
-  mapClicked,
+  onClick,
 }: MapProps) => {
+  readOnly = readOnly ? readOnly : false;
   layers = layers ? layers : DefaultMapLayers;
   center = center ? center : DefaultCenter;
   zoom = zoom ? zoom : DefaultZoom;
@@ -58,7 +69,7 @@ export const Map = ({
   return (
     <MapContainer
       className={classes.map}
-      center={center}
+      center={locationToTuple(center)}
       zoom={zoom}
       zoomControl={!readOnly}
       dragging={!readOnly}
@@ -78,21 +89,24 @@ export const Map = ({
       <AttributionControl prefix={false} />
       <LocationMarker
         location={marker}
-        handleClick={mapClicked}
+        handleClick={onClick}
       />
     </MapContainer>
   );
 };
 
 interface LocationMarkerProps {
-  location?: [number, number];
-  handleClick?: (lat: number, lon: number) => void;
+  location?: Location;
+  handleClick?: (location: Location) => void;
 }
 function LocationMarker({ location, handleClick }: LocationMarkerProps) {
   useMapEvents({
     click(me) {
       if (handleClick) {
-        handleClick(me.latlng.lat, me.latlng.lng);
+        handleClick({
+          latitude: me.latlng.lat,
+          longitude: me.latlng.lng,
+        });
       }
     },
   });
@@ -107,8 +121,12 @@ function LocationMarker({ location, handleClick }: LocationMarkerProps) {
 
   return location ? (
     <Marker
-      position={location}
+      position={locationToTuple(location)}
       icon={markerIcon}
     />
   ) : null;
+}
+
+function locationToTuple(location: Location): [number, number] {
+  return [location.latitude, location.longitude];
 }

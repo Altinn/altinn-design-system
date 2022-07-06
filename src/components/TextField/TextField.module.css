@@ -1,0 +1,93 @@
+.input-wrapper__field {
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  padding: var(--component-input-space-padding-y)
+    var(--component-input-space-padding-x)
+    var(--component-input-space-padding-y);
+  width: 100%;
+}
+
+.input-wrapper {
+  background-color: var(--component-input-color-background-default);
+  border-width: var(--component-input-border-width-default);
+  border-style: solid;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+.input-wrapper--default {
+  border-color: var(--component-input-color-border-default);
+  margin: 2px;
+}
+
+.input-wrapper--default:hover {
+  border-color: var(--component-input-color-border-hover);
+}
+
+.input-wrapper--default:focus-within {
+  /* border-width: var(--component-input-border-width-focus); */
+  border-width: 4px;
+  border-color: var(--component-input-color-border-focus);
+  outline: none;
+  margin: 0px;
+}
+
+.input-wrapper--error {
+  border-color: #E23B53;
+  background-color: #E23B53;
+  /* var(--component-input-color-border-error); */
+  margin: 2px;
+}
+
+.input-wrapper--error:focus-within {
+  border-width: 4px;
+  /* border-width: var(--component-input-border-width-focus); */
+  border-color: #E23B53;
+  /* var(--component-input-color-border-error); */
+  outline: none;
+  margin: 0px;
+}
+
+.input-wrapper--disabled {
+  border-color: #6A6A6A;
+  /* var(--component-input-color-border-disabled); */
+  margin: 2px;
+}
+
+.input-wrapper--disabled .input-wrapper__field {
+  background: repeating-linear-gradient(
+      135deg,
+      #efefef,
+      #efefef 2px,
+      #fff 3px,
+      #fff 5px
+    );
+}
+
+.input-wrapper--readonly-info {
+  border-color: #FBF6BD;
+  /* var(--component-input-color-border-readonly-info); */
+  margin: 2px;
+}
+
+.input-wrapper--readonly-info .input-wrapper__field {
+  background-color: #FBF6BD;
+}
+
+.input-wrapper--readonly-confirm {
+  border-color: #D4F9E4;
+  /* var(--component-input-color-border-readonly-confirm); */
+  margin: 2px;
+}
+
+.input-wrapper--readonly-confirm .input-wrapper__field {
+  background-color: #D4F9E4;
+}
+
+.input-wrapper__icon--error {
+  padding-right: var(--component-input-border-width-default);
+  padding-left: var(--component-input-border-width-default);
+  min-width: 22px;
+}

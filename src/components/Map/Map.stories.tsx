@@ -34,17 +34,19 @@ export default {
 } as ComponentMeta<typeof Map>;
 
 const Template: ComponentStory<typeof Map> = (args) => {
-  const [location, setLocation] = useState<Location | undefined>(args.marker);
+  const [markerLocation, setMarkerLocation] = useState<Location | undefined>(
+    args.markerLocation,
+  );
 
   const mapClicked = (location: Location) => {
-    setLocation(location);
+    setMarkerLocation(location);
     console.log(`Map clicked at [${location.latitude},${location.longitude}]`);
   };
 
   return (
     <Map
       {...args}
-      marker={location}
+      markerLocation={markerLocation}
       onClick={mapClicked}
     />
   );
@@ -63,12 +65,12 @@ Default.parameters = {
 
 export const MapWithMarkerZoomAndCenter = Template.bind({});
 MapWithMarkerZoomAndCenter.args = {
-  marker: {
+  markerLocation: {
     latitude: 59.2641592,
     longitude: 10.4036248,
   },
   zoom: 16,
-  center: {
+  centerLocation: {
     latitude: 59.2641592,
     longitude: 10.4036248,
   },
@@ -76,7 +78,7 @@ MapWithMarkerZoomAndCenter.args = {
 MapWithMarkerZoomAndCenter.parameters = {
   docs: {
     description: {
-      story: '',
+      story: 'Default map with marker location and center location set',
     },
   },
 };

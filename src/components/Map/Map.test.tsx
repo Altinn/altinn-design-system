@@ -27,13 +27,13 @@ describe('Map', () => {
   describe('Marker', () => {
     it('should show marker when marker is set', () => {
       render({
-        marker: { latitude: 59.2641592, longitude: 10.4036248 },
+        markerLocation: { latitude: 59.2641592, longitude: 10.4036248 },
       });
       expect(locationMarker()).toBeInTheDocument();
     });
 
     it('should not show marker when marker is not set', () => {
-      render({ marker: undefined });
+      render({ markerLocation: undefined });
       expect(locationMarker()).not.toBeInTheDocument();
     });
   });
@@ -109,12 +109,12 @@ const render = (props: Partial<MapProps> = {}) => {
   const allProps = {
     readOnly: false,
     layers: undefined,
-    center: {
+    centerLocation: {
       latitude: 59.2641592,
       longitude: 10.4036248,
     } as Location,
     zoom: 4,
-    marker: {
+    markerLocation: {
       latitude: 59.2641592,
       longitude: 10.4036248,
     } as Location,

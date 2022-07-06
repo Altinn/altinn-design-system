@@ -15,7 +15,7 @@ import classes from './Map.module.css';
 import 'leaflet/dist/leaflet.css';
 
 // Default is center of Norway
-const DefaultCenter: Location = {
+const DefaultCenterLocation: Location = {
   latitude: 64.888996,
   longitude: 12.8186054,
 };
@@ -47,29 +47,29 @@ export interface MapLayer {
 export interface MapProps {
   readOnly?: boolean;
   layers?: MapLayer[];
-  center?: Location;
+  centerLocation?: Location;
   zoom?: number;
-  marker?: Location;
+  markerLocation?: Location;
   onClick?: (location: Location) => void;
 }
 
 export const Map = ({
   readOnly,
   layers,
-  center,
+  centerLocation,
   zoom,
-  marker,
+  markerLocation,
   onClick,
 }: MapProps) => {
   readOnly = readOnly ? readOnly : false;
   layers = layers ? layers : DefaultMapLayers;
-  center = center ? center : DefaultCenter;
+  centerLocation = centerLocation ? centerLocation : DefaultCenterLocation;
   zoom = zoom ? zoom : DefaultZoom;
 
   return (
     <MapContainer
       className={classes.map}
-      center={locationToTuple(center)}
+      center={locationToTuple(centerLocation)}
       zoom={zoom}
       zoomControl={!readOnly}
       dragging={!readOnly}
@@ -88,7 +88,7 @@ export const Map = ({
       ))}
       <AttributionControl prefix={false} />
       <LocationMarker
-        location={marker}
+        location={markerLocation}
         handleClick={onClick}
       />
     </MapContainer>

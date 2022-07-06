@@ -40,7 +40,6 @@ export interface MapProps {
   center?: [number, number];
   zoom?: number;
   marker?: [number, number];
-  footerText?: string;
   mapClicked?: (lat: number, lon: number) => void;
 }
 
@@ -50,7 +49,6 @@ export const Map = ({
   center,
   zoom,
   marker,
-  footerText,
   mapClicked,
 }: MapProps) => {
   layers = layers ? layers : DefaultMapLayers;
@@ -58,34 +56,31 @@ export const Map = ({
   zoom = zoom ? zoom : DefaultZoom;
 
   return (
-    <>
-      <MapContainer
-        className={classes.map}
-        center={center}
-        zoom={zoom}
-        zoomControl={!readOnly}
-        dragging={!readOnly}
-        touchZoom={!readOnly}
-        doubleClickZoom={!readOnly}
-        scrollWheelZoom={!readOnly}
-        attributionControl={false}
-      >
-        {layers.map((layer, i) => (
-          <TileLayer
-            key={i}
-            url={layer.url}
-            attribution={layer.attribution}
-            subdomains={layer.subdomains ? layer.subdomains : []}
-          />
-        ))}
-        <AttributionControl prefix={false} />
-        <LocationMarker
-          location={marker}
-          handleClick={mapClicked}
+    <MapContainer
+      className={classes.map}
+      center={center}
+      zoom={zoom}
+      zoomControl={!readOnly}
+      dragging={!readOnly}
+      touchZoom={!readOnly}
+      doubleClickZoom={!readOnly}
+      scrollWheelZoom={!readOnly}
+      attributionControl={false}
+    >
+      {layers.map((layer, i) => (
+        <TileLayer
+          key={i}
+          url={layer.url}
+          attribution={layer.attribution}
+          subdomains={layer.subdomains ? layer.subdomains : []}
         />
-      </MapContainer>
-      {footerText && <div className={classes.footer}>{footerText}</div>}
-    </>
+      ))}
+      <AttributionControl prefix={false} />
+      <LocationMarker
+        location={marker}
+        handleClick={mapClicked}
+      />
+    </MapContainer>
   );
 };
 

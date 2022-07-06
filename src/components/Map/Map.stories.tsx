@@ -42,16 +42,11 @@ const Template: ComponentStory<typeof Map> = (args) => {
     console.log(`Map clicked at [${lat},${lon}]`);
   };
 
-  const footerText = location
-    ? `Valgt lokasjon: ${location[0]}° nord, ${location[1]}° øst`
-    : 'Ingen lokasjon valgt';
-
   return (
     <Map
       {...args}
       marker={location}
       mapClicked={mapClicked}
-      footerText={footerText}
     />
   );
 };

@@ -17,8 +17,6 @@ const { setScreenWidth } = mockMediaQuery(mediaQueryBreakPoint);
 
 const user = userEvent.setup();
 
-window.scrollTo = jest.fn();
-
 describe('Map', () => {
   beforeEach(() => {
     setScreenWidth(mediaQueryBreakPoint + 100);
@@ -118,9 +116,7 @@ const render = (props: Partial<MapProps> = {}) => {
       latitude: 59.2641592,
       longitude: 10.4036248,
     } as Location,
-    onClick: () => {
-      return;
-    },
+    onClick: jest.fn(),
     ...props,
   };
 

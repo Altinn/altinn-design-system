@@ -27,7 +27,12 @@ export default [
         format: 'esm',
       },
     ],
-    external: [altinnFigmaTokensExceptCss, /@react-hookz\/web/],
+    external: [
+      altinnFigmaTokensExceptCss,
+      /@react-hookz\/web/,
+      /react-leaflet/,
+      /leaflet/,
+    ],
     plugins: [
       peerDepsExternal(),
       resolve(),

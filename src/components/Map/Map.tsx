@@ -54,18 +54,13 @@ export interface MapProps {
 }
 
 export const Map = ({
-  readOnly,
-  layers,
-  centerLocation,
-  zoom,
+  readOnly = false,
+  layers = DefaultMapLayers,
+  centerLocation = DefaultCenterLocation,
+  zoom = DefaultZoom,
   markerLocation,
   onClick,
 }: MapProps) => {
-  readOnly = readOnly ? readOnly : false;
-  layers = layers ? layers : DefaultMapLayers;
-  centerLocation = centerLocation ? centerLocation : DefaultCenterLocation;
-  zoom = zoom ? zoom : DefaultZoom;
-
   return (
     <MapContainer
       className={classes.map}
@@ -89,7 +84,7 @@ export const Map = ({
       <AttributionControl prefix={false} />
       <LocationMarker
         location={markerLocation}
-        handleClick={onClick}
+        onClick={onClick}
       />
     </MapContainer>
   );
@@ -97,13 +92,13 @@ export const Map = ({
 
 interface LocationMarkerProps {
   location?: Location;
-  handleClick?: (location: Location) => void;
+  onClick?: (location: Location) => void;
 }
-function LocationMarker({ location, handleClick }: LocationMarkerProps) {
+function LocationMarker({ location, onClick }: LocationMarkerProps) {
   useMapEvents({
     click(me) {
-      if (handleClick) {
-        handleClick({
+      if (onClick) {
+        onClick({
           latitude: me.latlng.lat,
           longitude: me.latlng.lng,
         });

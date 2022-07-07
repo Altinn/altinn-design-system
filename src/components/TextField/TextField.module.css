@@ -19,7 +19,7 @@
 
 .input-wrapper--default {
   border-color: var(--component-input-color-border-default);
-  margin: 2px;
+  margin: var(--component-input-border-width-default);
 }
 
 .input-wrapper--default:hover {
@@ -27,8 +27,7 @@
 }
 
 .input-wrapper--default:focus-within {
-  /* border-width: var(--component-input-border-width-focus); */
-  border-width: 4px;
+  border-width: var(--component-input-border-width-focus);
   border-color: var(--component-input-color-border-focus);
   outline: none;
   margin: 0px;
@@ -38,12 +37,11 @@
   border-color: #E23B53;
   background-color: #E23B53;
   /* var(--component-input-color-border-error); */
-  margin: 2px;
+  margin: var(--component-input-border-width-default);
 }
 
 .input-wrapper--error:focus-within {
-  border-width: 4px;
-  /* border-width: var(--component-input-border-width-focus); */
+  border-width: var(--component-input-border-width-focus);
   border-color: #E23B53;
   /* var(--component-input-color-border-error); */
   outline: none;
@@ -53,7 +51,7 @@
 .input-wrapper--disabled {
   border-color: #6A6A6A;
   /* var(--component-input-color-border-disabled); */
-  margin: 2px;
+  margin: var(--component-input-border-width-default);
 }
 
 .input-wrapper--disabled .input-wrapper__field {
@@ -69,7 +67,7 @@
 .input-wrapper--readonly-info {
   border-color: #FBF6BD;
   /* var(--component-input-color-border-readonly-info); */
-  margin: 2px;
+  margin: var(--component-input-border-width-default);
 }
 
 .input-wrapper--readonly-info .input-wrapper__field {
@@ -79,7 +77,7 @@
 .input-wrapper--readonly-confirm {
   border-color: #D4F9E4;
   /* var(--component-input-color-border-readonly-confirm); */
-  margin: 2px;
+  margin: var(--component-input-border-width-default);
 }
 
 .input-wrapper--readonly-confirm .input-wrapper__field {

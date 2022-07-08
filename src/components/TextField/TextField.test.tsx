@@ -12,7 +12,7 @@ describe('TextField', () => {
     const fn = jest.fn();
     render({ onBlur: fn });
     const element = screen.getByRole('textbox');
-    await user.tab();
+    await user.click(element);
     expect(element).toHaveFocus();
     await user.tab();
     expect(fn).toHaveBeenCalledTimes(1);

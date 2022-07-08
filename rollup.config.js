@@ -26,7 +26,11 @@ export default [
         format: 'esm',
       },
     ],
-    external: [altinnFigmaTokensExceptCss, /@react-hookz\/web/],
+    external: [
+      altinnFigmaTokensExceptCss,
+      /@react-hookz\/web/,
+      /react-number-format/,
+    ],
     plugins: [
       peerDepsExternal(),
       resolve(),

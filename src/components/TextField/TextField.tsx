@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import cn from 'classnames';
-import type { NumberFormatProps } from 'react-number-format';
+import type {
+  NumberFormatProps,
+  NumberFormatValues,
+  SourceInfo,
+} from 'react-number-format';
 import NumberFormat from 'react-number-format';
 
 import '@altinn/figma-design-tokens/dist/tokens.css';
 
 import { ReactComponent as ErrorIcon } from './error.svg';
 import classes from './TextField.module.css';
+import { getVariants } from './variants';
 
-enum InputVariant {
+export enum InputVariant {
   Default = 'default',
   Error = 'error',
   Disabled = 'disabled',
@@ -28,9 +33,9 @@ export enum IconVariant {
 
 export interface ITextFieldBaseProps {
   id: string;
-  value?: any;
-  onBlur?: (value: any) => void;
-  onChange?: (value: any) => void;
+  value?: string;
+  onBlur?: (value: React.FocusEvent<HTMLInputElement>) => void;
+  onChange?: (value: React.ChangeEvent<HTMLInputElement>) => void;
   disabled?: boolean;
   isValid?: boolean;
   readOnly?: boolean | ReadOnlyVariant;
@@ -51,24 +56,24 @@ const renderIcon = (variant: IconVariant) => {
   switch (variant) {
     case IconVariant.Error:
       return (
-        <ErrorIcon
-          className={cn(classes['input-wrapper__icon--error'])}
-          data-testid='input-icon-error'
-        />
+        <div className={cn(classes['input-wrapper__icon'])}>
+          <ErrorIcon
+            className={cn(classes['input-wrapper__icon--error'])}
+            data-testid='input-icon-error'
+          />
+        </div>
       );
   }
 };
 
 const handleFormattedValueChange = (
-  values: any,
-  onChange?: (value: any) => void,
+  values: NumberFormatValues,
+  sourceInfo: SourceInfo,
+  onChange?: (value: React.ChangeEvent<HTMLInputElement>) => void,
 ) => {
   if (onChange) {
-    onChange({
-      target: {
-        value: values.value,
-      },
-    });
+    sourceInfo.event.target.value = values.value;
+    onChange(sourceInfo.event);
   }
 };
 
@@ -84,28 +89,7 @@ export const TextField = ({
   ariaDescribedBy,
   formatting,
 }: ITextFieldProps) => {
-  let variant: InputVariant;
-  let iconVariant: IconVariant;
-
-  if (disabled) {
-    variant = InputVariant.Disabled;
-    iconVariant = IconVariant.None;
-  } else if (readOnly === true) {
-    variant = InputVariant.ReadonlyInfo;
-    iconVariant = IconVariant.None;
-  } else if (readOnly === ReadOnlyVariant.ReadonlyInfo) {
-    variant = InputVariant.ReadonlyInfo;
-    iconVariant = IconVariant.None;
-  } else if (readOnly === ReadOnlyVariant.ReadonlyConfirm) {
-    variant = InputVariant.ReadonlyConfirm;
-    iconVariant = IconVariant.None;
-  } else if (!isValid) {
-    variant = InputVariant.Error;
-    iconVariant = IconVariant.Error;
-  } else {
-    variant = InputVariant.Default;
-    iconVariant = IconVariant.None;
-  }
+  const { variant, iconVariant } = getVariants(readOnly, disabled, isValid);
 
   const props = {
     id: id,
@@ -133,8 +117,8 @@ export const TextField = ({
           {...props}
           {...formatting.number}
           data-testid={`${props.id}-formatted-number-${variant}`}
-          onValueChange={(values) => {
-            handleFormattedValueChange(values, onChange);
+          onValueChange={(values, sourceInfo) => {
+            handleFormattedValueChange(values, sourceInfo, onChange);
           }}
         />
       ) : (

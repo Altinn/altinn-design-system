@@ -1,18 +1,20 @@
 import { render as renderRtl, screen } from '@testing-library/react';
 import React from 'react';
-import { userEvent } from '@storybook/testing-library';
+import userEvent from '@testing-library/user-event';
 
 import type { ITextFieldProps } from './TextField';
 import { ReadOnlyVariant, TextField } from './TextField';
+
+const user = userEvent.setup();
 
 describe('TextField', () => {
   it('should trigger onBlur event', async () => {
     const fn = jest.fn();
     render({ onBlur: fn });
     const element = screen.getByRole('textbox');
-    userEvent.click(element);
+    await user.tab();
     expect(element).toHaveFocus();
-    userEvent.tab();
+    await user.tab();
     expect(fn).toHaveBeenCalledTimes(1);
   });
 
@@ -20,9 +22,9 @@ describe('TextField', () => {
     const fn = jest.fn();
     render({ onChange: fn });
     const element = screen.getByRole('textbox');
-    userEvent.click(element);
+    await user.click(element);
     expect(element).toHaveFocus();
-    userEvent.keyboard('test');
+    await user.keyboard('test');
     expect(fn).toHaveBeenCalledTimes(4);
   });
 
@@ -92,9 +94,9 @@ describe('TextField', () => {
       const fn = jest.fn();
       render({ onBlur: fn, formatting: { number: { prefix: '$' } } });
       const element = screen.getByRole('textbox');
-      userEvent.click(element);
+      await user.click(element);
       expect(element).toHaveFocus();
-      userEvent.tab();
+      await user.tab();
       expect(fn).toHaveBeenCalledTimes(1);
     });
 
@@ -102,9 +104,9 @@ describe('TextField', () => {
       const fn = jest.fn();
       render({ onChange: fn, formatting: { number: { prefix: '$' } } });
       const element = screen.getByRole('textbox');
-      userEvent.click(element);
+      await user.click(element);
       expect(element).toHaveFocus();
-      userEvent.keyboard('1234');
+      await user.keyboard('1234');
       expect(fn).toHaveBeenCalledTimes(4);
     });
 
@@ -118,9 +120,9 @@ describe('TextField', () => {
         formatting: { number: { prefix: '$', thousandSeparator: ' ' } },
       });
       const element = screen.getByRole('textbox');
-      userEvent.click(element);
+      await user.click(element);
       expect(element).toHaveFocus();
-      userEvent.keyboard('1234');
+      await user.keyboard('1234');
       expect(screen.getByDisplayValue('$1 234')).toBeInTheDocument();
       expect(testValue).toBe('1234');
     });

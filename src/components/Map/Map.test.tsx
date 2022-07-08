@@ -1,27 +1,10 @@
 import React from 'react';
-import {
-  act,
-  fireEvent,
-  render as renderRtl,
-  screen,
-} from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-
-import { mockMediaQuery } from '@test/testUtils';
+import { fireEvent, render as renderRtl, screen } from '@testing-library/react';
 
 import type { MapProps, Location } from './Map';
 import { Map } from './Map';
 
-const mediaQueryBreakPoint = 500;
-const { setScreenWidth } = mockMediaQuery(mediaQueryBreakPoint);
-
-const user = userEvent.setup();
-
 describe('Map', () => {
-  beforeEach(() => {
-    setScreenWidth(mediaQueryBreakPoint + 100);
-  });
-
   describe('Marker', () => {
     it('should show marker when marker is set', () => {
       render({
@@ -51,21 +34,7 @@ describe('Map', () => {
       } as Location);
     });
 
-    it('should get different coordinates when map is clicked at a different location', () => {
-      const mapClicked = jest.fn();
-      render({
-        onClick: mapClicked,
-      });
-
-      clickMap(50, 50);
-
-      expect(mapClicked).toHaveBeenCalledWith({
-        latitude: 56.9449741808516,
-        longitude: 14.765625000000002,
-      } as Location);
-    });
-
-    it('should call mapClicked two times when map is clicked twice', async () => {
+    it('should get different coordinates when map is clicked at different location', async () => {
       const mapClicked = jest.fn();
       render({
         onClick: mapClicked,
@@ -73,23 +42,16 @@ describe('Map', () => {
 
       // First click
       clickMap();
-      expect(mapClicked).toHaveBeenCalledWith({
-        latitude: 59.265880628258095,
-        longitude: 10.371093750000002,
-      } as Location);
-
-      // Zoom out
-      const zoomInButton = screen.getByRole('button', { name: 'Zoom out' });
-      await act(async () => {
-        await user.click(zoomInButton);
-      });
+      expect(mapClicked).toBeCalledTimes(1);
+      const firstLocation = mapClicked.mock.calls[0][0] as Location;
 
       // Second click at different location
       clickMap(50, 50);
-      expect(mapClicked).toHaveBeenCalledWith({
-        latitude: 54.470037612805754,
-        longitude: 19.16015625,
-      } as Location);
+      expect(mapClicked).toBeCalledTimes(2);
+      const secondLocation = mapClicked.mock.calls[1][0] as Location;
+
+      expect(firstLocation.latitude).not.toBe(secondLocation.latitude);
+      expect(firstLocation.longitude).not.toBe(secondLocation.longitude);
     });
   });
 });

@@ -54,10 +54,49 @@ describe('Map', () => {
       expect(firstLocation.longitude).not.toBe(secondLocation.longitude);
     });
   });
+
+  it('should display attribution link', () => {
+    render({
+      layers: [
+        {
+          url: 'dummy',
+          attribution: '<a href="https://dummylink.invalid">Dummy link</a>',
+        },
+      ],
+    });
+
+    expect(getLink('Dummy link')).toBeInTheDocument();
+  });
+
+  it('should show map with zoom buttons when readonly is false', () => {
+    render({
+      readOnly: false,
+    });
+
+    expect(getButton('Zoom in')).toBeInTheDocument();
+    expect(getButton('Zoom out')).toBeInTheDocument();
+  });
+
+  it('should show map without zoom buttons when readonly is true', () => {
+    render({
+      readOnly: true,
+    });
+
+    expect(getButton('Zoom in')).not.toBeInTheDocument();
+    expect(getButton('Zoom out')).not.toBeInTheDocument();
+  });
 });
 
 function locationMarker() {
   return screen.queryByRole('button', { name: 'Marker' });
+}
+
+function getButton(name: string) {
+  return screen.queryByRole('button', { name: name });
+}
+
+function getLink(name: string) {
+  return screen.queryByRole('link', { name: name });
 }
 
 function clickMap(clientX = 0, clientY = 0) {

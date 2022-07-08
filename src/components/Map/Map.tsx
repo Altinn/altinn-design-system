@@ -79,6 +79,7 @@ export const Map = ({
           url={layer.url}
           attribution={layer.attribution}
           subdomains={layer.subdomains ? layer.subdomains : []}
+          opacity={readOnly ? 0.5 : 1.0}
         />
       ))}
       <AttributionControl prefix={false} />

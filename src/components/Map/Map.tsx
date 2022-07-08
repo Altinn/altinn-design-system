@@ -25,11 +25,11 @@ const DefaultZoom = 4;
 const DefaultMapLayers: MapLayer[] = [
   {
     url: 'https://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=europa_forenklet&zoom={z}&x={x}&y={y}',
-    attribution: 'Data © <a href="http://www.kartverket.no/">Kartverket</a>',
+    attribution: 'Data © <a href="https://www.kartverket.no/">Kartverket</a>',
   },
   {
     url: 'https://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=norgeskart_bakgrunn2&zoom={z}&x={x}&y={y}',
-    attribution: 'Data © <a href="http://www.kartverket.no/">Kartverket</a>',
+    attribution: 'Data © <a href="https://www.kartverket.no/">Kartverket</a>',
   },
 ];
 

@@ -107,7 +107,7 @@ KartverketTerrain.args = {
   layers: [
     {
       url: 'https://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=terreng_norgeskart&zoom={z}&x={x}&y={y}',
-      attribution: 'Data © <a href="http://www.kartverket.no/">Kartverket</a>',
+      attribution: 'Data © <a href="https://www.kartverket.no/">Kartverket</a>',
     },
   ],
 };
@@ -124,7 +124,7 @@ KartverketSea.args = {
   layers: [
     {
       url: 'https://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=sjokartraster&zoom={z}&x={x}&y={y}',
-      attribution: 'Data © <a href="http://www.kartverket.no/">Kartverket</a>',
+      attribution: 'Data © <a href="https://www.kartverket.no/">Kartverket</a>',
     },
   ],
 };
@@ -140,7 +140,7 @@ export const GoogleMaps = Template.bind({});
 GoogleMaps.args = {
   layers: [
     {
-      url: 'http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',
+      url: 'https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',
       subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
       attribution: '© Google Maps',
     },

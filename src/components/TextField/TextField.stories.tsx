@@ -4,7 +4,8 @@ import { config } from 'storybook-addon-designs';
 
 import { StoryPage } from '@sb/StoryPage';
 
-import { ReadOnlyVariant, TextField } from './TextField';
+import { TextField } from './TextField';
+import { ReadOnlyVariant } from './variants';
 
 const figmaLink =
   'https://www.figma.com/file/wnBveAG2ikUspFsQwM3GNE/Altinn-Studio-Apps?node-id=2090%3A6723';

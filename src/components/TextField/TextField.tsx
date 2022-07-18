@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React from 'react';
 import cn from 'classnames';
 import type {
   NumberFormatProps,
@@ -11,25 +11,8 @@ import '@altinn/figma-design-tokens/dist/tokens.css';
 
 import { ReactComponent as ErrorIcon } from './error.svg';
 import classes from './TextField.module.css';
-import { getVariants } from './variants';
-
-export enum InputVariant {
-  Default = 'default',
-  Error = 'error',
-  Disabled = 'disabled',
-  ReadonlyInfo = 'readonly-info',
-  ReadonlyConfirm = 'readonly-confirm',
-}
-
-export enum ReadOnlyVariant {
-  ReadonlyInfo = 'readonly-info',
-  ReadonlyConfirm = 'readonly-confirm',
-}
-
-export enum IconVariant {
-  None = 'none',
-  Error = 'error',
-}
+import type { ReadOnlyVariant } from './variants';
+import { getVariants, IconVariant } from './variants';
 
 export interface ITextFieldBaseProps {
   id: string;

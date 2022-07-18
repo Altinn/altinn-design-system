@@ -3,7 +3,8 @@ import React from 'react';
 import userEvent from '@testing-library/user-event';
 
 import type { ITextFieldProps } from './TextField';
-import { ReadOnlyVariant, TextField } from './TextField';
+import { TextField } from './TextField';
+import { ReadOnlyVariant } from './variants';
 
 const user = userEvent.setup();
 

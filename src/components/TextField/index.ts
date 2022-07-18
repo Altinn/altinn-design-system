@@ -1,1 +1,2 @@
-export { TextField, IconVariant, ReadOnlyVariant } from './TextField';
+export { IconVariant, ReadOnlyVariant } from './variants';
+export { TextField } from './TextField';

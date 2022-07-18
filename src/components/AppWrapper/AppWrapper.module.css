@@ -1,7 +1,7 @@
 @import 'https://altinncdn.no/fonts/altinn-din/altinn-din.css';
 
 html {
-  font-family: var(--font-family-default), sans-serif;
+  font-family: var(--font_family-default), sans-serif;
 }
 
 /* old design system dependency rules */

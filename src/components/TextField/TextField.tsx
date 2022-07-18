@@ -36,17 +36,18 @@ export interface ITextFieldProps extends TextFieldBaseProps {
 }
 
 const renderIcon = (variant: IconVariant) => {
-  switch (variant) {
-    case IconVariant.Error:
-      return (
-        <div className={cn(classes['input-wrapper__icon'])}>
-          <ErrorIcon
-            className={cn(classes['input-wrapper__icon--error'])}
-            data-testid='input-icon-error'
-          />
-        </div>
-      );
+  if (variant === IconVariant.Error) {
+    return (
+      <div className={cn(classes['input-wrapper__icon'])}>
+        <ErrorIcon
+          className={cn(classes['input-wrapper__icon--error'])}
+          data-testid='input-icon-error'
+        />
+      </div>
+    );
   }
+
+  return null;
 };
 
 const handleFormattedValueChange = (
@@ -73,18 +74,21 @@ export const TextField = ({
   formatting,
 }: ITextFieldProps) => {
   const { variant, iconVariant } = getVariants(readOnly, disabled, isValid);
+  const isReadOnly = Boolean(readOnly);
 
   const props = {
-    id: id,
-    value: value,
-    onBlur: onBlur,
-    readOnly: !!readOnly,
-    disabled: disabled,
-    required: required,
+    id,
+    value,
+    onBlur,
+    readOnly: isReadOnly,
+    disabled,
+    required,
     'aria-describedby': ariaDescribedBy,
-    'aria-readonly': !!readOnly,
+    'aria-readonly': isReadOnly,
     className: cn(classes['input-wrapper__field']),
-    style: { textAlign: formatting?.align },
+    style: {
+      textAlign: formatting?.align,
+    },
   };
 
   return (

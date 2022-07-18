@@ -14,7 +14,7 @@ import classes from './TextField.module.css';
 import type { ReadOnlyVariant } from './variants';
 import { getVariants, IconVariant } from './variants';
 
-export interface ITextFieldBaseProps {
+export interface TextFieldBaseProps {
   id: string;
   value?: string;
   onBlur?: (value: React.FocusEvent<HTMLInputElement>) => void;
@@ -26,13 +26,13 @@ export interface ITextFieldBaseProps {
   ariaDescribedBy?: string;
 }
 
-export interface ITextFieldFormatting {
+export interface TextFieldFormatting {
   number?: NumberFormatProps;
   align?: 'right' | 'center' | 'left';
 }
 
-export interface ITextFieldProps extends ITextFieldBaseProps {
-  formatting?: ITextFieldFormatting;
+export interface ITextFieldProps extends TextFieldBaseProps {
+  formatting?: TextFieldFormatting;
 }
 
 const renderIcon = (variant: IconVariant) => {

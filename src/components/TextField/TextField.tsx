@@ -52,20 +52,26 @@ export const TextField = ({
   value,
   onBlur,
   onChange,
-  isValid,
-  disabled,
-  readOnly,
-  required,
+  isValid = true,
+  disabled = false,
+  readOnly = false,
+  required = false,
   ariaDescribedBy,
   formatting,
 }: TextFieldProps) => {
   const { variant, iconVariant } = getVariant({ readOnly, disabled, isValid });
   const isReadOnly = Boolean(readOnly);
 
+  const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
+    if (readOnly === false && onBlur) {
+      onBlur(event);
+    }
+  };
+
   const props = {
     id,
     value,
-    onBlur,
+    onBlur: handleBlur,
     readOnly: isReadOnly,
     disabled,
     required,
@@ -91,7 +97,11 @@ export const TextField = ({
           {...formatting.number}
           data-testid={`${props.id}-formatted-number-${variant}`}
           onValueChange={(values, sourceInfo) => {
-            handleFormattedValueChange({ values, sourceInfo, onChange });
+            handleFormattedValueChange({
+              values,
+              sourceInfo,
+              onChange,
+            });
           }}
         />
       ) : (

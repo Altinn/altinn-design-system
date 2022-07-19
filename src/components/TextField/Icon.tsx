@@ -13,10 +13,7 @@ export const Icon = ({ variant }: IconProps) => {
   if (variant === IconVariant.Error) {
     return (
       <div className={cn(classes['input-wrapper__icon'])}>
-        <ErrorIcon
-          className={cn(classes['input-wrapper__icon--error'])}
-          data-testid='input-icon-error'
-        />
+        <ErrorIcon data-testid='input-icon-error' />
       </div>
     );
   }

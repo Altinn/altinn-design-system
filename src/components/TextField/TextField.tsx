@@ -71,7 +71,10 @@ export const TextField = ({
     required,
     'aria-describedby': ariaDescribedBy,
     'aria-readonly': isReadOnly,
-    className: cn(classes['input-wrapper__field']),
+    className: cn(
+      classes['input-wrapper__field'],
+      classes[`input-wrapper__field--${variant}`],
+    ),
     style: {
       textAlign: formatting?.align,
     },

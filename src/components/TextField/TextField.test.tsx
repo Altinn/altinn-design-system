@@ -2,14 +2,14 @@ import { render as renderRtl, screen, act } from '@testing-library/react';
 import React from 'react';
 import userEvent from '@testing-library/user-event';
 
-import type { ITextFieldProps } from './TextField';
+import type { TextFieldProps } from './TextField';
 import { TextField } from './TextField';
-import { ReadOnlyVariant } from './variants';
+import { ReadOnlyVariant } from './utils';
 
 const user = userEvent.setup();
 
 describe('TextField', () => {
-  it('should trigger onBlur event', async () => {
+  it('should trigger onBlur event when field loses focus', async () => {
     const handleChange = jest.fn();
     render({ onBlur: handleChange });
 
@@ -21,7 +21,7 @@ describe('TextField', () => {
     expect(handleChange).toHaveBeenCalledTimes(1);
   });
 
-  it('should trigger onChange event', async () => {
+  it('should trigger onChange event for each keystroke', async () => {
     const handleChange = jest.fn();
     render({ onChange: handleChange });
 
@@ -72,12 +72,12 @@ describe('TextField', () => {
     });
 
     it('should use the css class for readonly-confirm when readOnly is <readonly-confirm> and disabled is not specified', () => {
-      render({ readOnly: ReadOnlyVariant.ReadonlyConfirm });
+      render({ readOnly: ReadOnlyVariant.ReadOnlyConfirm });
       expect(screen.queryByTestId('id-readonly-confirm')).toBeInTheDocument();
     });
 
     it('should use the css class for readonly-info when readOnly is <readonly-info> and disabled is not specified', () => {
-      render({ readOnly: ReadOnlyVariant.ReadonlyInfo });
+      render({ readOnly: ReadOnlyVariant.ReadOnlyInfo });
       expect(screen.queryByTestId('id-readonly-info')).toBeInTheDocument();
     });
 
@@ -134,7 +134,7 @@ describe('TextField', () => {
   });
 });
 
-const render = (props: Partial<ITextFieldProps> = {}) => {
+const render = (props: Partial<TextFieldProps> = {}) => {
   const allProps = {
     id: 'id',
     onChange: jest.fn(),

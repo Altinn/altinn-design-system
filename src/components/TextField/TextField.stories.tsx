@@ -5,7 +5,7 @@ import { config } from 'storybook-addon-designs';
 import { StoryPage } from '@sb/StoryPage';
 
 import { TextField } from './TextField';
-import { ReadOnlyVariant } from './variants';
+import { ReadOnlyVariant } from './utils';
 
 const figmaLink =
   'https://www.figma.com/file/wnBveAG2ikUspFsQwM3GNE/Altinn-Studio-Apps?node-id=2090%3A6723';
@@ -76,20 +76,20 @@ ReadOnlyInfo.args = {
 ReadOnlyInfo.parameters = {
   docs: {
     description: {
-      story: 'Input field as readonly, info.',
+      story: 'Input field as readonly-info.',
     },
   },
 };
 
 export const ReadOnlyConfirm = Template.bind({});
 ReadOnlyConfirm.args = {
-  readOnly: ReadOnlyVariant.ReadonlyConfirm,
+  readOnly: ReadOnlyVariant.ReadOnlyConfirm,
   value: 'Some text',
 };
 ReadOnlyConfirm.parameters = {
   docs: {
     description: {
-      story: 'Input field as readonly, confirm.',
+      story: 'Input field as readonly-confirm.',
     },
   },
 };

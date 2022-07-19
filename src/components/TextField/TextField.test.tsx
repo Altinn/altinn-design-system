@@ -1,4 +1,4 @@
-import { render as renderRtl, screen } from '@testing-library/react';
+import { render as renderRtl, screen, act } from '@testing-library/react';
 import React from 'react';
 import userEvent from '@testing-library/user-event';
 
@@ -92,23 +92,28 @@ describe('TextField', () => {
     });
 
     it('should trigger onBlur event as a numberformat input', async () => {
-      const fn = jest.fn();
-      render({ onBlur: fn, formatting: { number: { prefix: '$' } } });
+      const handleChange = jest.fn();
+      render({ onBlur: handleChange, formatting: { number: { prefix: '$' } } });
       const element = screen.getByRole('textbox');
       await user.click(element);
       expect(element).toHaveFocus();
       await user.tab();
-      expect(fn).toHaveBeenCalledTimes(1);
+      expect(handleChange).toHaveBeenCalledTimes(1);
     });
 
     it('should trigger onChange event once per change as a numberformat input', async () => {
-      const fn = jest.fn();
-      render({ onChange: fn, formatting: { number: { prefix: '$' } } });
+      const handleChange = jest.fn();
+      render({
+        onChange: handleChange,
+        formatting: { number: { prefix: '$' } },
+      });
       const element = screen.getByRole('textbox');
       await user.click(element);
       expect(element).toHaveFocus();
-      await user.keyboard('1234');
-      expect(fn).toHaveBeenCalledTimes(4);
+      await act(async () => {
+        await user.keyboard('1234');
+      });
+      expect(handleChange).toHaveBeenCalledTimes(4);
     });
 
     it('should trigger onChange event and update with unformatted value', async () => {
@@ -123,7 +128,11 @@ describe('TextField', () => {
       const element = screen.getByRole('textbox');
       await user.click(element);
       expect(element).toHaveFocus();
-      await user.keyboard('1234');
+
+      await act(async () => {
+        await user.keyboard('1234');
+      });
+
       expect(screen.getByDisplayValue('$1 234')).toBeInTheDocument();
       expect(testValue).toBe('1234');
     });

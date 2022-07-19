@@ -7,12 +7,10 @@ import type {
 } from 'react-number-format';
 import NumberFormat from 'react-number-format';
 
-import '@altinn/figma-design-tokens/dist/tokens.css';
-
-import { ReactComponent as ErrorIcon } from './error.svg';
-import classes from './TextField.module.css';
 import type { ReadOnlyVariant } from './variants';
 import { getVariants, IconVariant } from './variants';
+import { ReactComponent as ErrorIcon } from './error.svg';
+import classes from './TextField.module.css';
 
 export interface TextFieldBaseProps {
   id: string;
@@ -35,7 +33,11 @@ export interface ITextFieldProps extends TextFieldBaseProps {
   formatting?: TextFieldFormatting;
 }
 
-const renderIcon = (variant: IconVariant) => {
+interface IconProps {
+  variant: IconVariant;
+}
+
+const Icon = ({ variant }: IconProps) => {
   if (variant === IconVariant.Error) {
     return (
       <div className={cn(classes['input-wrapper__icon'])}>
@@ -50,11 +52,17 @@ const renderIcon = (variant: IconVariant) => {
   return null;
 };
 
-const handleFormattedValueChange = (
-  values: NumberFormatValues,
-  sourceInfo: SourceInfo,
-  onChange?: (value: React.ChangeEvent<HTMLInputElement>) => void,
-) => {
+interface HandleFormattedValueChangeProps {
+  values: NumberFormatValues;
+  sourceInfo: SourceInfo;
+  onChange?: (value: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+const handleFormattedValueChange = ({
+  values,
+  sourceInfo,
+  onChange,
+}: HandleFormattedValueChangeProps) => {
   if (onChange) {
     sourceInfo.event.target.value = values.value;
     onChange(sourceInfo.event);
@@ -98,14 +106,14 @@ export const TextField = ({
         classes[`input-wrapper--${variant}`],
       )}
     >
-      {renderIcon(iconVariant)}
+      <Icon variant={iconVariant} />
       {formatting?.number ? (
         <NumberFormat
           {...props}
           {...formatting.number}
           data-testid={`${props.id}-formatted-number-${variant}`}
           onValueChange={(values, sourceInfo) => {
-            handleFormattedValueChange(values, sourceInfo, onChange);
+            handleFormattedValueChange({ values, sourceInfo, onChange });
           }}
         />
       ) : (

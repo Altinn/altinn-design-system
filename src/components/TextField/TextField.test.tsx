@@ -10,23 +10,27 @@ const user = userEvent.setup();
 
 describe('TextField', () => {
   it('should trigger onBlur event', async () => {
-    const fn = jest.fn();
-    render({ onBlur: fn });
+    const handleChange = jest.fn();
+    render({ onBlur: handleChange });
+
     const element = screen.getByRole('textbox');
     await user.click(element);
     expect(element).toHaveFocus();
     await user.tab();
-    expect(fn).toHaveBeenCalledTimes(1);
+
+    expect(handleChange).toHaveBeenCalledTimes(1);
   });
 
   it('should trigger onChange event', async () => {
-    const fn = jest.fn();
-    render({ onChange: fn });
+    const handleChange = jest.fn();
+    render({ onChange: handleChange });
+
     const element = screen.getByRole('textbox');
     await user.click(element);
     expect(element).toHaveFocus();
     await user.keyboard('test');
-    expect(fn).toHaveBeenCalledTimes(4);
+
+    expect(handleChange).toHaveBeenCalledTimes(4);
   });
 
   describe('error-icon', () => {
@@ -91,40 +95,30 @@ describe('TextField', () => {
       ).toBeInTheDocument();
     });
 
-    it('should trigger onBlur event as a numberformat input', async () => {
+    it('should trigger onBlur event when field loses focus', async () => {
       const handleChange = jest.fn();
       render({ onBlur: handleChange, formatting: { number: { prefix: '$' } } });
+
       const element = screen.getByRole('textbox');
       await user.click(element);
       expect(element).toHaveFocus();
       await user.tab();
+
       expect(handleChange).toHaveBeenCalledTimes(1);
     });
 
-    it('should trigger onChange event once per change as a numberformat input', async () => {
-      const handleChange = jest.fn();
+    it('should trigger onChange for every keystroke, and the event value should not contain formatting', async () => {
+      let testValue;
+      const handleChange = jest.fn(
+        (event: React.ChangeEvent<HTMLInputElement>) => {
+          testValue = event.target.value;
+        },
+      );
       render({
         onChange: handleChange,
-        formatting: { number: { prefix: '$' } },
-      });
-      const element = screen.getByRole('textbox');
-      await user.click(element);
-      expect(element).toHaveFocus();
-      await act(async () => {
-        await user.keyboard('1234');
-      });
-      expect(handleChange).toHaveBeenCalledTimes(4);
-    });
-
-    it('should trigger onChange event and update with unformatted value', async () => {
-      let testValue;
-      const onChange = (obj: any) => {
-        testValue = obj.target.value;
-      };
-      render({
-        onChange: onChange,
         formatting: { number: { prefix: '$', thousandSeparator: ' ' } },
       });
+
       const element = screen.getByRole('textbox');
       await user.click(element);
       expect(element).toHaveFocus();
@@ -134,6 +128,7 @@ describe('TextField', () => {
       });
 
       expect(screen.getByDisplayValue('$1 234')).toBeInTheDocument();
+      expect(handleChange).toHaveBeenCalledTimes(4);
       expect(testValue).toBe('1234');
     });
   });
@@ -142,6 +137,7 @@ describe('TextField', () => {
 const render = (props: Partial<ITextFieldProps> = {}) => {
   const allProps = {
     id: 'id',
+    onChange: jest.fn(),
     ...props,
   };
 

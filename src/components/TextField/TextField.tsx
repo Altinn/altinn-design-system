@@ -30,21 +30,16 @@ export interface TextFieldFormatting {
   align?: 'right' | 'center' | 'left';
 }
 
-interface HandleFormattedValueChangeProps {
+interface ReplaceTargetValueWithUnformattedValueProps {
   values: NumberFormatValues;
   sourceInfo: SourceInfo;
-  onChange?: (value: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const handleFormattedValueChange = ({
+const replaceTargetValueWithUnformattedValue = ({
   values,
   sourceInfo,
-  onChange,
-}: HandleFormattedValueChangeProps) => {
-  if (onChange) {
-    sourceInfo.event.target.value = values.value;
-    onChange(sourceInfo.event);
-  }
+}: ReplaceTargetValueWithUnformattedValueProps) => {
+  sourceInfo.event.target.value = values.value;
 };
 
 export const TextField = ({
@@ -66,6 +61,17 @@ export const TextField = ({
     if (readOnly === false && onBlur) {
       onBlur(event);
     }
+  };
+
+  const handleNumberFormatChange = (
+    values: NumberFormatValues,
+    sourceInfo: SourceInfo,
+  ) => {
+    replaceTargetValueWithUnformattedValue({
+      values,
+      sourceInfo,
+    });
+    onChange(sourceInfo.event);
   };
 
   const props = {
@@ -96,13 +102,7 @@ export const TextField = ({
           {...props}
           {...formatting.number}
           data-testid={`${props.id}-formatted-number-${variant}`}
-          onValueChange={(values, sourceInfo) => {
-            handleFormattedValueChange({
-              values,
-              sourceInfo,
-              onChange,
-            });
-          }}
+          onValueChange={handleNumberFormatChange}
         />
       ) : (
         <input

@@ -24,7 +24,6 @@ export const Button = ({
 }: PropsWithChildren<ButtonProps>) => {
   return (
     <button
-      data-testid={`${variant}-button`}
       className={cn(classes.button, classes[`button--${variant}`])}
       type={type}
       {...restHTMLProps}

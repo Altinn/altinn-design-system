@@ -95,6 +95,15 @@ describe('Panel', () => {
       ).not.toBeInTheDocument();
     });
 
+    it('should show info icon when variant is error', () => {
+      render({ variant: PanelVariant.Error });
+      expect(screen.getByTestId('panel-icon-wrapper')).toBeInTheDocument();
+      expect(screen.getByTestId('panel-icon-info')).toBeInTheDocument();
+      expect(
+        screen.queryByTestId('panel-icon-success'),
+      ).not.toBeInTheDocument();
+    });
+
     it('should show success icon when variant is success', () => {
       render({ variant: PanelVariant.Success });
       expect(screen.getByTestId('panel-icon-wrapper')).toBeInTheDocument();

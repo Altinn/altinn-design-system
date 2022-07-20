@@ -35,3 +35,10 @@ jobs:
 
       - name: run tests
         run: yarn test --coverage
+
+      - name: coverage
+        uses: codecov/codecov-action@v3.1.0
+        with:
+          directory: ./coverage
+          fail_ci_if_error: true
+          dry_run: true

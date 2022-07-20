@@ -45,13 +45,28 @@ const Template: ComponentStory<typeof TextField> = (args) => (
 );
 
 export const Default = Template.bind({});
-Default.args = {
-  isValid: true,
-};
+Default.args = {};
 Default.parameters = {
   docs: {
     description: {
       story: 'Regular input field.',
+    },
+  },
+};
+
+export const NumberInput = Template.bind({});
+NumberInput.args = {
+  formatting: {
+    number: {
+      thousandSeparator: ' ',
+      prefix: 'NOK ',
+    },
+  },
+};
+NumberInput.parameters = {
+  docs: {
+    description: {
+      story: 'Number input field.',
     },
   },
 };

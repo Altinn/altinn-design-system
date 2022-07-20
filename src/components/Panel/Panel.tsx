@@ -33,6 +33,7 @@ export interface PanelProps extends UseMobileLayoutProps {
 }
 
 const defaultRenderIcon = ({ size, variant }: RenderIconProps) => {
+  // TODO: Add more relevant icons for error (and warning?)
   switch (variant) {
     case PanelVariant.Info:
     case PanelVariant.Error:

@@ -82,8 +82,8 @@
 
 .panel__content-wrapper--error,
 .panel__pointer--error {
-  background-color: #F9CAD3;
-  /*background-color: var(--component-panel-color-background-error);*/
+  /* TODO: Replace with specific panel color */
+  background-color: var(--colors-red-300);
 }
 
 .panel__content-wrapper {

@@ -82,7 +82,6 @@
 
 .panel__content-wrapper--error,
 .panel__pointer--error {
-  /* TODO: Replace with specific panel color */
   background-color: var(--colors-red-300);
 }
 

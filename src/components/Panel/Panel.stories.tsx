@@ -38,6 +38,18 @@ export default {
 
 const Template: ComponentStory<typeof Panel> = (args) => <Panel {...args} />;
 
+export const Success = Template.bind({});
+Success.args = {
+  variant: PanelVariant.Success,
+};
+Success.parameters = {
+  docs: {
+    description: {
+      story: 'Success beskrivelse',
+    },
+  },
+};
+
 export const Info = Template.bind({});
 Info.parameters = {
   docs: {
@@ -59,14 +71,14 @@ Warning.parameters = {
   },
 };
 
-export const Success = Template.bind({});
-Success.args = {
-  variant: PanelVariant.Success,
+export const Error = Template.bind({});
+Error.args = {
+  variant: PanelVariant.Error,
 };
-Success.parameters = {
+Error.parameters = {
   docs: {
     description: {
-      story: 'Success beskrivelse',
+      story: 'Error beskrivelse',
     },
   },
 };

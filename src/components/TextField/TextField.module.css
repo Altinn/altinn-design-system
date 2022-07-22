@@ -1,27 +1,26 @@
 .input-wrapper {
   --background: var(--component-input-color-background-default);
-  --icon-background: transparent;
-  --border-width: var(--component-input-border_width-default);
   --border-color: var(--component-input-color-border-default);
-  --margin: var(--component-input-border_width-default);
+  --outline-color: transparent;
+  --icon-background: transparent;
   background-color: var(--background);
-  border-width: var(--border-width);
+  border-width: var(--component-input-border_width-default);
   border-style: solid;
   box-sizing: border-box;
   display: flex;
   align-items: stretch;
   border-color: var(--border-color);
-  margin: var(--margin);
 }
 
 .input-wrapper:focus-within {
-  outline: none;
+  outline-style: solid;
+  outline-width: var(--component-input-border_width-default);
+  outline-color: var(--outline-color);
 }
 
 .input-wrapper--default:focus-within {
-  --margin: 0;
-  --border-width: var(--component-input-border_width-focus);
   --border-color: var(--component-input-color-border-focus);
+  --outline-color: var(--border-color);
 }
 
 .input-wrapper--default:hover {
@@ -34,10 +33,9 @@
 }
 
 .input-wrapper--error:focus-within {
-  --margin: 0;
-  --border-width: var(--component-input-border_width-focus);
   --icon-background: var(--component-input-error-color-border-hover);
   --border-color: var(--component-input-error-color-border-hover);
+  --outline-color: var(--border-color);
 }
 
 .input-wrapper--error:hover {

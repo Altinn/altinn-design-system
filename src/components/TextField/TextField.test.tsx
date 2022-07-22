@@ -1,4 +1,10 @@
-import { render as renderRtl, screen, act } from '@testing-library/react';
+import {
+  render as renderRtl,
+  screen,
+  act,
+  createEvent,
+  fireEvent,
+} from '@testing-library/react';
 import React from 'react';
 import userEvent from '@testing-library/user-event';
 
@@ -9,16 +15,22 @@ import { ReadOnlyVariant } from './utils';
 const user = userEvent.setup();
 
 describe('TextField', () => {
-  it('should trigger onBlur event when field loses focus', async () => {
-    const handleChange = jest.fn();
-    render({ onBlur: handleChange });
+  it('should trigger onPaste when pasting into input', () => {
+    const handlePaste = jest.fn();
+    render({
+      onPaste: handlePaste,
+    });
 
     const element = screen.getByRole('textbox');
-    await user.click(element);
-    expect(element).toHaveFocus();
-    await user.tab();
+    const paste = createEvent.paste(element, {
+      clipboardData: {
+        getData: () => 'hello world',
+      },
+    });
 
-    expect(handleChange).toHaveBeenCalledTimes(1);
+    fireEvent(element, paste);
+
+    expect(handlePaste).toHaveBeenCalledTimes(1);
   });
 
   it('should not trigger onBlur event when field loses focus and field is readonly', async () => {
@@ -100,6 +112,25 @@ describe('TextField', () => {
   });
 
   describe('number-format-input', () => {
+    it('should trigger onPaste when pasting into input', () => {
+      const handlePaste = jest.fn();
+      render({
+        onPaste: handlePaste,
+        formatting: { number: { prefix: '$' } },
+      });
+
+      const element = screen.getByRole('textbox');
+      const paste = createEvent.paste(element, {
+        clipboardData: {
+          getData: () => '123456',
+        },
+      });
+
+      fireEvent(element, paste);
+
+      expect(handlePaste).toHaveBeenCalledTimes(1);
+    });
+
     it('should render as a NumberFormat element if format.number is specified', () => {
       render({ isValid: true, formatting: { number: { prefix: '$' } } });
       expect(

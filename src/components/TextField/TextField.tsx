@@ -16,6 +16,7 @@ export interface TextFieldProps {
   id: string;
   onChange: (value: React.ChangeEvent<HTMLInputElement>) => void;
   onBlur?: (value: React.FocusEvent<HTMLInputElement>) => void;
+  onPaste?: (value: React.ClipboardEvent<HTMLInputElement>) => void;
   value?: string;
   disabled?: boolean;
   isValid?: boolean;
@@ -47,6 +48,7 @@ export const TextField = ({
   value,
   onBlur,
   onChange,
+  onPaste,
   isValid = true,
   disabled = false,
   readOnly = false,
@@ -74,10 +76,11 @@ export const TextField = ({
     onChange(sourceInfo.event);
   };
 
-  const props = {
+  const commonProps = {
     id,
     value,
     onBlur: handleBlur,
+    onPaste,
     readOnly: isReadOnly,
     disabled,
     required,
@@ -99,15 +102,15 @@ export const TextField = ({
       <Icon variant={iconVariant} />
       {formatting?.number ? (
         <NumberFormat
-          {...props}
+          {...commonProps}
           {...formatting.number}
-          data-testid={`${props.id}-formatted-number-${variant}`}
+          data-testid={`${id}-formatted-number-${variant}`}
           onValueChange={handleNumberFormatChange}
         />
       ) : (
         <input
-          {...props}
-          data-testid={`${props.id}-${variant}`}
+          {...commonProps}
+          data-testid={`${id}-${variant}`}
           onChange={onChange}
         />
       )}

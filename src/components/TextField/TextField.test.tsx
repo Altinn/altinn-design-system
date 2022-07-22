@@ -33,16 +33,16 @@ describe('TextField', () => {
     expect(handlePaste).toHaveBeenCalledTimes(1);
   });
 
-  it('should not trigger onBlur event when field loses focus and field is readonly', async () => {
+  it('should trigger onBlur event when field loses focus', async () => {
     const handleChange = jest.fn();
-    render({ onBlur: handleChange, readOnly: true });
+    render({ onBlur: handleChange });
 
     const element = screen.getByRole('textbox');
     await user.click(element);
     expect(element).toHaveFocus();
     await user.tab();
 
-    expect(handleChange).not.toHaveBeenCalled();
+    expect(handleChange).toHaveBeenCalledTimes(1);
   });
 
   it('should trigger onChange event for each keystroke', async () => {
@@ -148,22 +148,6 @@ describe('TextField', () => {
       await user.tab();
 
       expect(handleChange).toHaveBeenCalledTimes(1);
-    });
-
-    it('should not rigger onBlur event when field loses focus and field is readonly', async () => {
-      const handleChange = jest.fn();
-      render({
-        onBlur: handleChange,
-        readOnly: true,
-        formatting: { number: { prefix: '$' } },
-      });
-
-      const element = screen.getByRole('textbox');
-      await user.click(element);
-      expect(element).toHaveFocus();
-      await user.tab();
-
-      expect(handleChange).not.toHaveBeenCalled();
     });
 
     it('should trigger onChange for every keystroke, and the event value should not contain formatting', async () => {

@@ -59,12 +59,6 @@ export const TextField = ({
   const { variant, iconVariant } = getVariant({ readOnly, disabled, isValid });
   const isReadOnly = Boolean(readOnly);
 
-  const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
-    if (readOnly === false && onBlur) {
-      onBlur(event);
-    }
-  };
-
   const handleNumberFormatChange = (
     values: NumberFormatValues,
     sourceInfo: SourceInfo,
@@ -79,7 +73,7 @@ export const TextField = ({
   const commonProps = {
     id,
     value,
-    onBlur: handleBlur,
+    onBlur,
     onPaste,
     readOnly: isReadOnly,
     disabled,

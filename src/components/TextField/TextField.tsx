@@ -12,16 +12,14 @@ import { getVariant } from './utils';
 import { Icon } from './Icon';
 import classes from './TextField.module.css';
 
-export interface TextFieldProps {
-  id: string;
-  onChange: (value: React.ChangeEvent<HTMLInputElement>) => void;
-  onBlur?: (value: React.FocusEvent<HTMLInputElement>) => void;
-  onPaste?: (value: React.ClipboardEvent<HTMLInputElement>) => void;
+export interface TextFieldProps
+  extends Omit<
+    React.InputHTMLAttributes<HTMLInputElement>,
+    'readOnly' | 'value'
+  > {
   value?: string;
-  disabled?: boolean;
   isValid?: boolean;
   readOnly?: boolean | ReadOnlyVariant;
-  required?: boolean;
   ariaDescribedBy?: string;
   formatting?: TextFieldFormatting;
 }
@@ -46,8 +44,8 @@ const replaceTargetValueWithUnformattedValue = ({
 export const TextField = ({
   id,
   value,
-  onBlur,
   onChange,
+  onBlur,
   onPaste,
   isValid = true,
   disabled = false,
@@ -55,6 +53,7 @@ export const TextField = ({
   required = false,
   ariaDescribedBy,
   formatting,
+  ...rest
 }: TextFieldProps) => {
   const { variant, iconVariant } = getVariant({ readOnly, disabled, isValid });
   const isReadOnly = Boolean(readOnly);
@@ -67,7 +66,7 @@ export const TextField = ({
       values,
       sourceInfo,
     });
-    onChange(sourceInfo.event);
+    onChange && onChange(sourceInfo.event);
   };
 
   const commonProps = {
@@ -103,6 +102,7 @@ export const TextField = ({
         />
       ) : (
         <input
+          {...rest}
           {...commonProps}
           data-testid={`${id}-${variant}`}
           onChange={onChange}

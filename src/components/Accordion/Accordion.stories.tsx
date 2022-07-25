@@ -51,12 +51,7 @@ const Template: ComponentStory<typeof Accordion> = () => {
   };
 
   const AccordionExampleContent =
-    'Accordion content (No preset top spacing, enabling full customization).';
-
-  const HeaderId1 = 'accordion-header-1';
-  const ContentId1 = 'accordion-content-1';
-  const HeaderId2 = 'accordion-header-2';
-  const ContentId2 = 'accordion-content-2';
+    'Accordion-innhold uten css for å tilrettelegge for selvalgt styling';
 
   const ActionButton = <Button>Separat funksjonsknapp</Button>;
   return (

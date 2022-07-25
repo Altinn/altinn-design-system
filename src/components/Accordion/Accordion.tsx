@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useId } from 'react';
 
 import type { ClickHandler } from './Context';
 import { AccordionContext } from './Context';
@@ -8,17 +8,11 @@ export interface AccordionProps {
   children?: React.ReactNode;
   onClick: ClickHandler;
   open: boolean;
-  headerId: string;
-  contentId: string;
 }
 
-export const Accordion = ({
-  children,
-  open,
-  onClick,
-  headerId,
-  contentId,
-}: AccordionProps) => {
+export const Accordion = ({ children, open, onClick }: AccordionProps) => {
+  const headerId = useId();
+  const contentId = useId();
   return (
     <div className={classes['accordion']}>
       <AccordionContext.Provider

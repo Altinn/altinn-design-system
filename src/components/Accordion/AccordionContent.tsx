@@ -4,16 +4,10 @@ import { useAccordionContext } from './Context';
 
 export interface AccordionContentProps {
   children?: React.ReactNode;
-  contentId: string;
-  headerId: string;
 }
 
-export const AccordionContent = ({
-  children,
-  contentId,
-  headerId,
-}: AccordionContentProps) => {
-  const { open } = useAccordionContext();
+export const AccordionContent = ({ children }: AccordionContentProps) => {
+  const { open, contentId, headerId } = useAccordionContext();
 
   return (
     <div>

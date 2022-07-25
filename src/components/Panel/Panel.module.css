@@ -6,8 +6,8 @@
     --panel-content-gap: var(--component-panel-space-gap-xs);
     --panel-pointer-width: calc(var(--component-panel-size-icon-xs) / 2);
     --panel-pointer-height: calc(var(--panel-pointer-width) / 2);
-    --panel-body-font-size: var(--component-panel-font-size-body-xs);
-    --panel-header-font-size: var(--component-panel-font-size-header-xs);
+    --panel-body-font_size: var(--component-panel-font_size-body-xs);
+    --panel-header-font_size: var(--component-panel-font_size-header-xs);
   }
 }
 
@@ -25,24 +25,24 @@
 /* breakpoints-md */
 @media only screen and (min-width: 768px) {
   .panel:not(.panel--mobile-layout) {
-    --panel-body-font-size: var(--component-panel-font-size-body-md);
-    --panel-header-font-size: var(--component-panel-font-size-header-md);
+    --panel-body-font_size: var(--component-panel-font_size-body-md);
+    --panel-header-font_size: var(--component-panel-font_size-header-md);
   }
 }
 
 /* breakpoints-lg */
 @media only screen and (min-width: 960px) {
   .panel:not(.panel--mobile-layout) {
-    --panel-body-font-size: var(--component-panel-font-size-body-lg);
-    --panel-header-font-size: var(--component-panel-font-size-header-lg);
+    --panel-body-font_size: var(--component-panel-font_size-body-lg);
+    --panel-header-font_size: var(--component-panel-font_size-header-lg);
   }
 }
 
 /* breakpoints-xl */
 @media only screen and (min-width: 1200px) {
   .panel:not(.panel--mobile-layout) {
-    --panel-body-font-size: var(--component-panel-font-size-body-xl);
-    --panel-header-font-size: var(--component-panel-font-size-header-xl);
+    --panel-body-font_size: var(--component-panel-font_size-body-xl);
+    --panel-header-font_size: var(--component-panel-font_size-header-xl);
   }
 }
 
@@ -80,6 +80,11 @@
   background-color: var(--component-panel-color-background-warning);
 }
 
+.panel__content-wrapper--error,
+.panel__pointer--error {
+  background-color: var(--colors-red-300);
+}
+
 .panel__content-wrapper {
   display: flex;
   gap: var(--panel-content-gap);
@@ -94,15 +99,15 @@
 .panel__content {
   display: flex;
   flex-direction: column;
-  gap: var(--component-panel-space-text-group-gap-xs);
+  gap: var(--component-panel-space-text_group-gap-xs);
 }
 
 .panel__header {
   margin: 0;
-  font-size: var(--panel-header-font-size);
-  font-weight: var(--component-panel-font-weight-heading);
+  font-size: var(--panel-header-font_size);
+  font-weight: var(--component-panel-font_weight-heading);
 }
 
 .panel__body {
-  font-size: var(--panel-body-font-size);
+  font-size: var(--panel-body-font_size);
 }

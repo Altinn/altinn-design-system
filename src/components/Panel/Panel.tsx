@@ -9,9 +9,10 @@ import { ReactComponent as SuccessIcon } from './success.svg';
 import classes from './Panel.module.css';
 
 export enum PanelVariant {
+  Success = 'success',
   Info = 'info',
   Warning = 'warning',
-  Success = 'success',
+  Error = 'error',
 }
 
 interface RenderIconProps {
@@ -34,6 +35,7 @@ export interface PanelProps extends UseMobileLayoutProps {
 const defaultRenderIcon = ({ size, variant }: RenderIconProps) => {
   switch (variant) {
     case PanelVariant.Info:
+    case PanelVariant.Error:
     case PanelVariant.Warning:
       return (
         <InfoIcon

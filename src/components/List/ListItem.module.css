@@ -5,6 +5,5 @@
     border-bottom-color: var(--component-list_item-border_bottom_color);
     border-bottom-style: var(--component-list_item-border-bottom-style);
     border-bottom-width: var(--component-list_item-border-bottom-width);
-    min-height: 4.5rem;
     display: block;
 }

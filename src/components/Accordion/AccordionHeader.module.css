@@ -1,0 +1,55 @@
+.accordion-header {
+  --component-accordion_header-border_top_style: solid;
+  --component-accordion_header-border_top_color: var(--colors-neutral-200);
+  --component-accordion_header-border_top_width: var(--border-width-thin);
+  --component-accordion_header-color-background: var(--colors-neutral-000);
+  display: flex;
+  border-top-width: var(--component-accordion_header-border_top_width);
+  border-top-style: var(--component-accordion_header-border_top_style);
+  border-top-color: var(--component-accordion_header-border_top_color);
+  background-color: var(--component-accordion_header-color-background);
+}
+
+.accordion-header__title {
+  --component-accordion_header_title-spacing-margin_left: 2.5rem;
+  --component-accordion_header_title-border_top_style: none;
+  --component-accordion_header_title-border_bottom_style: none;
+  --component-accordion_header_title-border_right_style: none;
+  --component-accordion_header_title-border_left_style: none;
+  --component-accordion_header_title-font_size: var(--font-size-300);
+  --component-accordion_header_title-font_weight: var(
+    --component-panel-weight-heading
+  );
+  --component-accordion_header_title-color-background: none;
+  font-family: inherit;
+  flex: 1 1 auto;
+  border-top-style: var(--component-accordion_header_title-border_top_style);
+  border-bottom-style: var(
+    --component-accordion_header_title-border_bottom_style
+  );
+  border-left-style: var(--component-accordion_header_title-border_left_style);
+  border-right-style: var(
+    --component-accordion_header_title-border_right_style
+  );
+  background-color: var(--component-accordion_header_title-color-background);
+  text-align: var(--component-accordion_header_title-text-align);
+  margin-left: var(--component-accordion_header_title-margin-left);
+  font-size: var(--component-accordion_header_title-font_size);
+  font-weight: var(--component-accordion_header_title-font_weight);
+  margin-left: var(--component-accordion_header_title-spacing-margin_left);
+}
+
+.accordion-header__actions {
+  margin-top: 0.3rem;
+}
+
+.accordion-header__icon {
+  padding-top: 1rem;
+  margin-left: 2.5rem;
+}
+
+.accordion-header__icon--opened {
+  transform: rotate(90deg);
+  margin-top: 0.3rem;
+  margin-left: 3rem;
+}

@@ -1,5 +1,5 @@
-.list{
-  --component-list-border_top_color: #BCC7CC;
+.list {
+  --component-list-border_top_color: #bcc7cc;
   --component-list-border_top_style: solid;
   --component-list-border_top_width: 0.1rem;
   border-top-color: var(--component-list-border_top_color);

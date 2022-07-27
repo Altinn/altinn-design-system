@@ -1,7 +1,7 @@
 .card-content--profile-primary-card {
-  --component-primary_card_content_content-background_color: white;
+  --component-profile_primary_card_content-background_color: white;
   background-color: var(
-    --component-primary_card_content_content-background_color
+    --component-profile_primary_card_content-background_color
   );
   display: flex;
 }

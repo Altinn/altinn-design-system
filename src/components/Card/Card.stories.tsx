@@ -5,6 +5,10 @@ import { config } from 'storybook-addon-designs';
 import { StoryPage } from '@sb/StoryPage';
 
 import { Card } from './Card';
+import { CardContent } from './CardContent';
+import { CardHeader } from './CardHeader';
+import { CardVariant } from './Context';
+import classes from './Card.stories.module.css';
 
 const figmaLink = ''; // TODO: Add figma link
 
@@ -35,9 +39,46 @@ export default {
   },
 } as ComponentMeta<typeof Card>;
 
-const Template: ComponentStory<typeof Card> = (args) => (
-  <Card {...args} />
-);
+const Template: ComponentStory<typeof Card> = () => {
+  return (
+    <div className={classes['showcase-container']}>
+      <div className={classes['card-container']}>
+        <Card cardVariant={CardVariant.ProfilePrimaryCard}>
+          <CardHeader>
+            <span className={classes['card-header__text']}>
+              Primary card på profilside
+            </span>
+          </CardHeader>
+          <CardContent>
+            <div className={classes['card-content']}>
+              CardHeader med marineblå bakgrunn og cardContent med hvit bakgrunn
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+      <div className={classes['card-container']}>
+        <Card cardVariant={CardVariant.Unstyled}>
+          <CardHeader>
+            <div className={classes['card-header--unstyled']}>
+              <span className={classes['card-header__text']}>
+                Unstyled card for custum styling
+              </span>
+            </div>
+          </CardHeader>
+          <CardContent>
+            <div
+              className={
+                (classes['card-content'], classes['card-content--unstyled'])
+              }
+            >
+              CardHeader og CardContents stylet kun med children
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  );
+};
 
 export const Example = Template.bind({});
 Example.args = {

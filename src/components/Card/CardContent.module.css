@@ -1,0 +1,11 @@
+.card-content--profile-primary-card {
+  --component-primary_card_content_content-background_color: white;
+  background-color: var(
+    --component-primary_card_content_content-background_color
+  );
+  display: flex;
+}
+
+.card-content--unstyled {
+  display: flex;
+}

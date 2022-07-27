@@ -1,12 +1,20 @@
 import React from 'react';
-import cn from 'classnames';
 
+import type { CardVariant } from './Context';
+import { CardContext } from './Context';
 import classes from './Card.module.css';
 
 export interface CardProps {
-  greeting?: string; // TODO: add props
+  children?: React.ReactNode;
+  cardVariant: CardVariant;
 }
 
-export const Card = ({ greeting }: CardProps) => {
-  return <div></div>;
+export const Card = ({ children, cardVariant }: CardProps) => {
+  return (
+    <div className={classes['card']}>
+      <CardContext.Provider value={{ cardVariant }}>
+        {children}
+      </CardContext.Provider>
+    </div>
+  );
 };

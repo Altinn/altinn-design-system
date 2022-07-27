@@ -1,3 +1,4 @@
-Card {
-  /* TODO_ add some style */
+.card {
+  height: 100%;
+  width: 100%;
 }

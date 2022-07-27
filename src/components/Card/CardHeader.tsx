@@ -1,19 +1,16 @@
 import React from 'react';
-import cn from 'classnames';
 
+import { useCardContext } from './Context';
 import classes from './CardHeader.module.css';
 
-export enum Heights {
-  Small,
-  Medium,
-  Big,
-}
-
 export interface CardHeaderProps {
-  children?: string;
-  height?: Heights;
+  children?: React.ReactNode;
 }
 
-export const Card = ({ children }: CardHeaderProps) => {
-  return <div>{children}</div>;
+export const CardHeader = ({ children }: CardHeaderProps) => {
+  const { cardVariant } = useCardContext();
+
+  return (
+    <div className={classes[`card-header--${cardVariant}`]}>{children}</div>
+  );
 };

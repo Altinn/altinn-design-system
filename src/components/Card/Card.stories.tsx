@@ -61,7 +61,7 @@ const Template: ComponentStory<typeof Card> = () => {
           <CardHeader>
             <div className={classes['card-header--unstyled']}>
               <span className={classes['card-header__text']}>
-                Unstyled card for custum styling
+                Unstyled card for custom styling
               </span>
             </div>
           </CardHeader>

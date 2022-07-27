@@ -46,7 +46,7 @@ const Template: ComponentStory<typeof Card> = () => {
         <Card cardVariant={CardVariant.ProfilePrimaryCard}>
           <CardHeader>
             <span className={classes['card-header__text']}>
-              Primary card på profilside
+              Primary card variant for profilside
             </span>
           </CardHeader>
           <CardContent>
@@ -61,7 +61,7 @@ const Template: ComponentStory<typeof Card> = () => {
           <CardHeader>
             <div className={classes['card-header--unstyled']}>
               <span className={classes['card-header__text']}>
-                Unstyled card for custom styling
+                Unstyled card variant tilrettelagt for custom styling
               </span>
             </div>
           </CardHeader>

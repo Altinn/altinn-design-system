@@ -1,9 +1,20 @@
-.list-item{
-    --component-list_item-border_bottom_color: #BCC7CC;
-    --component-list_item-border-bottom-style: solid;
-    --component-list_item-border-bottom-width: 0.1rem;
-    border-bottom-color: var(--component-list_item-border_bottom_color);
-    border-bottom-style: var(--component-list_item-border-bottom-style);
-    border-bottom-width: var(--component-list_item-border-bottom-width);
-    display: block;
+.list-item {
+  display: block;
+}
+
+.list-item--solid {
+  --component-list_item-border_bottom_color: #bcc7cc;
+  --component-list_item-border-bottom-style: solid;
+  --component-list_item-border-bottom-width: 0.1rem;
+  border-bottom-color: var(--component-list_item-border_bottom_color);
+  border-bottom-style: var(--component-list_item-border-bottom-style);
+  border-bottom-width: var(--component-list_item-border-bottom-width);
+}
+
+.list-item--dashed {
+  --component-list_item_dashed-border-bottom-width: 0.1rem;
+  --component-list_item_dashed-border_bottom_color: #1eadf7;
+  border-bottom-style: dashed;
+  border-bottom-width: var(--component-list_item_dashed-border-bottom-width);
+  border-bottom-color: var(--component-list_item_dashed-border_bottom_color);
 }

@@ -5,3 +5,4 @@ export { ToggleButton, ToggleButtonGroup } from './ToggleButtonGroup';
 export { Accordion, AccordionHeader, AccordionContent } from './Accordion';
 export { Button, ButtonVariant } from './Button';
 export { List, ListItem } from './List';
+export { Popover } from './Popover';

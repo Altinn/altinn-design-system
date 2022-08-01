@@ -56,26 +56,6 @@ const Template: ComponentStory<typeof Card> = () => {
           </CardContent>
         </Card>
       </div>
-      <div className={classes['card-container']}>
-        <Card cardVariant={CardVariant.Unstyled}>
-          <CardHeader>
-            <div className={classes['card-header--unstyled']}>
-              <span className={classes['card-header__text']}>
-                Unstyled card variant tilrettelagt for custom styling
-              </span>
-            </div>
-          </CardHeader>
-          <CardContent>
-            <div
-              className={
-                (classes['card-content'], classes['card-content--unstyled'])
-              }
-            >
-              CardHeader og CardContents stylet kun med children
-            </div>
-          </CardContent>
-        </Card>
-      </div>
     </div>
   );
 };

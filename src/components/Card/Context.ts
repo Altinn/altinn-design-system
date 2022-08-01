@@ -1,7 +1,6 @@
 import { createContext, useContext } from 'react';
 
 export enum CardVariant {
-  Unstyled = 'unstyled',
   ProfilePrimaryCard = 'profile-primary-card',
 }
 

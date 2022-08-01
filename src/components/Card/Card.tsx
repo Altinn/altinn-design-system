@@ -1,7 +1,6 @@
 import React from 'react';
 
-import type { CardVariant } from './Context';
-import { CardContext } from './Context';
+import { CardVariant, CardContext } from './Context';
 import classes from './Card.module.css';
 
 export interface CardProps {
@@ -9,7 +8,10 @@ export interface CardProps {
   cardVariant: CardVariant;
 }
 
-export const Card = ({ children, cardVariant }: CardProps) => {
+export const Card = ({
+  children,
+  cardVariant = CardVariant.ProfilePrimaryCard,
+}: CardProps) => {
   return (
     <div className={classes['card']}>
       <CardContext.Provider value={{ cardVariant }}>

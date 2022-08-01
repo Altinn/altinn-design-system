@@ -80,6 +80,11 @@
   background-color: var(--component-panel-color-background-warning);
 }
 
+.panel__content-wrapper--error,
+.panel__pointer--error {
+  background-color: var(--colors-red-300);
+}
+
 .panel__content-wrapper {
   display: flex;
   gap: var(--panel-content-gap);

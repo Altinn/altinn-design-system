@@ -1,0 +1,9 @@
+.list-item {
+  --component-list_item-border_bottom_color: #bcc7cc;
+  --component-list_item-border-bottom-style: solid;
+  --component-list_item-border-bottom-width: 0.1rem;
+  border-bottom-color: var(--component-list_item-border_bottom_color);
+  border-bottom-style: var(--component-list_item-border-bottom-style);
+  border-bottom-width: var(--component-list_item-border-bottom-width);
+  display: block;
+}

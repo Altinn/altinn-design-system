@@ -1,0 +1,25 @@
+.popover-arrow {
+  --popover_arrow-width: 2rem;
+  --popover_arrow-height: 1rem;
+}
+
+.popover-arrow--white {
+  --popover_arrow-color-white: white;
+  fill: var(--popover_arrow-color-white);
+  width: var(---popover-arrow-styled-width);
+  height: var(--popover_arrow-height);
+}
+
+.popover-arrow--yellow {
+  --popover_arrow-color-yellow: #fbf6bd;
+  fill: var(--popover_arrow-color-yellow);
+  width: var(---popover-arrow-styled-width);
+  height: var(--popover_arrow-height);
+}
+
+.popover-arrow--red {
+  --popover_arrow-color-red: #ffc1d2;
+  fill: var(--popover_arrow-color-red);
+  width: var(---popover-arrow-styled-width);
+  height: var(--popover_arrow-height);
+}

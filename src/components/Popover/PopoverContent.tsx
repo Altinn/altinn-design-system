@@ -1,51 +1,43 @@
-import React from 'react';
+import type { Ref } from 'react';
+import React, { forwardRef } from 'react';
 import cn from 'classnames';
 import * as RadixPopover from '@radix-ui/react-popover';
 
+import { usePopoverContext } from './Context';
 import classes from './PopoverContent.module.css';
-import { PopoverArrow } from './PopoverArrow';
 
-export enum Placement {
+export enum PopoverContentSide {
   Top = 'top',
   Right = 'right',
   Bottom = 'bottom',
   Left = 'left',
 }
-
-export enum AnchorAlign {
-  Start = 'start',
-  Center = 'center',
-  End = 'end',
-}
-
 export interface PopoverContentProps {
-  children?: React.ReactNode;
-  showArrow?: boolean;
-  placement?: Placement;
-  sideOffset?: number;
-  anchorAlign?: AnchorAlign;
-  arrowPadding?: number;
+  children: React.ReactNode;
+  side: PopoverContentSide;
 }
 
-export const PopoverContent = ({
-  children,
-  showArrow = true,
-  placement = Placement.Bottom,
-  sideOffset = 0,
-  anchorAlign = AnchorAlign.Center,
-  arrowPadding = 0,
-}: PopoverContentProps) => {
-  return (
-    <RadixPopover.Content
-      side={placement}
-      sideOffset={sideOffset}
-      align={anchorAlign}
-      arrowPadding={arrowPadding}
-    >
-      {children}
-      {showArrow && <PopoverArrow></PopoverArrow>}
-    </RadixPopover.Content>
-  );
-};
+export const PopoverContent = forwardRef(
+  (
+    { children, ...props }: PopoverContentProps,
+    forwardedRef: Ref<HTMLDivElement>,
+  ) => {
+    const { popoverVariant } = usePopoverContext();
+    return (
+      <RadixPopover.Content
+        {...props}
+        ref={forwardedRef}
+      >
+        <div
+          className={cn(classes['popover-content'], [
+            classes[`popover-content--${popoverVariant}`],
+          ])}
+        >
+          {children}
+        </div>
+      </RadixPopover.Content>
+    );
+  },
+);
 
-export default PopoverContent;
+PopoverContent.displayName = 'PopoverContent';

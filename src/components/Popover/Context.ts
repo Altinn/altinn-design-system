@@ -1,11 +1,5 @@
 import { createContext, useContext } from 'react';
 
-export enum PopoverVariant {
-  Unstyled = 'unstyled',
-  Yellow = 'yellow',
-  Red = 'red',
-}
-
 export const PopoverContext = createContext<
   | {
       popoverVariant: PopoverVariant;

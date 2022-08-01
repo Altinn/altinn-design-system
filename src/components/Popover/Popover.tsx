@@ -1,18 +1,22 @@
 import React from 'react';
-import cn from 'classnames';
 import * as RadixPopover from '@radix-ui/react-popover';
 
-import { PopoverVariant, PopoverContext } from './Context';
-import classes from './Popover.module.css';
+import { PopoverContext } from './Context';
+
+export enum PopoverVariant {
+  Yellow = 'yellow',
+  Red = 'red',
+  White = 'white',
+}
 
 export interface PopoverProps {
   children?: React.ReactNode;
-  popoverVariant?: PopoverVariant;
+  popoverVariant: PopoverVariant;
 }
 
 export const Popover = ({
   children,
-  popoverVariant = PopoverVariant.Unstyled,
+  popoverVariant = PopoverVariant.White,
 }: PopoverProps) => {
   return (
     <RadixPopover.Root>

@@ -6,11 +6,11 @@ import { StoryPage } from '@sb/StoryPage';
 
 import { Button } from '../Button';
 
-import { Popover } from './Popover';
+import { Popover, PopoverVariant } from './Popover';
 import { PopoverContent } from './PopoverContent';
 import { PopoverTrigger } from './PopoverTrigger';
-import { PopoverPortal } from './PopoverPortal';
-import { PopoverVariant } from './Context';
+import { PopoverTriggerElement } from './PopoverTriggerElement';
+import { PopoverArrow } from './PopoverArrow';
 
 const figmaLink = ''; // TODO: Add figma link
 
@@ -41,26 +41,53 @@ export default {
   },
 } as ComponentMeta<typeof Popover>;
 
-const Template: ComponentStory<typeof Popover> = () => {
+const Template: ComponentStory<typeof Popover> = (args) => {
   return (
-    <Popover popoverVariant={PopoverVariant.Yellow}>
-      <PopoverTrigger asChild>
-        <Button>Knapp</Button>
-      </PopoverTrigger>
-      <PopoverPortal>
+    <div>
+      <Popover popoverVariant={args.popoverVariant}>
+        <PopoverTrigger asChild>
+          <PopoverTriggerElement>
+            <Button>Åpne</Button>
+          </PopoverTriggerElement>
+        </PopoverTrigger>
         <PopoverContent>
-          <div>Div</div>
+          Popoverinnhold
+          <PopoverArrow></PopoverArrow>
         </PopoverContent>
-      </PopoverPortal>
-    </Popover>
+      </Popover>
+    </div>
   );
 };
 
-export const Example = Template.bind({});
-Example.args = {
-  // TODO: Add story specific args
+export const Yellow = Template.bind({});
+Yellow.args = {
+  popoverVariant: PopoverVariant.Yellow,
 };
-Example.parameters = {
+Yellow.parameters = {
+  docs: {
+    description: {
+      story: '', // TODO: add story description, supports markdown
+    },
+  },
+};
+
+export const Red = Template.bind({});
+Red.args = {
+  popoverVariant: PopoverVariant.Red,
+};
+Red.parameters = {
+  docs: {
+    description: {
+      story: '', // TODO: add story description, supports markdown
+    },
+  },
+};
+
+export const White = Template.bind({});
+White.args = {
+  popoverVariant: PopoverVariant.White,
+};
+White.parameters = {
   docs: {
     description: {
       story: '', // TODO: add story description, supports markdown

@@ -4,19 +4,18 @@ import * as RadixPopover from '@radix-ui/react-popover';
 import { PopoverContext } from './Context';
 
 export enum PopoverVariant {
-  Yellow = 'yellow',
-  Red = 'red',
-  White = 'white',
+  Warning = 'warning',
+  Error = 'error',
 }
 
 export interface PopoverProps {
   children?: React.ReactNode;
-  popoverVariant: PopoverVariant;
+  variant: PopoverVariant;
 }
 
 export const Popover = ({
   children,
-  popoverVariant = PopoverVariant.White,
+  variant: popoverVariant = PopoverVariant.Warning,
 }: PopoverProps) => {
   return (
     <RadixPopover.Root>

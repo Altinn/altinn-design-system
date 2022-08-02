@@ -26,7 +26,11 @@ export default [
         format: 'esm',
       },
     ],
-    external: [altinnFigmaTokensExceptCss, /@react-hookz\/web/],
+    external: [
+      altinnFigmaTokensExceptCss,
+      /@react-hookz\/web/,
+      /@radix-ui\/react-popover$/,
+    ],
     plugins: [
       peerDepsExternal(),
       resolve(),

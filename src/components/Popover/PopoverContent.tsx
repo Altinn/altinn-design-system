@@ -5,6 +5,7 @@ import * as RadixPopover from '@radix-ui/react-popover';
 
 import { usePopoverContext } from './Context';
 import classes from './PopoverContent.module.css';
+import { PopoverArrow } from './PopoverArrow';
 
 export enum PopoverContentSide {
   Top = 'top',
@@ -14,18 +15,18 @@ export enum PopoverContentSide {
 }
 export interface PopoverContentProps {
   children: React.ReactNode;
-  side: PopoverContentSide;
+  side?: PopoverContentSide;
 }
 
 export const PopoverContent = forwardRef(
   (
-    { children, ...props }: PopoverContentProps,
+    { children, side = PopoverContentSide.Bottom }: PopoverContentProps,
     forwardedRef: Ref<HTMLDivElement>,
   ) => {
     const { popoverVariant } = usePopoverContext();
     return (
       <RadixPopover.Content
-        {...props}
+        side={side}
         ref={forwardedRef}
       >
         <div
@@ -35,6 +36,7 @@ export const PopoverContent = forwardRef(
         >
           {children}
         </div>
+        <PopoverArrow></PopoverArrow>
       </RadixPopover.Content>
     );
   },

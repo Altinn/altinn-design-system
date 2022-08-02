@@ -4,13 +4,9 @@ import { config } from 'storybook-addon-designs';
 
 import { StoryPage } from '@sb/StoryPage';
 
-import { Button } from '../Button';
-
 import { Popover, PopoverVariant } from './Popover';
 import { PopoverContent } from './PopoverContent';
 import { PopoverTrigger } from './PopoverTrigger';
-import { PopoverTriggerElement } from './PopoverTriggerElement';
-import { PopoverArrow } from './PopoverArrow';
 
 const figmaLink = ''; // TODO: Add figma link
 
@@ -44,26 +40,21 @@ export default {
 const Template: ComponentStory<typeof Popover> = (args) => {
   return (
     <div>
-      <Popover popoverVariant={args.popoverVariant}>
+      <Popover variant={args.variant}>
         <PopoverTrigger asChild>
-          <PopoverTriggerElement>
-            <Button>Åpne</Button>
-          </PopoverTriggerElement>
+          <div>Åpne</div>
         </PopoverTrigger>
-        <PopoverContent>
-          Popoverinnhold
-          <PopoverArrow></PopoverArrow>
-        </PopoverContent>
+        <PopoverContent>Popoverinnhold</PopoverContent>
       </Popover>
     </div>
   );
 };
 
-export const Yellow = Template.bind({});
-Yellow.args = {
-  popoverVariant: PopoverVariant.Yellow,
+export const Warning = Template.bind({});
+Warning.args = {
+  variant: PopoverVariant.Warning,
 };
-Yellow.parameters = {
+Warning.parameters = {
   docs: {
     description: {
       story: '', // TODO: add story description, supports markdown
@@ -71,23 +62,11 @@ Yellow.parameters = {
   },
 };
 
-export const Red = Template.bind({});
-Red.args = {
-  popoverVariant: PopoverVariant.Red,
+export const Error = Template.bind({});
+Error.args = {
+  variant: PopoverVariant.Error,
 };
-Red.parameters = {
-  docs: {
-    description: {
-      story: '', // TODO: add story description, supports markdown
-    },
-  },
-};
-
-export const White = Template.bind({});
-White.args = {
-  popoverVariant: PopoverVariant.White,
-};
-White.parameters = {
+Error.parameters = {
   docs: {
     description: {
       story: '', // TODO: add story description, supports markdown

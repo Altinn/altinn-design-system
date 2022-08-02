@@ -4,17 +4,15 @@ import * as RadixPopover from '@radix-ui/react-popover';
 
 import classes from './PopoverArrow.module.css';
 import { usePopoverContext } from './Context';
-export interface PopoverArrowProps {
-  children?: string;
-}
-export const PopoverArrow = ({ children }: PopoverArrowProps) => {
+
+export const PopoverArrow = () => {
   const { popoverVariant } = usePopoverContext();
   return (
     <RadixPopover.Arrow
-      className={cn(classes[`popover-arrow--${popoverVariant}`])}
-    >
-      {children}
-    </RadixPopover.Arrow>
+      className={cn(classes['popover-arrow'], [
+        classes[`popover-arrow--${popoverVariant}`],
+      ])}
+    ></RadixPopover.Arrow>
   );
 };
 

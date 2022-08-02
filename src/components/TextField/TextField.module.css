@@ -67,11 +67,15 @@
 }
 
 .input-wrapper__field {
+  /* Subtract size of border on padding-y, because border is on outer element. Without this, height of entire component will be too big */
+  --paddingY: calc(
+    var(--component-input-space-padding-y) -
+      var(--component-input-border_width-default)
+  );
   box-sizing: border-box;
   border: none;
   outline: none;
-  padding: var(--component-input-space-padding-y)
-    var(--component-input-space-padding-x);
+  padding: var(--paddingY) var(--component-input-space-padding-x);
   width: 100%;
   background: var(--background);
 }

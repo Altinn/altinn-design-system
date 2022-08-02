@@ -3,7 +3,7 @@
   --border-color: var(--component-input-color-border-default);
   --outline-color: transparent;
   --icon-background: transparent;
-  background-color: var(--background);
+  background: var(--background);
   border-width: var(--component-input-border_width-default);
   border-style: solid;
   box-sizing: border-box;

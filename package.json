@@ -27,7 +27,8 @@
   },
   "dependencies": {
     "@altinn/figma-design-tokens": "^0.3.0",
-    "@react-hookz/web": "^15.0.1"
+    "@react-hookz/web": "^15.0.1",
+    "react-number-format": "^4.9.3"
   },
   "resolutions": {
     "@storybook/react/webpack": "^5"

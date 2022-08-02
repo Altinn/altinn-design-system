@@ -10,6 +10,6 @@ export {
   PopoverArrow,
   PopoverContent,
   PopoverTrigger,
-  PopoverTriggerElement,
   PopoverVariant,
 } from './Popover';
+export { IconButton } from './IconButton';

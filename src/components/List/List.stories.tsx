@@ -38,21 +38,35 @@ export default {
   },
 } as ComponentMeta<typeof List>;
 
-const Template: ComponentStory<typeof List> = (args) => (
-  <div className={classes['container']}>
-    <List borderStyle={args.borderStyle}>
-      <ListItem>List Item 1</ListItem>
-      <ListItem>List Item 2</ListItem>
-      <ListItem>List Item 3</ListItem>
-    </List>
-  </div>
-);
+const Template: ComponentStory<typeof List> = (args) => {
+  return (
+    <div className={classes['container']}>
+      <List borderStyle={args.borderStyle}>
+        <ListItem>List Item 1</ListItem>
+        <ListItem>List Item 2</ListItem>
+        <ListItem>List Item 3</ListItem>
+      </List>
+    </div>
+  );
+};
 
 export const Solid = Template.bind({});
 Solid.args = {
   borderStyle: BorderStyle.Solid,
 };
 Solid.parameters = {
+  docs: {
+    description: {
+      story: '', // TODO: add story description, supports markdown
+    },
+  },
+};
+
+export const Dashed = Template.bind({});
+Dashed.args = {
+  borderStyle: BorderStyle.Dashed,
+};
+Dashed.parameters = {
   docs: {
     description: {
       story: '', // TODO: add story description, supports markdown

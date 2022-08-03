@@ -15,7 +15,7 @@ export const ListContext = createContext<
 export const useListContext = () => {
   const context = useContext(ListContext);
   if (context === undefined) {
-    throw new Error('useListContext must be used within an useLiseContext');
+    throw new Error('useListContext must be used within an useListContext');
   }
 
   return context;

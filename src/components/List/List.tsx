@@ -2,14 +2,16 @@ import React from 'react';
 import cn from 'classnames';
 
 import classes from './List.module.css';
-import type { BorderStyle } from './Context';
-import { ListContext } from './Context';
+import { BorderStyle, ListContext } from './Context';
 export interface ListProps {
   children?: React.ReactNode;
-  borderStyle: BorderStyle;
+  borderStyle?: BorderStyle;
 }
 
-export const List = ({ children, borderStyle }: ListProps) => {
+export const List = ({
+  children,
+  borderStyle = BorderStyle.Solid,
+}: ListProps) => {
   return (
     <ul className={cn(classes['list'], classes[`list--${borderStyle}`])}>
       <ListContext.Provider value={{ borderStyle }}>

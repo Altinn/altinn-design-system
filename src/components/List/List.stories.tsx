@@ -38,33 +38,21 @@ export default {
   },
 } as ComponentMeta<typeof List>;
 
-const Template: ComponentStory<typeof List> = () => (
-  <div>
-    <div className={classes['container']}>
-      <h3>Liste med dashed border</h3>
-      <List borderStyle={BorderStyle.Dashed}>
-        <ListItem>List Item 1</ListItem>
-        <ListItem>List Item 2</ListItem>
-        <ListItem>List Item 3</ListItem>
-      </List>
-    </div>
-    <br></br>
-    <div className={classes['container']}>
-      <h3>Liste med solid border</h3>
-      <List borderStyle={BorderStyle.Solid}>
-        <ListItem>List Item 1</ListItem>
-        <ListItem>List Item 2</ListItem>
-        <ListItem>List Item 3</ListItem>
-      </List>
-    </div>
+const Template: ComponentStory<typeof List> = (args) => (
+  <div className={classes['container']}>
+    <List borderStyle={args.borderStyle}>
+      <ListItem>List Item 1</ListItem>
+      <ListItem>List Item 2</ListItem>
+      <ListItem>List Item 3</ListItem>
+    </List>
   </div>
 );
 
-export const Example = Template.bind({});
-Example.args = {
-  // TODO: Add story specific args
+export const Solid = Template.bind({});
+Solid.args = {
+  borderStyle: BorderStyle.Solid,
 };
-Example.parameters = {
+Solid.parameters = {
   docs: {
     description: {
       story: '', // TODO: add story description, supports markdown

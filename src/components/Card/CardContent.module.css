@@ -5,7 +5,3 @@
   );
   display: flex;
 }
-
-.card-content--unstyled {
-  display: flex;
-}

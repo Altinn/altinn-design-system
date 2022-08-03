@@ -6,7 +6,3 @@
     --component-profile_primary_card_header-background-color
   );
 }
-
-.card-header--unstyled {
-  display: flex;
-}

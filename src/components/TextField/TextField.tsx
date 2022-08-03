@@ -54,11 +54,13 @@ export const TextField = ({
     values: NumberFormatValues,
     sourceInfo: SourceInfo,
   ) => {
-    replaceTargetValueWithUnformattedValue({
-      values,
-      sourceInfo,
-    });
-    onChange && onChange(sourceInfo.event);
+    if (sourceInfo.source === 'event' && onChange) {
+      replaceTargetValueWithUnformattedValue({
+        values,
+        sourceInfo,
+      });
+      onChange(sourceInfo.event);
+    }
   };
 
   const commonProps = {

@@ -13,14 +13,10 @@ import { Icon } from './Icon';
 import classes from './TextField.module.css';
 
 export interface TextFieldProps
-  extends Omit<
-    React.InputHTMLAttributes<HTMLInputElement>,
-    'readOnly' | 'value'
-  > {
+  extends Omit<NumberFormatProps, 'readOnly' | 'value'> {
   value?: string;
   isValid?: boolean;
   readOnly?: boolean | ReadOnlyVariant;
-  ariaDescribedBy?: string;
   formatting?: TextFieldFormatting;
 }
 
@@ -43,15 +39,11 @@ const replaceTargetValueWithUnformattedValue = ({
 
 export const TextField = ({
   id,
-  value,
   onChange,
-  onBlur,
-  onPaste,
   isValid = true,
   disabled = false,
   readOnly = false,
   required = false,
-  ariaDescribedBy,
   formatting,
   ...rest
 }: TextFieldProps) => {
@@ -71,17 +63,14 @@ export const TextField = ({
 
   const commonProps = {
     id,
-    value,
-    onBlur,
-    onPaste,
     readOnly: isReadOnly,
     disabled,
     required,
-    'aria-describedby': ariaDescribedBy,
     'aria-readonly': isReadOnly,
-    className: classes['input-wrapper__field'],
+    className: cn(classes['input-wrapper__field'], rest.className),
     style: {
       textAlign: formatting?.align,
+      ...rest.style,
     },
   };
 
@@ -97,13 +86,14 @@ export const TextField = ({
         <NumberFormat
           {...commonProps}
           {...formatting.number}
+          {...rest}
           data-testid={`${id}-formatted-number-${variant}`}
           onValueChange={handleNumberFormatChange}
         />
       ) : (
         <input
-          {...rest}
           {...commonProps}
+          {...rest}
           data-testid={`${id}-${variant}`}
           onChange={onChange}
         />

@@ -5,6 +5,7 @@ Design system v2
 ## Getting started
 
 ### React version
+
 This project is using React 18, but we need to support applications that are still on React 17. This means you cannot use any React 18 features just yet.
 
 ### Node and Corepack
@@ -34,6 +35,10 @@ Lint checks and auto-fixes will be run automatically on commit.
 ### Adding new components
 
 New components can be added by executing `yarn add-component <ComponentName>`. The name of the component should be written using PascalCase. This will generate all important files for you in the correct location, and also update the index file for exporting the component. The generated code includes some `TODO` statements that you should fix.
+
+#### Adding new dependencies
+
+When adding new dependencies, you should also add that dependency to the `external` array in `rollup.config.js`. This is done to avoid having the dependency being part of the bundle.
 
 ### Styling
 

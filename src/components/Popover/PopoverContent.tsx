@@ -16,11 +16,16 @@ export enum PopoverContentSide {
 export interface PopoverContentProps {
   children: React.ReactNode;
   side?: PopoverContentSide;
+  showArrow?: boolean;
 }
 
 export const PopoverContent = forwardRef(
   (
-    { children, side = PopoverContentSide.Bottom }: PopoverContentProps,
+    {
+      children,
+      side = PopoverContentSide.Bottom,
+      showArrow = true,
+    }: PopoverContentProps,
     forwardedRef: Ref<HTMLDivElement>,
   ) => {
     const { popoverVariant } = usePopoverContext();
@@ -36,7 +41,7 @@ export const PopoverContent = forwardRef(
         >
           {children}
         </div>
-        <PopoverArrow></PopoverArrow>
+        {showArrow && <PopoverArrow />}
       </RadixPopover.Content>
     );
   },

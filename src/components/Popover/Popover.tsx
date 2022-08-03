@@ -10,7 +10,7 @@ export enum PopoverVariant {
 
 export interface PopoverProps {
   children?: React.ReactNode;
-  variant: PopoverVariant;
+  variant?: PopoverVariant;
 }
 
 export const Popover = ({

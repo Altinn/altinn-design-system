@@ -1,5 +1,7 @@
 import { createContext, useContext } from 'react';
 
+import type { PopoverVariant } from './Popover';
+
 export const PopoverContext = createContext<
   | {
       popoverVariant: PopoverVariant;

@@ -41,7 +41,7 @@ const Template: ComponentStory<typeof Popover> = (args) => {
   return (
     <div>
       <Popover variant={args.variant}>
-        <PopoverTrigger asChild>
+        <PopoverTrigger>
           <div>Åpne</div>
         </PopoverTrigger>
         <PopoverContent>Popoverinnhold</PopoverContent>

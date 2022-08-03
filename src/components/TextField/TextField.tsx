@@ -91,6 +91,7 @@ export const TextField = ({
           {...rest}
           data-testid={`${id}-formatted-number-${variant}`}
           onValueChange={handleNumberFormatChange}
+          isNumericString={true}
         />
       ) : (
         <input

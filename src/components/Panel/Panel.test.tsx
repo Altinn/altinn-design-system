@@ -15,6 +15,26 @@ describe('Panel', () => {
     setScreenWidth(mediaQueryBreakPoint + 100);
   });
 
+  Object.values(PanelVariant).forEach((variant) => {
+    it(`should render panel with correct classname when variant is ${variant}`, () => {
+      render({ variant });
+      const otherVariants = Object.values(PanelVariant).filter(
+        (v) => v !== variant,
+      );
+
+      const pointer = screen.getByTestId('panel-content-wrapper');
+
+      expect(
+        pointer.classList.contains(`panel__content-wrapper--${variant}`),
+      ).toBe(true);
+      otherVariants.forEach((v) => {
+        expect(pointer.classList.contains(`panel__content-wrapper--${v}`)).toBe(
+          false,
+        );
+      });
+    });
+  });
+
   describe('title', () => {
     it('should show title when "title" prop is set', () => {
       render({ title: 'Hello from Panel' });
@@ -47,6 +67,26 @@ describe('Panel', () => {
     it('should not show pointer when "showPointer" is false', () => {
       render({ showPointer: false });
       expect(screen.queryByTestId('panel-pointer')).not.toBeInTheDocument();
+    });
+
+    Object.values(PanelVariant).forEach((variant) => {
+      it(`should render pointer with correct classname when variant is ${variant}`, () => {
+        render({ showPointer: true, variant });
+        const otherVariants = Object.values(PanelVariant).filter(
+          (v) => v !== variant,
+        );
+
+        const pointer = screen.getByTestId('panel-pointer');
+
+        expect(pointer.classList.contains(`panel__pointer--${variant}`)).toBe(
+          true,
+        );
+        otherVariants.forEach((v) => {
+          expect(pointer.classList.contains(`panel__pointer--${v}`)).toBe(
+            false,
+          );
+        });
+      });
     });
   });
 

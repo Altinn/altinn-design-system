@@ -2,8 +2,9 @@ import React from 'react';
 import { render as renderRtl, screen } from '@testing-library/react';
 
 import type { ListProps } from './List';
-import { List, BorderStyle } from './List';
+import { List } from './List';
 import { ListItem } from './ListItem';
+import { BorderStyle } from './Context';
 
 const render = (props: Partial<ListProps> = {}) => {
   const allProps = {

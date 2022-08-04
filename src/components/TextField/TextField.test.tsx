@@ -174,6 +174,29 @@ describe('TextField', () => {
       expect(handleChange).toHaveBeenCalledTimes(4);
       expect(testValue).toBe('1234');
     });
+
+    it('should not trigger onChange when component is rerendered', async () => {
+      const handleChange = jest.fn();
+      const { rerender } = render({
+        onChange: handleChange,
+        value: '1234',
+        formatting: { number: { prefix: '$', thousandSeparator: ' ' } },
+      });
+
+      expect(screen.getByDisplayValue('$1 234')).toBeInTheDocument();
+      expect(handleChange).not.toHaveBeenCalled();
+
+      rerender(
+        <TextField
+          onChange={handleChange}
+          value='12345'
+          formatting={{ number: { prefix: '$', thousandSeparator: ' ' } }}
+        />,
+      );
+
+      expect(screen.getByDisplayValue('$12 345')).toBeInTheDocument();
+      expect(handleChange).not.toHaveBeenCalled();
+    });
   });
 });
 
@@ -182,7 +205,7 @@ const render = (props: Partial<TextFieldProps> = {}) => {
     id: 'id',
     onChange: jest.fn(),
     ...props,
-  };
+  } as TextFieldProps;
 
-  renderRtl(<TextField {...allProps} />);
+  return renderRtl(<TextField {...allProps} />);
 };

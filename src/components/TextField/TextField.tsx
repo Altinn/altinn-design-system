@@ -68,7 +68,6 @@ export const TextField = ({
     readOnly: isReadOnly,
     disabled,
     required,
-    'aria-readonly': isReadOnly,
     className: cn(classes['input-wrapper__field'], rest.className),
     style: {
       textAlign: formatting?.align,

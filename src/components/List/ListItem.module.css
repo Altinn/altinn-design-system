@@ -1,9 +1,18 @@
 .list-item {
-  --component-list_item-border_bottom_color: #bcc7cc;
-  --component-list_item-border-bottom-style: solid;
-  --component-list_item-border-bottom-width: 0.1rem;
+  display: block;
   border-bottom-color: var(--component-list_item-border_bottom_color);
   border-bottom-style: var(--component-list_item-border-bottom-style);
   border-bottom-width: var(--component-list_item-border-bottom-width);
-  display: block;
+}
+
+.list-item--solid {
+  --component-list_item-border_bottom_color: #bcc7cc;
+  --component-list_item-border-bottom-style: solid;
+  --component-list_item-border-bottom-width: 0.1rem;
+}
+
+.list-item--dashed {
+  --component-list_item-border-bottom-width: 0.1rem;
+  --component-list_item-border_bottom_color: #1eadf7;
+  --component-list_item-border-bottom-style: dashed;
 }

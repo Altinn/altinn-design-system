@@ -6,6 +6,7 @@ import { StoryPage } from '@sb/StoryPage';
 
 import { List } from './List';
 import { ListItem } from './ListItem';
+import { BorderStyle } from './Context';
 import classes from './List.stories.modules.css';
 
 const figmaLink = ''; // TODO: Add figma link
@@ -37,21 +38,35 @@ export default {
   },
 } as ComponentMeta<typeof List>;
 
-const Template: ComponentStory<typeof List> = () => (
-  <div className={classes['container']}>
-    <List>
-      <ListItem>List Item 1</ListItem>
-      <ListItem>List Item 2</ListItem>
-      <ListItem>List Item 3</ListItem>
-    </List>
-  </div>
-);
-
-export const Example = Template.bind({});
-Example.args = {
-  // TODO: Add story specific args
+const Template: ComponentStory<typeof List> = (args) => {
+  return (
+    <div className={classes['container']}>
+      <List borderStyle={args.borderStyle}>
+        <ListItem>List Item 1</ListItem>
+        <ListItem>List Item 2</ListItem>
+        <ListItem>List Item 3</ListItem>
+      </List>
+    </div>
+  );
 };
-Example.parameters = {
+
+export const Solid = Template.bind({});
+Solid.args = {
+  borderStyle: BorderStyle.Solid,
+};
+Solid.parameters = {
+  docs: {
+    description: {
+      story: '', // TODO: add story description, supports markdown
+    },
+  },
+};
+
+export const Dashed = Template.bind({});
+Dashed.args = {
+  borderStyle: BorderStyle.Dashed,
+};
+Dashed.parameters = {
   docs: {
     description: {
       story: '', // TODO: add story description, supports markdown

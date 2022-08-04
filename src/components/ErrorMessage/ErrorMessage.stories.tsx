@@ -6,7 +6,8 @@ import { StoryPage } from '@sb/StoryPage';
 
 import { ErrorMessage } from './ErrorMessage';
 
-const figmaLink = ''; // TODO: Add figma link
+const figmaLink =
+  'https://www.figma.com/file/Pvti3aRcOwH0k5Z7DrLznk/Arbeidsomr%C3%A5de%3A-Altinn-Studio-APPS?node-id=2561%3A54396';
 
 export default {
   title: `Components/ErrorMessage`,
@@ -31,7 +32,8 @@ export default {
     },
   },
   args: {
-    //TODO: Add default args
+    id: 'error-message-story',
+    message: 'This is an error message',
   },
 } as ComponentMeta<typeof ErrorMessage>;
 

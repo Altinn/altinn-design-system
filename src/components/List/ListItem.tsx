@@ -11,6 +11,7 @@ export const ListItem = ({ children }: ListItemProps) => {
   const { borderStyle } = useListContext();
   return (
     <li
+      data-testid={`list-item-${borderStyle}`}
       className={cn(classes['list-item'], classes[`list-item--${borderStyle}`])}
     >
       {children}

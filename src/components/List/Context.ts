@@ -1,6 +1,9 @@
 import { createContext, useContext } from 'react';
 
-import { BorderStyle } from './List';
+export enum BorderStyle {
+  Solid = 'solid',
+  Dashed = 'dashed',
+}
 
 export const ListContext = createContext({
   borderStyle: BorderStyle.Solid,

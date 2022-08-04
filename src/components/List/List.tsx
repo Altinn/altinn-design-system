@@ -2,12 +2,8 @@ import React from 'react';
 import cn from 'classnames';
 
 import classes from './List.module.css';
-import { ListContext } from './Context';
+import { ListContext, BorderStyle } from './Context';
 
-export enum BorderStyle {
-  Solid = 'solid',
-  Dashed = 'dashed',
-}
 export interface ListProps {
   children?: React.ReactNode;
   borderStyle?: BorderStyle;

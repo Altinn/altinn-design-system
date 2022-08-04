@@ -4,7 +4,7 @@
   height: 100%;
 }
 
-.card-container {
+.showcase-container__card-container {
   padding-top: 10rem;
   margin-top: 10rem;
   margin: auto;
@@ -17,7 +17,7 @@
   font-size: 1.75rem;
 }
 
-.card-content {
+.card-content__container {
   margin-top: 10rem;
   margin-bottom: 10rem;
 }

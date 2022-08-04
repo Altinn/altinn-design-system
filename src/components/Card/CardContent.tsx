@@ -1,4 +1,5 @@
 import React from 'react';
+import cn from 'classnames';
 
 import classes from './CardContent.module.css';
 import { useCardContext } from './Context';
@@ -8,9 +9,16 @@ export interface CardContentProps {
 }
 
 export const CardContent = ({ children }: CardContentProps) => {
-  const { cardVariant } = useCardContext();
+  const { variant } = useCardContext();
 
   return (
-    <div className={classes[`card-content--${cardVariant}`]}>{children}</div>
+    <div
+      className={cn(
+        classes[`card-content`],
+        classes[`card-content--${variant}`],
+      )}
+    >
+      {children}
+    </div>
   );
 };

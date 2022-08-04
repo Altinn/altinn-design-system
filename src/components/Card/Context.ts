@@ -1,12 +1,12 @@
 import { createContext, useContext } from 'react';
 
 export enum CardVariant {
-  ProfilePrimaryCard = 'profile-primary-card',
+  Primary = 'primary',
 }
 
 export const CardContext = createContext<
   | {
-      cardVariant: CardVariant;
+      variant: CardVariant;
     }
   | undefined
 >(undefined);

@@ -1,7 +1,12 @@
-.card-content--profile-primary-card {
+.card-content {
   --component-profile_primary_card_content-background_color: white;
   background-color: var(
     --component-profile_primary_card_content-background_color
   );
   display: flex;
+  background-color: var(--component-card_content-background_color-primary);
+}
+
+.card-content--primary {
+  --component-card_content-background_color-primary: white;
 }

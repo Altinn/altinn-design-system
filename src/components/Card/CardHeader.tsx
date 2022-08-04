@@ -1,4 +1,5 @@
 import React from 'react';
+import cn from 'classnames';
 
 import { useCardContext } from './Context';
 import classes from './CardHeader.module.css';
@@ -8,9 +9,13 @@ export interface CardHeaderProps {
 }
 
 export const CardHeader = ({ children }: CardHeaderProps) => {
-  const { cardVariant } = useCardContext();
+  const { variant } = useCardContext();
 
   return (
-    <div className={classes[`card-header--${cardVariant}`]}>{children}</div>
+    <div
+      className={cn(classes['card-header'], classes[`card-header--${variant}`])}
+    >
+      {children}
+    </div>
   );
 };

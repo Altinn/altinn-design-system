@@ -1,8 +1,9 @@
-.card-header--profile-primary-card {
-  --component-profile_primary_card_header-height: 4rem;
-  --component-profile_primary_card_header-background-color: #022f51;
-  height: var(--component-profile_primary_card_header-height);
-  background-color: var(
-    --component-profile_primary_card_header-background-color
-  );
+.card-header {
+  height: var(--component-card_header-height-primary);
+  background-color: var(--component-card_header-background-color-primary);
+}
+
+.card-header--primary {
+  --component-card_header-height-primary: 4rem;
+  --component-card_header-background-color-primary: #022f51;
 }

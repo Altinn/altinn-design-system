@@ -42,15 +42,15 @@ export default {
 const Template: ComponentStory<typeof Card> = () => {
   return (
     <div className={classes['showcase-container']}>
-      <div className={classes['card-container']}>
-        <Card cardVariant={CardVariant.ProfilePrimaryCard}>
+      <div className={classes['showcase-container__card-container']}>
+        <Card variant={CardVariant.Primary}>
           <CardHeader>
             <span className={classes['card-header__text']}>
               Primary card variant for profilside
             </span>
           </CardHeader>
           <CardContent>
-            <div className={classes['card-content']}>
+            <div className={classes['card-content__container']}>
               CardHeader med marineblå bakgrunn og cardContent med hvit bakgrunn
             </div>
           </CardContent>
@@ -60,11 +60,11 @@ const Template: ComponentStory<typeof Card> = () => {
   );
 };
 
-export const Example = Template.bind({});
-Example.args = {
+export const Primary = Template.bind({});
+Primary.args = {
   // TODO: Add story specific args
 };
-Example.parameters = {
+Primary.parameters = {
   docs: {
     description: {
       story: '', // TODO: add story description, supports markdown

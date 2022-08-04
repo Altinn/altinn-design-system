@@ -5,16 +5,16 @@ import classes from './Card.module.css';
 
 export interface CardProps {
   children?: React.ReactNode;
-  cardVariant: CardVariant;
+  variant?: CardVariant;
 }
 
 export const Card = ({
   children,
-  cardVariant = CardVariant.ProfilePrimaryCard,
+  variant = CardVariant.Primary,
 }: CardProps) => {
   return (
     <div className={classes['card']}>
-      <CardContext.Provider value={{ cardVariant }}>
+      <CardContext.Provider value={{ variant }}>
         {children}
       </CardContext.Provider>
     </div>

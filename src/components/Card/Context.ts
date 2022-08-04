@@ -4,12 +4,9 @@ export enum CardVariant {
   Primary = 'primary',
 }
 
-export const CardContext = createContext<
-  | {
-      variant: CardVariant;
-    }
-  | undefined
->(undefined);
+export const CardContext = createContext({
+  variant: CardVariant,
+});
 
 export const useCardContext = () => {
   const context = useContext(CardContext);

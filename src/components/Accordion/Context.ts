@@ -16,7 +16,7 @@ export const useAccordionContext = () => {
   const context = useContext(AccordionContext);
   if (context === undefined) {
     throw new Error(
-      'useAccordionContext must be used within a AccordionContext',
+      'useAccordionContext must be used within an AccordionContext',
     );
   }
 

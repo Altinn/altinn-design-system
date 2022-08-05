@@ -17,6 +17,7 @@ export const CardContent = ({ children }: CardContentProps) => {
         classes[`card-content`],
         classes[`card-content--${variant}`],
       )}
+      data-testid='card-content'
     >
       {children}
     </div>

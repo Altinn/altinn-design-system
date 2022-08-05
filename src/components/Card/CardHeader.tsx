@@ -14,6 +14,7 @@ export const CardHeader = ({ children }: CardHeaderProps) => {
   return (
     <div
       className={cn(classes['card-header'], classes[`card-header--${variant}`])}
+      data-testid='card-header'
     >
       {children}
     </div>

@@ -98,6 +98,7 @@ export const Panel = ({
       )}
 
       <div
+        data-testid='panel-content-wrapper'
         className={cn(
           classes['panel__content-wrapper'],
           classes[`panel__content-wrapper--${variant}`],

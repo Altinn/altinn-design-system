@@ -4,9 +4,10 @@ import { config } from 'storybook-addon-designs';
 
 import { StoryPage } from '@sb/StoryPage';
 
-import { Popover, PopoverVariant } from './Popover';
+import { Popover } from './Popover';
 import { PopoverContent } from './PopoverContent';
 import { PopoverTrigger } from './PopoverTrigger';
+import { PopoverVariant } from './Context';
 
 const figmaLink = ''; // TODO: Add figma link
 

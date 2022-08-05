@@ -6,5 +6,13 @@ export interface PopoverTriggerProps {
 }
 
 export const PopoverTrigger = ({ children }: PopoverTriggerProps) => {
-  return <RadixPopover.Trigger asChild>{children}</RadixPopover.Trigger>;
+  return (
+    <RadixPopover.Trigger
+      asChild
+      data-testid='popover-trigger'
+      role='button'
+    >
+      {children}
+    </RadixPopover.Trigger>
+  );
 };

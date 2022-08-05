@@ -38,6 +38,7 @@ export const PopoverContent = forwardRef(
           className={cn(classes['popover-content'], [
             classes[`popover-content--${popoverVariant}`],
           ])}
+          data-testid='popover-content'
         >
           {children}
         </div>

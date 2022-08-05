@@ -12,6 +12,7 @@ export const PopoverArrow = () => {
       className={cn(classes['popover-arrow'], [
         classes[`popover-arrow--${popoverVariant}`],
       ])}
+      data-testid='popover-arrow'
     ></RadixPopover.Arrow>
   );
 };

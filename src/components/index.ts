@@ -13,3 +13,4 @@ export {
   PopoverTriggerElement,
   PopoverVariant,
 } from './Popover';
+export { TextField, IconVariant, ReadOnlyVariant } from './TextField';

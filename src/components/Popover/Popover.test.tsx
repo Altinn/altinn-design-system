@@ -3,9 +3,10 @@ import userEvent from '@testing-library/user-event';
 import { render as renderRtl, screen } from '@testing-library/react';
 
 import type { PopoverProps } from './Popover';
-import { PopoverVariant, Popover } from './Popover';
+import { Popover } from './Popover';
 import { PopoverTrigger } from './PopoverTrigger';
 import { PopoverContent } from './PopoverContent';
+import { PopoverVariant } from './Context';
 
 const render = (props: Partial<PopoverProps> = {}) => {
   const allProps = {

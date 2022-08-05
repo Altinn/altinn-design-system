@@ -1,13 +1,14 @@
 import { createContext, useContext } from 'react';
 
-import type { PopoverVariant } from './Popover';
+export enum PopoverVariant {
+  Warning = 'warning',
+  Error = 'error',
+  Neutral = 'neutral',
+}
 
-export const PopoverContext = createContext<
-  | {
-      popoverVariant: PopoverVariant;
-    }
-  | undefined
->(undefined);
+export const PopoverContext = createContext({
+  popoverVariant: PopoverVariant.Neutral,
+});
 
 export const usePopoverContext = () => {
   const context = useContext(PopoverContext);

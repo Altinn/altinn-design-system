@@ -1,15 +1,17 @@
 .popover-arrow {
   width: 2rem;
   height: 1rem;
-  fill: var(--popover_arrow-color);
+  fill: var(--popover_arrow-fill);
 }
 
 .popover-arrow--warning {
-  --popover_arrow-color-warning: #fbf6bd;
-  --popover_arrow-color: var(--popover_arrow-color-warning);
+  --popover_arrow-fill: #fbf6bd;
 }
 
 .popover-arrow--error {
-  --popover_arrow-color-error: #ffc1d2;
-  --popover_arrow-color: var(--popover_arrow-color-error);
+  --popover_arrow-fill: #ffc1d2;
+}
+
+.popover-arrow--neutral {
+  --popover_arrow-fill: #efefef;
 }

@@ -73,3 +73,15 @@ Error.parameters = {
     },
   },
 };
+
+export const Neutral = Template.bind({});
+Neutral.args = {
+  variant: PopoverVariant.Neutral,
+};
+Neutral.parameters = {
+  docs: {
+    description: {
+      story: '', // TODO: add story description, supports markdown
+    },
+  },
+};

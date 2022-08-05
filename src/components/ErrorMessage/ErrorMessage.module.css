@@ -1,3 +1,6 @@
 .error-message-wrapper {
   color: #c31c1c;
+  font-size: 14px;
+  line-height: 150%;
+  padding-top: 7px;
 }

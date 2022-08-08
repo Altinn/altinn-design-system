@@ -1,10 +1,17 @@
+import { render, screen } from '@testing-library/react';
 import React from 'react';
 
 import { ErrorMessage } from './ErrorMessage';
 
 describe('ErrorMessage', () => {
-  it('should verify something', () => {
-    // Please add some non-snapshot test to verify conditional statements
-    expect(<ErrorMessage />).toBe(true);
+  it('should display text passed to children property as a list', () => {
+    render(
+      <ErrorMessage>
+        <ol>
+          <li>This is an error message</li>
+        </ol>
+      </ErrorMessage>,
+    );
+    expect(screen.getByText('This is an error message')).toBeInTheDocument();
   });
 });

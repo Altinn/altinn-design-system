@@ -26,7 +26,9 @@ export default {
     docs: {
       page: () => (
         <StoryPage
-          description={`TODO: Add a description (supports markdown)`}
+          description={
+            'Simple error-message suitable to be shown in table views'
+          }
         />
       ),
     },
@@ -42,13 +44,11 @@ const Template: ComponentStory<typeof ErrorMessage> = (args) => (
 );
 
 export const Example = Template.bind({});
-Example.args = {
-  // TODO: Add story specific args
-};
+Example.args = {};
 Example.parameters = {
   docs: {
     description: {
-      story: '', // TODO: add story description, supports markdown
+      story: '',
     },
   },
 };

@@ -1,5 +1,5 @@
 .error-message-wrapper {
-  color: #c31c1c;
-  font-size: var(--font_size-200);
-  padding-top: 7px;
+  color: var(--component-error_message-color-text);
+  font-size: var(--component-error_message-font_size-xs);
+  padding-top: var(--component-error_message-space-padding-top);
 }

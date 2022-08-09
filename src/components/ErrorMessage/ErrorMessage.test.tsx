@@ -14,4 +14,9 @@ describe('ErrorMessage', () => {
     );
     expect(screen.getByText('This is an error message')).toBeInTheDocument();
   });
+
+  it('should display text passed message property', () => {
+    render(<ErrorMessage message='This is an error message' />);
+    expect(screen.getByText('This is an error message')).toBeInTheDocument();
+  });
 });

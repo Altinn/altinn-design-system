@@ -25,7 +25,7 @@ describe('Map', () => {
   });
 
   describe('Click map', () => {
-    it('should call mapClicked with correct coordinates when map is clicked', async () => {
+    it('should call onClick with correct coordinates when map is clicked', async () => {
       const handleMapClicked = jest.fn();
       render({
         onClick: handleMapClicked,
@@ -39,7 +39,7 @@ describe('Map', () => {
       } as Location);
     });
 
-    it('should not call mapClicked when readOnly is true and map is clicked', async () => {
+    it('should not call onClick when readOnly is true and map is clicked', async () => {
       const handleMapClicked = jest.fn();
       render({
         onClick: handleMapClicked,

@@ -83,30 +83,17 @@ export const Map = ({
         />
       ))}
       <AttributionControl prefix={false} />
-      <LocationMarker
-        location={markerLocation}
+      <LocationMarker markerLocation={markerLocation} />
+      <MapClickHandler
+        readOnly={readOnly}
         onClick={onClick}
       />
     </MapContainer>
   );
 };
 
-interface LocationMarkerProps {
-  location?: Location;
-  onClick?: (location: Location) => void;
-}
-function LocationMarker({ location, onClick }: LocationMarkerProps) {
-  useMapEvents({
-    click(me) {
-      if (onClick) {
-        onClick({
-          latitude: me.latlng.lat,
-          longitude: me.latlng.lng,
-        });
-      }
-    },
-  });
-
+type LocationMarkerProps = Pick<MapProps, 'markerLocation'>;
+function LocationMarker({ markerLocation }: LocationMarkerProps) {
   const markerIcon = icon({
     iconUrl: UrlIcon,
     iconRetinaUrl: RetinaUrlIcon,
@@ -115,9 +102,9 @@ function LocationMarker({ location, onClick }: LocationMarkerProps) {
     iconAnchor: [12, 41],
   });
 
-  return location ? (
+  return markerLocation ? (
     <Marker
-      position={locationToTuple(location)}
+      position={locationToTuple(markerLocation)}
       icon={markerIcon}
     />
   ) : null;
@@ -126,3 +113,19 @@ function LocationMarker({ location, onClick }: LocationMarkerProps) {
 function locationToTuple(location: Location): [number, number] {
   return [location.latitude, location.longitude];
 }
+
+type MapClickHandlerProps = Pick<MapProps, 'readOnly' | 'onClick'>;
+const MapClickHandler = ({ onClick, readOnly }: MapClickHandlerProps) => {
+  useMapEvents({
+    click: (map) => {
+      if (onClick && !readOnly) {
+        onClick({
+          latitude: map.latlng.lat,
+          longitude: map.latlng.lng,
+        });
+      }
+    },
+  });
+
+  return null;
+};

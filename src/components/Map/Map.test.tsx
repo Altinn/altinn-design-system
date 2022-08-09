@@ -39,6 +39,18 @@ describe('Map', () => {
       } as Location);
     });
 
+    it('should not call mapClicked when readOnly is true and map is clicked', async () => {
+      const handleMapClicked = jest.fn();
+      render({
+        onClick: handleMapClicked,
+        readOnly: true,
+      });
+
+      await clickMap();
+
+      expect(handleMapClicked).not.toHaveBeenCalled();
+    });
+
     it('should get different coordinates when map is clicked at different location', async () => {
       const mapClicked = jest.fn();
       render({

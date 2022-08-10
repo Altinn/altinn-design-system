@@ -77,6 +77,7 @@ export const TextField = ({
 
   return (
     <div
+      data-testid='TextField'
       className={cn(
         classes['input-wrapper'],
         classes[`input-wrapper--${variant}`],

@@ -37,12 +37,7 @@ export default {
 } as ComponentMeta<typeof IconButton>;
 
 const Template: ComponentStory<typeof IconButton> = () => (
-  <IconButton>
-    <HelpIcon
-      width='20'
-      height='20'
-    />
-  </IconButton>
+  <IconButton icon={<HelpIcon />}></IconButton>
 );
 
 export const Example = Template.bind({});

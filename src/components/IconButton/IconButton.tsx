@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, cloneElement } from 'react';
 import cn from 'classnames';
 
 import classes from './IconButton.module.css';
@@ -6,7 +6,7 @@ import classes from './IconButton.module.css';
 export interface IconButtonProps {
   children?: React.ReactNode;
   renderIcon?: ({ size }: RenderIconProps) => React.ReactNode;
-  icon?: React.ReactNode;
+  icon: JSX.Element;
 }
 
 interface RenderIconProps {
@@ -15,8 +15,8 @@ interface RenderIconProps {
 }
 
 export const IconButton = forwardRef(
-  (props: IconButtonProps, ref: React.LegacyRef<HTMLButtonElement>) => {
-    const { children, icon }: IconButtonProps = props;
+  (props: IconButtonProps, ref: React.Ref<HTMLButtonElement>) => {
+    const { icon }: IconButtonProps = props;
 
     return (
       <button
@@ -24,8 +24,10 @@ export const IconButton = forwardRef(
         className={cn(classes['icon-button'])}
         type={'button'}
       >
-        <>{icon}</>
-        {children}
+        {cloneElement(icon, {
+          width: '16px',
+          height: '16px',
+        })}
       </button>
     );
   },

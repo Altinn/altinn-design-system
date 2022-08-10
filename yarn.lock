@@ -9,7 +9,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@altinn/altinn-design-system@workspace:."
   dependencies:
-    "@altinn/figma-design-tokens": ^0.3.0
+    "@altinn/figma-design-tokens": ^0.3.1
     "@babel/core": ^7.18.10
     "@mdx-js/react": ^1.6.22
     "@react-hookz/web": ^15.0.1
@@ -97,10 +97,10 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@altinn/figma-design-tokens@npm:^0.3.0":
-  version: 0.3.0
-  resolution: "@altinn/figma-design-tokens@npm:0.3.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40altinn%2Ffigma-design-tokens%2F0.3.0%2Fc97036531b1b29622f09e601f9a3c9f8f49b36a5d97649f656bad4411a9fe674"
-  checksum: 72a0fa141e08d93912ff87714d98e5a5537ba0fb5cfb0bdad8e59e6fd05f37efa60bcb171f6ecb7c7901b24e2473d9b3b576dccae141c876d3bd3f536905e2ba
+"@altinn/figma-design-tokens@npm:^0.3.1":
+  version: 0.3.1
+  resolution: "@altinn/figma-design-tokens@npm:0.3.1::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40Altinn%2Ffigma-design-tokens%2F0.3.1%2F1d1c2a3a83d92112f8744854b870ada42d1da1fc"
+  checksum: 7eeba2386691d7022201abd95818c793f2ef3ee4418244bafe9e0daf78103630f67e24432ddef11cca7287688db79fb5c836bc1b96daae2b986cdc5512bb64b7
   languageName: node
   linkType: hard
 

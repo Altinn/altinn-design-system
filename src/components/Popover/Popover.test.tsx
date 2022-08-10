@@ -8,17 +8,47 @@ import { PopoverTrigger } from './PopoverTrigger';
 import { PopoverContent } from './PopoverContent';
 import { PopoverVariant } from './Context';
 
+/*
+class ResizeObserver {
+  cb: any;
+
+  constructor(cb: any) {
+    this.cb = cb;
+  }
+  observe(cb: any) {
+    this.cb([{ borderBoxSize: { inlineSize: 0, blockSize: 0 } }]);
+  }
+  unobserve() {}
+  disconnect() {}
+}
+
+
+// @ts-ignore
+global.ResizeObserver = ResizeObserver;
+
+global.DOMRect = {
+  // @ts-ignore
+  fromRect: () => ({
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+    width: 0,
+    height: 0,
+  }),
+};
+*/
 const render = (props: Partial<PopoverProps> = {}) => {
   const allProps = {
     children: (
       <>
         <PopoverTrigger>
-          <div>trigger</div>
+          <div>Trigger</div>
         </PopoverTrigger>
         <PopoverContent>PopoverContent</PopoverContent>
       </>
     ),
-    variant: PopoverVariant.Warning,
+    variant: PopoverVariant.Neutral,
     ...props,
   };
   renderRtl(<Popover {...allProps} />);
@@ -26,49 +56,32 @@ const render = (props: Partial<PopoverProps> = {}) => {
 
 const user = userEvent.setup();
 
-describe('Popover', () => {
-  it('should have classname ', async () => {
-    /*await user.click(screen.getByRole('button', { name: 'PopoverTrigger' }));
-    expect(
-      screen.getByRole('dialog', { name: 'PopoverContent' }),
-    ).toBeInTheDocument();*/
-    render();
-    await user.click(
-      screen.getByRole('button', {
-        name: /trigger/i,
-      }),
+Object.values(PopoverVariant).forEach((variant) => {
+  it(`should render popover arrow and popover content with correct classname when variant is ${variant}`, async () => {
+    render({ variant: variant });
+    const otherVariants = Object.values(PopoverVariant).filter(
+      (v) => v !== variant,
     );
-    //await screen.debug();
-  });
-
-  /*Object.values(PopoverVariant).forEach((variant) => {
-    it(`should render popover with correct classname when variant is ${variant}`, async () => {
-      render();
-      const otherVariants = Object.values(PopoverVariant).filter(
-        (v) => v !== variant,
+    const popoverTrigger = screen.getByRole('button', { name: 'Trigger' });
+    user.click(popoverTrigger);
+    const popoverContent = screen.getByTestId('popover-content');
+    const popoverArrow = screen.getByTestId('popover-arrow');
+    expect(popoverArrow.classList.contains(`popover-arrow--${variant}`)).toBe(
+      true,
+    );
+    otherVariants.forEach((v) => {
+      expect(popoverArrow.classList.contains(`popover-arrow--${v}`)).toBe(
+        false,
       );
-      //await user.click(screen.getByTestId('popover-trigger'));
-      screen.debug();
-      /*await user.click(screen.getByTestId('popover-trigger'));
-      const popoverArrow = screen.getByTestId('popover-arrow');
-      //const popoverContent = screen.getByTestId('popover-content');
-      expect(popoverArrow.classList.contains(`popover-arrow--${variant}`)).toBe(
-        true,
-      );
-      otherVariants.forEach((v) => {
-        expect(popoverArrow.classList.contains(`popover-arrow--${v}`)).toBe(
-          false,
-        );
-      });*/
-
-  /*expect(
-        popoverContent.classList.contains(`popover-content--${variant}`),
-      ).toBe(true);
-      otherVariants.forEach((v) => {
-        expect(popoverContent.classList.contains(`popover-content--${v}`)).toBe(
-          false,
-        );
-      });
     });
-  });*/
+
+    expect(
+      popoverContent.classList.contains(`popover-content--${variant}`),
+    ).toBe(true);
+    otherVariants.forEach((v) => {
+      expect(popoverContent.classList.contains(`popover-content--${v}`)).toBe(
+        false,
+      );
+    });
+  });
 });

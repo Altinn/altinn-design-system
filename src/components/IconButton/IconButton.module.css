@@ -1,3 +1,4 @@
-IconButton {
-  /* TODO_ add some style */
+.icon-button {
+  border-style: none;
+  background: none;
 }

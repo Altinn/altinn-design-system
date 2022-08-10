@@ -4,6 +4,7 @@ import { config } from 'storybook-addon-designs';
 
 import { StoryPage } from '@sb/StoryPage';
 
+import { ReactComponent as HelpIcon } from './HelpIcon.svg';
 import { IconButton } from './IconButton';
 
 const figmaLink = ''; // TODO: Add figma link
@@ -35,8 +36,13 @@ export default {
   },
 } as ComponentMeta<typeof IconButton>;
 
-const Template: ComponentStory<typeof IconButton> = (args) => (
-  <IconButton {...args} />
+const Template: ComponentStory<typeof IconButton> = () => (
+  <IconButton>
+    <HelpIcon
+      width='20'
+      height='20'
+    />
+  </IconButton>
 );
 
 export const Example = Template.bind({});

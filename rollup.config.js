@@ -30,6 +30,7 @@ export default [
       altinnFigmaTokensExceptCss,
       /@react-hookz\/web/,
       /@radix-ui\/react-popover$/,
+      /react-number-format/,
     ],
     plugins: [
       peerDepsExternal(),

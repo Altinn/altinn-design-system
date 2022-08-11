@@ -8,25 +8,36 @@ import { Button, ButtonVariant } from '@/components/Button/Button';
 const user = userEvent.setup();
 
 describe('Button', () => {
-  it(`should render a button in it's primary state`, () => {
-    render();
-    expect(screen.getByTestId('primary-button')).toBeInTheDocument();
-    expect(screen.getByText('button text')).toBeInTheDocument();
+  it('should render a button with primary classname when no variant is specified', () => {
+    render({ variant: undefined });
+    const button = screen.getByRole('button');
+
+    expect(button.classList.contains('button--primary')).toBe(true);
+    expect(button.classList.contains('button--secondary')).toBe(false);
+    expect(button.classList.contains('button--submit')).toBe(false);
   });
 
-  it(`should render a button in it's submit state`, () => {
-    render({ variant: ButtonVariant.Submit });
-    expect(screen.getByTestId('submit-button')).toBeInTheDocument();
+  Object.values(ButtonVariant).forEach((variant) => {
+    it(`should render a button with ${variant} classname when variant is ${variant}`, () => {
+      render({ variant });
+      const otherVariants = Object.values(ButtonVariant).filter(
+        (v) => v !== variant,
+      );
+
+      const button = screen.getByRole('button');
+
+      expect(button.classList.contains(`button--${variant}`)).toBe(true);
+      otherVariants.forEach((v) => {
+        expect(button.classList.contains(`button--${v}`)).toBe(false);
+      });
+    });
   });
 
-  it(`should render a button in it's secondary state`, () => {
-    render({ variant: ButtonVariant.Secondary });
-    expect(screen.getByTestId('secondary-button')).toBeInTheDocument();
-  });
-
-  it('should render different button text', () => {
-    render({}, 'different button text');
-    expect(screen.getByText('different button text')).toBeInTheDocument();
+  it('should render children as button text', () => {
+    render({ children: 'different button text' });
+    expect(
+      screen.getByRole('button', { name: 'different button text' }),
+    ).toBeInTheDocument();
   });
 
   it('should handle onClick event', async () => {
@@ -37,13 +48,10 @@ describe('Button', () => {
   });
 });
 
-const render = (
-  props: Partial<ButtonProps> = {},
-  buttonText = 'button text',
-) => {
+const render = (props: Partial<ButtonProps> = {}) => {
   const allProps = {
     ...props,
   };
 
-  renderRtl(<Button {...allProps}>{buttonText}</Button>);
+  renderRtl(<Button {...allProps} />);
 };

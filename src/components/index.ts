@@ -4,7 +4,7 @@ export { AppWrapper } from './AppWrapper';
 export { ToggleButton, ToggleButtonGroup } from './ToggleButtonGroup';
 export { Accordion, AccordionHeader, AccordionContent } from './Accordion';
 export { Button, ButtonVariant } from './Button';
-export { List, ListItem } from './List';
+export { List, ListItem, BorderStyle } from './List';
 export {
   Popover,
   PopoverArrow,
@@ -13,3 +13,4 @@ export {
   PopoverVariant,
 } from './Popover';
 export { IconButton } from './IconButton';
+export { TextField, IconVariant, ReadOnlyVariant } from './TextField';

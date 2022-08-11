@@ -1,0 +1,90 @@
+.input-wrapper {
+  --background: var(--component-input-color-background-default);
+  --border-color: var(--component-input-color-border-default);
+  --outline-color: transparent;
+  --icon-background: transparent;
+  background: var(--background);
+  border-width: var(--component-input-border_width-default);
+  border-style: solid;
+  box-sizing: border-box;
+  display: flex;
+  align-items: stretch;
+  border-color: var(--border-color);
+}
+
+.input-wrapper:focus-within {
+  outline-style: solid;
+  outline-width: var(--component-input-border_width-default);
+  outline-color: var(--outline-color);
+}
+
+.input-wrapper--default:focus-within {
+  --border-color: var(--component-input-color-border-focus);
+  --outline-color: var(--border-color);
+}
+
+.input-wrapper--default:hover {
+  --border-color: var(--component-input-color-border-hover);
+}
+
+.input-wrapper--error {
+  --icon-background: var(--component-input-error-color-border-default);
+  --border-color: var(--component-input-error-color-border-default);
+}
+
+.input-wrapper--error:focus-within {
+  --icon-background: var(--component-input-error-color-border-hover);
+  --border-color: var(--component-input-error-color-border-hover);
+  --outline-color: var(--border-color);
+}
+
+.input-wrapper--error:hover {
+  --icon-background: var(--component-input-error-color-border-hover);
+  --border-color: var(--component-input-error-color-border-hover);
+}
+
+.input-wrapper--disabled {
+  --background: repeating-linear-gradient(
+    135deg,
+    #efefef,
+    #efefef 2px,
+    #fff 3px,
+    #fff 5px
+  );
+  --border-color: var(--component-input-disabled-color-border-default);
+}
+
+.input-wrapper--readonly-info {
+  --background: var(--component-input-read_only_info-color-background-default);
+  --border-color: var(--component-input-read_only_info-color-border-default);
+}
+
+.input-wrapper--readonly-confirm {
+  --background: var(
+    --component-input-read_only_confirm-color-background-default
+  );
+  --border-color: var(--component-input-read_only_confirm-color-border-default);
+}
+
+.input-wrapper__field {
+  /* Subtract size of border on padding-y, because border is on outer element. Without this, height of entire component will be too big */
+  --paddingY: calc(
+    var(--component-input-space-padding-y) -
+      var(--component-input-border_width-default)
+  );
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  padding: var(--paddingY) var(--component-input-space-padding-x);
+  width: 100%;
+  background: var(--background);
+}
+
+.input-wrapper__icon {
+  background: var(--icon-background);
+  padding-right: var(--component-input-border_width-focus);
+  padding-left: var(--component-input-border_width-default);
+  display: flex;
+  align-items: center;
+  flex: none;
+}

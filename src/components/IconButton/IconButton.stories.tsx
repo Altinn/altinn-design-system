@@ -4,7 +4,7 @@ import { config } from 'storybook-addon-designs';
 
 import { StoryPage } from '@sb/StoryPage';
 
-import { ReactComponent as ExitUnstyled } from './ExitUnstyled.svg';
+import { ReactComponent as ExitIcon } from './ExitUnstyled.svg';
 import { IconButton } from './IconButton';
 import { ReactComponent as BackIcon } from './BackIcon.svg';
 
@@ -32,18 +32,21 @@ export default {
       ),
     },
   },
-  args: {
-    //TODO: Add default args
-  },
+  args: {},
 } as ComponentMeta<typeof IconButton>;
 
 const Template: ComponentStory<typeof IconButton> = (args) => (
-  <IconButton icon={args.icon}></IconButton>
+  <IconButton
+    icon={args.icon}
+    handleClick={() => {
+      alert('IconButton clicked');
+    }}
+  ></IconButton>
 );
 
 export const Help = Template.bind({});
 Help.args = {
-  icon: <ExitUnstyled />,
+  icon: <ExitIcon />,
 };
 Help.parameters = {
   docs: {

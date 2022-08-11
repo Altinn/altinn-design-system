@@ -4,7 +4,7 @@ import cn from 'classnames';
 import classes from './IconButton.module.css';
 
 export enum IconButtonVariant {
-  SmallSecondary = 'secondary',
+  Secondary = 'secondary',
 }
 
 export enum IconButtonSize {
@@ -14,20 +14,23 @@ export interface IconButtonProps {
   icon: JSX.Element;
   variant?: IconButtonVariant;
   size?: IconButtonSize;
+  handleClick: () => void;
 }
 
 export const IconButton = forwardRef(
   (props: IconButtonProps, ref: React.Ref<HTMLButtonElement>) => {
     const {
       icon,
-      variant = IconButtonVariant.SmallSecondary,
+      variant = IconButtonVariant.Secondary,
       size = IconButtonSize.Small,
+      handleClick,
     }: IconButtonProps = props;
     return (
       <button
         className={cn(classes['icon-button'])}
         ref={ref}
         type={'button'}
+        onClick={handleClick}
       >
         <div
           className={cn(
@@ -35,6 +38,7 @@ export const IconButton = forwardRef(
             classes[`icon-button__wrapper--${size}`],
             classes[`icon-button__wrapper--${variant}`],
           )}
+          data-testid='icon-button-wrapper'
         >
           {cloneElement(icon, {
             className: cn(

@@ -14,7 +14,7 @@ export interface IconButtonProps {
   icon: JSX.Element;
   variant?: IconButtonVariant;
   size?: IconButtonSize;
-  handleClick: () => void;
+  handleClick?: () => void;
 }
 
 export const IconButton = forwardRef(

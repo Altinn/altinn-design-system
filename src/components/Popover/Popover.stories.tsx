@@ -4,6 +4,8 @@ import { config } from 'storybook-addon-designs';
 
 import { StoryPage } from '@sb/StoryPage';
 
+import { Button } from '../Button';
+
 import { Popover } from './Popover';
 import { PopoverContent } from './PopoverContent';
 import { PopoverTrigger } from './PopoverTrigger';
@@ -43,7 +45,7 @@ const Template: ComponentStory<typeof Popover> = (args) => {
     <div>
       <Popover variant={args.variant}>
         <PopoverTrigger>
-          <div>Åpne</div>
+          <Button>Åpne</Button>
         </PopoverTrigger>
         <PopoverContent>Popoverinnhold</PopoverContent>
       </Popover>

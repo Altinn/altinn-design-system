@@ -10,7 +10,6 @@ export {
   PopoverArrow,
   PopoverContent,
   PopoverTrigger,
-  PopoverTriggerElement,
   PopoverVariant,
 } from './Popover';
 export { TextField, IconVariant, ReadOnlyVariant } from './TextField';

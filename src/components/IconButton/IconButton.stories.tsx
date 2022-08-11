@@ -4,8 +4,9 @@ import { config } from 'storybook-addon-designs';
 
 import { StoryPage } from '@sb/StoryPage';
 
-import { ReactComponent as HelpIcon } from './HelpIcon.svg';
+import { ReactComponent as ExitUnstyled } from './ExitUnstyled.svg';
 import { IconButton } from './IconButton';
+import { ReactComponent as BackIcon } from './BackIcon.svg';
 
 const figmaLink = ''; // TODO: Add figma link
 
@@ -36,15 +37,27 @@ export default {
   },
 } as ComponentMeta<typeof IconButton>;
 
-const Template: ComponentStory<typeof IconButton> = () => (
-  <IconButton icon={<HelpIcon />}></IconButton>
+const Template: ComponentStory<typeof IconButton> = (args) => (
+  <IconButton icon={args.icon}></IconButton>
 );
 
-export const Example = Template.bind({});
-Example.args = {
-  // TODO: Add story specific args
+export const Help = Template.bind({});
+Help.args = {
+  icon: <ExitUnstyled />,
 };
-Example.parameters = {
+Help.parameters = {
+  docs: {
+    description: {
+      story: '', // TODO: add story description, supports markdown
+    },
+  },
+};
+
+export const Back = Template.bind({});
+Back.args = {
+  icon: <BackIcon />,
+};
+Back.parameters = {
   docs: {
     description: {
       story: '', // TODO: add story description, supports markdown

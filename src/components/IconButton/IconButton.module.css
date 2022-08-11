@@ -2,3 +2,39 @@
   border-style: none;
   background: none;
 }
+
+.icon-button__wrapper {
+  background: var(--icon-button-wrapper-background);
+  border-radius: var(--icon-button-wrapper-border-radius);
+  width: var(--icon-button-wrapper-size);
+  height: var(--icon-button-wrapper-size);
+}
+
+.icon-button__wrapper:hover {
+  background: var(--icon-button-wrapper-background-hover);
+  width: var(--icon-button-wrapper-size);
+  height: var(--icon-button-wrapper-size);
+}
+
+.icon-button__wrapper--secondary {
+  --icon-button-wrapper-background: #6a6a6a;
+}
+
+.icon-button__wrapper--small {
+  --icon-button-wrapper-border-radius: 50%;
+  --icon-button-wrapper-size: 1.85rem;
+}
+
+.icon-button__wrapper--secondary:hover {
+  --icon-button-wrapper-background-hover: rgb(190, 190, 190);
+}
+
+.icon-button__symbol {
+  margin-top: var(--icon-button-symbol-margin-top);
+  width: var(--icon-button-symbol-size);
+}
+
+.icon-button__symbol--small {
+  --icon-button-symbol-margin-top: 5.2px;
+  --icon-button-symbol-size: 0.75rem;
+}

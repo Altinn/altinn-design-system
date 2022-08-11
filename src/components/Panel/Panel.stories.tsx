@@ -4,8 +4,6 @@ import { config } from 'storybook-addon-designs';
 
 import { StoryPage } from '@sb/StoryPage';
 
-import { ReactComponent as HelpIcon } from '../IconButton/HelpIcon.svg';
-
 import { Panel, PanelVariant } from './Panel';
 
 const figmaLink =
@@ -78,24 +76,6 @@ Error.args = {
   variant: PanelVariant.Error,
 };
 Error.parameters = {
-  docs: {
-    description: {
-      story: 'Error beskrivelse',
-    },
-  },
-};
-
-export const Test = Template.bind({});
-Test.args = {
-  variant: PanelVariant.Error,
-  renderIcon: ({ size }) => (
-    <HelpIcon
-      height={size}
-      width={size}
-    />
-  ),
-};
-Test.parameters = {
   docs: {
     description: {
       story: 'Error beskrivelse',

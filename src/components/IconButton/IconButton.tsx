@@ -3,31 +3,46 @@ import cn from 'classnames';
 
 import classes from './IconButton.module.css';
 
-export interface IconButtonProps {
-  children?: React.ReactNode;
-  renderIcon?: ({ size }: RenderIconProps) => React.ReactNode;
-  icon: JSX.Element;
+export enum IconButtonVariant {
+  SmallSecondary = 'secondary',
 }
 
-interface RenderIconProps {
-  //icon: React.ReactNode;
-  size?: string;
+export enum IconButtonSize {
+  Small = 'small',
+}
+export interface IconButtonProps {
+  icon: JSX.Element;
+  variant?: IconButtonVariant;
+  size?: IconButtonSize;
 }
 
 export const IconButton = forwardRef(
   (props: IconButtonProps, ref: React.Ref<HTMLButtonElement>) => {
-    const { icon }: IconButtonProps = props;
-
+    const {
+      icon,
+      variant = IconButtonVariant.SmallSecondary,
+      size = IconButtonSize.Small,
+    }: IconButtonProps = props;
     return (
       <button
-        ref={ref}
         className={cn(classes['icon-button'])}
+        ref={ref}
         type={'button'}
       >
-        {cloneElement(icon, {
-          width: '16px',
-          height: '16px',
-        })}
+        <div
+          className={cn(
+            classes[`icon-button__wrapper`],
+            classes[`icon-button__wrapper--${size}`],
+            classes[`icon-button__wrapper--${variant}`],
+          )}
+        >
+          {cloneElement(icon, {
+            className: cn(
+              classes[`icon-button__symbol`],
+              classes[`icon-button__symbol--${size}`],
+            ),
+          })}
+        </div>
       </button>
     );
   },

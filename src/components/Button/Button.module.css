@@ -13,9 +13,21 @@
 }
 
 .button:focus-visible {
-  outline: var(--colors-neutral-900) solid
-    var(--component-button-border_width-default);
-  outline-offset: calc(0px - var(--component-button-border_width-default));
+  outline: var(--component-button-primary-color-border-focus) auto
+    var(--border_width-standard);
+  outline-offset: var(--border_width-standard);
+}
+
+.button:disabled {
+  background: #efefef;
+  color: #6a6a6a;
+  box-shadow: 0px 0px 0px var(--component-button-border_width-default) #bcc7cc
+    inset;
+  cursor: auto;
+}
+
+.button:disabled:hover {
+  background: #efefef;
 }
 
 .button--primary {
@@ -23,22 +35,19 @@
   color: var(--component-button-primary-color-text-default);
 }
 
-.button--primary:hover,
-.button--primary:focus-visible {
+.button--primary:hover {
   background: var(--component-button-primary-color-background-hover);
 }
 
 .button--secondary {
   background: var(--component-button-secondary-color-background-default);
-  outline: var(--component-button-secondary-color-border-default) solid
-    var(--component-button-border_width-default);
-  outline-offset: calc(var(--component-button-border_width-default) * -1);
+  box-shadow: 0px 0px 0px var(--component-button-border_width-default)
+    var(--component-button-secondary-color-border-default) inset;
   color: var(--component-button-secondary-color-text-default);
 }
 
 .button--secondary:hover {
-  background: var(--component-button-secondary-color-background-hover);
-  color: var(--component-button-secondary-color-text-hover);
+  background: #e3f7ff;
 }
 
 .button--submit {
@@ -46,7 +55,15 @@
   color: var(--component-button-submit-color-text-default);
 }
 
-.button--submit:hover,
-.button--submit:focus-visible {
+.button--submit:hover {
   background: var(--component-button-submit-color-background-hover);
+}
+
+.button--cancel {
+  background: #d5203b;
+  color: var(--component-button-secondary-color-text-hover);
+}
+
+.button--cancel:hover {
+  background: #b11b31;
 }

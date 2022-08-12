@@ -76,3 +76,30 @@ Secondary.parameters = {
     },
   },
 };
+
+export const Cancel = Template.bind({});
+Cancel.args = {
+  children: `Cancel button`,
+  variant: ButtonVariant.Cancel,
+};
+Cancel.parameters = {
+  docs: {
+    description: {
+      story: '', // TODO: add story description, supports markdown
+    },
+  },
+};
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  children: `Disabled button`,
+  variant: ButtonVariant.Secondary,
+  disabled: true,
+};
+Disabled.parameters = {
+  docs: {
+    description: {
+      story: '', // TODO: add story description, supports markdown
+    },
+  },
+};

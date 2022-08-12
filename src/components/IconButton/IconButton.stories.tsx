@@ -38,8 +38,8 @@ export default {
 const Template: ComponentStory<typeof IconButton> = (args) => (
   <IconButton
     icon={args.icon}
-    handleClick={() => {
-      alert('IconButton clicked');
+    onClick={() => {
+      return alert('IconButton clicked');
     }}
   ></IconButton>
 );

@@ -1,3 +1,4 @@
+import type { ButtonHTMLAttributes } from 'react';
 import React, { forwardRef, cloneElement } from 'react';
 import cn from 'classnames';
 
@@ -10,11 +11,11 @@ export enum IconButtonVariant {
 export enum IconButtonSize {
   Small = 'small',
 }
-export interface IconButtonProps {
+export interface IconButtonProps
+  extends ButtonHTMLAttributes<HTMLButtonElement> {
   icon: JSX.Element;
   variant?: IconButtonVariant;
   size?: IconButtonSize;
-  handleClick?: () => void;
 }
 
 export const IconButton = forwardRef(
@@ -23,14 +24,13 @@ export const IconButton = forwardRef(
       icon,
       variant = IconButtonVariant.Secondary,
       size = IconButtonSize.Small,
-      handleClick,
     }: IconButtonProps = props;
     return (
       <button
+        {...props}
         className={cn(classes['icon-button'])}
         ref={ref}
         type={'button'}
-        onClick={handleClick}
       >
         <div
           className={cn(

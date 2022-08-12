@@ -46,7 +46,13 @@ const Template: ComponentStory<typeof Popover> = (args) => {
     <div>
       <Popover variant={args.variant}>
         <PopoverTrigger>
-          <IconButton icon={<BackIcon />} />
+          <button>Her</button>
+        </PopoverTrigger>
+        <PopoverContent>Popoverinnhold</PopoverContent>
+      </Popover>
+      <Popover variant={args.variant}>
+        <PopoverTrigger>
+          <IconButton icon={<BackIcon />}></IconButton>
         </PopoverTrigger>
         <PopoverContent>Popoverinnhold</PopoverContent>
       </Popover>

@@ -12,7 +12,7 @@ export const PopoverTrigger = ({ children }: PopoverTriggerProps) => {
       data-testid='popover-trigger'
       role='button'
     >
-      <div>{children}</div>
+      {children}
     </RadixPopover.Trigger>
   );
 };

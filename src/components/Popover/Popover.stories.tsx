@@ -4,7 +4,8 @@ import { config } from 'storybook-addon-designs';
 
 import { StoryPage } from '@sb/StoryPage';
 
-import { Button } from '../Button';
+import { IconButton } from '../IconButton';
+import { ReactComponent as BackIcon } from '../IconButton/BackIcon.svg';
 
 import { Popover } from './Popover';
 import { PopoverContent } from './PopoverContent';
@@ -45,7 +46,7 @@ const Template: ComponentStory<typeof Popover> = (args) => {
     <div>
       <Popover variant={args.variant}>
         <PopoverTrigger>
-          <Button>Åpne</Button>
+          <IconButton icon={<BackIcon />} />
         </PopoverTrigger>
         <PopoverContent>Popoverinnhold</PopoverContent>
       </Popover>

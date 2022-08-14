@@ -13,14 +13,11 @@
 }
 
 .input-wrapper:focus-within {
+  --border-color: var(--component-input-color-border-focus);
+  --outline-color: var(--border-color);
   outline-style: solid;
   outline-width: var(--component-input-border_width-default);
   outline-color: var(--outline-color);
-}
-
-.input-wrapper--default:focus-within {
-  --border-color: var(--component-input-color-border-focus);
-  --outline-color: var(--border-color);
 }
 
 .input-wrapper--default:hover {

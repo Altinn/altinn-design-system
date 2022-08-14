@@ -83,9 +83,26 @@ describe('IconButton', () => {
   });
 
   it('should handle onClick event', async () => {
-    const fn = jest.fn();
-    render({ handleClick: fn });
+    const handleClick = jest.fn();
+    render({ onClick: handleClick });
     await user.click(screen.getByRole('button'));
-    expect(fn).toHaveBeenCalled();
+    expect(handleClick).toHaveBeenCalled();
+  });
+
+  it('should handle onClick event when clicked by enter button', async () => {
+    const handleClick = jest.fn();
+    render({ onClick: handleClick });
+    await user.keyboard('{Tab}');
+    await user.keyboard('{Enter}');
+    expect(handleClick).toHaveBeenCalled();
+  });
+
+  it('should handle onClick event when clicked by space button', async () => {
+    const handleClick = jest.fn();
+    render({ onClick: handleClick });
+    const iconButton = screen.getByRole('button');
+    await user.keyboard('{Tab}');
+    await user.type(iconButton, '{Space}');
+    expect(handleClick).toHaveBeenCalled();
   });
 });

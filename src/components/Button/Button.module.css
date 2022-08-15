@@ -19,15 +19,15 @@
 }
 
 .button:disabled {
-  background: #efefef;
-  color: #6a6a6a;
-  box-shadow: 0px 0px 0px var(--component-button-border_width-default) #bcc7cc
-    inset;
+  background: var(--component-button-primary-color-background-disabled);
+  color: var(--component-button-primary-color-text-disabled);
+  box-shadow: 0px 0px 0px var(--component-button-border_width-default)
+    var(--component-button-primary-color-border-disabled) inset;
   cursor: auto;
 }
 
 .button:disabled:hover {
-  background: #efefef;
+  background: var(--component-button-primary-color-background-disabled);
 }
 
 .button--primary {
@@ -47,7 +47,7 @@
 }
 
 .button--secondary:hover {
-  background: #e3f7ff;
+  background: var(--component-button-secondary-color-background-hover);
 }
 
 .button--submit {
@@ -60,10 +60,10 @@
 }
 
 .button--cancel {
-  background: #d5203b;
+  background: var(--component-button-cancel-color-background-default);
   color: var(--component-button-secondary-color-text-hover);
 }
 
 .button--cancel:hover {
-  background: #b11b31;
+  background: var(--component-button-cancel-color-background-hover);
 }

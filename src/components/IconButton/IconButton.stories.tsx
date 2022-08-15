@@ -6,7 +6,6 @@ import { StoryPage } from '@sb/StoryPage';
 
 import { ReactComponent as ExitIcon } from './ExitUnstyled.svg';
 import { IconButton } from './IconButton';
-import { ReactComponent as BackIcon } from './BackIcon.svg';
 
 const figmaLink = ''; // TODO: Add figma link
 
@@ -49,18 +48,6 @@ Help.args = {
   icon: <ExitIcon />,
 };
 Help.parameters = {
-  docs: {
-    description: {
-      story: '', // TODO: add story description, supports markdown
-    },
-  },
-};
-
-export const Back = Template.bind({});
-Back.args = {
-  icon: <BackIcon />,
-};
-Back.parameters = {
   docs: {
     description: {
       story: '', // TODO: add story description, supports markdown

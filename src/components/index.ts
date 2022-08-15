@@ -7,3 +7,5 @@ export { Button, ButtonVariant } from './Button';
 export { List, ListItem, BorderStyle } from './List';
 export { IconButton, IconButtonSize, IconButtonVariant } from './IconButton';
 export { TextField, IconVariant, ReadOnlyVariant } from './TextField';
+export type { Location, MapLayer } from './Map';
+export { Map } from './Map';

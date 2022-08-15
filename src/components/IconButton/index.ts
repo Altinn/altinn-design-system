@@ -1,1 +1,1 @@
-export { IconButton } from './IconButton';
+export { IconButton, IconButtonSize, IconButtonVariant } from './IconButton';

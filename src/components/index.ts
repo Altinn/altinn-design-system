@@ -5,5 +5,5 @@ export { ToggleButton, ToggleButtonGroup } from './ToggleButtonGroup';
 export { Accordion, AccordionHeader, AccordionContent } from './Accordion';
 export { Button, ButtonVariant } from './Button';
 export { List, ListItem, BorderStyle } from './List';
-export { IconButton } from './IconButton';
+export { IconButton, IconButtonSize, IconButtonVariant } from './IconButton';
 export { TextField, IconVariant, ReadOnlyVariant } from './TextField';

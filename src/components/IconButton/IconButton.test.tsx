@@ -11,7 +11,7 @@ const render = (props: Partial<IconButtonProps> = {}) => {
     icon: <BackIcon />,
     variant: IconButtonVariant.Secondary,
     size: IconButtonSize.Small,
-    handleClick: jest.fn(),
+    onClick: jest.fn(),
     ...props,
   };
 
@@ -25,7 +25,6 @@ describe('IconButton', () => {
     it(`should render IconButton with correct classname when variant is ${size}`, () => {
       render({ size });
       const otherSizes = Object.values(IconButtonSize).filter((s) => s != size);
-      screen.debug();
       const iconButtonWrapper = screen.getByTestId('icon-button-wrapper');
 
       expect(
@@ -65,7 +64,6 @@ describe('IconButton', () => {
       const otherVariants = Object.values(IconButtonVariant).filter(
         (v) => v != variant,
       );
-      screen.debug();
       const iconButtonWrapper = screen.getByTestId('icon-button-wrapper');
 
       expect(
@@ -83,26 +81,26 @@ describe('IconButton', () => {
   });
 
   it('should handle onClick event', async () => {
-    const handleClick = jest.fn();
-    render({ onClick: handleClick });
+    const onClick = jest.fn();
+    render({ onClick });
     await user.click(screen.getByRole('button'));
-    expect(handleClick).toHaveBeenCalled();
+    expect(onClick).toHaveBeenCalled();
   });
 
   it('should handle onClick event when clicked by enter button', async () => {
-    const handleClick = jest.fn();
-    render({ onClick: handleClick });
+    const onClick = jest.fn();
+    render({ onClick });
     await user.keyboard('{Tab}');
     await user.keyboard('{Enter}');
-    expect(handleClick).toHaveBeenCalled();
+    expect(onClick).toHaveBeenCalled();
   });
 
   it('should handle onClick event when clicked by space button', async () => {
-    const handleClick = jest.fn();
-    render({ onClick: handleClick });
+    const onClick = jest.fn();
+    render({ onClick });
     const iconButton = screen.getByRole('button');
     await user.keyboard('{Tab}');
     await user.type(iconButton, '{Space}');
-    expect(handleClick).toHaveBeenCalled();
+    expect(onClick).toHaveBeenCalled();
   });
 });

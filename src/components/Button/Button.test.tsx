@@ -15,6 +15,7 @@ describe('Button', () => {
     expect(button.classList.contains('button--primary')).toBe(true);
     expect(button.classList.contains('button--secondary')).toBe(false);
     expect(button.classList.contains('button--submit')).toBe(false);
+    expect(button.classList.contains('button--cancel')).toBe(false);
   });
 
   Object.values(ButtonVariant).forEach((variant) => {
@@ -31,6 +32,27 @@ describe('Button', () => {
         expect(button.classList.contains(`button--${v}`)).toBe(false);
       });
     });
+  });
+
+  it('should render as disabled when disabled is true regardless of variant', () => {
+    render({ variant: ButtonVariant.Secondary, disabled: true });
+
+    const button = screen.getByRole('button');
+
+    expect(button).toBeDisabled();
+  });
+
+  it('should not call onClick when disabled', () => {
+    const fn = jest.fn();
+    render({
+      variant: ButtonVariant.Secondary,
+      disabled: true,
+      onClick: fn,
+    });
+
+    const button = screen.getByRole('button');
+    user.click(button);
+    expect(fn).not.toHaveBeenCalled();
   });
 
   it('should render children as button text', () => {

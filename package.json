@@ -26,7 +26,7 @@
     "add-component": "node scripts/add-component.mjs"
   },
   "dependencies": {
-    "@altinn/figma-design-tokens": "^1.0.0",
+    "@altinn/figma-design-tokens": "^2.0.2",
     "@react-hookz/web": "^15.0.1",
     "leaflet": "^1.8.0",
     "react-leaflet": "^4.0.1",

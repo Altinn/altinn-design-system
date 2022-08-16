@@ -11,9 +11,6 @@
   "files": [
     "dist"
   ],
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
   "scripts": {
     "start": "start-storybook -p 6006",
     "test": "jest --runInBand",

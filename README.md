@@ -12,15 +12,6 @@ This project is using React 18, but we need to support applications that are sti
 
 We are using the latest LTS release of node, but minimum version 16.9.0, since we are using [corepack](https://nodejs.org/api/corepack.html). To enable corepack, execute `corepack enable` from the terminal.
 
-### Setup Github PAT Token
-
-We are currently using Github registry to publish packages. This means you need to setup a PAT (Personal Access Token) on your machine.
-
-- Acquire a [GitHub PAT](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token). The only permission you need to grant is read:packages.
-- Assign the PAT to the GITHUB_PACKAGES_PAT environment variable:
-  - Mac/Linux: add the line `export GITHUB_PACKAGES_PAT=<PAT>` to `~/.bash_profile` and restart the terminal
-  - Windows: Execute `setx GITHUB_PACKAGES_PAT <PAT> /m` and restart the terminal
-
 ### Start Storybook
 
 Execute `yarn start` to start Storybook. It should open a browser automatically when it is ready. If you prefer to not automatically open a browser, you can execute `yarn start --no-open`.

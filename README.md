@@ -4,22 +4,9 @@ Design system v2
 
 ## Getting started
 
-### React version
-
-This project is using React 18, but we need to support applications that are still on React 17. This means you cannot use any React 18 features just yet.
-
 ### Node and Corepack
 
 We are using the latest LTS release of node, but minimum version 16.9.0, since we are using [corepack](https://nodejs.org/api/corepack.html). To enable corepack, execute `corepack enable` from the terminal.
-
-### Setup Github PAT Token
-
-We are currently using Github registry to publish packages. This means you need to setup a PAT (Personal Access Token) on your machine.
-
-- Acquire a [GitHub PAT](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token). The only permission you need to grant is read:packages.
-- Assign the PAT to the GITHUB_PACKAGES_PAT environment variable:
-  - Mac/Linux: add the line `export GITHUB_PACKAGES_PAT=<PAT>` to `~/.bash_profile` and restart the terminal
-  - Windows: Execute `setx GITHUB_PACKAGES_PAT <PAT> /m` and restart the terminal
 
 ### Start Storybook
 

@@ -6,5 +6,6 @@ export { Accordion, AccordionHeader, AccordionContent } from './Accordion';
 export { Button, ButtonVariant } from './Button';
 export { List, ListItem, BorderStyle } from './List';
 export { TextField, IconVariant, ReadOnlyVariant } from './TextField';
+export { ErrorMessage } from './ErrorMessage';
 export type { Location, MapLayer } from './Map';
 export { Map } from './Map';

@@ -17,24 +17,11 @@ describe('ErrorMessage', () => {
     );
   });
 
-  it('should display text passed with message property', () => {
-    render(<ErrorMessage message='This is an error message' />);
-    expect(screen.getByRole('alertdialog')).toHaveTextContent(
-      'This is an error message',
-    );
-  });
-
-  it('should display text passed message property', () => {
-    render(<ErrorMessage message='This is an error message' />);
-    expect(screen.getByText('This is an error message')).toBeInTheDocument();
-  });
-
   it('should render error message with accessible name when aria is defined', () => {
     render(
-      <ErrorMessage
-        message='This is an error message'
-        ariaLabel={'Hello from aria'}
-      />,
+      <ErrorMessage ariaLabel={'Hello from aria'}>
+        This is an error message
+      </ErrorMessage>,
     );
     expect(
       screen.getByRole('alertdialog', {

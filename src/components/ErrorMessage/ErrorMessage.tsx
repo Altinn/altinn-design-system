@@ -5,14 +5,12 @@ import classes from './ErrorMessage.module.css';
 
 export interface ErrorMessageProps {
   id?: string;
-  message?: string | React.ReactNode;
-  children?: React.ReactNode;
+  children: React.ReactNode;
   ariaLabel?: string;
 }
 
 export const ErrorMessage = ({
   id,
-  message,
   children,
   ariaLabel,
 }: ErrorMessageProps) => {
@@ -21,11 +19,10 @@ export const ErrorMessage = ({
       data-testid='ErrorMessage'
       aria-label={ariaLabel}
       id={id}
-      key={id}
       role='alertdialog'
       className={cn(classes['error-message-wrapper'])}
     >
-      {message ? message : children}
+      {children}
     </div>
   );
 };

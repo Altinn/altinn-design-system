@@ -35,12 +35,11 @@ export default {
   },
   args: {
     id: 'error-message-story',
-    message: 'This is an error message',
   },
 } as ComponentMeta<typeof ErrorMessage>;
 
 const Template: ComponentStory<typeof ErrorMessage> = (args) => (
-  <ErrorMessage {...args} />
+  <ErrorMessage {...args}>This is an error message</ErrorMessage>
 );
 
 export const Example = Template.bind({});

@@ -2,13 +2,13 @@ import { render as renderRtl, screen } from '@testing-library/react';
 import React from 'react';
 import userEvent from '@testing-library/user-event';
 
-import { ReactComponent as BackIcon } from './BackIcon.svg';
+import { ReactComponent as ExitIcon } from './ExitUnstyled.svg';
 import type { IconButtonProps } from './IconButton';
 import { IconButton, IconButtonVariant, IconButtonSize } from './IconButton';
 
 const render = (props: Partial<IconButtonProps> = {}) => {
   const allProps = {
-    icon: <BackIcon />,
+    icon: <ExitIcon />,
     variant: IconButtonVariant.Secondary,
     size: IconButtonSize.Small,
     onClick: jest.fn(),

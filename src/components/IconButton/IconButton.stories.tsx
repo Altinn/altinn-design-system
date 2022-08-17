@@ -43,11 +43,11 @@ const Template: ComponentStory<typeof IconButton> = (args) => (
   ></IconButton>
 );
 
-export const Help = Template.bind({});
-Help.args = {
+export const Close = Template.bind({});
+Close.args = {
   icon: <ExitIcon />,
 };
-Help.parameters = {
+Close.parameters = {
   docs: {
     description: {
       story: '', // TODO: add story description, supports markdown

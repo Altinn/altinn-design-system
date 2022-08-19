@@ -49,7 +49,7 @@ const Template: ComponentStory<typeof Popover> = (args) => {
         title={'Tittel'}
         trigger={<button>Åpne</button>}
       >
-        <div>Content</div>
+        <div>Her kommer litt informasjon</div>
       </Popover>
     </div>
   );

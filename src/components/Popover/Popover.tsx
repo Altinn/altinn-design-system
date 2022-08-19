@@ -7,7 +7,7 @@ import { Panel, PanelVariant } from '../Panel/Panel';
 
 import classes from './PopoverPanel.module.css';
 
-export enum PopoverContentPlacement {
+export enum PopoverPlacement {
   Top = 'top',
   Right = 'right',
   Bottom = 'bottom',
@@ -17,14 +17,14 @@ export enum PopoverContentPlacement {
 export interface PopoverProps extends PanelProps {
   trigger?: React.ReactNode;
   showArrow?: boolean;
-  placement?: PopoverContentPlacement;
+  placement?: PopoverPlacement;
 }
 
 export const Popover = ({
   children,
   variant = PanelVariant.Info,
   trigger,
-  placement = PopoverContentPlacement.Bottom,
+  placement = PopoverPlacement.Bottom,
   showArrow = true,
   title,
   showIcon,

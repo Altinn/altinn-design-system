@@ -5,11 +5,5 @@ export { ToggleButton, ToggleButtonGroup } from './ToggleButtonGroup';
 export { Accordion, AccordionHeader, AccordionContent } from './Accordion';
 export { Button, ButtonVariant } from './Button';
 export { List, ListItem } from './List';
-export {
-  Popover,
-  PopoverArrow,
-  PopoverContent,
-  PopoverTrigger,
-  PopoverVariant,
-} from './Popover';
 export { TextField, IconVariant, ReadOnlyVariant } from './TextField';
+export { PopoverPanel } from './PopoverPanel';

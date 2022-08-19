@@ -4,19 +4,15 @@ import { config } from 'storybook-addon-designs';
 
 import { StoryPage } from '@sb/StoryPage';
 
-import { IconButton } from '../IconButton';
-import { ReactComponent as BackIcon } from '../IconButton/BackIcon.svg';
 import { PanelVariant } from '../Panel';
 
-import { Popover } from './Popover';
-import { PopoverContent } from './PopoverContent';
-import { PopoverTrigger } from './PopoverTrigger';
+import { PopoverPanel } from './PopoverPanel';
 
 const figmaLink = ''; // TODO: Add figma link
 
 export default {
-  title: `Components/Popover`,
-  component: Popover,
+  title: `Components/PopoverPanel`,
+  component: PopoverPanel,
   parameters: {
     design: config([
       {
@@ -39,18 +35,18 @@ export default {
   args: {
     //TODO: Add default args
   },
-} as ComponentMeta<typeof Popover>;
+} as ComponentMeta<typeof PopoverPanel>;
 
-const Template: ComponentStory<typeof Popover> = (args) => {
+const Template: ComponentStory<typeof PopoverPanel> = (args) => {
   return (
     <div>
-      <Popover
+      <PopoverPanel
         variant={args.variant}
         title={'Tittel'}
         trigger={<button>Åpne</button>}
       >
         <div>Her kommer litt informasjon</div>
-      </Popover>
+      </PopoverPanel>
     </div>
   );
 };

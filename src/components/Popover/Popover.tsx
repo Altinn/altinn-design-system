@@ -1,22 +1,63 @@
 import React from 'react';
 import * as RadixPopover from '@radix-ui/react-popover';
+import cn from 'classnames';
 
-import { PopoverContext, PopoverVariant } from './Context';
+import type { PanelProps } from '../Panel/Panel';
+import { Panel, PanelVariant } from '../Panel/Panel';
 
-export interface PopoverProps {
-  children?: React.ReactNode;
-  variant?: PopoverVariant;
+import classes from './PopoverPanel.module.css';
+
+export enum PopoverContentPlacement {
+  Top = 'top',
+  Right = 'right',
+  Bottom = 'bottom',
+  Left = 'left',
+}
+
+export interface PopoverProps extends PanelProps {
+  trigger?: React.ReactNode;
+  showArrow?: boolean;
+  placement?: PopoverContentPlacement;
 }
 
 export const Popover = ({
   children,
-  variant: popoverVariant = PopoverVariant.Neutral,
+  variant = PanelVariant.Info,
+  trigger,
+  placement = PopoverContentPlacement.Bottom,
+  showArrow = true,
+  title,
+  showIcon,
+  forceMobileLayout,
 }: PopoverProps) => {
   return (
     <RadixPopover.Root>
-      <PopoverContext.Provider value={{ popoverVariant }}>
-        {children}
-      </PopoverContext.Provider>
+      <RadixPopover.Trigger
+        asChild
+        data-testid='popover-trigger'
+        role='button'
+      >
+        {trigger}
+      </RadixPopover.Trigger>
+      <RadixPopover.Content side={placement}>
+        <Panel
+          title={title}
+          showIcon={showIcon}
+          forceMobileLayout={forceMobileLayout}
+          showAsPopover={true}
+          variant={variant}
+        >
+          {children}
+        </Panel>
+        {showArrow && (
+          <RadixPopover.Arrow
+            className={cn(classes['popover-arrow'], [
+              classes[`popover-arrow--${variant}`],
+            ])}
+            data-testid='popover-arrow'
+          />
+        )}
+      </RadixPopover.Content>
     </RadixPopover.Root>
   );
 };

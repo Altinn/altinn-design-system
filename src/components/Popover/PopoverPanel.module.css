@@ -1,0 +1,21 @@
+.popover-arrow {
+  width: 2rem;
+  height: 1rem;
+  fill: var(--popover-arrow-fill);
+}
+
+.popover-arrow--warning {
+  --popover-arrow-fill: var(--component-panel-color-background-warning);
+}
+
+.popover-arrow--error {
+  --popover-arrow-fill: #f9cad3;
+}
+
+.popover-arrow--info {
+  --popover-arrow-fill: var(--component-panel-color-background-default);
+}
+
+.popover-arrow--success {
+  --popover-arrow-fill: var(--component-panel-color-background-success);
+}

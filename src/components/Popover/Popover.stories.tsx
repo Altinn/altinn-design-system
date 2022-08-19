@@ -6,11 +6,11 @@ import { StoryPage } from '@sb/StoryPage';
 
 import { IconButton } from '../IconButton';
 import { ReactComponent as BackIcon } from '../IconButton/BackIcon.svg';
+import { PanelVariant } from '../Panel';
 
 import { Popover } from './Popover';
 import { PopoverContent } from './PopoverContent';
 import { PopoverTrigger } from './PopoverTrigger';
-import { PopoverVariant } from './Context';
 
 const figmaLink = ''; // TODO: Add figma link
 
@@ -44,25 +44,44 @@ export default {
 const Template: ComponentStory<typeof Popover> = (args) => {
   return (
     <div>
-      <Popover variant={args.variant}>
-        <PopoverTrigger>
-          <button>Her</button>
-        </PopoverTrigger>
-        <PopoverContent>Popoverinnhold</PopoverContent>
-      </Popover>
-      <Popover variant={args.variant}>
-        <PopoverTrigger>
-          <IconButton icon={<BackIcon />}></IconButton>
-        </PopoverTrigger>
-        <PopoverContent>Popoverinnhold</PopoverContent>
+      <Popover
+        variant={args.variant}
+        title={'Tittel'}
+        trigger={<button>Åpne</button>}
+      >
+        <div>Content</div>
       </Popover>
     </div>
   );
 };
 
+export const Success = Template.bind({});
+Success.args = {
+  variant: PanelVariant.Success,
+};
+Success.parameters = {
+  docs: {
+    description: {
+      story: '', // TODO: add story description, supports markdown
+    },
+  },
+};
+
+export const Info = Template.bind({});
+Info.args = {
+  variant: PanelVariant.Info,
+};
+Info.parameters = {
+  docs: {
+    description: {
+      story: '', // TODO: add story description, supports markdown
+    },
+  },
+};
+
 export const Warning = Template.bind({});
 Warning.args = {
-  variant: PopoverVariant.Warning,
+  variant: PanelVariant.Warning,
 };
 Warning.parameters = {
   docs: {
@@ -74,21 +93,9 @@ Warning.parameters = {
 
 export const Error = Template.bind({});
 Error.args = {
-  variant: PopoverVariant.Error,
+  variant: PanelVariant.Error,
 };
 Error.parameters = {
-  docs: {
-    description: {
-      story: '', // TODO: add story description, supports markdown
-    },
-  },
-};
-
-export const Neutral = Template.bind({});
-Neutral.args = {
-  variant: PopoverVariant.Neutral,
-};
-Neutral.parameters = {
   docs: {
     description: {
       story: '', // TODO: add story description, supports markdown

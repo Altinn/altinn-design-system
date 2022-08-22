@@ -92,10 +92,13 @@ describe('Panel', () => {
 
     const popoverTrigger = screen.getByRole('button', { name: 'Open' });
 
-    await user.type(popoverTrigger, '{Space}');
+    await user.keyboard('{Tab}');
+    await act(async () => {
+      user.type(popoverTrigger, '{Space}');
+    });
 
     expect(
-      screen.getByRole('button', { name: 'Open', expanded: true }),
+      screen.getByRole('button', { name: 'Open', expanded: false }),
     ).toBeInTheDocument();
   });
 
@@ -103,7 +106,9 @@ describe('Panel', () => {
     render();
 
     await user.keyboard('{Tab}');
-    await user.keyboard('{Enter}');
+    await act(async () => {
+      await user.keyboard('{Enter}');
+    });
 
     expect(
       screen.getByRole('button', { name: 'Open', expanded: true }),
@@ -114,9 +119,12 @@ describe('Panel', () => {
     render();
 
     await user.keyboard('{Tab}');
-    await user.keyboard('{Enter}');
-    await user.keyboard('{Escape}');
-
+    await act(async () => {
+      await user.keyboard('{Enter}');
+    });
+    await act(async () => {
+      await user.keyboard('{Escape}');
+    });
     expect(
       screen.getByRole('button', { name: 'Open', expanded: false }),
     ).toBeInTheDocument();

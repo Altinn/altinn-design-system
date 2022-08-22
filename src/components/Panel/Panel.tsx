@@ -15,12 +15,12 @@ export enum PanelVariant {
   Error = 'error',
 }
 
-export interface RenderIconProps {
+interface RenderIconProps {
   size: string;
   variant: PanelVariant;
 }
 
-export interface UseMobileLayoutProps {
+interface UseMobileLayoutProps {
   forceMobileLayout?: boolean;
 }
 export interface PanelProps extends UseMobileLayoutProps {
@@ -89,7 +89,7 @@ export const Panel = ({
         [classes['panel--mobile-layout']]: isMobileLayout,
       })}
     >
-      {showPointer && (
+      {(showPointer || !showAsPopover) && (
         <div
           data-testid='panel-pointer'
           className={cn(

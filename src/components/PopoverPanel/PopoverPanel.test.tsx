@@ -30,7 +30,7 @@ describe('Panel', () => {
     setScreenWidth(mediaQueryBreakPoint + 100);
   });
   Object.values(PanelVariant).forEach((variant) => {
-    it(`should render popover arrow and popover content with correct classname when variant is ${variant}`, async () => {
+    it(`should render popover arrow with correct classname when variant is ${variant}`, async () => {
       render({ variant });
       const otherVariants = Object.values(PanelVariant).filter(
         (v) => v !== variant,
@@ -52,7 +52,7 @@ describe('Panel', () => {
     });
   });
 
-  it('should show arrow when showArrow is set to true', async () => {
+  it('should show arrow when "showArrow" is set to true', async () => {
     render({ showArrow: true });
 
     const popoverTrigger = screen.getByRole('button', { name: 'Open' });
@@ -63,7 +63,18 @@ describe('Panel', () => {
     expect(screen.getByTestId('popover-arrow')).toBeInTheDocument();
   });
 
-  it('should have aria-expanded = true when popover trigger is clicked', async () => {
+  it('should not show arrow when "showArrow" is set to false', async () => {
+    render({ showArrow: false });
+
+    const popoverTrigger = screen.getByRole('button', { name: 'Open' });
+    await act(async () => {
+      await user.click(popoverTrigger);
+    });
+
+    expect(screen.queryByTestId('popover-arrow')).not.toBeInTheDocument();
+  });
+
+  it('should have aria-expanded = true when popover trigger is clicked by mouse', async () => {
     render();
 
     const popoverTrigger = screen.getByRole('button', { name: 'Open' });

@@ -55,7 +55,7 @@ const Template: ComponentStory<typeof PopoverPanel> = (args) => {
 export const Success = Template.bind({});
 Success.args = {
   variant: PanelVariant.Success,
-  showArrow: false,
+  showArrow: true,
 };
 Success.parameters = {
   docs: {

@@ -22,7 +22,7 @@ export interface PopoverPanelProps extends PanelProps {
 
 export const PopoverPanel = ({
   children,
-  variant = PanelVariant.Info,
+  variant = PanelVariant.Warning,
   trigger,
   placement = PopoverPlacement.Bottom,
   showArrow = true,

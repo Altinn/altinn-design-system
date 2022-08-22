@@ -39,6 +39,14 @@ Using [BEM naming convention](http://getbem.com/naming/) gives a pretty clear vi
 
 ## Good to know
 
+### How are the Figma design tokens connected to this repo?
+
+The design tokens live in a [separate repository](https://github.com/Altinn/figma-design-tokens), which is used in Figma with a plugin. The UX group will set/use these tokens in their design, and in the end it will be synced to the `tokens.json` in the `figma-design-tokens` repository. These tokens are publised to NPM as a package `@altinn/figma-design-tokens`. During this process, the `tokens.json` is transformed to `tokens.esm.js` and `tokens.css` files, so the values can be used directly from JS or as CSS variables.
+
+![figma tokens usage diagam](./docs/figma-tokens-diagram.svg)
+
+When using these tokens in this project, we are also transforming the values a bit, to stay compatible with our old design system. The long term goal is to get rid of the dependency to the old design system, so we no longer have to do this transformation. For more information about this, see the below explaination `rem` values.
+
 ### `rem` values
 
 The design system currently has a dependency that redefines the base value of the `rem` unit (usually this corresponds to `16px`, but it is redefined so that `1rem` = `10px`). Since the design tokens from [figma-design-tokens](https://github.com/Altinn/figma-design-tokens) are defined in the assumption that `1rem` should be `16px`, the token values are recalculated automatically so that they maintain their expected pixel dimensions even though the `rem`/`px` ratio is different.

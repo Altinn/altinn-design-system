@@ -206,8 +206,6 @@ const render = (props: Partial<PanelProps> = {}) => {
   const allProps = {
     title: 'Panel title',
     children: <div>Panel content</div>,
-    showPointer: false,
-    showAsPopover: false,
     ...props,
   };
 

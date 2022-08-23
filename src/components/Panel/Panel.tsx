@@ -23,6 +23,7 @@ interface RenderIconProps {
 interface UseMobileLayoutProps {
   forceMobileLayout?: boolean;
 }
+
 export interface PanelProps extends UseMobileLayoutProps {
   title?: React.ReactNode;
   children: React.ReactNode;
@@ -30,6 +31,7 @@ export interface PanelProps extends UseMobileLayoutProps {
   variant?: PanelVariant;
   showPointer?: boolean;
   showIcon?: boolean;
+  renderArrow?: ({ children }: RenderArrowProps) => React.ReactNode;
 }
 
 const defaultRenderIcon = ({ size, variant }: RenderIconProps) => {
@@ -65,6 +67,16 @@ const useMobileLayout = ({ forceMobileLayout }: UseMobileLayoutProps) => {
   return matchesMobileQuery;
 };
 
+export interface RenderArrowProps {
+  children: React.ReactNode;
+}
+
+const defaultRenderArrow = ({ children }: RenderArrowProps) => {
+  return (
+    <div className={cn(classes['panel__pointer-position'])}>{children}</div>
+  );
+};
+
 export const Panel = ({
   renderIcon = defaultRenderIcon,
   title,
@@ -73,6 +85,7 @@ export const Panel = ({
   showPointer = false,
   showIcon = true,
   forceMobileLayout = false,
+  renderArrow = defaultRenderArrow,
 }: PanelProps) => {
   const isMobileLayout = useMobileLayout({ forceMobileLayout });
 
@@ -83,19 +96,21 @@ export const Panel = ({
   return (
     <div
       className={cn(classes.panel, {
-        [classes['panel--has-pointer']]: showPointer,
         [classes['panel--mobile-layout']]: isMobileLayout,
       })}
     >
-      {showPointer && (
-        <div
-          data-testid='panel-pointer'
-          className={cn(
-            classes.panel__pointer,
-            classes[`panel__pointer--${variant}`],
-          )}
-        ></div>
-      )}
+      {showPointer &&
+        renderArrow({
+          children: (
+            <div
+              data-testid='panel-pointer'
+              className={cn(
+                classes.panel__pointer,
+                classes[`panel__pointer--${variant}`],
+              )}
+            ></div>
+          ),
+        })}
       <div
         data-testid='panel-content-wrapper'
         className={cn(

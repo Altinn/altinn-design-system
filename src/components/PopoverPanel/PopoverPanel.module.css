@@ -1,26 +1,7 @@
 .popover-panel {
-  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25);
-  background-color: var(--popover_content-color-background);
+  filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.25));
 }
 
 .popover-panel__arrow {
-  width: 2rem;
-  height: 1rem;
-  fill: var(--popover-panel-arrow-fill);
-}
-
-.popover-panel__arrow--warning {
-  --popover-panel-arrow-fill: var(--component-panel-color-background-warning);
-}
-
-.popover-panel__arrow--error {
-  --popover-panel-arrow-fill: #f9cad3;
-}
-
-.popover-panel__arrow--info {
-  --popover-panel-arrow-fill: var(--component-panel-color-background-default);
-}
-
-.popover-panel__arrow--success {
-  --popover-panel-arrow-fill: var(--component-panel-color-background-success);
+  transform: scale(-1);
 }

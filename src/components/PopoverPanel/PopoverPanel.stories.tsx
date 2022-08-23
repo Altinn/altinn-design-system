@@ -36,7 +36,6 @@ export default {
     title: 'Tittel',
     variant: PanelVariant.Warning,
     trigger: <button>Åpne</button>,
-    showArrow: true,
     placement: PopoverPlacement.Top,
   },
 } as ComponentMeta<typeof PopoverPanel>;
@@ -51,7 +50,6 @@ const Template: ComponentStory<typeof PopoverPanel> = (args) => (
 export const Success = Template.bind({});
 Success.args = {
   variant: PanelVariant.Success,
-  showArrow: true,
   placement: PopoverPlacement.Top,
 };
 Success.parameters = {
@@ -65,7 +63,6 @@ Success.parameters = {
 export const Info = Template.bind({});
 Info.args = {
   variant: PanelVariant.Info,
-  showArrow: true,
   placement: PopoverPlacement.Top,
 };
 Info.parameters = {
@@ -79,7 +76,6 @@ Info.parameters = {
 export const Warning = Template.bind({});
 Warning.args = {
   variant: PanelVariant.Warning,
-  showArrow: true,
   placement: PopoverPlacement.Top,
 };
 Warning.parameters = {
@@ -93,7 +89,6 @@ Warning.parameters = {
 export const Error = Template.bind({});
 Error.args = {
   variant: PanelVariant.Error,
-  showArrow: true,
   placement: PopoverPlacement.Top,
 };
 Error.parameters = {

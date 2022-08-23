@@ -2,7 +2,7 @@ import React from 'react';
 import * as RadixPopover from '@radix-ui/react-popover';
 import cn from 'classnames';
 
-import type { PanelProps } from '../Panel/Panel';
+import type { PanelProps, RenderArrowProps } from '../Panel/Panel';
 import { Panel, PanelVariant } from '../Panel/Panel';
 
 import classes from './PopoverPanel.module.css';
@@ -29,6 +29,17 @@ export const PopoverPanel = ({
   forceMobileLayout,
   showPointer,
 }: PopoverPanelProps) => {
+  const renderArrow = ({ children }: RenderArrowProps) => {
+    return (
+      <RadixPopover.Arrow
+        className={cn(classes['popover-panel__arrow'])}
+        data-testid='popover-arrow'
+        asChild
+      >
+        {children}
+      </RadixPopover.Arrow>
+    );
+  };
   return (
     <RadixPopover.Root>
       <RadixPopover.Trigger
@@ -46,19 +57,12 @@ export const PopoverPanel = ({
           title={title}
           showIcon={showIcon}
           forceMobileLayout={forceMobileLayout}
-          showPointer={false}
+          showPointer={showPointer}
           variant={variant}
+          renderArrow={renderArrow}
         >
           {children}
         </Panel>
-        {showPointer && (
-          <RadixPopover.Arrow
-            className={cn(classes['popover-panel__arrow'], [
-              classes[`popover-panel__arrow--${variant}`],
-            ])}
-            data-testid='popover-arrow'
-          />
-        )}
       </RadixPopover.Content>
     </RadixPopover.Root>
   );

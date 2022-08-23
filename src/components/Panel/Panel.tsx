@@ -30,7 +30,6 @@ export interface PanelProps extends UseMobileLayoutProps {
   variant?: PanelVariant;
   showPointer?: boolean;
   showIcon?: boolean;
-  showAsPopover?: boolean;
 }
 
 const defaultRenderIcon = ({ size, variant }: RenderIconProps) => {
@@ -74,18 +73,8 @@ export const Panel = ({
   showPointer = false,
   showIcon = true,
   forceMobileLayout = false,
-  showAsPopover = false,
 }: PanelProps) => {
   const isMobileLayout = useMobileLayout({ forceMobileLayout });
-
-  const handleShowPointer = () => {
-    if (showAsPopover) {
-      return false;
-    }
-    if (showPointer && !showAsPopover) {
-      return true;
-    }
-  };
 
   const iconSize = isMobileLayout
     ? tokens.ComponentPanelSizeIconXs
@@ -94,11 +83,11 @@ export const Panel = ({
   return (
     <div
       className={cn(classes.panel, {
-        [classes['panel--has-pointer']]: handleShowPointer,
+        [classes['panel--has-pointer']]: showPointer,
         [classes['panel--mobile-layout']]: isMobileLayout,
       })}
     >
-      {handleShowPointer() && (
+      {showPointer && (
         <div
           data-testid='panel-pointer'
           className={cn(
@@ -107,7 +96,6 @@ export const Panel = ({
           )}
         ></div>
       )}
-
       <div
         data-testid='panel-content-wrapper'
         className={cn(

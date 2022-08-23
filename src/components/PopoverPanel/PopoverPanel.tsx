@@ -16,7 +16,6 @@ export enum PopoverPlacement {
 
 export interface PopoverPanelProps extends PanelProps {
   trigger?: React.ReactNode;
-  showArrow?: boolean;
   placement?: PopoverPlacement;
 }
 
@@ -24,11 +23,11 @@ export const PopoverPanel = ({
   children,
   variant = PanelVariant.Warning,
   trigger,
-  placement = PopoverPlacement.Bottom,
-  showArrow = true,
+  placement = PopoverPlacement.Top,
   title,
   showIcon,
   forceMobileLayout,
+  showPointer,
 }: PopoverPanelProps) => {
   return (
     <RadixPopover.Root>
@@ -47,12 +46,12 @@ export const PopoverPanel = ({
           title={title}
           showIcon={showIcon}
           forceMobileLayout={forceMobileLayout}
-          showAsPopover={true}
+          showPointer={false}
           variant={variant}
         >
           {children}
         </Panel>
-        {showArrow && (
+        {showPointer && (
           <RadixPopover.Arrow
             className={cn(classes['popover-panel__arrow'], [
               classes[`popover-panel__arrow--${variant}`],

@@ -69,11 +69,6 @@ describe('Panel', () => {
       expect(screen.queryByTestId('panel-pointer')).not.toBeInTheDocument();
     });
 
-    it('should not show pointer when "showAsPopover" is true', () => {
-      render({ showAsPopover: true });
-      expect(screen.queryByTestId('panel-pointer')).not.toBeInTheDocument();
-    });
-
     Object.values(PanelVariant).forEach((variant) => {
       it(`should render pointer with correct classname when variant is ${variant}`, () => {
         render({ showPointer: true, variant });

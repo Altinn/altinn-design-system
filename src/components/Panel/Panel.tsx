@@ -78,7 +78,7 @@ export const Panel = ({
 }: PanelProps) => {
   const isMobileLayout = useMobileLayout({ forceMobileLayout });
 
-  const calculatePointer = () => {
+  const handleShowPointer = () => {
     if (showAsPopover) {
       return false;
     }
@@ -94,11 +94,11 @@ export const Panel = ({
   return (
     <div
       className={cn(classes.panel, {
-        [classes['panel--has-pointer']]: calculatePointer,
+        [classes['panel--has-pointer']]: handleShowPointer,
         [classes['panel--mobile-layout']]: isMobileLayout,
       })}
     >
-      {calculatePointer() && (
+      {handleShowPointer() && (
         <div
           data-testid='panel-pointer'
           className={cn(

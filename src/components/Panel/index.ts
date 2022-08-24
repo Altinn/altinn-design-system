@@ -1,2 +1,2 @@
 export { Panel, PanelVariant } from './Panel';
-export { PopoverPanel, PopoverPlacement } from './PopoverPanel';
+export { PopoverPanel, PopoverSide } from './PopoverPanel';

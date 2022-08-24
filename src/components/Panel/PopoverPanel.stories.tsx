@@ -6,7 +6,7 @@ import { StoryPage } from '@sb/StoryPage';
 
 import { PanelVariant } from '../Panel';
 
-import { PopoverPanel, PopoverPlacement } from './PopoverPanel';
+import { PopoverPanel, PopoverSide } from './PopoverPanel';
 
 const figmaLink = ''; // TODO: Add figma link
 
@@ -36,7 +36,7 @@ export default {
     title: 'Tittel',
     variant: PanelVariant.Warning,
     trigger: <button>Åpne</button>,
-    placement: PopoverPlacement.Top,
+    side: PopoverSide.Top,
   },
 } as ComponentMeta<typeof PopoverPanel>;
 
@@ -50,7 +50,7 @@ const Template: ComponentStory<typeof PopoverPanel> = (args) => (
 export const Success = Template.bind({});
 Success.args = {
   variant: PanelVariant.Success,
-  placement: PopoverPlacement.Top,
+  side: PopoverSide.Top,
 };
 Success.parameters = {
   docs: {
@@ -63,7 +63,7 @@ Success.parameters = {
 export const Info = Template.bind({});
 Info.args = {
   variant: PanelVariant.Info,
-  placement: PopoverPlacement.Top,
+  side: PopoverSide.Top,
 };
 Info.parameters = {
   docs: {
@@ -76,7 +76,7 @@ Info.parameters = {
 export const Warning = Template.bind({});
 Warning.args = {
   variant: PanelVariant.Warning,
-  placement: PopoverPlacement.Top,
+  side: PopoverSide.Top,
 };
 Warning.parameters = {
   docs: {
@@ -89,7 +89,7 @@ Warning.parameters = {
 export const Error = Template.bind({});
 Error.args = {
   variant: PanelVariant.Error,
-  placement: PopoverPlacement.Top,
+  side: PopoverSide.Top,
 };
 Error.parameters = {
   docs: {

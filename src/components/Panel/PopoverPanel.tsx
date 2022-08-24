@@ -19,6 +19,17 @@ export interface PopoverPanelProps extends PanelProps {
   side?: PopoverSide;
 }
 
+const renderArrow = ({ children }: RenderArrowProps) => {
+  return (
+    <RadixPopover.Arrow
+      className={cn(classes['popover-panel__arrow'])}
+      asChild
+    >
+      {children}
+    </RadixPopover.Arrow>
+  );
+};
+
 export const PopoverPanel = ({
   children,
   variant = PanelVariant.Warning,
@@ -29,16 +40,6 @@ export const PopoverPanel = ({
   forceMobileLayout,
   showPointer = true,
 }: PopoverPanelProps) => {
-  const renderArrow = ({ children }: RenderArrowProps) => {
-    return (
-      <RadixPopover.Arrow
-        className={cn(classes['popover-panel__arrow'])}
-        asChild
-      >
-        {children}
-      </RadixPopover.Arrow>
-    );
-  };
   return (
     <RadixPopover.Root>
       <RadixPopover.Trigger

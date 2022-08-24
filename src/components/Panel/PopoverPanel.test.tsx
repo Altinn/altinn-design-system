@@ -29,50 +29,6 @@ describe('Panel', () => {
   beforeEach(() => {
     setScreenWidth(mediaQueryBreakPoint + 100);
   });
-  Object.values(PanelVariant).forEach((variant) => {
-    it(`should render popover arrow with correct classname when variant is ${variant}`, async () => {
-      render({ variant });
-      const otherVariants = Object.values(PanelVariant).filter(
-        (v) => v !== variant,
-      );
-      const popoverTrigger = screen.getByRole('button', { name: 'Open' });
-      await act(async () => {
-        await user.click(popoverTrigger);
-      });
-      const popoverArrow = screen.getByTestId('popover-arrow');
-
-      expect(
-        popoverArrow.classList.contains(`popover-panel__arrow--${variant}`),
-      ).toBe(true);
-      otherVariants.forEach((v) => {
-        expect(
-          popoverArrow.classList.contains(`popover-panel__arrow--${v}`),
-        ).toBe(false);
-      });
-    });
-  });
-
-  it('should show arrow when "showArrow" is set to true', async () => {
-    render({ showArrow: true });
-
-    const popoverTrigger = screen.getByRole('button', { name: 'Open' });
-    await act(async () => {
-      await user.click(popoverTrigger);
-    });
-
-    expect(screen.getByTestId('popover-arrow')).toBeInTheDocument();
-  });
-
-  it('should not show arrow when "showArrow" is set to false', async () => {
-    render({ showArrow: false });
-
-    const popoverTrigger = screen.getByRole('button', { name: 'Open' });
-    await act(async () => {
-      await user.click(popoverTrigger);
-    });
-
-    expect(screen.queryByTestId('popover-arrow')).not.toBeInTheDocument();
-  });
 
   it('should have aria-expanded = true when popover trigger is clicked by mouse', async () => {
     render();
@@ -115,7 +71,7 @@ describe('Panel', () => {
     ).toBeInTheDocument();
   });
 
-  it('should have aria-expanded = false when popover trigger when escape is clicked', async () => {
+  it('should have aria-expanded = false when escape is pressed', async () => {
     render();
 
     await user.keyboard('{Tab}');

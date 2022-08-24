@@ -6,7 +6,7 @@ export { Accordion, AccordionHeader, AccordionContent } from './Accordion';
 export { Button, ButtonVariant } from './Button';
 export { List, ListItem, BorderStyle } from './List';
 export { TextField, IconVariant, ReadOnlyVariant } from './TextField';
-export { PopoverPanel } from './Panel';
+export { PopoverPanel, PopoverSide } from './Panel';
 export { ErrorMessage } from './ErrorMessage';
 export type { Location, MapLayer } from './Map';
 export { Map } from './Map';

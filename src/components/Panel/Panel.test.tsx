@@ -195,7 +195,7 @@ describe('Panel', () => {
       });
     });
 
-    it('should allow overriding pointer with renderArrow callback', () => {
+    it('should allow overriding panel pointer with renderArrow callback', () => {
       const renderArrow = () => <div data-testid='panel-arrow' />;
       render({ renderArrow, showPointer: true });
 

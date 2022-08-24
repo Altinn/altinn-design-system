@@ -4,8 +4,5 @@
 
 .popover-panel__arrow {
   transform: scale(-1);
-}
-
-.popover-panel__arrow {
   margin-top: -1px;
 }

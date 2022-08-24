@@ -6,10 +6,20 @@ module.exports = {
   moduleNameMapper: {
     '.(css|less|scss)$': 'identity-obj-proxy',
     '\\.svg$': '<rootDir>/__mocks__/svg.ts',
+    '\\.png$': '<rootDir>/__mocks__/png.ts',
     '^@/(.*)$': '<rootDir>/src/$1',
     '^@test/(.*)$': '<rootDir>/test/$1',
   },
   modulePathIgnorePatterns: ['<rootDir>/dist/'],
   setupFilesAfterEnv: ['<rootDir>/test/jest.setup.ts'],
   testPathIgnorePatterns: ['/node_modules/', '/scripts/templates/'],
+  globals: {
+    'ts-jest': {
+      tsconfig: {
+        allowJs: true,
+      },
+    },
+  },
+  transform: { '\\.js$': ['ts-jest'] },
+  transformIgnorePatterns: ['node_modules/(?!react-leaflet)/'],
 };

@@ -2,8 +2,6 @@ import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { act, render as renderRtl, screen } from '@testing-library/react';
 
-import { mockMediaQuery } from '@test/testUtils';
-
 import { PanelVariant } from '../Panel';
 
 import type { PopoverPanelProps } from './PopoverPanel';
@@ -22,14 +20,7 @@ const render = (props: Partial<PopoverPanelProps> = {}) => {
 
 const user = userEvent.setup();
 
-const mediaQueryBreakPoint = 500;
-const { setScreenWidth } = mockMediaQuery(mediaQueryBreakPoint);
-
 describe('Panel', () => {
-  beforeEach(() => {
-    setScreenWidth(mediaQueryBreakPoint + 100);
-  });
-
   it('should have aria-expanded = true when popover trigger is clicked by mouse', async () => {
     render();
 

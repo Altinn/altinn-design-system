@@ -1,4 +1,5 @@
 import '@testing-library/jest-dom';
+import { mockMediaQuery } from './testUtils';
 
 // @radix-ui/react-popover uses resizeobserver, which is not supported in jsdom.
 // This is a simple mock to not break the tests.
@@ -8,3 +9,6 @@ class ResizeObserver {
   disconnect = jest.fn();
 }
 window.ResizeObserver = ResizeObserver;
+
+const { setScreenWidth } = mockMediaQuery(800);
+setScreenWidth(800);

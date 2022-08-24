@@ -6,18 +6,6 @@
   transform: scale(-1);
 }
 
-[data-side='left'] .popover-panel__arrow {
-  margin-top: -1px;
-}
-
-[data-side='right'] .popover-panel__arrow {
-  margin-top: -1px;
-}
-
-[data-side='bottom'] .popover-panel__arrow {
-  margin-top: -1px;
-}
-
-[data-side='top'] .popover-panel__arrow {
+.popover-panel__arrow {
   margin-top: -1px;
 }

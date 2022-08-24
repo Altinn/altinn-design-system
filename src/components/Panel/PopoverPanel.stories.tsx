@@ -13,7 +13,7 @@ import { PopoverPanel, PopoverSide } from './PopoverPanel';
 const figmaLink = ''; // TODO: Add figma link
 
 export default {
-  title: `Components/PopoverPanel`,
+  title: `Components/Panel/PopoverPanel`,
   component: PopoverPanel,
   parameters: {
     design: config([

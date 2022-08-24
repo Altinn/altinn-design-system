@@ -1,4 +1,4 @@
-export { Panel, PanelVariant } from './Panel';
+export { Panel, PanelVariant, PopoverPanel, PopoverSide } from './Panel';
 export { CircularProgress } from './CircularProgress';
 export { AppWrapper } from './AppWrapper';
 export { ToggleButton, ToggleButtonGroup } from './ToggleButtonGroup';
@@ -6,7 +6,6 @@ export { Accordion, AccordionHeader, AccordionContent } from './Accordion';
 export { Button, ButtonVariant } from './Button';
 export { List, ListItem, BorderStyle } from './List';
 export { TextField, IconVariant, ReadOnlyVariant } from './TextField';
-export { PopoverPanel, PopoverSide } from './Panel';
 export { ErrorMessage } from './ErrorMessage';
 export type { Location, MapLayer } from './Map';
 export { Map } from './Map';

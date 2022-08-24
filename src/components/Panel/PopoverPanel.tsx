@@ -27,7 +27,7 @@ export const PopoverPanel = ({
   title,
   showIcon,
   forceMobileLayout,
-  showPointer,
+  showPointer = true,
 }: PopoverPanelProps) => {
   const renderArrow = ({ children }: RenderArrowProps) => {
     return (

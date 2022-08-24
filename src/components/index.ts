@@ -6,4 +6,4 @@ export { Accordion, AccordionHeader, AccordionContent } from './Accordion';
 export { Button, ButtonVariant } from './Button';
 export { List, ListItem } from './List';
 export { TextField, IconVariant, ReadOnlyVariant } from './TextField';
-export { PopoverPanel } from './PopoverPanel';
+export { PopoverPanel } from './Panel';

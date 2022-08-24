@@ -43,7 +43,7 @@ export default {
 } as ComponentMeta<typeof PopoverPanel>;
 
 const Template: ComponentStory<typeof PopoverPanel> = (args) => {
-  const [open, onOpenChange] = useState(true);
+  const [open, onOpenChange] = useState(false);
 
   const handleOnOpenChange = () => {
     onOpenChange(!open);

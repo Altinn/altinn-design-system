@@ -194,6 +194,14 @@ describe('Panel', () => {
         variant: PanelVariant.Info,
       });
     });
+
+    it('should allow overriding pointer with renderArrow callback', () => {
+      const renderArrow = () => <div data-testid='panel-arrow' />;
+      render({ renderArrow, showPointer: true });
+
+      expect(screen.getByTestId('panel-arrow')).toBeInTheDocument();
+      expect(screen.queryByTestId('panel-pointer')).not.toBeInTheDocument();
+    });
   });
 });
 

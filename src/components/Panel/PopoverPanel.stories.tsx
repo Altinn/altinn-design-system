@@ -1,10 +1,12 @@
 import React from 'react';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import { config } from 'storybook-addon-designs';
+import { useState } from '@storybook/addons';
 
 import { StoryPage } from '@sb/StoryPage';
 
 import { PanelVariant } from '../Panel';
+import { Button } from '../Button';
 
 import { PopoverPanel, PopoverSide } from './PopoverPanel';
 
@@ -40,13 +42,30 @@ export default {
   },
 } as ComponentMeta<typeof PopoverPanel>;
 
-const Template: ComponentStory<typeof PopoverPanel> = (args) => (
-  <div>
-    <PopoverPanel {...args}>
-      <div>Her kommer litt informasjon</div>
-    </PopoverPanel>
-  </div>
-);
+const Template: ComponentStory<typeof PopoverPanel> = (args) => {
+  const [open, onOpenChange] = useState(true);
+
+  const handleOnOpenChange = () => {
+    onOpenChange(!open);
+  };
+
+  return (
+    <div>
+      <PopoverPanel
+        variant={args.variant}
+        side={args.side}
+        title={args.title}
+        expand={open}
+        trigger={<button>Åpne</button>}
+        onExpandChange={onOpenChange}
+      >
+        <div>Her kommer litt informasjon</div>
+        <br></br>
+        <Button onClick={handleOnOpenChange}>Lukk</Button>
+      </PopoverPanel>
+    </div>
+  );
+};
 export const Success = Template.bind({});
 Success.args = {
   variant: PanelVariant.Success,

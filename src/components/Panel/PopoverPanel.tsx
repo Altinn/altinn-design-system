@@ -15,8 +15,10 @@ export enum PopoverSide {
 }
 
 export interface PopoverPanelProps extends PanelProps {
-  trigger?: React.ReactNode;
+  trigger: React.ReactNode;
   side?: PopoverSide;
+  onExpandChange?: (open: boolean) => void;
+  expand: boolean;
 }
 
 const renderArrow = ({ children }: RenderArrowProps) => {
@@ -39,9 +41,14 @@ export const PopoverPanel = ({
   showIcon,
   forceMobileLayout,
   showPointer = true,
+  onExpandChange,
+  expand,
 }: PopoverPanelProps) => {
   return (
-    <RadixPopover.Root>
+    <RadixPopover.Root
+      open={expand}
+      onOpenChange={onExpandChange}
+    >
       <RadixPopover.Trigger
         asChild
         role='button'

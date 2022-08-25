@@ -1,5 +1,3 @@
-import { debug } from 'console';
-
 import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { act, render as renderRtl, screen } from '@testing-library/react';
@@ -14,9 +12,8 @@ const render = (props: Partial<PopoverPanelProps> = {}) => {
     children: <div>Popover text</div>,
     trigger: <button>Open</button>,
     variant: PanelVariant.Warning,
-    showArrow: true,
-    expand: false,
-    onExpandChange: jest.fn(),
+    open: false,
+    onOpenChange: jest.fn(),
     ...props,
   };
   renderRtl(<PopoverPanel {...allProps} />);
@@ -25,28 +22,8 @@ const render = (props: Partial<PopoverPanelProps> = {}) => {
 const user = userEvent.setup();
 
 describe('Panel', () => {
-  it('should call onExpandChange when popover trigger is clicked by Space', async () => {
-    const onExpandChange = jest.fn();
-    render({ onExpandChange, expand: false });
-
-    const popoverTrigger = screen.getByRole('button', { name: 'Open' });
-
-    await act(async () => {
-      await user.keyboard('{Tab}');
-    });
-    await act(async () => {
-      user.type(popoverTrigger, '{Space}');
-    });
-
-    expect(onExpandChange).toHaveBeenCalledWith(true);
-    expect(
-      screen.getByRole('button', { name: 'Open', expanded: false }),
-    ).toBeInTheDocument();
-  });
-
-  it('should call onExpandChange when popover trigger is clicked by Enter', async () => {
-    const onExpandChange = jest.fn();
-    render({ onExpandChange });
+  it('should have aria-expand=true when popover trigger is clicked by Space', async () => {
+    render();
 
     await act(async () => {
       await user.keyboard('{Tab}');
@@ -55,7 +32,24 @@ describe('Panel', () => {
       await user.keyboard('{Enter}');
     });
 
-    expect(onExpandChange).toHaveBeenCalledWith(true);
+    expect(
+      screen.getByRole('button', { name: 'Open', expanded: true }),
+    ).toBeInTheDocument();
+  });
+
+  it('should have aria-expand=true when popover trigger is clicked by Enter', async () => {
+    render();
+
+    await act(async () => {
+      await user.keyboard('{Tab}');
+    });
+    await act(async () => {
+      await user.keyboard('{Enter}');
+    });
+
+    expect(
+      screen.getByRole('button', { name: 'Open', expanded: true }),
+    ).toBeInTheDocument();
   });
 
   it('should have aria-expanded = false when escape is pressed', async () => {
@@ -73,20 +67,12 @@ describe('Panel', () => {
     ).toBeInTheDocument();
   });
 
-  it('should call onExpandChange with correct expand=true when trigger is clicked by mouse', async () => {
-    const onExpandChange = jest.fn();
-    render({ onExpandChange });
-
+  it('should have aria-pressed=true when trigger is clicked by mouse', async () => {
+    render();
     const popoverTrigger = screen.getByRole('button', { name: 'Open' });
     await act(async () => {
       await user.click(popoverTrigger);
     });
-
-    expect(onExpandChange).toHaveBeenCalledWith(true);
-  });
-
-  it('should have aria-expanded = true when expand is true', async () => {
-    render({ expand: true });
 
     expect(
       screen.getByRole('button', { name: 'Open', expanded: true }),

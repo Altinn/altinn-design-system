@@ -43,10 +43,10 @@ export default {
 } as ComponentMeta<typeof PopoverPanel>;
 
 const Template: ComponentStory<typeof PopoverPanel> = (args) => {
-  const [open, onOpenChange] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleOnOpenChange = () => {
-    onOpenChange(!open);
+    setOpen(!open);
   };
 
   return (
@@ -55,9 +55,9 @@ const Template: ComponentStory<typeof PopoverPanel> = (args) => {
         variant={args.variant}
         side={args.side}
         title={args.title}
-        expand={open}
+        open={open}
         trigger={<button>Åpne</button>}
-        onExpandChange={onOpenChange}
+        onOpenChange={setOpen}
       >
         <div>Her kommer litt informasjon</div>
         <br></br>

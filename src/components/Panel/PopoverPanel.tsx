@@ -14,12 +14,13 @@ export enum PopoverSide {
   Left = 'left',
 }
 
-export interface PopoverPanelProps extends PanelProps {
+export interface PopoverPanelProps
+  extends PanelProps,
+    Pick<RadixPopover.PopoverProps, 'open'>,
+    Pick<RadixPopover.PopoverProps, 'onOpenChange'> {
   children: React.ReactNode;
   trigger: React.ReactNode;
   side?: PopoverSide;
-  open: Pick<RadixPopover.PopoverProps, 'open'>;
-  onOpenChange: Pick<RadixPopover.PopoverProps, 'onOpenChange'>;
 }
 
 const renderArrow = ({ children }: RenderArrowProps) => {

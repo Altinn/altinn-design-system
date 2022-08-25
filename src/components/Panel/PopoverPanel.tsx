@@ -16,8 +16,7 @@ export enum PopoverSide {
 
 export interface PopoverPanelProps
   extends PanelProps,
-    Pick<RadixPopover.PopoverProps, 'open'>,
-    Pick<RadixPopover.PopoverProps, 'onOpenChange'> {
+    Pick<RadixPopover.PopoverProps, 'open' | 'onOpenChange'> {
   children: React.ReactNode;
   trigger: React.ReactNode;
   side?: PopoverSide;

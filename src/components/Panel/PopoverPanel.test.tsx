@@ -12,8 +12,6 @@ const render = (props: Partial<PopoverPanelProps> = {}) => {
     children: <div>Popover text</div>,
     trigger: <button>Open</button>,
     variant: PanelVariant.Warning,
-    open: false,
-    onOpenChange: jest.fn(),
     ...props,
   };
   renderRtl(<PopoverPanel {...allProps} />);

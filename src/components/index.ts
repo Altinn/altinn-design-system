@@ -1,4 +1,4 @@
-export { Panel, PanelVariant, PopoverPanel, PopoverSide } from './Panel';
+export { Panel, PanelVariant, PopoverPanel } from './Panel';
 export { CircularProgress } from './CircularProgress';
 export { AppWrapper } from './AppWrapper';
 export { ToggleButton, ToggleButtonGroup } from './ToggleButtonGroup';

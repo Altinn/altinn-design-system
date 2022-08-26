@@ -60,7 +60,6 @@ const Template: ComponentStory<typeof PopoverPanel> = (args) => {
         onOpenChange={setOpen}
       >
         <div>Her kommer litt informasjon</div>
-        <br></br>
         <Button onClick={handleOnOpenChange}>Lukk</Button>
       </PopoverPanel>
     </div>

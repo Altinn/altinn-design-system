@@ -7,19 +7,12 @@ import { Panel, PanelVariant } from '../Panel/Panel';
 
 import classes from './PopoverPanel.module.css';
 
-export enum PopoverSide {
-  Top = 'top',
-  Right = 'right',
-  Bottom = 'bottom',
-  Left = 'left',
-}
-
 export interface PopoverPanelProps
   extends PanelProps,
-    Pick<RadixPopover.PopoverProps, 'open' | 'onOpenChange'> {
+    Pick<RadixPopover.PopoverProps, 'open' | 'onOpenChange'>,
+    Pick<RadixPopover.PopoverContentProps, 'side'> {
   children: React.ReactNode;
   trigger: React.ReactNode;
-  side?: PopoverSide;
 }
 
 const renderArrow = ({ children }: RenderArrowProps) => {
@@ -37,7 +30,7 @@ export const PopoverPanel = ({
   children,
   variant = PanelVariant.Warning,
   trigger,
-  side = PopoverSide.Top,
+  side = 'top',
   title,
   showIcon,
   forceMobileLayout,

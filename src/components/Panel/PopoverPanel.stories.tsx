@@ -8,7 +8,7 @@ import { StoryPage } from '@sb/StoryPage';
 import { PanelVariant } from '../Panel';
 import { Button } from '../Button';
 
-import { PopoverPanel, PopoverSide } from './PopoverPanel';
+import { PopoverPanel } from './PopoverPanel';
 
 const figmaLink = ''; // TODO: Add figma link
 
@@ -38,7 +38,7 @@ export default {
     title: 'Tittel',
     variant: PanelVariant.Warning,
     trigger: <button>Åpne</button>,
-    side: PopoverSide.Top,
+    side: 'top',
   },
 } as ComponentMeta<typeof PopoverPanel>;
 
@@ -69,7 +69,7 @@ const Template: ComponentStory<typeof PopoverPanel> = (args) => {
 export const Success = Template.bind({});
 Success.args = {
   variant: PanelVariant.Success,
-  side: PopoverSide.Top,
+  side: 'top',
 };
 Success.parameters = {
   docs: {
@@ -82,7 +82,7 @@ Success.parameters = {
 export const Info = Template.bind({});
 Info.args = {
   variant: PanelVariant.Info,
-  side: PopoverSide.Top,
+  side: 'top',
 };
 Info.parameters = {
   docs: {
@@ -95,7 +95,7 @@ Info.parameters = {
 export const Warning = Template.bind({});
 Warning.args = {
   variant: PanelVariant.Warning,
-  side: PopoverSide.Top,
+  side: 'top',
 };
 Warning.parameters = {
   docs: {
@@ -108,7 +108,7 @@ Warning.parameters = {
 export const Error = Template.bind({});
 Error.args = {
   variant: PanelVariant.Error,
-  side: PopoverSide.Top,
+  side: 'top',
 };
 Error.parameters = {
   docs: {

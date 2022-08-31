@@ -22,6 +22,9 @@ const user = userEvent.setup();
 describe('Panel', () => {
   it('should have aria-expand=true when popover trigger is clicked by Space', async () => {
     render();
+    expect(
+      screen.getByRole('button', { name: 'Open', expanded: false }),
+    ).toBeInTheDocument();
 
     await act(async () => {
       await user.keyboard('{Tab}');
@@ -37,6 +40,9 @@ describe('Panel', () => {
 
   it('should have aria-expand=true when popover trigger is clicked by Enter', async () => {
     render();
+    expect(
+      screen.getByRole('button', { name: 'Open', expanded: false }),
+    ).toBeInTheDocument();
 
     await act(async () => {
       await user.keyboard('{Tab}');
@@ -52,6 +58,9 @@ describe('Panel', () => {
 
   it('should have aria-expanded = false when escape is pressed', async () => {
     render();
+    expect(
+      screen.getByRole('button', { name: 'Open', expanded: false }),
+    ).toBeInTheDocument();
 
     await user.keyboard('{Tab}');
     await act(async () => {
@@ -67,6 +76,10 @@ describe('Panel', () => {
 
   it('should have aria-pressed=true when trigger is clicked by mouse', async () => {
     render();
+    expect(
+      screen.getByRole('button', { name: 'Open', expanded: false }),
+    ).toBeInTheDocument();
+
     const popoverTrigger = screen.getByRole('button', { name: 'Open' });
     await act(async () => {
       await user.click(popoverTrigger);

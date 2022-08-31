@@ -2,9 +2,8 @@ import React from 'react';
 import * as RadixPopover from '@radix-ui/react-popover';
 import cn from 'classnames';
 
-import type { PanelProps, RenderArrowProps } from '../Panel/Panel';
-import { Panel, PanelVariant } from '../Panel/Panel';
-
+import { Panel, PanelVariant } from './Panel';
+import type { PanelProps, RenderArrowProps } from './Panel';
 import classes from './PopoverPanel.module.css';
 
 export interface PopoverPanelProps

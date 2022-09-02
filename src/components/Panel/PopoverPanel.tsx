@@ -8,7 +8,7 @@ import classes from './PopoverPanel.module.css';
 
 export interface PopoverPanelProps
   extends PanelProps,
-    Pick<RadixPopover.PopoverProps, 'open' | 'onOpenChange'>,
+    Required<Pick<RadixPopover.PopoverProps, 'open' | 'onOpenChange'>>,
     Pick<RadixPopover.PopoverContentProps, 'side'> {
   children: React.ReactNode;
   trigger: React.ReactNode;
@@ -35,7 +35,7 @@ export const PopoverPanel = ({
   forceMobileLayout,
   showPointer = true,
   onOpenChange,
-  open,
+  open = false,
 }: PopoverPanelProps) => {
   return (
     <RadixPopover.Root

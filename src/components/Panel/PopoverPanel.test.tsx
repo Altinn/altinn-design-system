@@ -9,9 +9,11 @@ import { PopoverPanel } from './PopoverPanel';
 
 const render = (props: Partial<PopoverPanelProps> = {}) => {
   const allProps = {
-    children: <div>Popover text</div>,
+    children: <div data-testid='popover-content'>Popover text</div>,
     trigger: <button>Open</button>,
     variant: PanelVariant.Warning,
+    open: false,
+    onOpenChange: jest.fn(),
     ...props,
   };
   renderRtl(<PopoverPanel {...allProps} />);
@@ -20,73 +22,32 @@ const render = (props: Partial<PopoverPanelProps> = {}) => {
 const user = userEvent.setup();
 
 describe('Panel', () => {
-  it('should have aria-expand=true when popover trigger is clicked by Space', async () => {
-    render();
-    expect(
-      screen.getByRole('button', { name: 'Open', expanded: false }),
-    ).toBeInTheDocument();
-
-    await act(async () => {
-      await user.keyboard('{Tab}');
-    });
-    await act(async () => {
-      await user.keyboard('{Enter}');
-    });
-
-    expect(
-      screen.getByRole('button', { name: 'Open', expanded: true }),
-    ).toBeInTheDocument();
-  });
-
-  it('should have aria-expand=true when popover trigger is clicked by Enter', async () => {
-    render();
-    expect(
-      screen.getByRole('button', { name: 'Open', expanded: false }),
-    ).toBeInTheDocument();
-
-    await act(async () => {
-      await user.keyboard('{Tab}');
-    });
-    await act(async () => {
-      await user.keyboard('{Enter}');
-    });
-
-    expect(
-      screen.getByRole('button', { name: 'Open', expanded: true }),
-    ).toBeInTheDocument();
-  });
-
-  it('should have aria-expanded = false when escape is pressed', async () => {
-    render();
-    expect(
-      screen.getByRole('button', { name: 'Open', expanded: false }),
-    ).toBeInTheDocument();
-
-    await user.keyboard('{Tab}');
-    await act(async () => {
-      await user.keyboard('{Enter}');
-    });
-    await act(async () => {
-      await user.keyboard('{Escape}');
-    });
-    expect(
-      screen.getByRole('button', { name: 'Open', expanded: false }),
-    ).toBeInTheDocument();
-  });
-
-  it('should have aria-pressed=true when trigger is clicked by mouse', async () => {
-    render();
-    expect(
-      screen.getByRole('button', { name: 'Open', expanded: false }),
-    ).toBeInTheDocument();
-
+  it('should call onOpenChange when popover trigger is clicked', async () => {
+    const onOpenChange = jest.fn();
+    render({ onOpenChange });
     const popoverTrigger = screen.getByRole('button', { name: 'Open' });
-    await act(async () => {
-      await user.click(popoverTrigger);
-    });
 
-    expect(
-      screen.getByRole('button', { name: 'Open', expanded: true }),
-    ).toBeInTheDocument();
+    await user.click(popoverTrigger);
+    expect(onOpenChange).toHaveBeenCalledWith(true);
+    expect(onOpenChange).toHaveBeenCalledTimes(1);
+
+    await act(async () => {
+      await user.keyboard('{Tab}');
+      await user.type(popoverTrigger, '{Space}');
+    });
+    expect(onOpenChange).toHaveBeenCalledWith(true);
+    expect(onOpenChange).toHaveBeenCalledTimes(2);
+  });
+
+  it('should show popover content when isOpen=true', async () => {
+    render({ open: true });
+
+    expect(screen.getByTestId('popover-content')).toBeInTheDocument();
+  });
+
+  it('should not show popover content when isOpen=false', async () => {
+    render({ open: false });
+
+    expect(screen.queryByTestId('popover-content')).not.toBeInTheDocument();
   });
 });

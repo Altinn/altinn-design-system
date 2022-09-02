@@ -5,9 +5,9 @@ import { useState } from '@storybook/addons';
 
 import { StoryPage } from '@sb/StoryPage';
 
-import { PanelVariant } from '../Panel';
 import { Button } from '../Button';
 
+import { PanelVariant } from './Panel';
 import { PopoverPanel } from './PopoverPanel';
 
 const figmaLink = ''; // TODO: Add figma link

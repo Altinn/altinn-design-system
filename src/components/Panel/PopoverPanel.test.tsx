@@ -32,7 +32,6 @@ describe('Panel', () => {
     expect(onOpenChange).toHaveBeenCalledTimes(1);
 
     await act(async () => {
-      await user.keyboard('{Tab}');
       await user.type(popoverTrigger, '{Space}');
     });
     expect(onOpenChange).toHaveBeenCalledWith(true);

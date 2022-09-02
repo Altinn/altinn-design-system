@@ -47,22 +47,19 @@
 }
 
 .panel {
-  position: relative;
   width: 100%;
-  padding-top: 0;
-}
-
-.panel--has-pointer {
-  padding-top: var(--panel-pointer-height);
 }
 
 .panel__pointer {
-  position: absolute;
   width: var(--panel-pointer-width);
   height: var(--panel-pointer-height);
-  top: 1px; /* slight offset to avoid mini gap between component and pointer */
-  left: calc(var(--panel-x-padding) + (var(--panel-pointer-width) / 2));
   clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+.panel__pointer-position {
+  top: 1px;
+  position: relative;
+  left: calc(var(--panel-x-padding) + (var(--panel-pointer-width) / 2));
 }
 
 .panel__content-wrapper--info,

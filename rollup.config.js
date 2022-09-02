@@ -30,6 +30,7 @@ export default [
     external: [
       altinnFigmaTokensExceptCss,
       /@react-hookz\/web/,
+      /@radix-ui\/react-popover$/,
       /react-number-format/,
       /react-leaflet/,
       /leaflet/,

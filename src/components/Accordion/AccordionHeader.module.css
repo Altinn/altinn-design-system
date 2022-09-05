@@ -44,12 +44,24 @@
 }
 
 .accordion-header__icon {
-  padding-top: 1rem;
-  margin-left: 2.5rem;
+  padding-top: var(--accordion-header-icon-padding-top);
+  margin-left: var(--accordion-header-icon-margin-left);
+}
+
+.accordion-header__icon--primary {
+  --accordion-header-icon-padding-top: 1rem;
+  --accordion-header-icon-margin-left: 2.5rem;
+  --accordion-header-icon-opened-margin-left: 3rem;
+}
+
+.accordion-header__icon--secondary {
+  --accordion-header-icon-padding-top: 1rem;
+  --accordion-header-icon-margin-left: 2rem;
+  --accordion-header-icon-opened-margin-left: 2.6rem;
 }
 
 .accordion-header__icon--opened {
   transform: rotate(90deg);
   margin-top: 0.3rem;
-  margin-left: 3rem;
+  margin-left: var(--accordion-header-icon-opened-margin-left);
 }

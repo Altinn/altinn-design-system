@@ -8,7 +8,7 @@ import { StoryPage } from '@sb/StoryPage';
 import { Button } from '../Button';
 
 import { Accordion } from './Accordion';
-import { AccordionHeader } from './AccordionHeader';
+import { AccordionHeader, AccordionHeaderVariant } from './AccordionHeader';
 import { AccordionContent } from './AccordionContent';
 import classes from './Accordion.stories.module.css';
 
@@ -67,7 +67,12 @@ const Template: ComponentStory<typeof Accordion> = () => {
         onClick={handleClick2}
         open={open2}
       >
-        <AccordionHeader actions={ActionButton}>Accordion 2</AccordionHeader>
+        <AccordionHeader
+          variant={AccordionHeaderVariant.Secondary}
+          actions={ActionButton}
+        >
+          Accordion 2
+        </AccordionHeader>
         <AccordionContent>{AccordionExampleContent}</AccordionContent>
       </Accordion>
     </div>

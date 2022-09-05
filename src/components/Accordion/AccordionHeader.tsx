@@ -4,10 +4,16 @@ import cn from 'classnames';
 import classes from './AccordionHeader.module.css';
 import { useAccordionContext } from './Context';
 import { ReactComponent as ExpandCollapseArrow } from './expand-collapse.svg';
+import { ReactComponent as BlueArrow } from './BlueArrow.svg';
 
+export enum AccordionHeaderVariant {
+  sent = 'sent',
+  finished = 'finished',
+}
 export interface AccordionHeaderProps {
   children?: React.ReactNode;
   actions?: React.ReactNode;
+  variant;
 }
 
 export const AccordionHeader = ({

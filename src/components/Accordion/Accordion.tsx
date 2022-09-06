@@ -1,7 +1,7 @@
 import React, { useId } from 'react';
 
-import type { AccordionIconVariant, ClickHandler } from './Context';
-import { AccordionContext } from './Context';
+import type { ClickHandler } from './Context';
+import { AccordionIconVariant, AccordionContext } from './Context';
 import classes from './Accordion.module.css';
 
 export interface AccordionProps {
@@ -15,7 +15,7 @@ export const Accordion = ({
   children,
   open,
   onClick,
-  iconVariant,
+  iconVariant = AccordionIconVariant.Primary,
 }: AccordionProps) => {
   const headerId = useId();
   const contentId = useId();

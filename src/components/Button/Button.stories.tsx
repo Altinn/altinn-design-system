@@ -4,7 +4,7 @@ import { config } from 'storybook-addon-designs';
 
 import { StoryPage } from '@sb/StoryPage';
 
-import { Button, ButtonVariant } from './Button';
+import { Button, ButtonColor } from './Button';
 
 const figmaLink =
   'https://www.figma.com/file/wnBveAG2ikUspFsQwM3GNE/Altinn-Studio-Apps?node-id=2064%3A496';
@@ -55,7 +55,7 @@ Primary.parameters = {
 export const Submit = Template.bind({});
 Submit.args = {
   children: `Submit button`,
-  variant: ButtonVariant.Submit,
+  variant: ButtonColor.Submit,
 };
 Submit.parameters = {
   docs: {
@@ -67,7 +67,7 @@ Submit.parameters = {
 export const Secondary = Template.bind({});
 Secondary.args = {
   children: `Secondary button`,
-  variant: ButtonVariant.Secondary,
+  variant: ButtonColor.Secondary,
 };
 Secondary.parameters = {
   docs: {

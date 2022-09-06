@@ -6,19 +6,19 @@ import cn from 'classnames';
 
 import classes from './Button.module.css';
 
-export enum ButtonVariant {
+export enum ButtonColor {
   Primary = 'primary',
   Secondary = 'secondary',
   Submit = 'submit',
 }
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: ButtonVariant;
+  variant?: ButtonColor;
 }
 
 export const Button = ({
   children,
-  variant = ButtonVariant.Primary,
+  variant = ButtonColor.Primary,
   type = 'button',
   ...restHTMLProps
 }: PropsWithChildren<ButtonProps>) => {

@@ -3,7 +3,7 @@ import { render as renderRtl, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import type { ButtonProps } from '@/components/Button/Button';
-import { Button, ButtonVariant } from '@/components/Button/Button';
+import { Button, ButtonColor } from '@/components/Button/Button';
 
 const user = userEvent.setup();
 
@@ -17,10 +17,10 @@ describe('Button', () => {
     expect(button.classList.contains('button--submit')).toBe(false);
   });
 
-  Object.values(ButtonVariant).forEach((variant) => {
+  Object.values(ButtonColor).forEach((variant) => {
     it(`should render a button with ${variant} classname when variant is ${variant}`, () => {
       render({ variant });
-      const otherVariants = Object.values(ButtonVariant).filter(
+      const otherVariants = Object.values(ButtonColor).filter(
         (v) => v !== variant,
       );
 

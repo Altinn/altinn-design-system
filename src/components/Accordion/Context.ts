@@ -1,5 +1,10 @@
 import { createContext, useContext } from 'react';
 
+export enum AccordionVariant {
+  Primary = 'primary',
+  Secondary = 'secondary',
+}
+
 export type ClickHandler = () => void;
 
 export const AccordionContext = createContext<
@@ -8,6 +13,7 @@ export const AccordionContext = createContext<
       onClick: ClickHandler;
       headerId: string;
       contentId: string;
+      variant: AccordionVariant;
     }
   | undefined
 >(undefined);

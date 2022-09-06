@@ -2,32 +2,26 @@ import React from 'react';
 import cn from 'classnames';
 
 import classes from './AccordionHeader.module.css';
-import { useAccordionContext } from './Context';
+import { useAccordionContext, AccordionVariant } from './Context';
 import { ReactComponent as ExpandCollapseArrow } from './expand-collapse.svg';
 import { ReactComponent as BlueArrow } from './BlueArrow.svg';
 
-export enum AccordionHeaderVariant {
-  Primary = 'primary',
-  Secondary = 'secondary',
-}
 export interface AccordionHeaderProps {
   children?: React.ReactNode;
   actions?: React.ReactNode;
-  variant?: AccordionHeaderVariant;
 }
 
 export const AccordionHeader = ({
   children,
   actions,
-  variant = AccordionHeaderVariant.Primary,
 }: AccordionHeaderProps) => {
-  const { onClick, open, headerId, contentId } = useAccordionContext();
+  const { onClick, open, headerId, contentId, variant } = useAccordionContext();
 
   return (
     <div className={cn(classes['accordion-header'])}>
       {(() => {
         switch (variant) {
-          case AccordionHeaderVariant.Primary:
+          case AccordionVariant.Primary:
             return (
               <ExpandCollapseArrow
                 className={cn(
@@ -41,7 +35,7 @@ export const AccordionHeader = ({
                 onClick={onClick}
               />
             );
-          case AccordionHeaderVariant.Secondary:
+          case AccordionVariant.Secondary:
             return (
               <BlueArrow
                 className={cn(

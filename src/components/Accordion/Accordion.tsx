@@ -1,16 +1,22 @@
 import React, { useId } from 'react';
 
 import type { ClickHandler } from './Context';
-import { AccordionContext } from './Context';
+import { AccordionVariant, AccordionContext } from './Context';
 import classes from './Accordion.module.css';
 
 export interface AccordionProps {
   children?: React.ReactNode;
   onClick: ClickHandler;
   open: boolean;
+  variant: AccordionVariant;
 }
 
-export const Accordion = ({ children, open, onClick }: AccordionProps) => {
+export const Accordion = ({
+  children,
+  open,
+  onClick,
+  variant = AccordionVariant.Primary,
+}: AccordionProps) => {
   const headerId = useId();
   const contentId = useId();
   return (
@@ -21,6 +27,7 @@ export const Accordion = ({ children, open, onClick }: AccordionProps) => {
           open,
           headerId,
           contentId,
+          variant,
         }}
       >
         {children}

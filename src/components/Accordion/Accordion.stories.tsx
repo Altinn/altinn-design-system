@@ -8,9 +8,10 @@ import { StoryPage } from '@sb/StoryPage';
 import { Button } from '../Button';
 
 import { Accordion } from './Accordion';
-import { AccordionHeader, AccordionHeaderVariant } from './AccordionHeader';
+import { AccordionHeader } from './AccordionHeader';
 import { AccordionContent } from './AccordionContent';
 import classes from './Accordion.stories.module.css';
+import { AccordionVariant } from './Context';
 
 const figmaLink = ''; // TODO: Add figma link
 
@@ -36,9 +37,12 @@ export default {
       ),
     },
   },
+  args: {
+    variant: AccordionVariant.Primary,
+  },
 } as ComponentMeta<typeof Accordion>;
 
-const Template: ComponentStory<typeof Accordion> = () => {
+const Template: ComponentStory<typeof Accordion> = (args) => {
   const [open1, setOpen1] = useState(false);
   const [open2, setOpen2] = useState(false);
 
@@ -59,6 +63,7 @@ const Template: ComponentStory<typeof Accordion> = () => {
       <Accordion
         onClick={handleClick1}
         open={open1}
+        variant={args.variant}
       >
         <AccordionHeader actions={ActionButton}>Accordion 1</AccordionHeader>
         <AccordionContent>{AccordionExampleContent}</AccordionContent>
@@ -66,13 +71,9 @@ const Template: ComponentStory<typeof Accordion> = () => {
       <Accordion
         onClick={handleClick2}
         open={open2}
+        variant={args.variant}
       >
-        <AccordionHeader
-          variant={AccordionHeaderVariant.Secondary}
-          actions={ActionButton}
-        >
-          Accordion 2
-        </AccordionHeader>
+        <AccordionHeader actions={ActionButton}>Accordion 2</AccordionHeader>
         <AccordionContent>{AccordionExampleContent}</AccordionContent>
       </Accordion>
     </div>
@@ -81,7 +82,7 @@ const Template: ComponentStory<typeof Accordion> = () => {
 
 export const Example = Template.bind({});
 Example.args = {
-  // TODO: Add story specific args
+  variant: AccordionVariant.Primary,
 };
 Example.parameters = {
   docs: {

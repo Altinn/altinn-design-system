@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react';
 
-export enum AccordionVariant {
+export enum AccordionIconVariant {
   Primary = 'primary',
   Secondary = 'secondary',
 }
@@ -13,7 +13,7 @@ export const AccordionContext = createContext<
       onClick: ClickHandler;
       headerId: string;
       contentId: string;
-      variant: AccordionVariant;
+      iconVariant: AccordionIconVariant;
     }
   | undefined
 >(undefined);

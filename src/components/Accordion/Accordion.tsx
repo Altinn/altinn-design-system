@@ -8,7 +8,7 @@ export interface AccordionProps {
   children?: React.ReactNode;
   onClick: ClickHandler;
   open: boolean;
-  variant: AccordionVariant;
+  variant?: AccordionVariant;
 }
 
 export const Accordion = ({

@@ -1,11 +1,13 @@
 import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { render as renderRtl, screen } from '@testing-library/react';
+import { variationPlacements } from '@storybook/components/dist/ts3.9/_modules/@popperjs-core-lib-enums';
 
 import type { AccordionProps } from './Accordion';
 import { Accordion } from './Accordion';
 import { AccordionHeader } from './AccordionHeader';
 import { AccordionContent } from './AccordionContent';
+import { AccordionIconVariant } from './Context';
 
 const render = (props: Partial<AccordionProps> = {}) => {
   const allProps = {
@@ -66,5 +68,20 @@ describe('Accordion', () => {
     await user.keyboard('{Tab}');
     await user.keyboard('{Enter}');
     expect(handleClick).toHaveBeenCalledTimes(1);
+  });
+
+  Object.values(AccordionIconVariant).forEach((iconVariant) => {
+    it(`should show icon variant ${iconVariant} when icon variant is set to ${iconVariant}`, () => {
+      render({ iconVariant });
+
+      const otherVariants = Object.values(AccordionIconVariant).filter(
+        (v) => v !== iconVariant,
+      );
+
+      expect(screen.getByTestId(iconVariant)).toBeInTheDocument();
+      otherVariants.forEach((v) => {
+        expect(screen.queryByTestId(v)).not.toBeInTheDocument();
+      });
+    });
   });
 });

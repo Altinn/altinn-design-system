@@ -63,7 +63,7 @@ const Template: ComponentStory<typeof Accordion> = (args) => {
       <Accordion
         onClick={handleClick1}
         open={open1}
-        iconVariant={AccordionIconVariant.Primary}
+        iconVariant={args.iconVariant}
       >
         <AccordionHeader actions={ActionButton}>Accordion 1</AccordionHeader>
         <AccordionContent>{AccordionExampleContent}</AccordionContent>
@@ -71,7 +71,7 @@ const Template: ComponentStory<typeof Accordion> = (args) => {
       <Accordion
         onClick={handleClick2}
         open={open2}
-        iconVariant={AccordionIconVariant.Secondary}
+        iconVariant={args.iconVariant}
       >
         <AccordionHeader actions={ActionButton}>Accordion 2</AccordionHeader>
         <AccordionContent>{AccordionExampleContent}</AccordionContent>

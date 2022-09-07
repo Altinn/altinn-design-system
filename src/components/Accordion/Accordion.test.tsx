@@ -1,7 +1,6 @@
 import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { render as renderRtl, screen } from '@testing-library/react';
-import { variationPlacements } from '@storybook/components/dist/ts3.9/_modules/@popperjs-core-lib-enums';
 
 import type { AccordionProps } from './Accordion';
 import { Accordion } from './Accordion';

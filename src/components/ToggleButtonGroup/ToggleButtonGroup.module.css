@@ -23,17 +23,3 @@
     --toggle-button-group-width: auto;
   }
 }
-
-/* breakpoints-lg */
-@media only screen and (min-width: 960px) {
-  .toggle-button {
-    --toggle_button-font_size: var(--component-toggle_button-font_size-lg);
-  }
-}
-
-/* breakpoints-xl */
-@media only screen and (min-width: 1200px) {
-  .toggle-button {
-    --toggle_button-font_size: var(--component-toggle_button-font_size-xl);
-  }
-}

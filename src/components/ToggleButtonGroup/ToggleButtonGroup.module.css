@@ -1,5 +1,7 @@
 .toggle-button-group {
   border-color: var(--component-toggle_button-color-border-deactive);
-  border-width: var(--border_width-standard);
+  border-width: 2px;
   border-style: solid;
+  height: 32px;
+  border-radius: 3px;
 }

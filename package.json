@@ -15,7 +15,7 @@
     "start": "start-storybook -p 6006",
     "test": "jest --runInBand",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx,.mjs,.cjs",
-    "build": "rollup -c",
+    "build": "tsc && rollup -c",
     "build-storybook": "build-storybook --output-dir ./storybook-static",
     "postinstall": "husky install",
     "prepack": "pinst --disable",

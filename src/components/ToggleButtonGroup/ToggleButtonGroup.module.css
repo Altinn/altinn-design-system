@@ -17,7 +17,7 @@
   }
 }
 
-/* breakpoints-md */
+/* breakpoints-md and above */
 @media only screen and (min-width: 768px) {
   .toggle-button-group {
     --toggle-button-group-width: auto;

@@ -2,6 +2,9 @@
 /dist/
 /storybook-static/
 
+# Yarn stuff; we're not using PnP/Zero installs
+.pnp.*
+
 # Really don't want that
 /node_modules/
 

@@ -1,5 +1,5 @@
 /* breakpoints-xs */
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 0px) {
   .container {
     width: 80vw;
   }

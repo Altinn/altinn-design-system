@@ -7,6 +7,7 @@ import { StoryPage } from '@sb/StoryPage';
 import type { ChangeProps } from './Context';
 import { ToggleButtonGroup } from './ToggleButtonGroup';
 import { ToggleButton } from './ToggleButton';
+import classes from './ToggleButtonGroup.stories.module.css';
 
 const figmaLink = ''; // TODO: Add figma link
 
@@ -42,13 +43,15 @@ const Template: ComponentStory<typeof ToggleButtonGroup> = () => {
   };
 
   return (
-    <ToggleButtonGroup
-      onChange={handleChange}
-      selectedValue={selected}
-    >
-      <ToggleButton value='left'>Aktivt valg</ToggleButton>
-      <ToggleButton value='right'>Mulig valg</ToggleButton>
-    </ToggleButtonGroup>
+    <div className={classes['container']}>
+      <ToggleButtonGroup
+        onChange={handleChange}
+        selectedValue={selected}
+      >
+        <ToggleButton value='left'>Aktivt valg</ToggleButton>
+        <ToggleButton value='right'>Mulig valg</ToggleButton>
+      </ToggleButtonGroup>
+    </div>
   );
 };
 export const Example = Template.bind({});

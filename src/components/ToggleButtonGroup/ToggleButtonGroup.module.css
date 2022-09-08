@@ -2,6 +2,38 @@
   border-color: var(--component-toggle_button-color-border-deactive);
   border-width: 2px;
   border-style: solid;
-  height: 32px;
+  min-height: 32px;
   border-radius: 3px;
+  display: inline-grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  width: var(--toggle-button-group-width);
+}
+
+/* breakpoints-xs */
+@media only screen and (min-width: 0) {
+  .toggle-button-group {
+    --toggle-button-group-width: 100%;
+  }
+}
+
+/* breakpoints-md */
+@media only screen and (min-width: 768px) {
+  .toggle-button-group {
+    --toggle-button-group-width: auto;
+  }
+}
+
+/* breakpoints-lg */
+@media only screen and (min-width: 960px) {
+  .toggle-button {
+    --toggle_button-font_size: var(--component-toggle_button-font_size-lg);
+  }
+}
+
+/* breakpoints-xl */
+@media only screen and (min-width: 1200px) {
+  .toggle-button {
+    --toggle_button-font_size: var(--component-toggle_button-font_size-xl);
+  }
 }

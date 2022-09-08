@@ -18,24 +18,15 @@ export const AccordionIcon = () => {
     height: 20,
     width: 20,
     className: cn(iconClassnames),
+    ['data-testid']: iconVariant,
     onClick,
   };
 
   switch (iconVariant) {
     case AccordionIconVariant.Primary:
-      return (
-        <Arrow
-          {...props}
-          data-testid='primary'
-        />
-      );
+      return <Arrow {...props} />;
     case AccordionIconVariant.Secondary:
-      return (
-        <CircleArrow
-          {...props}
-          data-testid='secondary'
-        />
-      );
+      return <CircleArrow {...props} />;
   }
 };
 

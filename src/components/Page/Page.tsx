@@ -1,20 +1,20 @@
 import React from 'react';
 
-import { PageVariant, PageContext } from './Context';
+import { PageColor, PageContext } from './Context';
 import classes from './Page.module.css';
 
 export interface PageProps {
   children?: React.ReactNode;
-  variant?: PageVariant;
+  color?: PageColor;
 }
 
 export const Page = ({
   children,
-  variant = PageVariant.Primary,
+  color: variant = PageColor.Primary,
 }: PageProps) => {
   return (
     <div className={classes['Page']}>
-      <PageContext.Provider value={{ variant }}>
+      <PageContext.Provider value={{ color: variant }}>
         {children}
       </PageContext.Provider>
     </div>

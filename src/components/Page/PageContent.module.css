@@ -6,3 +6,8 @@
 .page-content--primary {
   --component-page_content-background_color: white;
 }
+
+.page-content__container {
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+}

@@ -9,7 +9,7 @@ export interface PageContentProps {
 }
 
 export const PageContent = ({ children }: PageContentProps) => {
-  const { variant } = usePageContext();
+  const { color: variant } = usePageContext();
 
   return (
     <div

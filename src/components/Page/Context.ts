@@ -1,11 +1,11 @@
 import { createContext, useContext } from 'react';
 
-export enum PageVariant {
+export enum PageColor {
   Primary = 'primary',
 }
 
 export const PageContext = createContext({
-  variant: PageVariant.Primary,
+  color: PageColor.Primary,
 });
 
 export const usePageContext = () => {

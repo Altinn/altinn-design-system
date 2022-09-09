@@ -4,7 +4,7 @@ import { config } from 'storybook-addon-designs';
 
 import { StoryPage } from '@sb/StoryPage';
 
-import { PageVariant } from './Context';
+import { PageColor } from './Context';
 import { PageContent } from './PageContent';
 import { PageHeader } from './PageHeader';
 import { Page } from './Page';
@@ -43,7 +43,7 @@ const Template: ComponentStory<typeof Page> = () => {
   return (
     <div className={classes['showcase-container']}>
       <div className={classes['showcase-container__page-container']}>
-        <Page variant={PageVariant.Primary}> </Page>
+        <Page color={PageColor.Primary}> </Page>
         <PageHeader>
           <span className={classes['page-header__text']}>
             Primary page variant for profilside

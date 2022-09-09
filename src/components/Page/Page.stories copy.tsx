@@ -4,7 +4,7 @@ import { config } from 'storybook-addon-designs';
 
 import { StoryPage } from '@sb/StoryPage';
 
-import { PageVariant } from './Context';
+import { PageColor } from './Context';
 import { PageContent } from './PageContent';
 import { Page } from './Page';
 import classes from './Page.stories.module.css';
@@ -42,7 +42,7 @@ const Template: ComponentStory<typeof Page> = () => {
   return (
     <div className={classes['showcase-container']}>
       <div className={classes['showcase-container__page-container']}>
-        <Page variant={PageVariant.Primary}> </Page>
+        <Page color={PageColor.Primary}> </Page>
       </div>
     </div>
   );

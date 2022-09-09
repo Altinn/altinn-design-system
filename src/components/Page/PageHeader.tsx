@@ -9,11 +9,11 @@ export interface PageHeaderProps {
 }
 
 export const PageHeader = ({ children }: PageHeaderProps) => {
-  const { variant } = usePageContext();
+  const { color } = usePageContext();
 
   return (
     <div
-      className={cn(classes['page-header'], classes[`page-header--${variant}`])}
+      className={cn(classes['page-header'], classes[`page-header--${color}`])}
       data-testid='page-header'
     >
       {children}

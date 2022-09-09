@@ -11,13 +11,3 @@
   width: 60vw;
   height: 60vh;
 }
-
-.page-header__text {
-  color: white;
-  font-size: 1.75rem;
-}
-
-.page-content__container {
-  margin-top: 10rem;
-  margin-bottom: 10rem;
-}

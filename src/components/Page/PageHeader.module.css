@@ -1,0 +1,9 @@
+.page-header {
+  height: var(--component-page_header-height);
+  background-color: var(--component-page_header-background-color);
+}
+
+.page-header--primary {
+  --component-page_header-height: 4rem;
+  --component-page_header-background-color: #022f51;
+}

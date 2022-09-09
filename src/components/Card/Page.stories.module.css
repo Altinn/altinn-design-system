@@ -4,7 +4,7 @@
   height: 100%;
 }
 
-.showcase-container__card-container {
+.showcase-container__page-container {
   padding-top: 10rem;
   margin-top: 10rem;
   margin: auto;
@@ -12,12 +12,12 @@
   height: 60vh;
 }
 
-.card-header__text {
+.page-header__text {
   color: white;
   font-size: 1.75rem;
 }
 
-.card-content__container {
+.page-content__container {
   margin-top: 10rem;
   margin-bottom: 10rem;
 }

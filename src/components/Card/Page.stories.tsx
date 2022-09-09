@@ -4,17 +4,17 @@ import { config } from 'storybook-addon-designs';
 
 import { StoryPage } from '@sb/StoryPage';
 
-import { Card } from './Card';
-import { CardContent } from './CardContent';
-import { CardHeader } from './CardHeader';
-import { CardVariant } from './Context';
-import classes from './Card.stories.module.css';
+import { Page } from './Page';
+import { PageContent } from './PageContent';
+import { PageHeader } from './PageHeader';
+import { PageVariant } from './Context';
+import classes from './Page.stories.module.css';
 
 const figmaLink = ''; // TODO: Add figma link
 
 export default {
-  title: `Components/Card`,
-  component: Card,
+  title: `Components/Page`,
+  component: Page,
   parameters: {
     design: config([
       {
@@ -37,24 +37,24 @@ export default {
   args: {
     //TODO: Add default args
   },
-} as ComponentMeta<typeof Card>;
+} as ComponentMeta<typeof Page>;
 
-const Template: ComponentStory<typeof Card> = () => {
+const Template: ComponentStory<typeof Page> = () => {
   return (
     <div className={classes['showcase-container']}>
-      <div className={classes['showcase-container__card-container']}>
-        <Card variant={CardVariant.Primary}>
-          <CardHeader>
-            <span className={classes['card-header__text']}>
-              Primary card variant for profilside
+      <div className={classes['showcase-container__page-container']}>
+        <Page variant={PageVariant.Primary}>
+          <PageHeader>
+            <span className={classes['page-header__text']}>
+              Primary page variant for profilside
             </span>
-          </CardHeader>
-          <CardContent>
-            <div className={classes['card-content__container']}>
-              CardHeader med marineblå bakgrunn og cardContent med hvit bakgrunn
+          </PageHeader>
+          <PageContent>
+            <div className={classes['page-content__container']}>
+              PageHeader med marineblå bakgrunn og pageContent med hvit bakgrunn
             </div>
-          </CardContent>
-        </Card>
+          </PageContent>
+        </Page>
       </div>
     </div>
   );

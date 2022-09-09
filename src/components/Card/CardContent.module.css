@@ -1,8 +1,0 @@
-.card-content {
-  display: flex;
-  background-color: var(--component-card_content-background_color);
-}
-
-.card-content--primary {
-  --component-card_content-background_color: white;
-}

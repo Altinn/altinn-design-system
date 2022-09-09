@@ -26,7 +26,7 @@ jobs:
           ref: ${{ github.head_ref }}
 
       - name: Set up Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: "16.x"
           registry-url: "https://npm.pkg.github.com"

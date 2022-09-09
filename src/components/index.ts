@@ -2,7 +2,13 @@ export { Panel, PanelVariant, PopoverPanel } from './Panel';
 export { CircularProgress } from './CircularProgress';
 export { AppWrapper } from './AppWrapper';
 export { ToggleButton, ToggleButtonGroup } from './ToggleButtonGroup';
-export { Accordion, AccordionHeader, AccordionContent } from './Accordion';
+export {
+  Accordion,
+  AccordionHeader,
+  AccordionContent,
+  AccordionIconVariant,
+  AccordionIcon,
+} from './Accordion';
 export { Button, ButtonVariant } from './Button';
 export { List, ListItem, BorderStyle } from './List';
 export { TextField, IconVariant, ReadOnlyVariant } from './TextField';

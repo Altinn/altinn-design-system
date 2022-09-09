@@ -48,7 +48,7 @@ export default [
     ],
   },
   {
-    input: 'dist/esm/types/src/index.d.ts',
+    input: 'dist/types/src/index.d.ts',
     output: [{ file: 'dist/index.d.ts', format: 'esm' }],
     plugins: [dts()],
     external: [/@altinn\/figma-design-tokens/, /\.css$/],

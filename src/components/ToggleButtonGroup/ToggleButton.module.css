@@ -29,14 +29,13 @@
 .toggle-button {
   border-radius: 0;
   border: none;
-  padding-top: var(--component-toggle_button-space-padding-top);
-  padding-bottom: var(--component-toggle_button-space-padding-bottom);
   padding-left: var(--component-toggle_button-space-padding-x);
   padding-right: var(--component-toggle_button-space-padding-x);
   font-family: inherit;
   background-color: var(--component-toggle_button-color-background-deactive);
   color: var(--component-toggle_button-color-text-deactive);
   font-size: var(--toggle_button-font_size);
+  height: 100%;
 }
 
 .toggle-button--selected {

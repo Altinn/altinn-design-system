@@ -42,14 +42,3 @@
 .accordion-header__actions {
   margin-top: 0.3rem;
 }
-
-.accordion-header__icon {
-  padding-top: 1rem;
-  margin-left: 2.5rem;
-}
-
-.accordion-header__icon--opened {
-  transform: rotate(90deg);
-  margin-top: 0.3rem;
-  margin-left: 3rem;
-}

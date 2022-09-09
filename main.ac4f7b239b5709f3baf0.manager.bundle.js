@@ -1,0 +1,1 @@
+(self.webpackChunk_altinn_altinn_design_system=self.webpackChunk_altinn_altinn_design_system||[]).push([[179],{24654:()=>{}},s=>{var n=a=>s(s.s=a);s.O(0,[381],()=>(n(37707),n(7967),n(78295),n(15887),n(59288),n(10566),n(50213),n(75259),n(57464),n(10165),n(13457),n(35637),n(1498),n(15396),n(59278)));var t=s.O()}]);

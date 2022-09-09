@@ -10,9 +10,17 @@ import userEvent from '@testing-library/user-event';
 
 import type { TextFieldProps } from './TextField';
 import { TextField } from './TextField';
-import { ReadOnlyVariant } from './utils';
+import { ReadOnlyVariant, InputVariant } from './utils';
 
 const user = userEvent.setup();
+
+const getClassNames = (expectedClassName: string) => {
+  const otherClassNames = Object.values(InputVariant).filter(
+    (v) => v !== expectedClassName,
+  );
+
+  return { expectedClassName, otherClassNames };
+};
 
 describe('TextField', () => {
   it('should trigger onPaste when pasting into input', () => {
@@ -80,34 +88,100 @@ describe('TextField', () => {
   });
 
   describe('input-variant', () => {
-    it('should use the css class for error when isValid is false and readOnly or disabled is not specified', () => {
+    it('should render with correct classname when when isValid is false and readOnly or disabled is not specified', () => {
       render({ isValid: false });
-      expect(screen.queryByTestId('id-error')).toBeInTheDocument();
+      const { expectedClassName, otherClassNames } = getClassNames(
+        InputVariant.Error,
+      );
+
+      const textField = screen.getByTestId('TextField');
+
+      expect(
+        textField.classList.contains(`input-wrapper--${expectedClassName}`),
+      ).toBe(true);
+      otherClassNames.forEach((v) => {
+        expect(textField.classList.contains(`input-wrapper--${v}`)).toBe(false);
+      });
     });
 
-    it('should use the css class for default when isValid is true and readOnly or disabled is not specified', () => {
+    it('should render with correct classname when isValid is true and readOnly or disabled is not specified', () => {
       render({ isValid: true });
-      expect(screen.queryByTestId('id-default')).toBeInTheDocument();
+      const { expectedClassName, otherClassNames } = getClassNames(
+        InputVariant.Default,
+      );
+
+      const textField = screen.getByTestId('TextField');
+
+      expect(
+        textField.classList.contains(`input-wrapper--${expectedClassName}`),
+      ).toBe(true);
+      otherClassNames.forEach((v) => {
+        expect(textField.classList.contains(`input-wrapper--${v}`)).toBe(false);
+      });
     });
 
-    it('should use the css class for readonly-info when readOnly is true and disabled is not specified', () => {
+    it('should render with correct classname when readOnly is true and disabled is not specified', () => {
       render({ readOnly: true });
-      expect(screen.queryByTestId('id-readonly-info')).toBeInTheDocument();
+      const { expectedClassName, otherClassNames } = getClassNames(
+        InputVariant.ReadOnlyInfo,
+      );
+
+      const textField = screen.getByTestId('TextField');
+
+      expect(
+        textField.classList.contains(`input-wrapper--${expectedClassName}`),
+      ).toBe(true);
+      otherClassNames.forEach((v) => {
+        expect(textField.classList.contains(`input-wrapper--${v}`)).toBe(false);
+      });
     });
 
-    it('should use the css class for readonly-confirm when readOnly is <readonly-confirm> and disabled is not specified', () => {
+    it('should render with correct classname when readOnly is <readonly-confirm> and disabled is not specified', () => {
       render({ readOnly: ReadOnlyVariant.ReadOnlyConfirm });
-      expect(screen.queryByTestId('id-readonly-confirm')).toBeInTheDocument();
+      const { expectedClassName, otherClassNames } = getClassNames(
+        InputVariant.ReadOnlyConfirm,
+      );
+
+      const textField = screen.getByTestId('TextField');
+
+      expect(
+        textField.classList.contains(`input-wrapper--${expectedClassName}`),
+      ).toBe(true);
+      otherClassNames.forEach((v) => {
+        expect(textField.classList.contains(`input-wrapper--${v}`)).toBe(false);
+      });
     });
 
-    it('should use the css class for readonly-info when readOnly is <readonly-info> and disabled is not specified', () => {
+    it('should render with correct classname when readOnly is <readonly-info> and disabled is not specified', () => {
       render({ readOnly: ReadOnlyVariant.ReadOnlyInfo });
-      expect(screen.queryByTestId('id-readonly-info')).toBeInTheDocument();
+      const { expectedClassName, otherClassNames } = getClassNames(
+        InputVariant.ReadOnlyInfo,
+      );
+
+      const textField = screen.getByTestId('TextField');
+
+      expect(
+        textField.classList.contains(`input-wrapper--${expectedClassName}`),
+      ).toBe(true);
+      otherClassNames.forEach((v) => {
+        expect(textField.classList.contains(`input-wrapper--${v}`)).toBe(false);
+      });
     });
 
-    it('should use the css class for disabled when disabled is true', () => {
+    it('should render with correct classname when disabled is true', () => {
       render({ disabled: true });
-      expect(screen.queryByTestId('id-disabled')).toBeInTheDocument();
+      const { expectedClassName, otherClassNames } = getClassNames(
+        InputVariant.Disabled,
+      );
+
+      const textField = screen.getByTestId('TextField');
+
+      expect(
+        textField.classList.contains(`input-wrapper--${expectedClassName}`),
+      ).toBe(true);
+      otherClassNames.forEach((v) => {
+        expect(textField.classList.contains(`input-wrapper--${v}`)).toBe(false);
+      });
     });
   });
 

@@ -4,22 +4,9 @@ Design system v2
 
 ## Getting started
 
-### React version
-
-This project is using React 18, but we need to support applications that are still on React 17. This means you cannot use any React 18 features just yet.
-
 ### Node and Corepack
 
 We are using the latest LTS release of node, but minimum version 16.9.0, since we are using [corepack](https://nodejs.org/api/corepack.html). To enable corepack, execute `corepack enable` from the terminal.
-
-### Setup Github PAT Token
-
-We are currently using Github registry to publish packages. This means you need to setup a PAT (Personal Access Token) on your machine.
-
-- Acquire a [GitHub PAT](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token). The only permission you need to grant is read:packages.
-- Assign the PAT to the GITHUB_PACKAGES_PAT environment variable:
-  - Mac/Linux: add the line `export GITHUB_PACKAGES_PAT=<PAT>` to `~/.bash_profile` and restart the terminal
-  - Windows: Execute `setx GITHUB_PACKAGES_PAT <PAT> /m` and restart the terminal
 
 ### Start Storybook
 
@@ -51,6 +38,14 @@ We are using Figma as our design tool, and we are extracting tokens directly fro
 Using [BEM naming convention](http://getbem.com/naming/) gives a pretty clear view of what parts are the "root" and what parts are the "children", and is preferred. This also helps you think about when a component grows too big, and should be split into smaller isolated parts.
 
 ## Good to know
+
+### How are the Figma design tokens connected to this repo?
+
+The design tokens live in a [separate repository](https://github.com/Altinn/figma-design-tokens), which is used in Figma with a plugin. The UX group will set/use these tokens in their design, and in the end it will be synced to the `tokens.json` in the `figma-design-tokens` repository. These tokens are publised to NPM as a package `@altinn/figma-design-tokens`. During this process, the `tokens.json` is transformed to `tokens.esm.js` and `tokens.css` files, so the values can be used directly from JS or as CSS variables.
+
+![figma tokens usage diagam](./docs/figma-tokens-diagram.svg)
+
+When using these tokens in this project, we are also transforming the values a bit, to stay compatible with our old design system. The long term goal is to get rid of the dependency to the old design system, so we no longer have to do this transformation. For more information about this, see the below explaination `rem` values.
 
 ### `rem` values
 

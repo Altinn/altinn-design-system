@@ -10,6 +10,7 @@ export enum ButtonVariant {
   Primary = 'primary',
   Secondary = 'secondary',
   Submit = 'submit',
+  Cancel = 'cancel',
 }
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -24,7 +25,6 @@ export const Button = ({
 }: PropsWithChildren<ButtonProps>) => {
   return (
     <button
-      data-testid={`${variant}-button`}
       className={cn(classes.button, classes[`button--${variant}`])}
       type={type}
       {...restHTMLProps}

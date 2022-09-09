@@ -1,7 +1,7 @@
 .input-wrapper {
   --background: var(--component-input-color-background-default);
   --border-color: var(--component-input-color-border-default);
-  --outline-color: transparent;
+  --outline-color: var(--component-input-color-outline-focus);
   --icon-background: transparent;
   background: var(--background);
   border-width: var(--component-input-border_width-default);
@@ -13,14 +13,8 @@
 }
 
 .input-wrapper:focus-within {
-  outline-style: solid;
-  outline-width: var(--component-input-border_width-default);
-  outline-color: var(--outline-color);
-}
-
-.input-wrapper--default:focus-within {
-  --border-color: var(--component-input-color-border-focus);
-  --outline-color: var(--border-color);
+  outline: var(--outline-color) auto var(--border_width-thin);
+  outline-offset: calc(var(--border_width-thin) + var(--border_width-standard));
 }
 
 .input-wrapper--default:hover {
@@ -30,12 +24,6 @@
 .input-wrapper--error {
   --icon-background: var(--component-input-error-color-border-default);
   --border-color: var(--component-input-error-color-border-default);
-}
-
-.input-wrapper--error:focus-within {
-  --icon-background: var(--component-input-error-color-border-hover);
-  --border-color: var(--component-input-error-color-border-hover);
-  --outline-color: var(--border-color);
 }
 
 .input-wrapper--error:hover {

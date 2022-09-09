@@ -52,7 +52,7 @@ jobs:
       - name: Publish npm package
         run: yarn npm publish --access public
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Create GitHub release
         uses: actions/create-release@v1
@@ -63,3 +63,12 @@ jobs:
           release_name: Release ${{ env.release_version }}
           draft: false
           prerelease: false
+
+      - name: Build Storybook
+        run: yarn build-storybook
+
+      - name: Deploy Storybook
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
+        with:
+          branch: gh-pages
+          folder: storybook-static # Source folder (output from build step)

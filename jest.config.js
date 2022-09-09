@@ -13,13 +13,8 @@ module.exports = {
   modulePathIgnorePatterns: ['<rootDir>/dist/'],
   setupFilesAfterEnv: ['<rootDir>/test/jest.setup.ts'],
   testPathIgnorePatterns: ['/node_modules/', '/scripts/templates/'],
-  globals: {
-    'ts-jest': {
-      tsconfig: {
-        allowJs: true,
-      },
-    },
+  transform: {
+    '\\.[tj]sx?$': ['ts-jest'],
   },
-  transform: { '\\.js$': ['ts-jest'] },
   transformIgnorePatterns: ['node_modules/(?!react-leaflet)/'],
 };

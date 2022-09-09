@@ -36,7 +36,6 @@
   color: var(--component-toggle_button-color-text-deactive);
   font-size: var(--toggle_button-font_size);
   height: 100%;
-  line-height: --toggle_button-font_size;
 }
 
 .toggle-button--selected {

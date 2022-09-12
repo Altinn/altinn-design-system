@@ -30,19 +30,10 @@ describe('Page', () => {
       const otherColors = Object.values(PageColor).filter((c) => c !== color);
 
       const pageHeader = screen.getByTestId('page-header');
-      const pageContent = screen.getByTestId('page-content');
 
       expect(pageHeader.classList.contains(`page-header--${color}`)).toBe(true);
       otherColors.forEach((c) => {
         expect(pageHeader.classList.contains(`page-header--${c}`)).toBe(false);
-      });
-      expect(pageContent.classList.contains(`page-content--${color}`)).toBe(
-        true,
-      );
-      otherColors.forEach((c) => {
-        expect(pageContent.classList.contains(`page-content--${c}`)).toBe(
-          false,
-        );
       });
     });
 
@@ -51,19 +42,10 @@ describe('Page', () => {
       const otherColors = Object.values(PageColor).filter((c) => c !== color);
 
       const pageHeader = screen.getByTestId('page-header');
-      const pageContent = screen.getByTestId('page-content');
 
       expect(pageHeader.classList.contains(`page-header--${color}`)).toBe(true);
       otherColors.forEach((c) => {
         expect(pageHeader.classList.contains(`page-header--${c}`)).toBe(false);
-      });
-      expect(pageContent.classList.contains(`page-content--${color}`)).toBe(
-        true,
-      );
-      otherColors.forEach((c) => {
-        expect(pageContent.classList.contains(`page-content--${c}`)).toBe(
-          false,
-        );
       });
     });
   });

@@ -1,8 +1,0 @@
-.page-content {
-  display: flex;
-  background-color: var(--component-page_content-background_color);
-}
-
-.page-content--primary {
-  --component-page_content-background_color: white;
-}

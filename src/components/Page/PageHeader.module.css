@@ -1,14 +1,41 @@
 .page-header {
-  height: var(--component-page_header-height);
+  height: var(--page-header-height);
   background-color: var(--component-page_header-background-color);
+  display: inline-grid;
+  grid-auto-flow: column;
+  width: 100%;
+  grid-auto-columns: min-content;
 }
 
 .page-header--primary {
-  --component-page_header-height: 4rem;
   --component-page_header-background-color: #022f51;
 }
 
-.page-header__text {
+.page-header__title {
   color: white;
-  font-size: 1.75rem;
+  font-size: var(--page_header-title-font-size);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 2rem;
+}
+
+@media only screen and (min-width: 0) {
+  .page-header__title {
+    --page_header-title-font-size: 18px;
+  }
+
+  .page-header {
+    --page-header-height: 72px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .page-header__title {
+    --page_header-title-font-size: 28px;
+  }
+
+  .page-header {
+    --page-header-height: 96px;
+  }
 }

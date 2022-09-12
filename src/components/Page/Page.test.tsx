@@ -6,14 +6,15 @@ import { Page } from './Page';
 import { PageHeader } from './PageHeader';
 import { PageContent } from './PageContent';
 import { PageColor } from './Context';
+import { ReactComponent as ClientBold } from './ClientBold.svg';
 
 const render = (props: Partial<PageProps> = {}) => {
   const allProps = {
     title: 'Panel title',
     children: (
       <>
-        <PageHeader>PageHeader</PageHeader>
-        <PageContent>PageContent</PageContent>
+        <PageHeader icon={<ClientBold />}>PageHeader</PageHeader>
+        <PageContent> PageContent</PageContent>
       </>
     ),
     ...props,

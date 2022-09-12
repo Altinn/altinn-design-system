@@ -9,14 +9,10 @@ export interface PageContentProps {
 }
 
 export const PageContent = ({ children }: PageContentProps) => {
-  const { color: variant } = usePageContext();
-
+  const { color } = usePageContext();
   return (
     <div
-      className={cn(
-        classes[`page-content`],
-        classes[`page-content--${variant}`],
-      )}
+      className={cn(classes[`page-content`], classes[`page-content--${color}`])}
       data-testid='page-content'
     >
       {children}

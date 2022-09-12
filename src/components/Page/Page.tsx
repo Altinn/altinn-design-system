@@ -8,15 +8,10 @@ export interface PageProps {
   color?: PageColor;
 }
 
-export const Page = ({
-  children,
-  color: variant = PageColor.Primary,
-}: PageProps) => {
+export const Page = ({ children, color = PageColor.Primary }: PageProps) => {
   return (
-    <div className={classes['Page']}>
-      <PageContext.Provider value={{ color: variant }}>
-        {children}
-      </PageContext.Provider>
+    <div className={classes['page']}>
+      <PageContext.Provider value={{ color }}>{children}</PageContext.Provider>
     </div>
   );
 };

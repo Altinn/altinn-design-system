@@ -9,6 +9,7 @@ import { PageContent } from './PageContent';
 import { PageHeader } from './PageHeader';
 import { Page } from './Page';
 import classes from './Page.stories.module.css';
+import { ReactComponent as ClientBold } from './ClientBold.svg';
 
 const figmaLink = ''; // TODO: Add figma link
 
@@ -43,17 +44,10 @@ const Template: ComponentStory<typeof Page> = () => {
   return (
     <div className={classes['showcase-container']}>
       <div className={classes['showcase-container__page-container']}>
-        <Page color={PageColor.Primary}> </Page>
-        <PageHeader>
-          <span className={classes['page-header__text']}>
-            Primary page variant for profilside
-          </span>
-        </PageHeader>
-        <PageContent>
-          <div className={classes['page-content__container']}>
-            PageHeader med marineblå bakgrunn og pageContent med hvit bakgrunn
-          </div>
-        </PageContent>
+        <Page color={PageColor.Primary}>
+          <PageHeader icon={<ClientBold />}>PageHeader</PageHeader>
+          <PageContent> PageContent</PageContent>
+        </Page>
       </div>
     </div>
   );

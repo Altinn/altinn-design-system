@@ -1,11 +1,7 @@
 .page-content {
   --component-page_content-vertical-padding: 2rem;
   display: flex;
-  background-color: var(--component-page_content-background_color);
+  background-color: white;
   padding-top: var(--component-page_content-vertical-padding);
   padding-bottom: var(--component-page_content-vertical-padding);
-}
-
-.page-content--primary {
-  --component-page_content-background_color: white;
 }

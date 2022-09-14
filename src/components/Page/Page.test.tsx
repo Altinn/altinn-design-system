@@ -36,17 +36,5 @@ describe('Page', () => {
         expect(pageHeader.classList.contains(`page-header--${c}`)).toBe(false);
       });
     });
-
-    it(`should render a PageHeader and PageContent with ${color} classname when color is not set`, () => {
-      render();
-      const otherColors = Object.values(PageColor).filter((c) => c !== color);
-
-      const pageHeader = screen.getByTestId('page-header');
-
-      expect(pageHeader.classList.contains(`page-header--${color}`)).toBe(true);
-      otherColors.forEach((c) => {
-        expect(pageHeader.classList.contains(`page-header--${c}`)).toBe(false);
-      });
-    });
   });
 });

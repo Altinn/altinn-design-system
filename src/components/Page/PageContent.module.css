@@ -3,4 +3,5 @@
   background-color: white;
   padding-top: var(--component-page_content-vertical-padding);
   padding-bottom: var(--component-page_content-vertical-padding);
+  box-sizing: inherit;
 }

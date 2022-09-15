@@ -14,12 +14,12 @@ export const PageHeader = ({ children, icon }: PageHeaderProps) => {
   const { color } = usePageContext();
 
   return (
-    <div
+    <header
       className={cn(classes['page-header'], classes[`page-header--${color}`])}
       data-testid='page-header'
     >
       {icon && <PageIcon icon={icon} />}
       <span className={cn(classes['page-header__title'])}>{children}</span>
-    </div>
+    </header>
   );
 };

@@ -7,7 +7,7 @@ import { PageIcon } from './PageIcon';
 
 export interface PageHeaderProps {
   children?: React.ReactNode;
-  icon: JSX.Element;
+  icon?: JSX.Element;
 }
 
 export const PageHeader = ({ children, icon }: PageHeaderProps) => {
@@ -18,7 +18,7 @@ export const PageHeader = ({ children, icon }: PageHeaderProps) => {
       className={cn(classes['page-header'], classes[`page-header--${color}`])}
       data-testid='page-header'
     >
-      <PageIcon icon={icon} />
+      {icon && <PageIcon icon={icon} />}
       <span className={cn(classes['page-header__title'])}>{children}</span>
     </div>
   );

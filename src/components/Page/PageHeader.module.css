@@ -5,14 +5,15 @@
   grid-auto-flow: column;
   width: 100%;
   grid-auto-columns: min-content;
+  color: var(--component-page_header-color);
 }
 
 .page-header--primary {
   --component-page_header-background-color: #022f51;
+  --component-page_header-color: white;
 }
 
 .page-header__title {
-  color: white;
   font-size: var(--page_header-title-font-size);
   display: flex;
   justify-content: center;

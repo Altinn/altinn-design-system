@@ -46,7 +46,7 @@ const Template: ComponentStory<typeof Page> = () => {
       <div className={classes['showcase-container__page-container']}>
         <Page color={PageColor.Primary}>
           <PageHeader icon={<ClientBold />}>PageHeader</PageHeader>
-          <PageContent> PageContent</PageContent>
+          <PageContent>PageContent</PageContent>
         </Page>
       </div>
     </div>

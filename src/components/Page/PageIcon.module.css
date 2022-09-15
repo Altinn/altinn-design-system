@@ -2,7 +2,8 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-left: 1.8rem;
+  fill: currentColor;
+  margin-left: 2rem;
 }
 
 @media only screen and (min-width: 0) {
@@ -17,8 +18,4 @@
     width: 40px;
     height: 40px;
   }
-}
-
-.page-icon__element--primary {
-  fill: white;
 }

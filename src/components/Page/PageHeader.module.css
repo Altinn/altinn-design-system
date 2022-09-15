@@ -7,7 +7,7 @@
   gap: 2rem;
   padding-left: 2rem;
   padding-right: 2rem;
-  box-sizing: border-box;
+  box-sizing: inherit;
   align-items: center;
   font-size: var(--page_header-title-font-size);
 }

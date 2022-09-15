@@ -19,7 +19,7 @@ export const PageHeader = ({ children, icon }: PageHeaderProps) => {
       data-testid='page-header'
     >
       {icon && <PageIcon icon={icon} />}
-      <span className={cn(classes['page-header__title'])}>{children}</span>
+      <span>{children}</span>
     </header>
   );
 };

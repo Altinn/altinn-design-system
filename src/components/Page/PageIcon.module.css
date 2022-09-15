@@ -3,7 +3,6 @@
   justify-content: center;
   flex-direction: column;
   fill: currentColor;
-  box-sizing: inherit;
 }
 
 @media only screen and (min-width: 0) {

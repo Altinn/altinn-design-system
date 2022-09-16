@@ -1,0 +1,7 @@
+.page-content {
+  --component-page_content-vertical-padding: 2rem;
+  background-color: white;
+  padding-top: var(--component-page_content-vertical-padding);
+  padding-bottom: var(--component-page_content-vertical-padding);
+  box-sizing: inherit;
+}

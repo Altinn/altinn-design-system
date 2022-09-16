@@ -4,12 +4,10 @@ export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
     matchers: {
-      color: /(background|color)$/i,
       date: /Date$/,
     },
   },
   layout: 'centered',
-
   darkMode: {
     current: 'light',
     dark: {
@@ -18,5 +16,22 @@ export const parameters = {
     light: {
       ...themes.normal,
     },
+  },
+  backgrounds: {
+    default: 'default',
+    values: [
+      {
+        name: 'default',
+        value: '#979797',
+      },
+      {
+        name: 'light',
+        value: '#F8F8F8',
+      },
+      {
+        name: 'dark',
+        value: '#333333',
+      },
+    ],
   },
 };

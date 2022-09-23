@@ -1,0 +1,112 @@
+.wrapper {
+  align-items: center;
+  border-radius: var(--interactive_components-border_radius-normal);
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: row;
+  font-size: var(--component-checkbox-font_size-normal);
+  gap: var(--component-checkbox-space-gap-normal);
+}
+
+.wrapper:not(.disabled):not(.readOnly) {
+  cursor: pointer;
+}
+
+.checkboxWrapper {
+  display: inline-block;
+  height: var(--component-checkbox-size-height-normal);
+  position: relative;
+  width: var(--component-checkbox-size-width-normal);
+}
+
+.checkbox {
+  height: 0;
+  opacity: 0;
+  position: absolute;
+  width: 0;
+}
+
+.visibleBox {
+  background-color: var(--component-checkbox-color-background-default);
+  border-color: var(--component-checkbox-color-border-default);
+  border-radius: var(--interactive_components-border_radius-normal);
+  border-style: solid;
+  border-width: var(--component-checkbox-border_width-normal);
+  box-sizing: border-box;
+  height: var(--component-checkbox-size-height-normal);
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: var(--component-checkbox-size-width-normal);
+}
+
+.wrapper:not(.checked) .checkmark {
+  display: none;
+}
+
+.checked:not(.disabled):not(.error) .visibleBox {
+  background-color: var(--component-checkbox-color-background-checked);
+  border-color: var(--component-checkbox-color-border-checked);
+}
+
+.error {
+  color: var(--component-checkbox-color-text-error);
+}
+
+.error .visibleBox {
+  border-color: var(--component-checkbox-color-border-error);
+}
+
+.error.checked .visibleBox {
+  background-color: var(--component-checkbox-color-border-error);
+}
+
+.wrapper:not(.disabled):not(.readOnly):hover {
+  color: var(--component-checkbox-color-text-hover);
+}
+
+.wrapper:not(.disabled):not(.checked):hover .visibleBox {
+  background-color: var(--component-checkbox-color-background-hover);
+}
+
+.wrapper:not(.disabled):not(.error):not(.checked):hover .visibleBox {
+  border-color: var(--component-checkbox-color-border-hover);
+}
+
+.disabled {
+  color: var(--component-checkbox-color-text-disabled);
+  cursor: default;
+}
+
+.disabled .visibleBox {
+  border-color: var(--component-checkbox-color-border-disabled);
+}
+
+.disabled.checked .visibleBox {
+  background-color: var(--component-checkbox-color-border-disabled);
+  border-color: transparent;
+}
+
+.wrapper:not(.disabled):focus-within {
+  outline: 2px solid var(--interactive_components-colors-focus_outline);
+  outline-offset: 2px;
+}
+
+.compact {
+  font-size: var(--component-checkbox-font_size-compact);
+  gap: var(--component-checkbox-space-gap-compact);
+}
+
+.compact .checkboxWrapper,
+.compact .visibleBox {
+  height: var(--component-checkbox-size-height-compact);
+  width: var(--component-checkbox-size-width-compact);
+}
+
+.compact .visibleBox {
+  border-width: var(--component-checkbox-border_width-compact);
+}
+
+.readOnly {
+  cursor: auto;
+}

@@ -28,7 +28,6 @@ export const CircularProgress = ({
       id={id}
       className={classes.container}
       style={{ width: `${width}px` }}
-      aria-valuenow={value}
       role='progressbar'
       aria-labelledby={ariaLabelledby}
       aria-label={ariaLabel}

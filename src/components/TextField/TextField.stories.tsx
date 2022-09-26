@@ -83,6 +83,20 @@ Error.parameters = {
   },
 };
 
+export const Search = Template.bind({});
+Search.args = {
+  search: true,
+  readOnly: false,
+  defaultValue: 'Søk i tabellen',
+};
+Search.parameters = {
+  docs: {
+    description: {
+      story: 'Input field as searchbar',
+    },
+  },
+};
+
 export const ReadOnlyInfo = Template.bind({});
 ReadOnlyInfo.args = {
   readOnly: true,

@@ -4,6 +4,7 @@ export enum InputVariant {
   Disabled = 'disabled',
   ReadOnlyInfo = 'readonly-info',
   ReadOnlyConfirm = 'readonly-confirm',
+  Search = 'search',
 }
 
 export enum ReadOnlyVariant {
@@ -14,18 +15,21 @@ export enum ReadOnlyVariant {
 export enum IconVariant {
   None = 'none',
   Error = 'error',
+  Search = 'search',
 }
 
 interface GetVariantProps {
   readOnly?: boolean | ReadOnlyVariant;
   disabled?: boolean;
   isValid?: boolean;
+  search?: boolean;
 }
 
 export const getVariant = ({
   readOnly = false,
   disabled = false,
   isValid = true,
+  search = false,
 }: GetVariantProps = {}) => {
   if (disabled) {
     return {
@@ -46,6 +50,11 @@ export const getVariant = ({
     return {
       variant: InputVariant.Error,
       iconVariant: IconVariant.Error,
+    };
+  } else if (search === true) {
+    return {
+      variant: InputVariant.Search,
+      iconVariant: IconVariant.Search,
     };
   }
 

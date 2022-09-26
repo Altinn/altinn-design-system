@@ -26,6 +26,18 @@
   --border-color: var(--component-input-error-color-border-default);
 }
 
+.input-wrapper--search {
+  box-sizing: border-box;
+  height: 60px;
+  left: 0%;
+  right: 0%;
+  top: calc(50% - 60px / 2);
+
+  /* Interface (common)/Info/500 */
+
+  border: 2px solid #008fd6;
+}
+
 .input-wrapper--error:hover {
   --icon-background: var(--component-input-error-color-border-hover);
   --border-color: var(--component-input-error-color-border-hover);

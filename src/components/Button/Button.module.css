@@ -3,67 +3,59 @@
   font-family: inherit;
   border: 0;
   font-size: var(--font_size-300);
+  height: var(--component-button-size-height-small);
   text-align: center;
   box-sizing: border-box;
-  padding: var(--component-button-space-padding-top)
-    var(--component-button-space-padding-x)
-    var(--component-button-space-padding-bottom);
+  padding: 0 var(--component-button-space-padding-x-small);
   letter-spacing: var(--typography-default-letter-spacing);
   cursor: pointer;
 }
 
 .button:focus-visible {
-  outline: var(--component-button-primary-color-border-focus) auto
+  outline: var(--interactive_components-colors-focus_outline) auto
     var(--border_width-standard);
   outline-offset: var(--border_width-standard);
 }
 
 .button:disabled {
-  background: var(--component-button-primary-color-background-disabled);
-  color: var(--component-button-primary-color-text-disabled);
-  box-shadow: 0px 0px 0px var(--component-button-border_width-default)
-    var(--component-button-primary-color-border-disabled) inset;
   cursor: auto;
-}
-
-.button:disabled:hover {
-  background: var(--component-button-primary-color-background-disabled);
+  opacity: var(--interactive_components-colors-disabled-opacity);
 }
 
 .button--primary {
-  background: var(--component-button-primary-color-background-default);
-  color: var(--component-button-primary-color-text-default);
+  background: var(--component-button-filled-primary-color-background-default);
+  color: var(--component-button-filled-color-text-all);
 }
 
-.button--primary:hover {
-  background: var(--component-button-primary-color-background-hover);
+.button--primary:not(:disabled):hover {
+  background: var(--component-button-filled-primary-color-background-hover);
 }
 
 .button--secondary {
-  background: var(--component-button-secondary-color-background-default);
-  box-shadow: 0px 0px 0px var(--component-button-border_width-default)
-    var(--component-button-secondary-color-border-default) inset;
-  color: var(--component-button-secondary-color-text-default);
+  background: var(--component-button-outline-primary-color-background-default);
+  box-shadow: 0 0 0 var(--component-button-border_width-default)
+    var(--component-button-outline-primary-color-border-default) inset;
+  color: var(--component-button-outline-primary-color-text-default);
 }
 
-.button--secondary:hover {
-  background: var(--component-button-secondary-color-background-hover);
+.button--secondary:not(:disabled):hover {
+  background: var(--component-button-outline-primary-color-background-hover);
 }
 
 .button--submit {
-  background: var(--component-button-submit-color-background-default);
-  color: var(--component-button-submit-color-text-default);
+  background: var(--component-button-filled-success-color-background-default);
+  color: var(--component-button-filled-color-text-all);
 }
 
-.button--submit:hover {
-  background: var(--component-button-submit-color-background-hover);
+.button--submit:not(:disabled):hover {
+  background: var(--component-button-filled-success-color-background-hover);
 }
 
 .button--cancel {
-  background: var(--component-button-cancel-color-background-default);
-  color: var(--component-button-secondary-color-text-hover);
+  background: var(--component-button-filled-danger-color-background-default);
+  color: var(--component-button-filled-color-text-all);
 }
 
-.button--cancel:hover {
-  background: var(--component-button-cancel-color-background-hover);
+.button--cancel:not(:disabled):hover {
+  background: var(--component-button-filled-danger-color-background-hover);
 }

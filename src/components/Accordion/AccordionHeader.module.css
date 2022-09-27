@@ -1,8 +1,8 @@
 .accordion-header {
   --component-accordion_header-border_top_style: solid;
   --component-accordion_header-border_top_color: var(--colors-neutral-200);
-  --component-accordion_header-border_top_width: var(--border-width-thin);
-  --component-accordion_header-color-background: var(--colors-neutral-000);
+  --component-accordion_header-border_top_width: var(--border_width-thin);
+  --component-accordion_header-color-background: var(--colors-white);
   display: flex;
   border-top-width: var(--component-accordion_header-border_top_width);
   border-top-style: var(--component-accordion_header-border_top_style);
@@ -16,9 +16,9 @@
   --component-accordion_header_title-border_bottom_style: none;
   --component-accordion_header_title-border_right_style: none;
   --component-accordion_header_title-border_left_style: none;
-  --component-accordion_header_title-font_size: var(--font-size-300);
+  --component-accordion_header_title-font_size: var(--font_size-300);
   --component-accordion_header_title-font_weight: var(
-    --component-panel-weight-heading
+    --component-panel-font_weight-heading
   );
   --component-accordion_header_title-color-background: none;
   font-family: inherit;
@@ -32,8 +32,6 @@
     --component-accordion_header_title-border_right_style
   );
   background-color: var(--component-accordion_header_title-color-background);
-  text-align: var(--component-accordion_header_title-text-align);
-  margin-left: var(--component-accordion_header_title-margin-left);
   font-size: var(--component-accordion_header_title-font_size);
   font-weight: var(--component-accordion_header_title-font_weight);
   margin-left: var(--component-accordion_header_title-spacing-margin_left);

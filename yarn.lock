@@ -16,7 +16,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@altinn/altinn-design-system@workspace:."
   dependencies:
-    "@altinn/figma-design-tokens": ^2.0.2
+    "@altinn/figma-design-tokens": ^3.1.0
     "@babel/core": 7.19.1
     "@mdx-js/react": 1.6.22
     "@radix-ui/react-popover": ^1.0.0
@@ -106,10 +106,10 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@altinn/figma-design-tokens@npm:^2.0.2":
-  version: 2.2.0
-  resolution: "@altinn/figma-design-tokens@npm:2.2.0"
-  checksum: 7921959d3c1065d18600190f1a715da0a45df553cbf33ad57501c0701bd277f4771e2ef96d04eda2b3ca430036058b2eeacabe84c8191a795169c96c7602a9be
+"@altinn/figma-design-tokens@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "@altinn/figma-design-tokens@npm:3.1.0"
+  checksum: d7e74b0007e92037873f2b3706140e827c6a302b754d31981c4f07cbd5770508266e2b9b40c20f1ac4d67c2b22053ac8e331b369de819abdc8040cceb24f1f73
   languageName: node
   linkType: hard
 

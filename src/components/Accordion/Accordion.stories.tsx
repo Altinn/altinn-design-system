@@ -83,7 +83,18 @@ const Template: ComponentStory<typeof Accordion> = (args) => {
 export const Example = Template.bind({});
 Example.args = {
   iconVariant: AccordionIconVariant.Primary,
+  open: false,
 };
+
+Example.argTypes = {
+  open: {
+    control: false,
+  },
+  onClick: {
+    control: false,
+  },
+};
+
 Example.parameters = {
   docs: {
     description: {

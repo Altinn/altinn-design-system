@@ -56,6 +56,14 @@ const Template: ComponentStory<typeof ToggleButtonGroup> = () => {
 };
 export const Example = Template.bind({});
 Example.args = {};
+Example.argTypes = {
+  onChange: {
+    control: false,
+  },
+  selectedValue: {
+    control: false,
+  },
+};
 Example.parameters = {
   docs: {
     description: {},

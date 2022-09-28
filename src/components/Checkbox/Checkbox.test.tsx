@@ -33,6 +33,13 @@ describe('Checkbox', () => {
     expect(onChange).toHaveBeenCalled();
   });
 
+  it('Should not call onChange when user clicks and the checkbox is disabled', async () => {
+    const onChange = jest.fn();
+    const wrapper = renderAndGetWrapper({ disabled: true, onChange });
+    await act(() => user.click(wrapper));
+    expect(onChange).not.toHaveBeenCalled();
+  });
+
   it('Should not display checkbox when read-only', async () => {
     render({ checked: false, readOnly: true });
     const checkboxes = screen.queryAllByRole('checkbox');

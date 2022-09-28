@@ -50,7 +50,7 @@ export const Checkbox = ({
             disabled={disabled}
             id={inputId}
             name={name}
-            onChange={onChange}
+            onChange={disabled ? undefined : onChange}
             type='checkbox'
           />
           <span className={classes['visible-box']}>

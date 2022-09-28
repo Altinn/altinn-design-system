@@ -2,8 +2,6 @@ import type { ChangeEventHandler } from 'react';
 import React, { useId } from 'react';
 import cn from 'classnames';
 
-import { ReactComponent as CheckmarkNormal } from './CheckmarkNormal.svg';
-import { ReactComponent as CheckmarkCompact } from './CheckmarkCompact.svg';
 import classes from './Checkbox.module.css';
 
 export interface CheckboxProps {
@@ -56,9 +54,7 @@ export const Checkbox = ({
             type='checkbox'
           />
           <span className={classes['visible-box']}>
-            <span className={classes['visible-box__checkmark']}>
-              {compact ? <CheckmarkCompact /> : <CheckmarkNormal />}
-            </span>
+            <span className={classes['visible-box__checkmark']} />
           </span>
         </span>
       )}

@@ -40,6 +40,21 @@
   width: var(--component-checkbox-size-width-normal);
 }
 
+.visible-box__checkmark {
+  background-color: white;
+  clip-path: polygon(
+    47.10705% 56.50955%,
+    30.36925% 38.93615%,
+    21.5003% 48.0945%,
+    47.10715% 74.537%,
+    81.5% 39.15895%,
+    72.6305% 29.99975%
+  );
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+}
+
 .wrapper:not(.wrapper--checked) .visible-box__checkmark {
   display: none;
 }
@@ -98,7 +113,7 @@
   gap: var(--component-checkbox-space-gap-compact);
 }
 
-.wrapper--compact .checkboxWrapper,
+.wrapper--compact .checkbox-wrapper,
 .wrapper--compact .visible-box {
   height: var(--component-checkbox-size-height-compact);
   width: var(--component-checkbox-size-width-compact);

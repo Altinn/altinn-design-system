@@ -1,3 +1,5 @@
+import assert from 'assert';
+
 import React from 'react';
 import { act, render as renderRtl, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -6,6 +8,10 @@ import type { CheckboxProps } from './Checkbox';
 import { Checkbox } from './Checkbox';
 
 const user = userEvent.setup();
+
+const defaultProps: CheckboxProps = {
+  onChange: jest.fn,
+};
 
 describe('Checkbox', () => {
   it('Should not be checked by default', () => {
@@ -20,25 +26,11 @@ describe('Checkbox', () => {
     expect(checkbox).toBeChecked();
   });
 
-  it('Should become checked when initially unchecked and user clicks', async () => {
-    const wrapper = renderAndGetWrapper({ checked: false });
+  it('Should call onChange when user clicks', async () => {
+    const onChange = jest.fn();
+    const wrapper = renderAndGetWrapper({ onChange });
     await act(() => user.click(wrapper));
-    const checkbox = screen.getByRole('checkbox');
-    expect(checkbox).toBeChecked();
-  });
-
-  it('Should become unchecked when initially checked and user clicks', async () => {
-    const wrapper = renderAndGetWrapper({ checked: true });
-    await act(() => user.click(wrapper));
-    const checkbox = screen.getByRole('checkbox');
-    expect(checkbox).not.toBeChecked();
-  });
-
-  it('Should not change state when disabled and user clicks', async () => {
-    const wrapper = renderAndGetWrapper({ checked: false, disabled: true });
-    await act(() => user.click(wrapper));
-    const checkbox = screen.getByRole('checkbox');
-    expect(checkbox).not.toBeChecked();
+    expect(onChange).toHaveBeenCalled();
   });
 
   it('Should not display checkbox when read-only', async () => {
@@ -66,31 +58,16 @@ describe('Checkbox', () => {
     const checkbox = screen.getByRole('checkbox');
     expect(checkbox.getAttribute('name')).toEqual(name);
   });
-
-  it('Should become checked when "checked" prop changes from false to true', () => {
-    const { rerender } = render({ checked: false });
-    rerender(<Checkbox checked={true} />);
-    const checkbox = screen.getByRole('checkbox');
-    expect(checkbox).toBeChecked();
-  });
-
-  it('Should become unchecked when "checked" prop changes from true to false', () => {
-    const { rerender } = render({ checked: true });
-    rerender(<Checkbox checked={false} />);
-    const checkbox = screen.getByRole('checkbox');
-    expect(checkbox).not.toBeChecked();
-  });
 });
 
 const render = (props: Partial<CheckboxProps> = {}) => {
-  const allProps = { ...props };
+  const allProps = { ...defaultProps, ...props };
   return renderRtl(<Checkbox {...allProps} />);
 };
 
 const renderAndGetWrapper = (props: Partial<CheckboxProps> = {}): Element => {
   const { container } = render(props);
   const wrapper = container.querySelector('.wrapper');
-  expect(wrapper).not.toBeNull();
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  return wrapper!;
+  assert(wrapper !== null);
+  return wrapper;
 };

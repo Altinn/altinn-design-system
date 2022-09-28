@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import type { ChangeEventHandler } from 'react';
+import React, { useId } from 'react';
 import cn from 'classnames';
 
 import { ReactComponent as CheckmarkNormal } from './CheckmarkNormal.svg';
@@ -8,62 +9,54 @@ import classes from './Checkbox.module.css';
 export interface CheckboxProps {
   checkboxId?: string;
   checked?: boolean;
-  className?: string;
   compact?: boolean;
   disabled?: boolean;
   error?: boolean;
   label?: string;
   name?: string;
+  onChange: ChangeEventHandler<HTMLInputElement>;
   readOnly?: boolean;
 }
 
 export const Checkbox = ({
   checkboxId,
   checked,
-  className,
   compact,
   disabled,
   error,
   label,
   name,
+  onChange,
   readOnly,
 }: CheckboxProps) => {
-  const [isChecked, setIsChecked] = useState<boolean>(!!checked);
-
-  useEffect(() => setIsChecked(!!checked), [checked]);
-
-  const inputId =
-    checkboxId ||
-    'checkbox-' + window.crypto.getRandomValues(new Uint32Array(1));
+  const randomId = useId();
+  const inputId = checkboxId || 'checkbox-' + randomId;
 
   return (
     <label
       className={cn(
         classes.wrapper,
-        isChecked && classes.checked,
-        error && classes.error,
-        disabled && classes.disabled,
-        compact && classes.compact,
-        readOnly && classes.readOnly,
-        className,
+        checked && classes['wrapper--checked'],
+        error && classes['wrapper--error'],
+        disabled && classes['wrapper--disabled'],
+        compact && classes['wrapper--compact'],
+        readOnly && classes['wrapper--read-only'],
       )}
       htmlFor={inputId}
     >
       {!readOnly && (
-        <span className={classes.checkboxWrapper}>
+        <span className={classes['checkbox-wrapper']}>
           <input
-            checked={isChecked}
+            checked={checked ?? false}
             className={classes.checkbox}
             disabled={disabled}
             id={inputId}
             name={name}
-            onChange={(event) => {
-              !disabled && setIsChecked(event.target.checked);
-            }}
+            onChange={onChange}
             type='checkbox'
           />
-          <span className={classes.visibleBox}>
-            <span className={classes.checkmark}>
+          <span className={classes['visible-box']}>
+            <span className={classes['visible-box__checkmark']}>
               {compact ? <CheckmarkCompact /> : <CheckmarkNormal />}
             </span>
           </span>

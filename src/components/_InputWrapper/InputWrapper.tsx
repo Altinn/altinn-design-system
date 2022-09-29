@@ -16,7 +16,7 @@ export interface InputWrapperProps {
   isValid?: boolean;
   disabled?: boolean;
   readOnly?: boolean | ReadOnlyVariant;
-  inputRenderer: ({ className }: InputRendererProps) => ReactNode;
+  inputRenderer: (props: InputRendererProps) => ReactNode;
 }
 
 export const InputWrapper = ({

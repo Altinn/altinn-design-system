@@ -3,9 +3,9 @@ import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import { config } from 'storybook-addon-designs';
 
 import { StoryPage } from '@sb/StoryPage';
+import { ReadOnlyVariant } from '@/components/_InputWrapper';
 
 import { TextField } from './TextField';
-import { ReadOnlyVariant } from './utils';
 
 const figmaLink =
   'https://www.figma.com/file/wnBveAG2ikUspFsQwM3GNE/Altinn-Studio-Apps?node-id=2090%3A6723';

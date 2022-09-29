@@ -11,7 +11,7 @@ export interface TextAreaProps
   extends Omit<HTMLProps<HTMLTextAreaElement>, 'readOnly' | 'className'> {
   isValid?: boolean;
   readOnly?: boolean | ReadOnlyVariant;
-  resize: 'none' | 'both' | 'horizontal' | 'vertical';
+  resize?: 'none' | 'both' | 'horizontal' | 'vertical';
 }
 
 export const TextArea = ({

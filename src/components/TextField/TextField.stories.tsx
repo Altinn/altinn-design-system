@@ -3,7 +3,8 @@ import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import { config } from 'storybook-addon-designs';
 
 import { StoryPage } from '@sb/StoryPage';
-import { ReadOnlyVariant } from '@/components/_InputWrapper';
+
+import { ReadOnlyVariant } from '../_InputWrapper';
 
 import { TextField } from './TextField';
 

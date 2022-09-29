@@ -2,8 +2,8 @@ import type { HTMLProps } from 'react';
 import React from 'react';
 import cn from 'classnames';
 
-import { InputWrapper } from '@/components/_InputWrapper';
-import type { ReadOnlyVariant } from '@/components/_InputWrapper';
+import { InputWrapper } from '../_InputWrapper';
+import type { ReadOnlyVariant } from '../_InputWrapper';
 
 import classes from './TextArea.module.css';
 

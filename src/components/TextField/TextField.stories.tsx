@@ -87,7 +87,6 @@ export const Search = Template.bind({});
 Search.args = {
   search: true,
   readOnly: false,
-  defaultValue: 'Søk i tabellen',
 };
 Search.parameters = {
   docs: {

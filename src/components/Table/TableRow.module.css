@@ -1,0 +1,13 @@
+.TableRow {
+  width: 1056px;
+  height: 60px;
+  border-top: 1px solid #dde3e5;
+}
+
+.table-row--selected {
+  background-color: #e0daf7;
+}
+
+.table-row--hover {
+  background-color: #e3f7ff;
+}

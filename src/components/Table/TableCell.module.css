@@ -1,0 +1,23 @@
+.header-table-cell {
+  text-align: left;
+  padding: 8px;
+  margin: 20px 0 20px 0;
+}
+
+.body-table-cell {
+  text-align: left;
+  padding: 8px;
+  border-top: 1px solid #dde3e5;
+  max-width: 300px;
+  margin: 20px 0 20px 0;
+  min-width: 100x;
+}
+
+.image {
+  max-width: 45px;
+  max-height: 45px;
+}
+
+.input {
+  margin: 0px 15px 0px 15px;
+}

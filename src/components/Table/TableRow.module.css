@@ -8,6 +8,6 @@
   background-color: #e0daf7;
 }
 
-.table-row--hover {
+.table-row--body:hover {
   background-color: #e3f7ff;
 }

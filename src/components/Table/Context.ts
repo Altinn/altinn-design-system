@@ -28,11 +28,11 @@ export const useTableContext = () => {
   return context;
 };
 
-export const TableTypeContext = createContext({
+export const TableRowTypeContext = createContext({
   variant: Variant.Body,
 });
-export const useTableTypeContext = () => {
-  const context = useContext(TableTypeContext);
+export const useTableRowTypeContext = () => {
+  const context = useContext(TableRowTypeContext);
   if (context === undefined) {
     throw new Error('useTableContext must be used within a TableTypeContext');
   }

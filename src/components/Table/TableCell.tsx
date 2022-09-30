@@ -2,7 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 
 import classes from './TableCell.module.css';
-import { useTableTypeContext } from './Context';
+import { useTableRowTypeContext } from './Context';
 
 export interface TableCellProps {
   children?: React.ReactNode;
@@ -14,10 +14,10 @@ export interface TableCellProps {
 }
 
 export const TableCell = ({ children, colSpan = 1 }: TableCellProps) => {
-  const { variant } = useTableTypeContext();
+  const { variant } = useTableRowTypeContext();
   return (
     <React.Fragment>
-      {variant == 'header' ? (
+      {variant === 'header' ? (
         <th
           className={cn(classes['header-table-cell'])}
           colSpan={colSpan}
@@ -26,7 +26,7 @@ export const TableCell = ({ children, colSpan = 1 }: TableCellProps) => {
           <div className={cn(classes['input'])}>{children}</div>
         </th>
       ) : (
-        variant == 'body' && (
+        variant === 'body' && (
           <React.Fragment>
             <td
               className={cn(classes['body-table-cell'])}

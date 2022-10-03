@@ -103,7 +103,14 @@
   border-color: transparent;
 }
 
-.wrapper--using-tab:not(.wrapper--disabled):focus-within {
+@supports not selector(:has(:focus-visible)) {
+  .wrapper:not(.wrapper--disabled):focus-within {
+    outline: 2px solid var(--interactive_components-colors-focus_outline);
+    outline-offset: 2px;
+  }
+}
+
+.wrapper:not(.wrapper--disabled):has(:focus-visible) {
   outline: 2px solid var(--interactive_components-colors-focus_outline);
   outline-offset: 2px;
 }

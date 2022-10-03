@@ -65,15 +65,6 @@ describe('Checkbox', () => {
     const checkbox = screen.getByRole('checkbox');
     expect(checkbox.getAttribute('name')).toEqual(name);
   });
-
-  it('Should have class name indicating whether mouse or keyboard navigation is used', async () => {
-    const wrapper = renderAndGetWrapper();
-    expect(wrapper).not.toHaveClass('wrapper--using-tab');
-    await act(() => user.keyboard('{Tab}'));
-    expect(wrapper).toHaveClass('wrapper--using-tab');
-    await act(() => user.click(document.body));
-    expect(wrapper).not.toHaveClass('wrapper--using-tab');
-  });
 });
 
 const render = (props: Partial<CheckboxProps> = {}) => {

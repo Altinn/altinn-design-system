@@ -103,7 +103,7 @@
   border-color: transparent;
 }
 
-.wrapper:not(.wrapper--disabled):focus-within {
+.wrapper--using-tab:not(.wrapper--disabled):focus-within {
   outline: 2px solid var(--interactive_components-colors-focus_outline);
   outline-offset: 2px;
 }

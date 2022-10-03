@@ -1,5 +1,5 @@
 import type { ChangeEventHandler } from 'react';
-import React, { useId } from 'react';
+import React, { useId, useState } from 'react';
 import cn from 'classnames';
 
 import classes from './Checkbox.module.css';
@@ -29,6 +29,14 @@ export const Checkbox = ({
 }: CheckboxProps) => {
   const randomId = useId();
   const inputId = checkboxId || 'checkbox-' + randomId;
+  const [usingTab, setUsingTab] = useState<boolean>(false);
+
+  document.body.addEventListener('mousedown', () => setUsingTab(false));
+
+  document.body.addEventListener(
+    'keydown',
+    (event) => event.key === 'Tab' && setUsingTab(true),
+  );
 
   return (
     <label
@@ -39,6 +47,7 @@ export const Checkbox = ({
         disabled && classes['wrapper--disabled'],
         compact && classes['wrapper--compact'],
         readOnly && classes['wrapper--read-only'],
+        usingTab && classes['wrapper--using-tab'],
       )}
       htmlFor={inputId}
     >

@@ -1,8 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
 
-import type { ChangeProps } from '../ToggleButtonGroup/Context';
-
 import classes from './TableRow.module.css';
 import { useTableContext, useTableRowTypeContext, Variant } from './Context';
 

@@ -6,6 +6,7 @@
 
 .table-row--selected {
   background-color: #e0daf7;
+  border: 2px solid #afa4da;
 }
 
 .table-row--body:hover {

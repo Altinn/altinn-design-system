@@ -14,7 +14,7 @@ export type ChangeHandler = ({ selectedValue }: ChangeProps) => void;
 
 export const TableContext = createContext<
   | {
-      radiobutton: boolean;
+      selectRows?: boolean;
       selectedValue?: string;
       onChange?: ChangeHandler;
     }

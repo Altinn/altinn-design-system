@@ -102,7 +102,7 @@ const Template: ComponentStory<typeof Table> = (args) => {
   };
   return (
     <Table
-      radiobutton={args.radiobutton}
+      selectRows={args.selectRows}
       onChange={handleChange}
       selectedValue={selected}
     >
@@ -139,7 +139,7 @@ const Template: ComponentStory<typeof Table> = (args) => {
 
 export const BasicTable = Template.bind({});
 BasicTable.args = {
-  radiobutton: false,
+  selectRows: false,
 };
 BasicTable.parameters = {
   docs: {
@@ -149,11 +149,11 @@ BasicTable.parameters = {
   },
 };
 
-export const RadioButton = Template.bind({});
-RadioButton.args = {
-  radiobutton: true,
+export const SelectRows = Template.bind({});
+SelectRows.args = {
+  selectRows: true,
 };
-RadioButton.parameters = {
+SelectRows.parameters = {
   docs: {
     description: {
       story: '', // TODO: add story description, supports markdown

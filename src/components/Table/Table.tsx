@@ -7,20 +7,20 @@ import { TableContext } from './Context';
 
 export interface TableProps {
   children?: React.ReactNode;
-  radiobutton?: boolean;
+  selectRows?: boolean;
   onChange?: ChangeHandler;
   selectedValue?: string;
 }
 
 export const Table = ({
   children,
-  radiobutton = false,
+  selectRows = false,
   onChange,
   selectedValue,
 }: TableProps) => {
   return (
     <table className={cn(classes.Table)}>
-      <TableContext.Provider value={{ radiobutton, onChange, selectedValue }}>
+      <TableContext.Provider value={{ selectRows, onChange, selectedValue }}>
         {children}
       </TableContext.Provider>
     </table>

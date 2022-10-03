@@ -2,8 +2,8 @@ import React from 'react';
 import { render as renderRtl, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import type { ButtonProps } from '@/components/Button/Button';
-import { Button, ButtonVariant } from '@/components/Button/Button';
+import type { ButtonProps } from './Button';
+import { Button, ButtonVariant } from './Button';
 
 const user = userEvent.setup();
 

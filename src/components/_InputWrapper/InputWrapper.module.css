@@ -1,4 +1,4 @@
-.input-wrapper {
+.InputWrapper {
   --background: var(--component-input-color-background-default);
   --border-color: var(--component-input-color-border-default);
   --outline-color: var(--component-input-color-outline-focus);
@@ -12,26 +12,26 @@
   border-color: var(--border-color);
 }
 
-.input-wrapper:focus-within {
+.InputWrapper:focus-within {
   outline: var(--outline-color) auto var(--border_width-thin);
   outline-offset: calc(var(--border_width-thin) + var(--border_width-standard));
 }
 
-.input-wrapper--default:hover {
+.InputWrapper--default:hover {
   --border-color: var(--component-input-color-border-hover);
 }
 
-.input-wrapper--error {
+.InputWrapper--error {
   --icon-background: var(--component-input-error-color-border-default);
   --border-color: var(--component-input-error-color-border-default);
 }
 
-.input-wrapper--error:hover {
+.InputWrapper--error:hover {
   --icon-background: var(--component-input-error-color-border-hover);
   --border-color: var(--component-input-error-color-border-hover);
 }
 
-.input-wrapper--disabled {
+.InputWrapper--disabled {
   --background: repeating-linear-gradient(
     135deg,
     #efefef,
@@ -42,19 +42,19 @@
   --border-color: var(--component-input-disabled-color-border-default);
 }
 
-.input-wrapper--readonly-info {
+.InputWrapper--readonly-info {
   --background: var(--component-input-read_only_info-color-background-default);
   --border-color: var(--component-input-read_only_info-color-border-default);
 }
 
-.input-wrapper--readonly-confirm {
+.InputWrapper--readonly-confirm {
   --background: var(
     --component-input-read_only_confirm-color-background-default
   );
   --border-color: var(--component-input-read_only_confirm-color-border-default);
 }
 
-.input-wrapper__field {
+.InputWrapper__field {
   /* Subtract size of border on padding-y, because border is on outer element. Without this, height of entire component will be too big */
   --paddingY: calc(
     var(--component-input-space-padding-y) -
@@ -68,7 +68,7 @@
   background: var(--background);
 }
 
-.input-wrapper__icon {
+.InputWrapper__icon {
   background: var(--icon-background);
   padding-right: var(--component-input-border_width-focus);
   padding-left: var(--component-input-border_width-default);

@@ -1,0 +1,20 @@
+.TextArea {
+  font-family: inherit;
+  font-size: var(--component-checkbox-font_size-normal);
+}
+
+.TextArea--resize-none {
+  resize: none;
+}
+
+.TextArea--resize-both {
+  resize: both;
+}
+
+.TextArea--resize-horizontal {
+  resize: horizontal;
+}
+
+.TextArea--resize-vertical {
+  resize: vertical;
+}

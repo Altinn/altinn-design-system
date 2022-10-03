@@ -7,10 +7,8 @@ import type {
 } from 'react-number-format';
 import NumberFormat from 'react-number-format';
 
-import type { ReadOnlyVariant } from './utils';
-import { getVariant } from './utils';
-import { Icon } from './Icon';
-import classes from './TextField.module.css';
+import { InputWrapper } from '../_InputWrapper';
+import type { ReadOnlyVariant } from '../_InputWrapper';
 
 export interface TextFieldProps
   extends Omit<NumberFormatProps, 'readOnly' | 'value'> {
@@ -47,9 +45,6 @@ export const TextField = ({
   formatting,
   ...rest
 }: TextFieldProps) => {
-  const { variant, iconVariant } = getVariant({ readOnly, disabled, isValid });
-  const isReadOnly = Boolean(readOnly);
-
   const handleNumberFormatChange = (
     values: NumberFormatValues,
     sourceInfo: SourceInfo,
@@ -63,44 +58,42 @@ export const TextField = ({
     }
   };
 
-  const commonProps = {
-    id,
-    readOnly: isReadOnly,
-    disabled,
-    required,
-    className: cn(classes['input-wrapper__field'], rest.className),
-    style: {
-      textAlign: formatting?.align,
-      ...rest.style,
-    },
-  };
-
   return (
-    <div
-      data-testid='TextField'
-      className={cn(
-        classes['input-wrapper'],
-        classes[`input-wrapper--${variant}`],
-      )}
-    >
-      <Icon variant={iconVariant} />
-      {formatting?.number ? (
-        <NumberFormat
-          {...commonProps}
-          {...formatting.number}
-          {...rest}
-          data-testid={`${id}-formatted-number-${variant}`}
-          onValueChange={handleNumberFormatChange}
-          isNumericString={true}
-        />
-      ) : (
-        <input
-          {...commonProps}
-          {...rest}
-          data-testid={`${id}-${variant}`}
-          onChange={onChange}
-        />
-      )}
-    </div>
+    <InputWrapper
+      isValid={isValid}
+      disabled={disabled}
+      readOnly={readOnly}
+      inputRenderer={({ className, variant }) => {
+        const commonProps = {
+          id,
+          readOnly: Boolean(readOnly),
+          disabled,
+          required,
+          className: cn(className, rest.className),
+          style: {
+            textAlign: formatting?.align,
+            ...rest.style,
+          },
+        };
+
+        return formatting?.number ? (
+          <NumberFormat
+            {...commonProps}
+            {...formatting.number}
+            {...rest}
+            data-testid={`${id}-formatted-number-${variant}`}
+            onValueChange={handleNumberFormatChange}
+            isNumericString={true}
+          />
+        ) : (
+          <input
+            {...commonProps}
+            {...rest}
+            data-testid={`${id}-${variant}`}
+            onChange={onChange}
+          />
+        );
+      }}
+    ></InputWrapper>
   );
 };

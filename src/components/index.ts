@@ -12,8 +12,10 @@ export {
 export { Button, ButtonVariant } from './Button';
 export { Page, PageHeader, PageContent, PageColor } from './Page';
 export { List, ListItem, BorderStyle } from './List';
-export { TextField, IconVariant, ReadOnlyVariant } from './TextField';
+export { TextField } from './TextField';
 export { ErrorMessage } from './ErrorMessage';
 export type { Location, MapLayer } from './Map';
 export { Map } from './Map';
 export { Checkbox } from './Checkbox';
+export { TextArea } from './TextArea';
+export type { IconVariant, ReadOnlyVariant } from './_InputWrapper';

@@ -13,10 +13,17 @@ export const TableRow = ({ children, value = 'no' }: TableRowProps) => {
   const { variant } = useTableRowTypeContext();
   const { onChange, selectedValue, selectRows } = useTableContext();
   const handleClick = () => {
-    if (onChange != undefined) {
+    if (onChange != undefined && selectRows) {
       onChange({ selectedValue: value });
     }
   };
+
+  const handleEnter = (event: React.KeyboardEvent<HTMLTableRowElement>) => {
+    if ((event.key === 'Enter' || event.key === ' ') && onChange != undefined) {
+      onChange({ selectedValue: value });
+    }
+  };
+
   return (
     <tr
       className={cn(classes.TableRow, {
@@ -25,9 +32,9 @@ export const TableRow = ({ children, value = 'no' }: TableRowProps) => {
           variant === Variant.Body && selectRows && value !== selectedValue,
       })}
       onClick={handleClick}
-      aria-pressed={value == selectedValue}
+      tabIndex={variant === Variant.Body && selectRows ? 0 : undefined}
+      onKeyDown={(event) => handleEnter(event)}
     >
-      <p></p>
       {children}
     </tr>
   );

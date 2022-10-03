@@ -1,0 +1,85 @@
+.wrapper {
+  font-size: var(--component-checkbox-font_size-normal);
+}
+
+.checkbox-group {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.checkbox-group legend {
+  font-weight: bold;
+  padding: 0;
+}
+
+.checkbox-group__description {
+  margin-top: 0;
+}
+
+.checkbox-group legend,
+.checkbox-group__description {
+  margin-bottom: var(--component-checkbox-group-space-gap-y-normal);
+}
+
+.checkbox-group__list {
+  column-gap: var(--component-checkbox-group-space-gap-x-normal);
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: var(--component-checkbox-group-space-gap-y-normal);
+}
+
+.checkbox-group__list--vertical {
+  flex-direction: column;
+}
+
+.checkbox-group__list--horisontal {
+  flex-direction: row;
+}
+
+.checkbox-group__error-message {
+  margin-top: var(--component-checkbox-group-space-gap-y-normal);
+}
+
+.wrapper--error {
+  align-items: stretch;
+  display: flex;
+}
+
+.wrapper--error__line {
+  /* This will make a line appear to the left of the fieldset without affecting the position of anything. */
+  flex: 0;
+  left: -2rem;
+  outline: 1px solid var(--component-checkbox-color-border-error);
+  position: relative;
+}
+
+.wrapper--disabled {
+  color: var(--component-checkbox-color-text-disabled);
+}
+
+.wrapper--compact {
+  font-size: var(--component-checkbox-font_size-compact);
+}
+
+.wrapper--compact .wrapper--error__line {
+  left: -1rem;
+}
+
+.wrapper--compact legend,
+.wrapper--compact .checkbox-group__description {
+  margin-bottom: var(--component-checkbox-group-space-gap-y-compact);
+}
+
+.wrapper--compact .checkbox-group__list {
+  column-gap: var(--component-checkbox-group-space-gap-x-compact);
+  row-gap: var(--component-checkbox-group-space-gap-y-compact);
+}
+
+.wrapper--compact legend {
+  margin-bottom: var(--component-checkbox-group-space-gap-y-compact);
+}
+
+.wrapper--compact .checkbox-group__error-message {
+  margin-top: var(--component-checkbox-group-space-gap-y-compact);
+}

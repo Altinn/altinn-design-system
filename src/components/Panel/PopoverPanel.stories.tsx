@@ -58,6 +58,9 @@ const Template: ComponentStory<typeof PopoverPanel> = (args) => {
         open={open}
         trigger={<button>Åpne</button>}
         onOpenChange={setOpen}
+        showPointer={args.showPointer}
+        showIcon={args.showIcon}
+        forceMobileLayout={args.forceMobileLayout}
       >
         <div>Her kommer litt informasjon</div>
         <Button onClick={handleOnOpenChange}>Lukk</Button>
@@ -69,7 +72,17 @@ export const Success = Template.bind({});
 Success.args = {
   variant: PanelVariant.Success,
   side: 'top',
+  showPointer: false,
+  showIcon: false,
+  forceMobileLayout: false,
+  title: 'Tittel',
 };
+Success.argTypes = {
+  trigger: {
+    control: false,
+  },
+};
+
 Success.parameters = {
   docs: {
     description: {
@@ -82,6 +95,15 @@ export const Info = Template.bind({});
 Info.args = {
   variant: PanelVariant.Info,
   side: 'top',
+  showPointer: false,
+  showIcon: false,
+  forceMobileLayout: false,
+  title: 'Tittel',
+};
+Info.argTypes = {
+  trigger: {
+    control: false,
+  },
 };
 Info.parameters = {
   docs: {
@@ -95,6 +117,15 @@ export const Warning = Template.bind({});
 Warning.args = {
   variant: PanelVariant.Warning,
   side: 'top',
+  showPointer: false,
+  showIcon: false,
+  forceMobileLayout: false,
+  title: 'Tittel',
+};
+Warning.argTypes = {
+  trigger: {
+    control: false,
+  },
 };
 Warning.parameters = {
   docs: {
@@ -108,6 +139,15 @@ export const Error = Template.bind({});
 Error.args = {
   variant: PanelVariant.Error,
   side: 'top',
+  showPointer: false,
+  showIcon: false,
+  forceMobileLayout: false,
+  title: 'Tittel',
+};
+Error.argTypes = {
+  trigger: {
+    control: false,
+  },
 };
 Error.parameters = {
   docs: {

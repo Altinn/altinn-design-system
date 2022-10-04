@@ -3,11 +3,14 @@ import React, { useId } from 'react';
 import type { ClickHandler } from './Context';
 import { AccordionIconVariant, AccordionContext } from './Context';
 import classes from './Accordion.module.css';
+import type { AccordionHeaderProps } from './AccordionHeader';
+import AccordionHeader from './AccordionHeader';
 
-export interface AccordionProps {
+export interface AccordionProps extends AccordionHeaderProps {
   children?: React.ReactNode;
   onClick: ClickHandler;
   open: boolean;
+  headerTitle: string;
   iconVariant?: AccordionIconVariant;
 }
 
@@ -16,6 +19,11 @@ export const Accordion = ({
   open,
   onClick,
   iconVariant = AccordionIconVariant.Primary,
+  headerTitle,
+  headerButton1,
+  headerButton2,
+  endText,
+  subtitle,
 }: AccordionProps) => {
   const headerId = useId();
   const contentId = useId();
@@ -30,6 +38,14 @@ export const Accordion = ({
           iconVariant,
         }}
       >
+        <AccordionHeader
+          headerButton1={headerButton1}
+          headerButton2={headerButton2}
+          endText={endText}
+          subtitle={subtitle}
+        >
+          {headerTitle}
+        </AccordionHeader>
         {children}
       </AccordionContext.Provider>
     </div>

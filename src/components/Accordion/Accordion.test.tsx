@@ -4,7 +4,6 @@ import { render as renderRtl, screen } from '@testing-library/react';
 
 import type { AccordionProps } from './Accordion';
 import { Accordion } from './Accordion';
-import { AccordionHeader } from './AccordionHeader';
 import { AccordionContent } from './AccordionContent';
 import { AccordionIconVariant } from './Context';
 
@@ -12,12 +11,12 @@ const render = (props: Partial<AccordionProps> = {}) => {
   const allProps = {
     children: (
       <>
-        <AccordionHeader>AccordionHeader</AccordionHeader>
         <AccordionContent>AccordionContent</AccordionContent>
       </>
     ),
     onClick: jest.fn(),
     open: true,
+    headerTitle: 'AccordionHeader',
     ...props,
   };
   renderRtl(<Accordion {...allProps} />);

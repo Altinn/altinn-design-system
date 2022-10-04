@@ -1,23 +1,36 @@
 import React from 'react';
 import cn from 'classnames';
 
+import type { ButtonProps } from '../Button';
+
 import classes from './AccordionHeader.module.css';
 import { useAccordionContext } from './Context';
 import { AccordionIcon } from './AccordionIcon';
 
 export interface AccordionHeaderProps {
   children?: React.ReactNode;
-  actions?: React.ReactNode;
+  headerButton1?: React.ReactElement<ButtonProps>;
+  headerButton2?: React.ReactElement<ButtonProps>;
+  endText?: string;
+  subtitle?: string;
 }
 
 export const AccordionHeader = ({
   children,
-  actions,
+  headerButton1,
+  headerButton2,
+  endText,
+  subtitle,
 }: AccordionHeaderProps) => {
   const { onClick, open, headerId, contentId } = useAccordionContext();
 
   return (
-    <div className={cn(classes['accordion-header'])}>
+    <div
+      className={cn({
+        [classes['accordion-header']]: true,
+        [classes['accordion-header--subtitle']]: subtitle,
+      })}
+    >
       <AccordionIcon />
       <button
         className={cn(classes['accordion-header__title'])}
@@ -28,8 +41,19 @@ export const AccordionHeader = ({
         aria-controls={contentId}
       >
         {children}
+        <p className={cn(classes['accordion-header__subtitle'])}>{subtitle}</p>
       </button>
-      <div className={cn(classes['accordion-header__actions'])}>{actions}</div>
+      {endText?.length && (
+        <div className={cn(classes['accordion-header__end-text'])}>
+          <p>{endText}</p>
+        </div>
+      )}
+      <div className={cn(classes['accordion-header__buttons'])}>
+        {headerButton2}
+      </div>
+      <div className={cn(classes['accordion-header__buttons'])}>
+        {headerButton1}
+      </div>
     </div>
   );
 };

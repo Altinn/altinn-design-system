@@ -9,6 +9,7 @@ export {
   AccordionIconVariant,
   AccordionIcon,
 } from './Accordion';
+export type { ButtonProps } from './Button';
 export { Button, ButtonVariant } from './Button';
 export { Page, PageHeader, PageContent, PageColor } from './Page';
 export { List, ListItem, BorderStyle } from './List';

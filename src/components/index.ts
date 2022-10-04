@@ -18,4 +18,4 @@ export type { Location, MapLayer } from './Map';
 export { Map } from './Map';
 export { Table } from './Table';
 export { Checkbox } from './Checkbox';
-
+export { Pagination } from './Pagination';

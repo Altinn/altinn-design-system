@@ -41,7 +41,11 @@ export const AccordionHeader = ({
         aria-controls={contentId}
       >
         {children}
-        <p className={cn(classes['accordion-header__subtitle'])}>{subtitle}</p>
+        {subtitle?.length && (
+          <div className={cn(classes['accordion-header__subtitle'])}>
+            {subtitle}
+          </div>
+        )}
       </button>
       {endText?.length && (
         <div className={cn(classes['accordion-header__end-text'])}>

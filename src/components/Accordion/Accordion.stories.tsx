@@ -61,7 +61,7 @@ const Template: ComponentStory<typeof Accordion> = (args) => {
   };
 
   const AccordionExampleContent =
-    'Accordion-innhold uten css for å tilrettelegge for selvalgt styling';
+    'Accordion-innhold uten css for å tilrettelegge for selvvalgt styling';
 
   const [{ button1 }] = useArgs();
   const [{ button2 }] = useArgs();
@@ -113,7 +113,18 @@ const Template: ComponentStory<typeof Accordion> = (args) => {
 export const Example = Template.bind({});
 Example.args = {
   iconVariant: AccordionIconVariant.Primary,
+  open: false,
 };
+
+Example.argTypes = {
+  open: {
+    control: false,
+  },
+  onClick: {
+    control: false,
+  },
+};
+
 Example.parameters = {
   docs: {
     description: {

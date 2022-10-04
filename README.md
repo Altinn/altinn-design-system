@@ -74,3 +74,11 @@ Install the [eslint extension from the marketplace](https://marketplace.visualst
 
 Configure your IDE to run `eslint --fix` on save (prettier will also reformat your code when doing this). It is also recommended to
 [set up Prettier as the default formatter](https://www.jetbrains.com/help/webstorm/prettier.html#ws_prettier_default_formatter).
+
+## Creating a new release
+
+Go to Github Actions, and select the Release pipeline. Run the workflow, and select the appropriate version (major, minor or patch). We use [semver](https://semver.org/) spec.
+
+### Release notes
+
+Currently release notes is semi-automatic. After the release is done, go to the releases page, and edit the release that was just created. Click the "Generate release notes" button to get release notes, and update the release.

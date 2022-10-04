@@ -6,14 +6,14 @@ import { StoryPage } from '@sb/StoryPage';
 
 import { ReadOnlyVariant } from '../_InputWrapper';
 
-import { TextField } from './TextField';
+import { TextArea } from './TextArea';
 
 const figmaLink =
-  'https://www.figma.com/file/wnBveAG2ikUspFsQwM3GNE/Altinn-Studio-Apps?node-id=2090%3A6723';
+  'https://www.figma.com/file/vpM9dqqQPHqU6ogfKp5tlr/DDS---Core-Components?node-id=6632%3A21857';
 
 export default {
-  title: `Components/TextField`,
-  component: TextField,
+  title: `Components/TextArea`,
+  component: TextArea,
   parameters: {
     design: config([
       {
@@ -33,16 +33,11 @@ export default {
       ),
     },
   },
-  args: {
-    id: 'textfield-story',
-    formatting: {
-      align: 'left',
-    },
-  },
-} as ComponentMeta<typeof TextField>;
+  args: {},
+} as ComponentMeta<typeof TextArea>;
 
-const Template: ComponentStory<typeof TextField> = (args) => (
-  <TextField {...args} />
+const Template: ComponentStory<typeof TextArea> = (args) => (
+  <TextArea {...args} />
 );
 
 export const Default = Template.bind({});
@@ -50,24 +45,7 @@ Default.args = {};
 Default.parameters = {
   docs: {
     description: {
-      story: 'Regular input field.',
-    },
-  },
-};
-
-export const NumberInput = Template.bind({});
-NumberInput.args = {
-  formatting: {
-    number: {
-      thousandSeparator: ' ',
-      prefix: 'NOK ',
-    },
-  },
-};
-NumberInput.parameters = {
-  docs: {
-    description: {
-      story: 'Number input field.',
+      story: 'Regular textarea.',
     },
   },
 };
@@ -79,7 +57,7 @@ Error.args = {
 Error.parameters = {
   docs: {
     description: {
-      story: 'Input field displaying error.',
+      story: 'Textarea displaying error.',
     },
   },
 };
@@ -92,7 +70,7 @@ ReadOnlyInfo.args = {
 ReadOnlyInfo.parameters = {
   docs: {
     description: {
-      story: 'Input field as readonly-info.',
+      story: 'Textarea as readonly-info.',
     },
   },
 };
@@ -105,7 +83,7 @@ ReadOnlyConfirm.args = {
 ReadOnlyConfirm.parameters = {
   docs: {
     description: {
-      story: 'Input field as readonly-confirm.',
+      story: 'Textarea as readonly-confirm.',
     },
   },
 };
@@ -118,7 +96,7 @@ Disabled.args = {
 Disabled.parameters = {
   docs: {
     description: {
-      story: 'Input field as disabled.',
+      story: 'Textarea as disabled.',
     },
   },
 };

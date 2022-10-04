@@ -1881,7 +1881,14 @@ body {
   border-color: transparent;
 }
 
-.wrapper---WhgDa:not(.wrapper--disabled---pTnwY):focus-within {
+@supports not selector(:has(:focus-visible)) {
+  .wrapper---WhgDa:not(.wrapper--disabled---pTnwY):focus-within {
+    outline: 2px solid var(--interactive_components-colors-focus_outline);
+    outline-offset: 2px;
+  }
+}
+
+.wrapper---WhgDa:not(.wrapper--disabled---pTnwY):has(:focus-visible) {
   outline: 2px solid var(--interactive_components-colors-focus_outline);
   outline-offset: 2px;
 }

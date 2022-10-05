@@ -31,6 +31,8 @@ export const Checkbox = ({
 }: CheckboxProps) => {
   const randomId = useId();
   const inputId = checkboxId || 'checkbox-' + randomId;
+  const labelId = label ? `${inputId}-label` : undefined;
+  const descriptionId = description ? `${inputId}-description` : undefined;
 
   return (
     <label
@@ -48,6 +50,8 @@ export const Checkbox = ({
         {!readOnly && (
           <span className={classes['checkbox-wrapper']}>
             <input
+              aria-describedby={descriptionId}
+              aria-labelledby={labelId}
               checked={checked ?? false}
               className={classes.checkbox}
               disabled={disabled}
@@ -61,10 +65,22 @@ export const Checkbox = ({
             </span>
           </span>
         )}
-        {label && <span className={classes.label}>{label}</span>}
+        {label && (
+          <span
+            className={classes.label}
+            id={`${inputId}-label`}
+          >
+            {label}
+          </span>
+        )}
       </span>
       {description && (
-        <span className={classes['description']}>{description}</span>
+        <span
+          className={classes['description']}
+          id={`${inputId}-description`}
+        >
+          {description}
+        </span>
       )}
     </label>
   );

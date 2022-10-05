@@ -69,14 +69,14 @@ Vertical.parameters = {
   },
 };
 
-export const Horisontal = Template.bind({});
-Horisontal.args = {
-  variant: CheckboxGroupVariant.Horisontal,
+export const Horizontal = Template.bind({});
+Horizontal.args = {
+  variant: CheckboxGroupVariant.Horizontal,
 };
-Horisontal.parameters = {
+Horizontal.parameters = {
   docs: {
     description: {
-      story: 'Use this if there is sufficient horisontal space.',
+      story: 'Use this if there is sufficient horizontal space.',
     },
   },
 };

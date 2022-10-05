@@ -2,21 +2,19 @@ import React, { useEffect, useId, useReducer } from 'react';
 import cn from 'classnames';
 
 import { Checkbox, ErrorMessage } from '@/components';
+import type { CheckboxProps } from '@/components/Checkbox/Checkbox';
 
 import classes from './CheckboxGroup.module.css';
 
-export interface CheckboxItem {
-  checked?: boolean;
-  description?: string;
-  disabled?: boolean;
-  id?: string;
-  label?: string;
-  name: string;
-}
+export type CheckboxItem = Pick<
+  CheckboxProps,
+  'checked' | 'description' | 'disabled' | 'checkboxId' | 'label'
+> &
+  Required<Pick<CheckboxProps, 'name'>>;
 
 export enum CheckboxGroupVariant {
   Vertical = 'vertical',
-  Horisontal = 'horisontal',
+  Horizontal = 'horizontal',
 }
 
 export type CheckedNames = string[];
@@ -89,7 +87,11 @@ export const CheckboxGroup = ({
     >
       {error && <div className={classes['wrapper--error__line']} />}
       <fieldset className={classes['checkbox-group']}>
-        {legend && <legend>{legend}</legend>}
+        {legend && (
+          <legend className={classes['checkbox-group__legend']}>
+            {legend}
+          </legend>
+        )}
         {description && (
           <p className={classes['checkbox-group__description']}>
             {description}
@@ -104,7 +106,7 @@ export const CheckboxGroup = ({
           {items.map((item, index) => (
             <div key={`checkbox-group-${randomId}-${index}`}>
               <Checkbox
-                checkboxId={item.id}
+                checkboxId={item.checkboxId}
                 checked={checkedNames.includes(item.name)}
                 compact={compact}
                 description={item.description}

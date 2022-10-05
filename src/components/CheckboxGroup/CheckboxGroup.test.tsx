@@ -131,13 +131,15 @@ describe('CheckboxGroup', () => {
 
   it('Checkboxes should be rendered with the properties given in the "items" prop', () => {
     const description = 'Description',
-      id = 'id',
+      checkboxId = 'id',
       label = 'Label',
       name = 'name';
-    render({ items: [{ description, disabled: true, id, label, name }] });
+    render({
+      items: [{ description, disabled: true, checkboxId, label, name }],
+    });
     const checkbox = screen.getByRole('checkbox');
     expect(checkbox.getAttribute('name')).toEqual(name);
-    expect(checkbox.getAttribute('id')).toEqual(id);
+    expect(checkbox.getAttribute('id')).toEqual(checkboxId);
     expect(checkbox).toBeDisabled();
     expect(screen.getByText(label)).toBeDefined();
     expect(screen.getByText(description)).toBeDefined();

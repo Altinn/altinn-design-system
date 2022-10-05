@@ -41,7 +41,7 @@ const Template: ComponentStory<typeof Pagination> = (args) => (
 
 export const Example = Template.bind({});
 Example.args = {
-  numberOfPages: 3,
+  numberOfRows: 10,
 };
 Example.parameters = {
   docs: {

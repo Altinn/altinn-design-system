@@ -1,4 +1,4 @@
-import React, { useEffect, useId, useReducer } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import cn from 'classnames';
 
 import { Checkbox, ErrorMessage } from '@/components';
@@ -62,8 +62,6 @@ export const CheckboxGroup = ({
     throw Error('Each name in the checkbox group must be unique.');
   }
 
-  const randomId = useId();
-
   const [checkedNames, dispatch] = useReducer(reducer, checkedItems(items));
 
   useEffect(
@@ -103,8 +101,8 @@ export const CheckboxGroup = ({
             classes[`checkbox-group__list--${variant}`],
           )}
         >
-          {items.map((item, index) => (
-            <div key={`checkbox-group-${randomId}-${index}`}>
+          {items.map((item) => (
+            <div key={item.name}>
               <Checkbox
                 checkboxId={item.checkboxId}
                 checked={checkedNames.includes(item.name)}

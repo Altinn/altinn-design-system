@@ -102,7 +102,7 @@ export const CheckboxGroup = ({
           )}
         >
           {items.map((item, index) => (
-            <div key={`checkbox-group-${randomId}-${index}`}>
+            <div key={item.name}>
               <Checkbox
                 checkboxId={item.id}
                 checked={checkedNames.includes(item.name)}

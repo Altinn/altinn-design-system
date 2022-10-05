@@ -11,4 +11,5 @@
 
 .table-row--body:hover {
   background-color: #e3f7ff;
+  cursor: pointer;
 }

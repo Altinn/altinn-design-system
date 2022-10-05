@@ -2,6 +2,7 @@ import { createContext, useContext } from 'react';
 
 export enum PageColor {
   Primary = 'primary',
+  Success = 'success',
 }
 
 export const PageContext = createContext({

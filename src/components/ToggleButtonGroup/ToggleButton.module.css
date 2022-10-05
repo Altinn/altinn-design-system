@@ -32,8 +32,8 @@
   padding-left: var(--component-toggle_button-space-padding-x);
   padding-right: var(--component-toggle_button-space-padding-x);
   font-family: inherit;
-  background-color: var(--component-toggle_button-color-background-deactive);
-  color: var(--component-toggle_button-color-text-deactive);
+  background-color: var(--component-toggle_button-color-background-inactive);
+  color: var(--component-toggle_button-color-text-inactive);
   font-size: var(--toggle_button-font_size);
   height: 100%;
 }

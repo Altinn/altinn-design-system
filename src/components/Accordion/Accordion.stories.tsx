@@ -55,7 +55,7 @@ const Template: ComponentStory<typeof Accordion> = (args) => {
   };
 
   const AccordionExampleContent =
-    'Accordion-innhold uten css for å tilrettelegge for selvalgt styling';
+    'Accordion-innhold uten css for å tilrettelegge for selvvalgt styling';
 
   const ActionButton = <Button>Separat funksjonsknapp</Button>;
   return (
@@ -83,7 +83,18 @@ const Template: ComponentStory<typeof Accordion> = (args) => {
 export const Example = Template.bind({});
 Example.args = {
   iconVariant: AccordionIconVariant.Primary,
+  open: false,
 };
+
+Example.argTypes = {
+  open: {
+    control: false,
+  },
+  onClick: {
+    control: false,
+  },
+};
+
 Example.parameters = {
   docs: {
     description: {

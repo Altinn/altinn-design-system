@@ -39,9 +39,9 @@ export default {
   },
 } as ComponentMeta<typeof Page>;
 
-const Template: ComponentStory<typeof Page> = () => {
+const Template: ComponentStory<typeof Page> = (args) => {
   return (
-    <Page color={PageColor.Primary}>
+    <Page color={args.color}>
       <PageHeader icon={<ClientBold />}>PageHeader</PageHeader>
       <PageContent>PageContent</PageContent>
     </Page>
@@ -50,9 +50,21 @@ const Template: ComponentStory<typeof Page> = () => {
 
 export const Primary = Template.bind({});
 Primary.args = {
-  // TODO: Add story specific args
+  color: PageColor.Primary,
 };
 Primary.parameters = {
+  docs: {
+    description: {
+      story: '', // TODO: add story description, supports markdown
+    },
+  },
+};
+
+export const Success = Template.bind({});
+Success.args = {
+  color: PageColor.Success,
+};
+Success.parameters = {
   docs: {
     description: {
       story: '', // TODO: add story description, supports markdown

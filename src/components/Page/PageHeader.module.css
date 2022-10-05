@@ -17,6 +17,11 @@
   --component-page_header-color: white;
 }
 
+.page-header--success {
+  --component-page_header-background-color: #17c96b;
+  --component-page_header-color: black;
+}
+
 @media only screen and (min-width: 0) {
   .page-header {
     --page_header-title-font-size: 18px;

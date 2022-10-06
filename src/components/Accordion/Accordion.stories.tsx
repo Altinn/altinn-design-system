@@ -89,7 +89,7 @@ const Template: ComponentStory<typeof Accordion> = (args) => {
         onClick={handleClick1}
         open={open1}
         iconVariant={args.iconVariant}
-        headerTitle='Accordian 1'
+        headerTitle='Accordion 1'
         actions={ActionDiv}
         subtitle={SubtitleText}
       >
@@ -99,7 +99,7 @@ const Template: ComponentStory<typeof Accordion> = (args) => {
         onClick={handleClick2}
         open={open2}
         iconVariant={args.iconVariant}
-        headerTitle='Accordian 2'
+        headerTitle='Accordion 2'
         actions={ActionDiv}
         subtitle={SubtitleText}
       >

@@ -7,7 +7,7 @@ import { AccordionIcon } from './AccordionIcon';
 
 export interface AccordionHeaderProps {
   children?: React.ReactNode;
-  actions?: React.ReactElement;
+  actions?: React.ReactNode;
   subtitle?: string;
 }
 

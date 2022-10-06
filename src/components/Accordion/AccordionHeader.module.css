@@ -10,9 +10,25 @@
   background-color: var(--component-accordion_header-color-background);
 }
 
-.accordion-header--subtitle {
-  padding-top: 0.3rem;
-  padding-bottom: 0.3rem;
+/* breakpoints-xs */
+@media only screen and (min-width: 0) {
+  .accordion-header__subtitle {
+    display: none;
+  }
+}
+
+/* breakpoints-sm */
+@media only screen and (min-width: 540px) {
+  .accordion-header__subtitle {
+    opacity: 60%;
+    font-size: 1.4rem;
+    display: block;
+  }
+  .accordion-header--subtitle {
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    padding-right: 0.3rem;
+  }
 }
 
 .accordion-header__title {
@@ -36,29 +52,19 @@
   border-right-style: var(
     --component-accordion_header_title-border_right_style
   );
+  text-align: var(--component-accordion_header_title-text-align);
   background-color: var(--component-accordion_header_title-color-background);
   font-size: var(--component-accordion_header_title-font_size);
   font-weight: var(--component-accordion_header_title-font_weight);
   margin-left: var(--component-accordion_header_title-spacing-margin_left);
 }
 
-.accordion-header__subtitle {
-  opacity: 60%;
-  font-size: 1.4rem;
-}
-
-.accordion-header__buttons {
+.accordion-header__actions {
   margin: 0.3rem;
 }
 
-.accordion-header__end-text {
-  margin: 0.3rem;
-  font-family: inherit;
-}
-
-.accordion-header__end-text p {
-  margin: 0;
-  padding: var(--component-button-space-padding-top)
-    var(--component-button-space-padding-x)
-    var(--component-button-space-padding-bottom);
+.accordion-header__actions > * {
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 0.5rem;
 }

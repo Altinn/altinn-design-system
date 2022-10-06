@@ -41,10 +41,8 @@ export default {
   },
   args: {
     variant: AccordionIconVariant.Primary,
-    button1: true,
-    button2: true,
-    endText: 'Noe info her',
-    subtitle: 'Undertekst',
+    useActions: true,
+    subtitle: 'Subtitle',
   },
 } as ComponentMeta<typeof Accordion>;
 
@@ -63,20 +61,25 @@ const Template: ComponentStory<typeof Accordion> = (args) => {
   const AccordionExampleContent =
     'Accordion-innhold uten css for å tilrettelegge for selvvalgt styling';
 
-  const [{ button1 }] = useArgs();
-  const [{ button2 }] = useArgs();
-  const [{ endText }] = useArgs();
+  const [{ useActions }] = useArgs();
   const [{ subtitle }] = useArgs();
 
-  const ActionButton1 = button1 ? (
-    <Button variant={ButtonVariant.Primary}>Separat knapp 1</Button>
+  const ActionDiv = useActions ? (
+    <div>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginRight: '1rem',
+        }}
+      >
+        Example setup
+      </div>
+      <Button variant={ButtonVariant.Primary}>Separat knapp 1</Button>
+      <Button variant={ButtonVariant.Secondary}>Separat knapp 2</Button>
+    </div>
   ) : undefined;
-
-  const ActionButton2 = button2 ? (
-    <Button variant={ButtonVariant.Secondary}>Separat knapp 2</Button>
-  ) : undefined;
-
-  const InfoText = endText.length > 0 ? endText : undefined;
 
   const SubtitleText = subtitle.length > 0 ? subtitle : undefined;
 
@@ -87,9 +90,7 @@ const Template: ComponentStory<typeof Accordion> = (args) => {
         open={open1}
         iconVariant={args.iconVariant}
         headerTitle='Accordian 1'
-        headerButton1={ActionButton1}
-        headerButton2={ActionButton2}
-        endText={InfoText}
+        actions={ActionDiv}
         subtitle={SubtitleText}
       >
         <AccordionContent>{AccordionExampleContent}</AccordionContent>
@@ -99,9 +100,7 @@ const Template: ComponentStory<typeof Accordion> = (args) => {
         open={open2}
         iconVariant={args.iconVariant}
         headerTitle='Accordian 2'
-        headerButton1={ActionButton1}
-        headerButton2={ActionButton2}
-        endText={InfoText}
+        actions={ActionDiv}
         subtitle={SubtitleText}
       >
         <AccordionContent>{AccordionExampleContent}</AccordionContent>

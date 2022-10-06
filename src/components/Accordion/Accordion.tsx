@@ -20,9 +20,7 @@ export const Accordion = ({
   onClick,
   iconVariant = AccordionIconVariant.Primary,
   headerTitle,
-  headerButton1,
-  headerButton2,
-  endText,
+  actions,
   subtitle,
 }: AccordionProps) => {
   const headerId = useId();
@@ -39,9 +37,7 @@ export const Accordion = ({
         }}
       >
         <AccordionHeader
-          headerButton1={headerButton1}
-          headerButton2={headerButton2}
-          endText={endText}
+          actions={actions}
           subtitle={subtitle}
         >
           {headerTitle}

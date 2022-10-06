@@ -5,6 +5,8 @@ import cn from 'classnames';
 
 import { StoryPage } from '@sb/StoryPage';
 
+import { Pagination } from '../Pagination';
+
 import { Table } from './Table';
 import { TableHeader } from './TableHeader';
 import { TableCell } from './TableCell';
@@ -12,6 +14,7 @@ import { TableRow } from './TableRow';
 import { TableBody } from './TableBody';
 import type { ChangeProps } from './Context';
 import classes from './Table.stories.module.css';
+import { TableFooter } from './TableFooter';
 const figmaLink = ''; // TODO: Add figma link
 
 export default {
@@ -133,6 +136,13 @@ const Template: ComponentStory<typeof Table> = (args) => {
           </TableRow>
         ))}
       </TableBody>
+      <TableFooter>
+        <TableRow>
+          <TableCell colSpan={4}>
+            <Pagination numberOfRows={10} />
+          </TableCell>
+        </TableRow>
+      </TableFooter>
     </Table>
   );
 };

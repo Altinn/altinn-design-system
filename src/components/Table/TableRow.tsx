@@ -13,7 +13,7 @@ export const TableRow = ({ children, value = 'no' }: TableRowProps) => {
   const { variant } = useTableRowTypeContext();
   const { onChange, selectedValue, selectRows } = useTableContext();
   const handleClick = () => {
-    if (onChange != undefined && selectRows) {
+    if (onChange != undefined && selectRows && variant === Variant.Body) {
       onChange({ selectedValue: value });
     }
   };

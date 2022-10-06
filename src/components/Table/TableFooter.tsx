@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 
-import classes from './TableBody.module.css';
+import classes from './TableFooter.module.css';
 import { Variant, TableRowTypeContext } from './Context';
 
 export interface TableFooterProps {
@@ -12,7 +12,7 @@ export const TableFooter = ({ children }: TableFooterProps) => {
   const variant = Variant.Footer;
   return (
     <TableRowTypeContext.Provider value={{ variant }}>
-      <tfoot className={cn(classes.TableFooter)}>{children}</tfoot>
+      <tfoot className={cn(classes['table-footer'])}>{children}</tfoot>
     </TableRowTypeContext.Provider>
   );
 };

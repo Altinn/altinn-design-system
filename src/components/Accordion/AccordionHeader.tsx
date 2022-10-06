@@ -20,8 +20,7 @@ export const AccordionHeader = ({
 
   return (
     <div
-      className={cn({
-        [classes['accordion-header']]: true,
+      className={cn(classes['accordion-header'], {
         [classes['accordion-header--subtitle']]: subtitle,
       })}
     >

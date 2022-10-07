@@ -96,13 +96,44 @@ const rows = [
     'https://search.patentstyret.no/onlinedb_files_ds/Pictures/2022/5/11/310547.jpg',
     'Bil',
   ),
+  createData(
+    '200208507',
+    'Vippesykkel',
+    'Ikke i kraft',
+    'https://search.patentstyret.no/Onlinedb_files_tm/Pictures/200208/200208507.jpg',
+    'vippesykkel',
+  ),
+  createData(
+    '200812696',
+    'SHELL',
+    'Besluttet gjeldende',
+    'https://search.patentstyret.no/Onlinedb_files_tm/Pictures/200431/200812696.jpg',
+    'shell',
+  ),
+  createData(
+    '201106591',
+    'DNB',
+    'Registrert',
+    'https://search.patentstyret.no/Onlinedb_files_tm/Pictures/200448/201106591_5%20Figurmerker%20og%20bilder(cropped)%20-%201_200523766_0.jpg',
+    'dnb',
+  ),
 ];
 const Template: ComponentStory<typeof Table> = (args) => {
   const [selected, setSelected] = useState('');
+  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [page, setPage] = useState(0);
 
   const handleChange = ({ selectedValue }: ChangeProps) => {
     setSelected(selectedValue);
   };
+
+  const handleChangeRowsPerPage = (
+    event: React.ChangeEvent<HTMLSelectElement>,
+  ) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
+
   return (
     <Table
       selectRows={args.selectRows}
@@ -118,28 +149,37 @@ const Template: ComponentStory<typeof Table> = (args) => {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {rows.map((row) => (
-          <TableRow
-            key={row.applicationNr}
-            value={row.applicationNr}
-          >
-            <TableCell>{row.applicationNr}</TableCell>
-            <TableCell>{row.product}</TableCell>
-            <TableCell>{row.status}</TableCell>
-            <TableCell>
-              <img
-                className={cn(classes['checkmark'])}
-                src={row.imageSrc}
-                alt={row.imageAlt}
-              ></img>
-            </TableCell>
-          </TableRow>
-        ))}
+        {rows
+          .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+          .map((row) => (
+            <TableRow
+              key={row.applicationNr}
+              value={row.applicationNr}
+            >
+              <TableCell>{row.applicationNr}</TableCell>
+              <TableCell>{row.product}</TableCell>
+              <TableCell>{row.status}</TableCell>
+              <TableCell>
+                <img
+                  className={cn(classes['checkmark'])}
+                  src={row.imageSrc}
+                  alt={row.imageAlt}
+                ></img>
+              </TableCell>
+            </TableRow>
+          ))}
       </TableBody>
       <TableFooter>
         <TableRow>
           <TableCell colSpan={4}>
-            <Pagination numberOfRows={10} />
+            <Pagination
+              numberOfRows={rows.length}
+              rowsPerPageOptions={[5, 10, 15, 20]}
+              rowsPerPage={rowsPerPage}
+              onRowsPerPageChange={handleChangeRowsPerPage}
+              currentPage={page}
+              setCurrentPage={setPage}
+            />
           </TableCell>
         </TableRow>
       </TableFooter>

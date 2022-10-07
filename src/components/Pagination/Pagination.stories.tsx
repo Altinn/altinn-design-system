@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import { config } from 'storybook-addon-designs';
 
@@ -35,13 +35,32 @@ export default {
   },
 } as ComponentMeta<typeof Pagination>;
 
-const Template: ComponentStory<typeof Pagination> = (args) => (
-  <Pagination {...args} />
-);
+const Template: ComponentStory<typeof Pagination> = (args) => {
+  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [page, setPage] = useState(0);
+
+  const handleChangeRowsPerPage = (
+    event: React.ChangeEvent<HTMLSelectElement>,
+  ) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
+
+  return (
+    <Pagination
+      {...args}
+      rowsPerPage={rowsPerPage}
+      currentPage={page}
+      setCurrentPage={setPage}
+      onRowsPerPageChange={handleChangeRowsPerPage}
+    />
+  );
+};
 
 export const Example = Template.bind({});
 Example.args = {
-  numberOfRows: 10,
+  numberOfRows: 200,
+  rowsPerPageOptions: [5, 10, 15, 20],
 };
 Example.parameters = {
   docs: {

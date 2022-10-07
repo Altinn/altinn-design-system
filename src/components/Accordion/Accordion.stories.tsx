@@ -65,20 +65,11 @@ const Template: ComponentStory<typeof Accordion> = (args) => {
   const [{ subtitle }] = useArgs();
 
   const ActionDiv = useActions ? (
-    <div>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          marginRight: '1rem',
-        }}
-      >
-        Example setup
-      </div>
+    <>
+      <div>Example setup</div>
       <Button variant={ButtonVariant.Primary}>Separat knapp 1</Button>
       <Button variant={ButtonVariant.Secondary}>Separat knapp 2</Button>
-    </div>
+    </>
   ) : undefined;
 
   const SubtitleText = subtitle.length > 0 ? subtitle : undefined;
@@ -89,20 +80,26 @@ const Template: ComponentStory<typeof Accordion> = (args) => {
         onClick={handleClick1}
         open={open1}
         iconVariant={args.iconVariant}
-        headerTitle='Accordion 1'
-        actions={ActionDiv}
-        subtitle={SubtitleText}
       >
+        <AccordionHeader
+          actions={ActionDiv}
+          subtitle={SubtitleText}
+        >
+          Accordion 1
+        </AccordionHeader>
         <AccordionContent>{AccordionExampleContent}</AccordionContent>
       </Accordion>
       <Accordion
         onClick={handleClick2}
         open={open2}
         iconVariant={args.iconVariant}
-        headerTitle='Accordion 2'
-        actions={ActionDiv}
-        subtitle={SubtitleText}
       >
+        <AccordionHeader
+          actions={ActionDiv}
+          subtitle={SubtitleText}
+        >
+          Accordion 2
+        </AccordionHeader>
         <AccordionContent>{AccordionExampleContent}</AccordionContent>
       </Accordion>
     </div>

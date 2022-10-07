@@ -60,11 +60,9 @@
 }
 
 .accordion-header__actions {
-  margin: 0.3rem;
-}
-
-.accordion-header__actions > * {
   display: grid;
   grid-auto-flow: column;
   column-gap: 0.5rem;
+  align-items: center;
+  padding: 0 0.3rem;
 }

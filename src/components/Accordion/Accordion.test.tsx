@@ -6,17 +6,18 @@ import type { AccordionProps } from './Accordion';
 import { Accordion } from './Accordion';
 import { AccordionContent } from './AccordionContent';
 import { AccordionIconVariant } from './Context';
+import { AccordionHeader } from './AccordionHeader';
 
 const render = (props: Partial<AccordionProps> = {}) => {
   const allProps = {
     children: (
       <>
+        <AccordionHeader {...props}>AccordionHeader</AccordionHeader>
         <AccordionContent>AccordionContent</AccordionContent>
       </>
     ),
     onClick: jest.fn(),
     open: true,
-    headerTitle: 'AccordionHeader',
     ...props,
   };
   renderRtl(<Accordion {...allProps} />);

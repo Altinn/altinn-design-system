@@ -47,5 +47,3 @@ export const AccordionHeader = ({
     </div>
   );
 };
-
-export default AccordionHeader;

@@ -103,3 +103,13 @@ ReadOnly.parameters = {
     },
   },
 };
+
+export const WithDescription = Template.bind({});
+WithDescription.args = { description: 'Lorem ipsum dolor sit amet.' };
+WithDescription.parameters = {
+  docs: {
+    description: {
+      story: 'This is a checkbox with description.',
+    },
+  },
+};

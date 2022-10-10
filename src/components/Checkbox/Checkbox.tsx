@@ -8,6 +8,7 @@ export interface CheckboxProps {
   checkboxId?: string;
   checked?: boolean;
   compact?: boolean;
+  description?: string;
   disabled?: boolean;
   error?: boolean;
   label?: string;
@@ -20,6 +21,7 @@ export const Checkbox = ({
   checkboxId,
   checked,
   compact,
+  description,
   disabled,
   error,
   label,
@@ -29,6 +31,8 @@ export const Checkbox = ({
 }: CheckboxProps) => {
   const randomId = useId();
   const inputId = checkboxId || 'checkbox-' + randomId;
+  const labelId = label ? `${inputId}-label` : undefined;
+  const descriptionId = description ? `${inputId}-description` : undefined;
 
   return (
     <label
@@ -42,23 +46,42 @@ export const Checkbox = ({
       )}
       htmlFor={inputId}
     >
-      {!readOnly && (
-        <span className={classes['checkbox-wrapper']}>
-          <input
-            checked={checked ?? false}
-            className={classes.checkbox}
-            disabled={disabled}
-            id={inputId}
-            name={name}
-            onChange={disabled ? undefined : onChange}
-            type='checkbox'
-          />
-          <span className={classes['visible-box']}>
-            <span className={classes['visible-box__checkmark']} />
+      <span className={classes['checkbox-and-label']}>
+        {!readOnly && (
+          <span className={classes['checkbox-wrapper']}>
+            <input
+              aria-describedby={descriptionId}
+              aria-labelledby={labelId}
+              checked={checked ?? false}
+              className={classes.checkbox}
+              disabled={disabled}
+              id={inputId}
+              name={name}
+              onChange={disabled ? undefined : onChange}
+              type='checkbox'
+            />
+            <span className={classes['visible-box']}>
+              <span className={classes['visible-box__checkmark']} />
+            </span>
           </span>
+        )}
+        {label && (
+          <span
+            className={classes.label}
+            id={`${inputId}-label`}
+          >
+            {label}
+          </span>
+        )}
+      </span>
+      {description && (
+        <span
+          className={classes['description']}
+          id={`${inputId}-description`}
+        >
+          {description}
         </span>
       )}
-      {label && <span className={classes.label}>{label}</span>}
     </label>
   );
 };

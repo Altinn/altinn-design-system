@@ -65,6 +65,12 @@ describe('Checkbox', () => {
     const checkbox = screen.getByRole('checkbox');
     expect(checkbox.getAttribute('name')).toEqual(name);
   });
+
+  it('Should display description', () => {
+    const description = 'Lorem ipsum dolor sit amet';
+    render({ description });
+    expect(screen.getByText(description)).toBeDefined();
+  });
 });
 
 const render = (props: Partial<CheckboxProps> = {}) => {

@@ -12,7 +12,7 @@ const render = (props: Partial<AccordionProps> = {}) => {
   const allProps = {
     children: (
       <>
-        <AccordionHeader {...props}>AccordionHeader</AccordionHeader>
+        <AccordionHeader>AccordionHeader</AccordionHeader>
         <AccordionContent>AccordionContent</AccordionContent>
       </>
     ),
@@ -87,13 +87,29 @@ describe('Accordion', () => {
 
 describe('subtitle', () => {
   it('should show subtitle when "subtitle" prop is set', () => {
-    render({ subtitle: 'Subtitle is here' });
+    render({
+      children: (
+        <>
+          <AccordionHeader subtitle='Subtitle is here'>
+            AccordionHeader
+          </AccordionHeader>
+          <AccordionContent>AccordionContent</AccordionContent>
+        </>
+      ),
+    });
 
     expect(screen.getByText('Subtitle is here')).toBeInTheDocument();
   });
 
   it('should not show subtitle when "subtitle" prop is not set', () => {
-    render({ subtitle: undefined });
+    render({
+      children: (
+        <>
+          <AccordionHeader>AccordionHeader</AccordionHeader>
+          <AccordionContent>AccordionContent</AccordionContent>
+        </>
+      ),
+    });
 
     expect(
       screen.queryByTestId('accordion-header-subtitle'),

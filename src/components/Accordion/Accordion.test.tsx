@@ -84,35 +84,3 @@ describe('Accordion', () => {
     });
   });
 });
-
-describe('subtitle', () => {
-  it('should show subtitle when "subtitle" prop is set', () => {
-    render({
-      children: (
-        <>
-          <AccordionHeader subtitle='Subtitle is here'>
-            AccordionHeader
-          </AccordionHeader>
-          <AccordionContent>AccordionContent</AccordionContent>
-        </>
-      ),
-    });
-
-    expect(screen.getByText('Subtitle is here')).toBeInTheDocument();
-  });
-
-  it('should not show subtitle when "subtitle" prop is not set', () => {
-    render({
-      children: (
-        <>
-          <AccordionHeader>AccordionHeader</AccordionHeader>
-          <AccordionContent>AccordionContent</AccordionContent>
-        </>
-      ),
-    });
-
-    expect(
-      screen.queryByTestId('accordion-header-subtitle'),
-    ).not.toBeInTheDocument();
-  });
-});

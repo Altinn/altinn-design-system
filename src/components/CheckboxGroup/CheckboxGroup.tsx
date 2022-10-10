@@ -23,7 +23,7 @@ export interface CheckboxGroupProps {
   compact?: boolean;
   description?: string;
   disabled?: boolean;
-  error?: string;
+  error?: React.ReactNode;
   items: CheckboxItem[];
   legend?: string;
   onChange?: (names: CheckedNames) => void;
@@ -102,24 +102,23 @@ export const CheckboxGroup = ({
           )}
         >
           {items.map((item) => (
-            <div key={item.name}>
-              <Checkbox
-                checkboxId={item.checkboxId}
-                checked={checkedNames.includes(item.name)}
-                compact={compact}
-                description={item.description}
-                disabled={disabled || item.disabled}
-                error={!!error}
-                label={item.label}
-                name={item.name}
-                onChange={(event) => {
-                  dispatch({
-                    type: event.target.checked ? 'check' : 'uncheck',
-                    name: item.name,
-                  });
-                }}
-              />
-            </div>
+            <Checkbox
+              checkboxId={item.checkboxId}
+              checked={checkedNames.includes(item.name)}
+              compact={compact}
+              description={item.description}
+              disabled={disabled || item.disabled}
+              error={!!error}
+              key={item.name}
+              label={item.label}
+              name={item.name}
+              onChange={(event) => {
+                dispatch({
+                  type: event.target.checked ? 'check' : 'uncheck',
+                  name: item.name,
+                });
+              }}
+            />
           ))}
         </div>
         {error && (

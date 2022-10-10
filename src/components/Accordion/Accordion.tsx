@@ -3,9 +3,8 @@ import React, { useId } from 'react';
 import type { ClickHandler } from './Context';
 import { AccordionIconVariant, AccordionContext } from './Context';
 import classes from './Accordion.module.css';
-import type { AccordionHeaderProps } from './AccordionHeader';
 
-export interface AccordionProps extends AccordionHeaderProps {
+export interface AccordionProps {
   children?: React.ReactNode;
   onClick: ClickHandler;
   open: boolean;

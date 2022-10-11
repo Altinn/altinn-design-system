@@ -46,40 +46,42 @@ export const Checkbox = ({
       )}
       htmlFor={inputId}
     >
-      <span className={classes['checkbox-and-label']}>
-        {!readOnly && (
-          <span className={classes['checkbox-wrapper']}>
-            <input
-              aria-describedby={descriptionId}
-              aria-labelledby={labelId}
-              checked={checked ?? false}
-              className={classes.checkbox}
-              disabled={disabled}
-              id={inputId}
-              name={name}
-              onChange={disabled ? undefined : onChange}
-              type='checkbox'
-            />
-            <span className={classes['visible-box']}>
-              <span className={classes['visible-box__checkmark']} />
+      {!readOnly && (
+        <span className={classes['checkbox-wrapper']}>
+          <input
+            aria-describedby={descriptionId}
+            aria-labelledby={labelId}
+            checked={checked ?? false}
+            className={classes.checkbox}
+            disabled={disabled}
+            id={inputId}
+            name={name}
+            onChange={disabled ? undefined : onChange}
+            type='checkbox'
+          />
+          <span className={classes['visible-box']}>
+            <span className={classes['visible-box__checkmark']} />
+          </span>
+        </span>
+      )}
+      {(label || description) && (
+        <span className={classes['label-and-description']}>
+          {label && (
+            <span
+              className={classes.label}
+              id={`${inputId}-label`}
+            >
+              {label}
             </span>
-          </span>
-        )}
-        {label && (
-          <span
-            className={classes.label}
-            id={`${inputId}-label`}
-          >
-            {label}
-          </span>
-        )}
-      </span>
-      {description && (
-        <span
-          className={classes['description']}
-          id={`${inputId}-description`}
-        >
-          {description}
+          )}
+          {description && (
+            <span
+              className={classes.description}
+              id={`${inputId}-description`}
+            >
+              {description}
+            </span>
+          )}
         </span>
       )}
     </label>

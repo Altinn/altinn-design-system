@@ -75,58 +75,50 @@ export const CheckboxGroup = ({
   );
 
   return (
-    <div
+    <fieldset
       className={cn(
-        classes.wrapper,
-        error && classes['wrapper--error'],
-        compact && classes['wrapper--compact'],
-        disabled && classes['wrapper--disabled'],
+        classes['checkbox-group'],
+        compact && classes['checkbox-group--compact'],
+        disabled && classes['checkbox-group--disabled'],
       )}
     >
-      {error && <div className={classes['wrapper--error__line']} />}
-      <fieldset className={classes['checkbox-group']}>
-        {legend && (
-          <legend className={classes['checkbox-group__legend']}>
-            {legend}
-          </legend>
+      {legend && (
+        <legend className={classes['checkbox-group__legend']}>{legend}</legend>
+      )}
+      {description && (
+        <p className={classes['checkbox-group__description']}>{description}</p>
+      )}
+      <div
+        className={cn(
+          classes['checkbox-group__list'],
+          classes[`checkbox-group__list--${variant}`],
         )}
-        {description && (
-          <p className={classes['checkbox-group__description']}>
-            {description}
-          </p>
-        )}
-        <div
-          className={cn(
-            classes['checkbox-group__list'],
-            classes[`checkbox-group__list--${variant}`],
-          )}
-        >
-          {items.map((item) => (
-            <Checkbox
-              checkboxId={item.checkboxId}
-              checked={checkedNames.includes(item.name)}
-              compact={compact}
-              description={item.description}
-              disabled={disabled || item.disabled}
-              error={!!error}
-              key={item.name}
-              label={item.label}
-              name={item.name}
-              onChange={(event) => {
-                dispatch({
-                  type: event.target.checked ? 'check' : 'uncheck',
-                  name: item.name,
-                });
-              }}
-            />
-          ))}
+      >
+        {items.map((item) => (
+          <Checkbox
+            checkboxId={item.checkboxId}
+            checked={checkedNames.includes(item.name)}
+            compact={compact}
+            description={item.description}
+            disabled={disabled || item.disabled}
+            error={!!error}
+            key={item.name}
+            label={item.label}
+            name={item.name}
+            onChange={(event) => {
+              dispatch({
+                type: event.target.checked ? 'check' : 'uncheck',
+                name: item.name,
+              });
+            }}
+          />
+        ))}
+      </div>
+      {error && (
+        <div className={classes['checkbox-group__error-message']}>
+          <ErrorMessage>{error}</ErrorMessage>
         </div>
-        {error && (
-          <div className={classes['checkbox-group__error-message']}>
-            <ErrorMessage>{error}</ErrorMessage>
-          </div>
-        )}
-      </fieldset>
-    </div>
+      )}
+    </fieldset>
   );
 };

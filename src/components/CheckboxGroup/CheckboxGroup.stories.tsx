@@ -96,7 +96,7 @@ Compact.parameters = {
 
 export const Error = Template.bind({});
 Error.args = {
-  error: 'Noe er galt.',
+  error: 'Du må velge minst ett av alternativene over.',
 };
 Error.parameters = {
   docs: {

@@ -36,6 +36,23 @@ describe('InputWrapper', () => {
     });
   });
 
+  describe('search-icon', () => {
+    it('should not show search-icon when search is false', () => {
+      render({ isSearch: false });
+      expect(screen.queryByTestId('input-icon-search')).not.toBeInTheDocument();
+    });
+
+    it('should not show search-icon when search is false', () => {
+      render({ isSearch: true });
+      expect(screen.queryByTestId('input-icon-search')).toBeInTheDocument();
+    });
+
+    it('should not show search-icon when isValid is false', () => {
+      render({ isValid: false });
+      expect(screen.queryByTestId('input-icon-search')).not.toBeInTheDocument();
+    });
+  });
+
   describe('input-variant', () => {
     it('should render with correct classname when when isValid is false and readOnly or disabled is not specified', () => {
       render({ isValid: false });

@@ -3,14 +3,15 @@
     --component-checkbox-color-background-default
   );
   --checkbox-border_color: var(--component-checkbox-color-border-default);
-  --checkbox-border_width: var(--component-checkbox-border_width-normal);
+  --checkbox-border_width: var(--component-checkbox-border_width-small);
   --checkbox-checkmark-display: none;
-  --checkbox-height: var(--component-checkbox-size-height-normal);
-  --checkbox-width: var(--component-checkbox-size-width-normal);
+  --checkbox-height: var(--component-checkbox-size-height-small);
+  --checkbox-width: var(--component-checkbox-size-width-small);
   --cursor: pointer;
-  --description-color: var(--colors-neutral-600);
-  --font_size: var(--component-checkbox-font_size-normal);
-  --gap: var(--component-checkbox-space-gap-normal);
+  --description-color: var(--component-field_description-color-text-default);
+  --description-margin_top: var(--component-field_description-space-top-small);
+  --font_size: var(--component-checkbox-font_size-small);
+  --gap: var(--component-checkbox-space-gap-small);
   --label-color: var(--component-checkbox-color-text-default);
 
   border-radius: var(--interactive_components-border_radius-normal);
@@ -23,11 +24,12 @@
 }
 
 .wrapper--compact {
-  --checkbox-border_width: var(--component-checkbox-border_width-compact);
-  --checkbox-height: var(--component-checkbox-size-height-compact);
-  --checkbox-width: var(--component-checkbox-size-width-compact);
-  --font_size: var(--component-checkbox-font_size-compact);
-  --gap: var(--component-checkbox-space-gap-compact);
+  --checkbox-border_width: var(--component-checkbox-border_width-xsmall);
+  --checkbox-height: var(--component-checkbox-size-height-xsmall);
+  --checkbox-width: var(--component-checkbox-size-width-xsmall);
+  --description-margin_top: var(--component-field_description-space-top-xsmall);
+  --font_size: var(--component-checkbox-font_size-xsmall);
+  --gap: var(--component-checkbox-space-gap-xsmall);
 }
 
 .wrapper--error {
@@ -62,6 +64,7 @@
   --checkbox-background_color: var(--component-checkbox-color-background-error);
   --checkbox-border_color: var(--component-checkbox-color-border-disabled);
   --cursor: auto;
+  --description-color: var(--component-checkbox-color-text-disabled);
   --label-color: var(--component-checkbox-color-text-disabled);
 }
 
@@ -121,7 +124,7 @@
 .label-and-description {
   display: inline-flex;
   flex-direction: column;
-  gap: var(--gap);
+  gap: var(--description-margin_top);
 
   /* Center-align checkbox with the first line in the label */
   margin-top: calc(

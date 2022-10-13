@@ -1,7 +1,8 @@
 .checkbox-group {
-  --font_size: var(--component-checkbox-font_size-normal);
-  --gap-x: var(--component-checkbox-group-space-gap-x-normal);
-  --gap-y: var(--component-checkbox-group-space-gap-y-normal);
+  --description-margin_top: var(--component-field_description-space-top-small);
+  --font_size: var(--component-checkbox-font_size-small);
+  --gap-x: var(--component-checkbox-group-space-gap-x-small);
+  --gap-y: var(--component-checkbox-group-space-gap-y-small);
 
   border: 0;
   font-size: var(--font_size);
@@ -11,9 +12,10 @@
 }
 
 .checkbox-group--compact {
-  --font_size: var(--component-checkbox-font_size-compact);
-  --gap-x: var(--component-checkbox-group-space-gap-x-compact);
-  --gap-y: var(--component-checkbox-group-space-gap-y-compact);
+  --description-margin_top: var(--component-field_description-space-top-xsmall);
+  --font_size: var(--component-checkbox-font_size-xsmall);
+  --gap-x: var(--component-checkbox-group-space-gap-x-xsmall);
+  --gap-y: var(--component-checkbox-group-space-gap-y-xsmall);
 }
 
 .checkbox-group__legend {
@@ -22,12 +24,8 @@
 }
 
 .checkbox-group__description {
-  margin-top: 0;
-}
-
-.checkbox-group__legend,
-.checkbox-group__description {
-  margin-bottom: var(--gap-y);
+  color: var(--component-field_description-color-text-default);
+  margin-top: var(--description-margin_top);
 }
 
 .checkbox-group__list {

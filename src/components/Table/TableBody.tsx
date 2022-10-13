@@ -16,3 +16,5 @@ export const TableBody = ({ children }: TableBodyProps) => {
     </TableRowTypeContext.Provider>
   );
 };
+
+export default TableBody;

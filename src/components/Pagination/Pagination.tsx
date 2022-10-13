@@ -50,7 +50,7 @@ export const Pagination = ({
         ? numberOfRows
         : rowsPerPage * (currentPage + 1);
     return (
-      <p style={{ marginRight: '64px' }}>
+      <p style={{ marginRight: '64px', marginBottom: '0px' }}>
         {`${firstRowNumber}-${lastRowNumber} av ${numberOfRows}`}
       </p>
     );
@@ -58,7 +58,9 @@ export const Pagination = ({
 
   return (
     <div className={cn(classes['pagination-wrapper'])}>
-      <p style={{ marginRight: '26px' }}>Rader per side </p>
+      <p style={{ marginRight: '26px', marginBottom: '0px' }}>
+        Rader per side{' '}
+      </p>
       <select
         style={{ marginRight: '25px' }}
         value={rowsPerPage}

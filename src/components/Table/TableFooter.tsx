@@ -16,3 +16,5 @@ export const TableFooter = ({ children }: TableFooterProps) => {
     </TableRowTypeContext.Provider>
   );
 };
+
+export default TableFooter;

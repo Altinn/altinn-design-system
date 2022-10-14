@@ -9,9 +9,9 @@ export interface TableHeaderProps {
 }
 
 export const TableHeader = ({ children }: TableHeaderProps) => {
-  const variant = Variant.Header;
+  const variantStandard = Variant.Header;
   return (
-    <TableRowTypeContext.Provider value={{ variant }}>
+    <TableRowTypeContext.Provider value={{ variantStandard }}>
       <thead className={cn(classes['table-header'])}>{children}</thead>
     </TableRowTypeContext.Provider>
   );

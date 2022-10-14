@@ -10,10 +10,14 @@ export interface TableRowProps {
 }
 
 export const TableRow = ({ children, value = 'no' }: TableRowProps) => {
-  const { variant } = useTableRowTypeContext();
+  const { variantStandard } = useTableRowTypeContext();
   const { onChange, selectedValue, selectRows } = useTableContext();
   const handleClick = () => {
-    if (onChange != undefined && selectRows && variant === Variant.Body) {
+    if (
+      onChange != undefined &&
+      selectRows &&
+      variantStandard === Variant.Body
+    ) {
       onChange({ selectedValue: value });
     }
   };
@@ -29,10 +33,12 @@ export const TableRow = ({ children, value = 'no' }: TableRowProps) => {
       className={cn(classes.TableRow, {
         [classes['table-row--selected']]: value === selectedValue,
         [classes['table-row--body']]:
-          variant === Variant.Body && selectRows && value !== selectedValue,
+          variantStandard === Variant.Body &&
+          selectRows &&
+          value !== selectedValue,
       })}
       onClick={handleClick}
-      tabIndex={variant === Variant.Body && selectRows ? 0 : undefined}
+      tabIndex={variantStandard === Variant.Body && selectRows ? 0 : undefined}
       onKeyDown={(event) => handleEnter(event)}
     >
       {children}

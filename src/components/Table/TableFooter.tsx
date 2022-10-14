@@ -9,9 +9,9 @@ export interface TableFooterProps {
 }
 
 export const TableFooter = ({ children }: TableFooterProps) => {
-  const variant = Variant.Footer;
+  const variantStandard = Variant.Footer;
   return (
-    <TableRowTypeContext.Provider value={{ variant }}>
+    <TableRowTypeContext.Provider value={{ variantStandard }}>
       <tfoot className={cn(classes['table-footer'])}>{children}</tfoot>
     </TableRowTypeContext.Provider>
   );

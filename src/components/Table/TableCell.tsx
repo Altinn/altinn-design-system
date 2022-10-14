@@ -13,11 +13,17 @@ export interface TableCellProps {
   alt?: string;
 }
 
-export const TableCell = ({ children, colSpan = 1 }: TableCellProps) => {
-  const { variant } = useTableRowTypeContext();
+export const TableCell = ({
+  children,
+  colSpan = 1,
+  variant,
+}: TableCellProps) => {
+  const { variantStandard } = useTableRowTypeContext();
   return (
-    <React.Fragment>
-      {variant === Variant.Header && (
+    <>
+      {(variant == undefined
+        ? variantStandard === Variant.Header
+        : variant === 'header') && (
         <th
           className={cn(classes['header-table-cell'])}
           colSpan={colSpan}
@@ -25,22 +31,24 @@ export const TableCell = ({ children, colSpan = 1 }: TableCellProps) => {
           <div className={cn(classes['input'])}>{children}</div>
         </th>
       )}
-      {variant === Variant.Body && (
-        <React.Fragment>
+      {(variant == undefined
+        ? variantStandard === Variant.Body
+        : variant === 'body') && (
+        <>
           <td
             className={cn(classes['body-table-cell'])}
             colSpan={colSpan}
           >
             <div className={cn(classes['input'])}>{children}</div>
           </td>
-        </React.Fragment>
+        </>
       )}
-      {variant === Variant.Footer && (
+      {variantStandard === Variant.Footer && (
         <td colSpan={colSpan}>
           <div className={cn(classes['input'])}>{children}</div>
         </td>
       )}
-    </React.Fragment>
+    </>
   );
 };
 

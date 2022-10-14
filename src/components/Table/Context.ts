@@ -29,7 +29,7 @@ export const useTableContext = () => {
 };
 
 export const TableRowTypeContext = createContext({
-  variant: Variant.Body,
+  variantStandard: Variant.Body,
 });
 export const useTableRowTypeContext = () => {
   const context = useContext(TableRowTypeContext);

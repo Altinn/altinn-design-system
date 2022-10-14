@@ -9,9 +9,9 @@ export interface TableBodyProps {
 }
 
 export const TableBody = ({ children }: TableBodyProps) => {
-  const variant = Variant.Body;
+  const variantStandard = Variant.Body;
   return (
-    <TableRowTypeContext.Provider value={{ variant }}>
+    <TableRowTypeContext.Provider value={{ variantStandard }}>
       <tbody className={cn(classes.TableBody)}>{children}</tbody>
     </TableRowTypeContext.Provider>
   );

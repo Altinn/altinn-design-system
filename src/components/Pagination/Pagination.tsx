@@ -14,6 +14,8 @@ export interface PaginationProps {
   onRowsPerPageChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   currentPage: number;
   setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
+  rowsPerPageText: string;
+  pageDescriptionText: string;
 }
 
 export const Pagination = ({
@@ -23,6 +25,8 @@ export const Pagination = ({
   onRowsPerPageChange,
   currentPage,
   setCurrentPage,
+  rowsPerPageText,
+  pageDescriptionText,
 }: PaginationProps) => {
   const [numberOfPages, setNumberOfPages] = useState(1);
 
@@ -51,7 +55,7 @@ export const Pagination = ({
         : rowsPerPage * (currentPage + 1);
     return (
       <p style={{ marginRight: '64px', marginBottom: '0px' }}>
-        {`${firstRowNumber}-${lastRowNumber} av ${numberOfRows}`}
+        {`${firstRowNumber}-${lastRowNumber} ${pageDescriptionText} ${numberOfRows}`}
       </p>
     );
   };
@@ -59,7 +63,7 @@ export const Pagination = ({
   return (
     <div className={cn(classes['pagination-wrapper'])}>
       <p style={{ marginRight: '26px', marginBottom: '0px' }}>
-        Rader per side{' '}
+        {rowsPerPageText}
       </p>
       <select
         style={{ marginRight: '25px' }}

@@ -77,30 +77,54 @@ export const Pagination = ({
       </select>
       {renderPaginationNumbers()}
       <FirstPageIcon
+        tabIndex={currentPage !== 0 ? 0 : undefined}
         className={cn(classes['pagination-icon'], {
           [classes['pagination-icon--disabled']]: currentPage === 0,
         })}
         onClick={() => setCurrentPage(0)}
+        onKeyDown={(event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            setCurrentPage(0);
+          }
+        }}
       />
       <NavigateBeforeIcon
+        tabIndex={currentPage !== 0 ? 0 : undefined}
         className={cn(classes['pagination-icon'], {
           [classes['pagination-icon--disabled']]: currentPage === 0,
         })}
         onClick={() => decreaseCurrentPage()}
+        onKeyDown={(event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            decreaseCurrentPage();
+          }
+        }}
       />
       <NavigateNextIcon
+        tabIndex={currentPage !== numberOfPages - 1 ? 0 : undefined}
         className={cn(classes['pagination-icon'], {
           [classes['pagination-icon--disabled']]:
             currentPage === numberOfPages - 1,
         })}
         onClick={() => increaseCurrentPage()}
+        onKeyDown={(event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            increaseCurrentPage();
+          }
+        }}
       />
       <LastPageIcon
+        tabIndex={currentPage !== numberOfPages - 1 ? 0 : undefined}
         className={cn(classes['pagination-icon'], {
           [classes['pagination-icon--disabled']]:
             currentPage === numberOfPages - 1,
         })}
         onClick={() => setCurrentPage(numberOfPages - 1)}
+        onKeyDown={(event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            setCurrentPage(numberOfPages - 1);
+          }
+        }}
       />
     </div>
   );

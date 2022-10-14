@@ -13,7 +13,6 @@ import { TableCell } from './TableCell';
 import { TableRow } from './TableRow';
 import { TableBody } from './TableBody';
 import type { ChangeProps } from './Context';
-import { Variant } from './Context';
 import classes from './Table.stories.module.css';
 import { TableFooter } from './TableFooter';
 const figmaLink = ''; // TODO: Add figma link

@@ -1917,6 +1917,7 @@ const App = () => {
   font-size: var(--component-accordion_header_title-font_size);
   font-weight: var(--component-accordion_header_title-font_weight);
   margin-left: var(--component-accordion_header_title-spacing-margin_left);
+  line-height: 16px;
 }
 
 .accordion-header__actions---qbcYv {

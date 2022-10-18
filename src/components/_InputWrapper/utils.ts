@@ -14,33 +14,42 @@ export enum ReadOnlyVariant {
 export enum IconVariant {
   None = 'none',
   Error = 'error',
+  Search = 'search',
 }
 
 interface GetVariantProps {
   readOnly?: boolean | ReadOnlyVariant;
   disabled?: boolean;
   isValid?: boolean;
+  isSearch?: boolean;
 }
 
 export const getVariant = ({
   readOnly = false,
   disabled = false,
   isValid = true,
+  isSearch = false,
 }: GetVariantProps = {}) => {
+  let iconVar = IconVariant.None;
+
+  if (isSearch) {
+    iconVar = IconVariant.Search;
+  }
+
   if (disabled) {
     return {
       variant: InputVariant.Disabled,
-      iconVariant: IconVariant.None,
+      iconVariant: iconVar,
     };
   } else if (readOnly === true || readOnly === ReadOnlyVariant.ReadOnlyInfo) {
     return {
       variant: InputVariant.ReadOnlyInfo,
-      iconVariant: IconVariant.None,
+      iconVariant: iconVar,
     };
   } else if (readOnly === ReadOnlyVariant.ReadOnlyConfirm) {
     return {
       variant: InputVariant.ReadOnlyConfirm,
-      iconVariant: IconVariant.None,
+      iconVariant: iconVar,
     };
   } else if (isValid === false) {
     return {
@@ -51,6 +60,6 @@ export const getVariant = ({
 
   return {
     variant: InputVariant.Default,
-    iconVariant: IconVariant.None,
+    iconVariant: iconVar,
   };
 };

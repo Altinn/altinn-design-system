@@ -16,6 +16,7 @@ export interface InputWrapperProps {
   isValid?: boolean;
   disabled?: boolean;
   readOnly?: boolean | ReadOnlyVariant;
+  isSearch?: boolean;
   inputRenderer: (props: InputRendererProps) => ReactNode;
 }
 
@@ -23,9 +24,15 @@ export const InputWrapper = ({
   isValid = true,
   disabled = false,
   readOnly = false,
+  isSearch = false,
   inputRenderer,
 }: InputWrapperProps) => {
-  const { variant, iconVariant } = getVariant({ readOnly, disabled, isValid });
+  const { variant, iconVariant } = getVariant({
+    readOnly,
+    disabled,
+    isValid,
+    isSearch,
+  });
 
   return (
     <div
@@ -33,10 +40,17 @@ export const InputWrapper = ({
       className={cn(
         classes['InputWrapper'],
         classes[`InputWrapper--${variant}`],
+        { [classes[`InputWrapper--search`]]: isSearch },
       )}
     >
-      <Icon variant={iconVariant} />
-      {inputRenderer({ className: classes['InputWrapper__field'], variant })}
+      <Icon
+        variant={iconVariant}
+        disabled={disabled}
+      />
+      {inputRenderer({
+        className: classes['InputWrapper__field'],
+        variant,
+      })}
     </div>
   );
 };

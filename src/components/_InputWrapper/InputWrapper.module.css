@@ -54,6 +54,10 @@
   --border-color: var(--component-input-read_only_confirm-color-border-default);
 }
 
+.InputWrapper--search {
+  flex-direction: row-reverse;
+}
+
 .InputWrapper__field {
   /* Subtract size of border on padding-y, because border is on outer element. Without this, height of entire component will be too big */
   --paddingY: calc(
@@ -75,4 +79,8 @@
   display: flex;
   align-items: center;
   flex: none;
+}
+
+.InputWrapper__icon--disabled {
+  opacity: 60%;
 }

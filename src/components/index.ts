@@ -13,6 +13,7 @@ export { Button, ButtonVariant } from './Button';
 export { Page, PageHeader, PageContent, PageColor } from './Page';
 export { List, ListItem, BorderStyle } from './List';
 export { TextField } from './TextField';
+export { SearchField } from './SearchField';
 export { ErrorMessage } from './ErrorMessage';
 export type { Location, MapLayer } from './Map';
 export { Map } from './Map';

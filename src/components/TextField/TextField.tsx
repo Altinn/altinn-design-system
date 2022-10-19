@@ -1,26 +1,43 @@
 import React from 'react';
 import cn from 'classnames';
 import type {
-  NumberFormatProps,
+  NumericFormatProps,
+  PatternFormatProps,
   NumberFormatValues,
   SourceInfo,
 } from 'react-number-format';
-import NumberFormat from 'react-number-format';
+import { NumericFormat, PatternFormat } from 'react-number-format';
 
 import { InputWrapper } from '../_InputWrapper';
 import type { ReadOnlyVariant } from '../_InputWrapper';
 
 export interface TextFieldProps
-  extends Omit<NumberFormatProps, 'readOnly' | 'value'> {
+  extends Omit<
+    NumericFormatProps | PatternFormatProps,
+    'readOnly' | 'value' | 'defaultValue'
+  > {
   value?: string;
   isValid?: boolean;
   readOnly?: boolean | ReadOnlyVariant;
+  defaultValue?: string | number;
   formatting?: TextFieldFormatting;
 }
 
 export interface TextFieldFormatting {
-  number?: NumberFormatProps;
+  number?: NumericFormatProps | PatternFormatProps;
   align?: 'right' | 'center' | 'left';
+}
+
+function isPatternFormat(
+  numberFormat: NumericFormatProps | PatternFormatProps,
+): numberFormat is PatternFormatProps {
+  return (numberFormat as PatternFormatProps).format !== undefined;
+}
+
+function isNumericFormat(
+  numberFormat: NumericFormatProps | PatternFormatProps,
+): numberFormat is NumericFormatProps {
+  return (numberFormat as PatternFormatProps).format === undefined;
 }
 
 interface ReplaceTargetValueWithUnformattedValueProps {
@@ -32,7 +49,8 @@ const replaceTargetValueWithUnformattedValue = ({
   values,
   sourceInfo,
 }: ReplaceTargetValueWithUnformattedValueProps) => {
-  sourceInfo.event.target.value = values.value;
+  (sourceInfo.event as React.ChangeEvent<HTMLInputElement>).target.value =
+    values.value.trim();
 };
 
 export const TextField = ({
@@ -54,7 +72,7 @@ export const TextField = ({
         values,
         sourceInfo,
       });
-      onChange(sourceInfo.event);
+      onChange(sourceInfo.event as React.ChangeEvent<HTMLInputElement>);
     }
   };
 
@@ -76,24 +94,39 @@ export const TextField = ({
           },
         };
 
-        return formatting?.number ? (
-          <NumberFormat
-            {...commonProps}
-            {...formatting.number}
-            {...rest}
-            data-testid={`${id}-formatted-number-${variant}`}
-            onValueChange={handleNumberFormatChange}
-            isNumericString={true}
-          />
-        ) : (
-          <input
-            {...commonProps}
-            {...rest}
-            data-testid={`${id}-${variant}`}
-            onChange={onChange}
-          />
-        );
+        if (formatting?.number && isNumericFormat(formatting.number)) {
+          return (
+            <NumericFormat
+              {...commonProps}
+              {...formatting.number}
+              {...rest}
+              data-testid={`${id}-formatted-number-${variant}`}
+              onValueChange={handleNumberFormatChange}
+              valueIsNumericString={true}
+            />
+          );
+        } else if (formatting?.number && isPatternFormat(formatting.number)) {
+          return (
+            <PatternFormat
+              {...commonProps}
+              {...formatting.number}
+              {...rest}
+              data-testid={`${id}-formatted-number-${variant}`}
+              onValueChange={handleNumberFormatChange}
+              valueIsNumericString={true}
+            />
+          );
+        } else {
+          return (
+            <input
+              {...commonProps}
+              {...rest}
+              data-testid={`${id}-${variant}`}
+              onChange={onChange}
+            />
+          );
+        }
       }}
-    ></InputWrapper>
+    />
   );
 };

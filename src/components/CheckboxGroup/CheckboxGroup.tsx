@@ -1,8 +1,9 @@
 import React, { useEffect, useReducer } from 'react';
 import cn from 'classnames';
 
-import { Checkbox, ErrorMessage } from '@/components';
+import { Checkbox, FieldSet } from '@/components';
 import type { CheckboxProps } from '@/components/Checkbox/Checkbox';
+import { FieldSetSize } from '@/components/FieldSet/FieldSet';
 
 import classes from './CheckboxGroup.module.css';
 
@@ -75,19 +76,17 @@ export const CheckboxGroup = ({
   );
 
   return (
-    <fieldset
+    <FieldSet
       className={cn(
         classes['checkbox-group'],
         compact && classes['checkbox-group--compact'],
-        disabled && classes['checkbox-group--disabled'],
       )}
+      description={description}
+      disabled={disabled}
+      error={error}
+      legend={legend}
+      size={compact ? FieldSetSize.Xsmall : FieldSetSize.Small}
     >
-      {legend && (
-        <legend className={classes['checkbox-group__legend']}>{legend}</legend>
-      )}
-      {description && (
-        <p className={classes['checkbox-group__description']}>{description}</p>
-      )}
       <div
         className={cn(
           classes['checkbox-group__list'],
@@ -114,11 +113,6 @@ export const CheckboxGroup = ({
           />
         ))}
       </div>
-      {error && (
-        <div className={classes['checkbox-group__error-message']}>
-          <ErrorMessage>{error}</ErrorMessage>
-        </div>
-      )}
-    </fieldset>
+    </FieldSet>
   );
 };

@@ -27,26 +27,28 @@ describe('FieldSet', () => {
 
   it('Should not display description by default', () => {
     const { container } = render();
-    expect(container.querySelector('.description')).toBeFalsy();
+    expect(container.querySelector('.field-set__description')).toBeFalsy();
   });
 
   it('Should display description if given', () => {
     const description = 'Lorem ipsum dolor sit amet.';
     const { container } = render({ description });
-    expect(container.querySelector('.description')).toHaveTextContent(
-      description,
-    );
+    expect(
+      container.querySelector('.field-set__description'),
+    ).toHaveTextContent(description);
   });
 
   it('Should not display error message by default', () => {
     const { container } = render();
-    expect(container.querySelector('.error-message')).toBeFalsy();
+    expect(container.querySelector('.field-set__error-message')).toBeFalsy();
   });
 
   it('Should display error message if given', () => {
     const error = 'Something is wrong.';
     const { container } = render({ error });
-    expect(container.querySelector('.error-message')).toHaveTextContent(error);
+    expect(
+      container.querySelector('.field-set__error-message'),
+    ).toHaveTextContent(error);
   });
 
   it('Should have class "field-set--small" by default', () => {

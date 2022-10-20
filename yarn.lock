@@ -18,7 +18,7 @@ __metadata:
   dependencies:
     "@altinn/figma-design-tokens": ^4.1.0
     "@babel/core": 7.19.3
-    "@mdx-js/react": 1.6.22
+    "@mdx-js/react": 2.1.5
     "@radix-ui/react-popover": ^1.0.0
     "@react-hookz/web": ^15.0.1
     "@rollup/plugin-commonjs": 22.0.2
@@ -2477,7 +2477,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mdx-js/react@npm:1.6.22, @mdx-js/react@npm:^1.6.22":
+"@mdx-js/react@npm:2.1.5":
+  version: 2.1.5
+  resolution: "@mdx-js/react@npm:2.1.5"
+  dependencies:
+    "@types/mdx": ^2.0.0
+    "@types/react": ">=16"
+  peerDependencies:
+    react: ">=16"
+  checksum: e47fb7086a4dd3e4d75d9ef0bf530009f72437a5ea91048e65d2e2f53955015a8c81b5058ac56fa00f401843305518e9f298183645d56c7e34336df4cc0b62bf
+  languageName: node
+  linkType: hard
+
+"@mdx-js/react@npm:^1.6.22":
   version: 1.6.22
   resolution: "@mdx-js/react@npm:1.6.22"
   peerDependencies:
@@ -4946,6 +4958,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/mdx@npm:^2.0.0":
+  version: 2.0.3
+  resolution: "@types/mdx@npm:2.0.3"
+  checksum: 41deb51c29535913af01d25f0e1414cfb5a6948d0e60e77e4aca895694de48bf0ac69c5a81fe2d9617d726cb253001ef82a65b683d5ef51987d15aa1931d086b
+  languageName: node
+  linkType: hard
+
 "@types/minimatch@npm:*":
   version: 5.1.2
   resolution: "@types/minimatch@npm:5.1.2"
@@ -5067,7 +5086,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:18.0.21":
+"@types/react@npm:18.0.21, @types/react@npm:>=16":
   version: 18.0.21
   resolution: "@types/react@npm:18.0.21"
   dependencies:

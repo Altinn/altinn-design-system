@@ -21,4 +21,4 @@ export { Checkbox } from './Checkbox';
 export { TextArea } from './TextArea';
 export type { IconVariant, ReadOnlyVariant } from './_InputWrapper';
 export { CheckboxGroup } from './CheckboxGroup';
-export { FieldSet } from './FieldSet';
+export { FieldSet, FieldSetSize } from './FieldSet';

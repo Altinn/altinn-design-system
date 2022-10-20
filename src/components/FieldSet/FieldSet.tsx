@@ -38,11 +38,15 @@ export const FieldSet = ({
       )}
       disabled={disabled}
     >
-      {legend && <legend className={classes.legend}>{legend}</legend>}
-      {description && <p className={classes.description}>{description}</p>}
-      <div className={classes.content}>{children}</div>
+      {legend && (
+        <legend className={classes['field-set__legend']}>{legend}</legend>
+      )}
+      {description && (
+        <p className={classes['field-set__description']}>{description}</p>
+      )}
+      <div className={classes['field-set__content']}>{children}</div>
       {error && (
-        <div className={classes['error-message']}>
+        <div className={classes['field-set__error-message']}>
           <ErrorMessage>{error}</ErrorMessage>
         </div>
       )}

@@ -28,24 +28,24 @@
   --description-color: var(--component-checkbox-color-text-disabled);
 }
 
-.legend {
+.field-set__legend {
   font-weight: bold;
   padding: 0;
 }
 
-.description {
+.field-set__description {
   color: var(--description-color);
   margin: 0;
 }
 
-.legend + .description {
+.field-set__legend + .field-set__description {
   margin-top: var(--description-margin_top);
 }
 
-.content:not(:first-child) {
+.field-set__content:not(:first-child) {
   margin-top: var(--content-margin_top);
 }
 
-.error-message {
+.field-set__error-message {
   margin-top: var(--error_message-margin_top);
 }

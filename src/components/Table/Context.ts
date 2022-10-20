@@ -28,6 +28,20 @@ export const useTableContext = () => {
   return context;
 };
 
+export const SortContext = createContext<
+  | {
+      selectSort?: string;
+    }
+  | undefined
+>(undefined);
+export const useSortContext = () => {
+  const context = useContext(SortContext);
+  if (context === undefined) {
+    throw new Error('useTableContext must be used within a TableContext');
+  }
+  return context;
+};
+
 export const TableRowTypeContext = createContext({
   variantStandard: Variant.Body,
 });

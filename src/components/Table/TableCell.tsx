@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import cn from 'classnames';
 
 import classes from './TableCell.module.css';
-import { useTableRowTypeContext, Variant } from './Context';
+import type { ChangeHandler } from './Context';
+import { useSortContext, useTableRowTypeContext, Variant } from './Context';
+import { ReactComponent as SortIcon } from './sort_arrow.svg';
 
 export interface TableCellProps {
   children?: React.ReactNode;
@@ -11,14 +13,31 @@ export interface TableCellProps {
   type?: string;
   src?: string;
   alt?: string;
+  sortable?: boolean;
+  onChange?: ChangeHandler;
 }
 
 export const TableCell = ({
   children,
   colSpan = 1,
   variant,
+  sortable,
+  onChange,
 }: TableCellProps) => {
+  const { selectSort } = useSortContext();
   const { variantStandard } = useTableRowTypeContext();
+  const [clicked, setClicked] = useState('');
+
+  const handleChange = () => {
+    if (onChange != undefined && children != undefined) {
+      onChange({ selectedValue: children?.toString() });
+      if (clicked === 'asc') {
+        setClicked('dec');
+      } else if (clicked === '' || clicked === 'dec') {
+        setClicked('asc');
+      }
+    }
+  };
   return (
     <>
       {(variant == undefined
@@ -28,7 +47,29 @@ export const TableCell = ({
           className={cn(classes['header-table-cell'])}
           colSpan={colSpan}
         >
-          <div className={cn(classes['input'])}>{children}</div>
+          <div
+            className={
+              sortable
+                ? cn(classes['container-sortable'])
+                : cn(classes['container'])
+            }
+            onClick={() => handleChange()}
+            onKeyUp={() => handleChange()}
+            role={sortable ? 'button' : undefined}
+            tabIndex={sortable ? 0 : undefined}
+          >
+            <div className={cn(classes['input'])}>{children}</div>
+            {sortable && (
+              <SortIcon
+                className={cn(classes['icon'], {
+                  [classes['icon-asc']]:
+                    clicked === 'asc' && selectSort === children?.toString(),
+                  [classes['icon-dec']]:
+                    clicked === 'dec' && selectSort === children?.toString(),
+                })}
+              ></SortIcon>
+            )}
+          </div>
         </th>
       )}
       {(variant == undefined

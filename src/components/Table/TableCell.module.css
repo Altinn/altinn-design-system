@@ -24,3 +24,24 @@
 .input {
   margin: 0px 15px 0px 15px;
 }
+
+.container-sortable {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.icon {
+  fill: rgba(0, 0, 0, 0.4);
+}
+
+.icon-asc {
+  fill: rgb(0, 0, 0);
+}
+
+.icon-dec {
+  fill: rgb(0, 0, 0);
+  transform: rotate(180deg);
+}

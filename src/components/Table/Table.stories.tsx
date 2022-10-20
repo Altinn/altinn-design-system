@@ -99,7 +99,7 @@ const rows = [
   createData(
     '200208507',
     'Vippesykkel',
-    'Ikke i kraft',
+    'Besluttet gjeldende',
     'https://search.patentstyret.no/Onlinedb_files_tm/Pictures/200208/200208507.jpg',
     'vippesykkel',
   ),
@@ -120,11 +120,17 @@ const rows = [
 ];
 const Template: ComponentStory<typeof Table> = (args) => {
   const [selected, setSelected] = useState('');
+  const [selectedSort, setSelectedSort] = useState('');
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [page, setPage] = useState(0);
 
   const handleChange = ({ selectedValue }: ChangeProps) => {
     setSelected(selectedValue);
+  };
+  const handleSortChange = ({ selectedValue }: ChangeProps) => {
+    console.log(selectedValue);
+    setSelectedSort(selectedValue);
+    //apikall for å sortere
   };
 
   const handleChangeRowsPerPage = (
@@ -137,13 +143,23 @@ const Template: ComponentStory<typeof Table> = (args) => {
   return (
     <Table
       selectRows={args.selectRows}
-      onChange={handleChange}
+      onChange={() => handleChange}
       selectedValue={selected}
     >
       <TableHeader>
-        <TableRow>
-          <TableCell>Søknadsnr.</TableCell>
-          <TableCell>Produkt</TableCell>
+        <TableRow selectSort={selectedSort}>
+          <TableCell
+            sortable={true}
+            onChange={handleSortChange}
+          >
+            Søknadsnr.
+          </TableCell>
+          <TableCell
+            sortable={true}
+            onChange={handleSortChange}
+          >
+            Produkt
+          </TableCell>
           <TableCell>Status</TableCell>
           <TableCell>Bilde</TableCell>
         </TableRow>

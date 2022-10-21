@@ -8,9 +8,13 @@ export enum Variant {
 
 export interface ChangeProps {
   selectedValue: string;
+  selectedSortType?: string;
 }
 
-export type ChangeHandler = ({ selectedValue }: ChangeProps) => void;
+export type ChangeHandler = ({
+  selectedValue,
+  selectedSortType,
+}: ChangeProps) => void;
 
 export const TableContext = createContext<
   | {

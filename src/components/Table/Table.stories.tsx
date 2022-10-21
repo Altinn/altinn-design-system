@@ -127,8 +127,10 @@ const Template: ComponentStory<typeof Table> = (args) => {
   const handleChange = ({ selectedValue }: ChangeProps) => {
     setSelected(selectedValue);
   };
-  const handleSortChange = ({ selectedValue }: ChangeProps) => {
-    console.log(selectedValue);
+  const handleSortChange = ({
+    selectedValue,
+    selectedSortType,
+  }: ChangeProps) => {
     setSelectedSort(selectedValue);
     //apikall for å sortere
   };

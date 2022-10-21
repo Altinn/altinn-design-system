@@ -26,15 +26,22 @@ export const TableCell = ({
 }: TableCellProps) => {
   const { selectSort } = useSortContext();
   const { variantStandard } = useTableRowTypeContext();
-  const [clicked, setClicked] = useState('');
+  const [sortType, setSortType] = useState('');
 
   const handleChange = () => {
     if (onChange != undefined && children != undefined) {
-      onChange({ selectedValue: children?.toString() });
-      if (clicked === 'asc') {
-        setClicked('dec');
-      } else if (clicked === '' || clicked === 'dec') {
-        setClicked('asc');
+      if (sortType === 'asc') {
+        onChange({
+          selectedValue: children?.toString(),
+          selectedSortType: sortType,
+        });
+        setSortType('dec');
+      } else if (sortType === '' || sortType === 'dec') {
+        onChange({
+          selectedValue: children?.toString(),
+          selectedSortType: sortType,
+        });
+        setSortType('asc');
       }
     }
   };
@@ -63,9 +70,9 @@ export const TableCell = ({
               <SortIcon
                 className={cn(classes['icon'], {
                   [classes['icon-asc']]:
-                    clicked === 'asc' && selectSort === children?.toString(),
+                    sortType === 'asc' && selectSort === children?.toString(),
                   [classes['icon-dec']]:
-                    clicked === 'dec' && selectSort === children?.toString(),
+                    sortType === 'dec' && selectSort === children?.toString(),
                 })}
               ></SortIcon>
             )}

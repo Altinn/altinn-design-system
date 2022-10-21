@@ -35,8 +35,8 @@ export const TableCell = ({
           selectedValue: children?.toString(),
           selectedSortType: sortType,
         });
-        setSortType('dec');
-      } else if (sortType === '' || sortType === 'dec') {
+        setSortType('desc');
+      } else if (sortType === '' || sortType === 'desc') {
         onChange({
           selectedValue: children?.toString(),
           selectedSortType: sortType,
@@ -71,8 +71,8 @@ export const TableCell = ({
                 className={cn(classes['icon'], {
                   [classes['icon-asc']]:
                     sortType === 'asc' && selectSort === children?.toString(),
-                  [classes['icon-dec']]:
-                    sortType === 'dec' && selectSort === children?.toString(),
+                  [classes['icon-desc']]:
+                    sortType === 'desc' && selectSort === children?.toString(),
                 })}
               ></SortIcon>
             )}

@@ -197,6 +197,8 @@ const Template: ComponentStory<typeof Table> = (args) => {
               onRowsPerPageChange={handleChangeRowsPerPage}
               currentPage={page}
               setCurrentPage={setPage}
+              rowsPerPageText='Rader per side'
+              pageDescriptionText='av'
             />
           </TableCell>
         </TableRow>

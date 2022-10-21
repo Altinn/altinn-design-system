@@ -61,6 +61,8 @@ export const Example = Template.bind({});
 Example.args = {
   numberOfRows: 200,
   rowsPerPageOptions: [5, 10, 15, 20],
+  rowsPerPageText: 'Rader per side',
+  pageDescriptionText: 'av',
 };
 Example.parameters = {
   docs: {

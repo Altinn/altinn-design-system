@@ -8,9 +8,13 @@ export enum Variant {
 
 export interface ChangeProps {
   selectedValue: string;
+  selectedSortType?: string;
 }
 
-export type ChangeHandler = ({ selectedValue }: ChangeProps) => void;
+export type ChangeHandler = ({
+  selectedValue,
+  selectedSortType,
+}: ChangeProps) => void;
 
 export const TableContext = createContext<
   | {
@@ -22,6 +26,20 @@ export const TableContext = createContext<
 >(undefined);
 export const useTableContext = () => {
   const context = useContext(TableContext);
+  if (context === undefined) {
+    throw new Error('useTableContext must be used within a TableContext');
+  }
+  return context;
+};
+
+export const SortContext = createContext<
+  | {
+      selectSort?: string;
+    }
+  | undefined
+>(undefined);
+export const useSortContext = () => {
+  const context = useContext(SortContext);
   if (context === undefined) {
     throw new Error('useTableContext must be used within a TableContext');
   }

@@ -28,20 +28,23 @@
 .container-sortable {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   cursor: pointer;
 }
 
 .icon {
   fill: rgba(0, 0, 0, 0.4);
+  margin-left: -5px;
 }
 
 .icon-asc {
   fill: rgb(0, 0, 0);
+  margin-left: -5px;
 }
 
 .icon-dec {
   fill: rgb(0, 0, 0);
   transform: rotate(180deg);
+  margin-left: -5px;
 }

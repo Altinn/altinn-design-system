@@ -13,13 +13,13 @@ export interface IconProps {
 export const Icon = ({ variant }: IconProps) => {
   if (variant === IconVariant.Error) {
     return (
-      <div className={cn(classes['input-wrapper__icon'])}>
+      <div className={cn(classes['input-wrapper__icon_left'])}>
         <ErrorIcon data-testid='input-icon-error' />
       </div>
     );
   } else if (variant === IconVariant.Search) {
     return (
-      <div className={cn(classes['input-wrapper__icon'])}>
+      <div className={cn(classes['input-wrapper__icon_right'])}>
         <SearchIcon data-testid='input-icon-error' />
       </div>
     );

@@ -27,3 +27,4 @@ export {
 } from './Table';
 export { Checkbox } from './Checkbox';
 export { Pagination } from './Pagination';
+export { SearchField } from './SearchField';

@@ -14,10 +14,12 @@ import classes from './TextField.module.css';
 
 export interface TextFieldProps
   extends Omit<NumberFormatProps, 'readOnly' | 'value'> {
+  defaultValue?: string;
   value?: string;
   isValid?: boolean;
   readOnly?: boolean | ReadOnlyVariant;
   formatting?: TextFieldFormatting;
+  search?: boolean;
 }
 
 export interface TextFieldFormatting {
@@ -44,10 +46,16 @@ export const TextField = ({
   disabled = false,
   readOnly = false,
   required = false,
+  search = false,
   formatting,
   ...rest
 }: TextFieldProps) => {
-  const { variant, iconVariant } = getVariant({ readOnly, disabled, isValid });
+  const { variant, iconVariant } = getVariant({
+    readOnly,
+    disabled,
+    isValid,
+    search,
+  });
   const isReadOnly = Boolean(readOnly);
 
   const handleNumberFormatChange = (
@@ -83,7 +91,7 @@ export const TextField = ({
         classes[`input-wrapper--${variant}`],
       )}
     >
-      <Icon variant={iconVariant} />
+      {iconVariant == 'error' ? <Icon variant={iconVariant} /> : null}
       {formatting?.number ? (
         <NumberFormat
           {...commonProps}
@@ -101,6 +109,7 @@ export const TextField = ({
           onChange={onChange}
         />
       )}
+      {iconVariant == 'search' ? <Icon variant={iconVariant} /> : null}
     </div>
   );
 };

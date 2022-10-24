@@ -68,7 +68,14 @@
   background: var(--background);
 }
 
-.input-wrapper__icon {
+.input-wrapper__icon_right {
+  background: var(--icon-background);
+  display: flex;
+  align-items: center;
+  flex: none;
+}
+
+.input-wrapper__icon_left {
   background: var(--icon-background);
   padding-right: var(--component-input-border_width-focus);
   padding-left: var(--component-input-border_width-default);

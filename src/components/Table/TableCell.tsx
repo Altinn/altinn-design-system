@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import cn from 'classnames';
 
 import classes from './TableCell.module.css';
-import type { ChangeHandler, SortHandler } from './Context';
-import { useSortContext, useTableRowTypeContext, Variant } from './Context';
+import type { SortHandler } from './Context';
+import { useTableRowTypeContext, Variant } from './Context';
 import { ReactComponent as SortIcon } from './sort_arrow.svg';
 
 export interface TableCellProps {

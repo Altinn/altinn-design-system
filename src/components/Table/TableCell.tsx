@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import cn from 'classnames';
 
 import classes from './TableCell.module.css';
-import type { ChangeHandler } from './Context';
+import type { ChangeHandler, SortHandler } from './Context';
 import { useSortContext, useTableRowTypeContext, Variant } from './Context';
 import { ReactComponent as SortIcon } from './sort_arrow.svg';
 
@@ -14,7 +14,14 @@ export interface TableCellProps {
   src?: string;
   alt?: string;
   sortable?: boolean;
-  onChange?: ChangeHandler;
+  onChange?: SortHandler;
+  sortDirecton?: SortDirection;
+  id?: number;
+}
+export enum SortDirection {
+  Descending = 'desc',
+  Ascending = 'asc',
+  Off = 'off',
 }
 
 export const TableCell = ({
@@ -23,26 +30,17 @@ export const TableCell = ({
   variant,
   sortable,
   onChange,
+  sortDirecton = SortDirection.Off,
+  id,
 }: TableCellProps) => {
-  const { selectSort } = useSortContext();
   const { variantStandard } = useTableRowTypeContext();
-  const [sortType, setSortType] = useState('');
 
   const handleChange = () => {
-    if (onChange != undefined && children != undefined) {
-      if (sortType === 'asc') {
-        onChange({
-          selectedValue: children?.toString(),
-          selectedSortType: sortType,
-        });
-        setSortType('desc');
-      } else if (sortType === '' || sortType === 'desc') {
-        onChange({
-          selectedValue: children?.toString(),
-          selectedSortType: sortType,
-        });
-        setSortType('asc');
-      }
+    if (onChange != undefined && id != undefined && sortDirecton != undefined) {
+      onChange({
+        idCell: id,
+        previousSortDirection: sortDirecton,
+      });
     }
   };
   return (
@@ -70,9 +68,9 @@ export const TableCell = ({
               <SortIcon
                 className={cn(classes['icon'], {
                   [classes['icon-asc']]:
-                    sortType === 'asc' && selectSort === children?.toString(),
+                    sortDirecton === SortDirection.Ascending,
                   [classes['icon-desc']]:
-                    sortType === 'desc' && selectSort === children?.toString(),
+                    sortDirecton === SortDirection.Descending,
                 })}
               ></SortIcon>
             )}

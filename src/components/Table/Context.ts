@@ -1,5 +1,7 @@
 import { createContext, useContext } from 'react';
 
+import type { SortDirection } from './TableCell';
+
 export enum Variant {
   Header = 'header',
   Body = 'body',
@@ -8,13 +10,18 @@ export enum Variant {
 
 export interface ChangeProps {
   selectedValue: string;
-  selectedSortType?: string;
+  idCell: number;
+}
+export interface SortProps {
+  idCell: number;
+  previousSortDirection: SortDirection;
 }
 
-export type ChangeHandler = ({
-  selectedValue,
-  selectedSortType,
-}: ChangeProps) => void;
+export type ChangeHandler = ({ selectedValue }: ChangeProps) => void;
+export type SortHandler = ({
+  idCell,
+  previousSortDirection,
+}: SortProps) => void;
 
 export const TableContext = createContext<
   | {

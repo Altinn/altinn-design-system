@@ -53,6 +53,42 @@ const replaceTargetValueWithUnformattedValue = ({
     values.value.trim();
 };
 
+// Mitigates this issue: https://github.com/s-yadav/react-number-format/issues/694
+// Remove if fixed
+const numericKeyDown = (
+  e: React.KeyboardEvent<HTMLInputElement>,
+  prefix?: string,
+  suffix?: string,
+) => {
+  const el = e.target as HTMLInputElement;
+  const { key } = e;
+  const { selectionStart, selectionEnd, value = '' } = el;
+
+  if (selectionStart !== null && selectionEnd !== null) {
+    const negative = value[0] === '-';
+
+    const prefixLength = prefix?.length || 0 + (negative ? 1 : 0);
+    const suffixLength = suffix?.length || 0;
+
+    // If the number is negative, allow deleting the minus (-) sign
+    if (negative && selectionEnd <= prefixLength && key === 'Backspace') {
+      el.setSelectionRange(1, 1);
+    } else {
+      // Make sure selection is within the bounds of prefix/suffix
+      el.setSelectionRange(
+        Math.min(
+          Math.max(selectionStart, prefixLength),
+          value.length - suffixLength,
+        ),
+        Math.max(
+          Math.min(selectionEnd, value.length - suffixLength),
+          prefixLength,
+        ),
+      );
+    }
+  }
+};
+
 export const TextField = ({
   id,
   onChange,
@@ -95,6 +131,11 @@ export const TextField = ({
         };
 
         if (formatting?.number && isNumericFormat(formatting.number)) {
+          // Prefix starting with '-' causes problems, add a leading space
+          if (formatting.number.prefix && formatting.number.prefix[0] === '-') {
+            formatting.number.prefix = ` ${formatting.number.prefix}`;
+          }
+
           return (
             <NumericFormat
               {...commonProps}
@@ -103,6 +144,13 @@ export const TextField = ({
               data-testid={`${id}-formatted-number-${variant}`}
               onValueChange={handleNumberFormatChange}
               valueIsNumericString={true}
+              onKeyDown={(e) =>
+                numericKeyDown(
+                  e,
+                  (formatting.number as NumericFormatProps).prefix,
+                  (formatting.number as NumericFormatProps).suffix,
+                )
+              }
             />
           );
         } else if (formatting?.number && isPatternFormat(formatting.number)) {

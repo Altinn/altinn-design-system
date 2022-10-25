@@ -22,7 +22,7 @@ __metadata:
     "@radix-ui/react-popover": ^1.0.0
     "@react-hookz/web": ^15.0.1
     "@rollup/plugin-commonjs": 23.0.2
-    "@rollup/plugin-image": 2.1.1
+    "@rollup/plugin-image": 3.0.1
     "@rollup/plugin-json": 4.1.0
     "@rollup/plugin-node-resolve": 14.1.0
     "@rollup/plugin-typescript": 8.5.0
@@ -3008,15 +3008,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-image@npm:2.1.1":
-  version: 2.1.1
-  resolution: "@rollup/plugin-image@npm:2.1.1"
+"@rollup/plugin-image@npm:3.0.1":
+  version: 3.0.1
+  resolution: "@rollup/plugin-image@npm:3.0.1"
   dependencies:
-    "@rollup/pluginutils": ^3.1.0
-    mini-svg-data-uri: ^1.2.3
+    "@rollup/pluginutils": ^5.0.1
+    mini-svg-data-uri: ^1.4.4
   peerDependencies:
-    rollup: ^1.20.0 || ^2.0.0
-  checksum: a629c8f22233ca159c23655fdbc3449dab3c939372178ed4462fc9c525cc4ecd8b11fae359eb94be4f769d26f48b85fb18eb16ce1fbc33ed16b6a7c1f84391f6
+    rollup: ^1.20.0||^2.0.0||^3.0.0
+  peerDependenciesMeta:
+    rollup:
+      optional: true
+  checksum: a48e35f482189d27c608fb9ccc69128a70210cd3fa3ddcfa249fd99a337c9518bfd8bfce9da97cf4ee8c37833bdbfde76806603628036af79e4ea1d60c2e49f4
   languageName: node
   linkType: hard
 
@@ -13695,16 +13698,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"magic-string@npm:^0.26.1":
-  version: 0.26.3
-  resolution: "magic-string@npm:0.26.3"
-  dependencies:
-    sourcemap-codec: ^1.4.8
-  checksum: e72c9b3d90ccbde088acc5937109f73fa4be8b6a2c2ea9bf9c3c01974f1ebf09842259a74ff2ba4081008a7d49941d883cfef8c460e6c33a6eb564b58482b750
-  languageName: node
-  linkType: hard
-
-"magic-string@npm:^0.26.6":
+"magic-string@npm:^0.26.4, magic-string@npm:^0.26.6":
   version: 0.26.7
   resolution: "magic-string@npm:0.26.7"
   dependencies:
@@ -14120,7 +14114,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mini-svg-data-uri@npm:^1.2.3":
+"mini-svg-data-uri@npm:^1.4.4":
   version: 1.4.4
   resolution: "mini-svg-data-uri@npm:1.4.4"
   bin:

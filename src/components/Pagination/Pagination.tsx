@@ -54,7 +54,10 @@ export const Pagination = ({
         ? numberOfRows
         : rowsPerPage * (currentPage + 1);
     return (
-      <p style={{ marginRight: '64px', marginBottom: '0px' }}>
+      <p
+        style={{ marginRight: '64px', marginBottom: '0px' }}
+        data-testid='description-text'
+      >
         {`${firstRowNumber}-${lastRowNumber} ${pageDescriptionText} ${numberOfRows}`}
       </p>
     );
@@ -91,6 +94,7 @@ export const Pagination = ({
             setCurrentPage(0);
           }
         }}
+        data-testid='first-page-icon'
       />
       <NavigateBeforeIcon
         tabIndex={currentPage !== 0 ? 0 : undefined}

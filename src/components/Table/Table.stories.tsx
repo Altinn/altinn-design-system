@@ -166,7 +166,6 @@ const Template: ComponentStory<typeof Table> = (args) => {
       <TableHeader>
         <TableRow>
           <TableCell
-            sortable={true}
             onChange={handleSortChange}
             id={1}
             sortDirecton={
@@ -178,7 +177,6 @@ const Template: ComponentStory<typeof Table> = (args) => {
             Søknadsnr.
           </TableCell>
           <TableCell
-            sortable={true}
             id={2}
             onChange={handleSortChange}
             sortDirecton={

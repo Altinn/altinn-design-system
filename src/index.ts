@@ -1,3 +1,3 @@
 export * from './components';
 export { tokens, jsonTokens } from './DesignTokens';
-export * from './utils';
+export { formatNumericText } from './utils';

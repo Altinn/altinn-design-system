@@ -1,1 +1,0 @@
-export { NumericText } from './NumericText';

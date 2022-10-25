@@ -1,10 +1,13 @@
 import { render as renderRtl, screen } from '@testing-library/react';
 import React from 'react';
+import type {
+  NumericFormatProps,
+  PatternFormatProps,
+} from 'react-number-format';
 
-import type { NumericTextProps } from './NumericText';
-import { NumericText } from './NumericText';
+import { formatNumericText } from './numberFormat';
 
-describe('NumericText', () => {
+describe('numericFormat', () => {
   it('should render as NumericFormat if format is of type NumericFormatProps', () => {
     render({
       text: '12345.6789',
@@ -39,11 +42,11 @@ describe('NumericText', () => {
   });
 });
 
-const render = (props: Partial<NumericTextProps> = {}) => {
-  const allProps = {
-    id: 'id',
-    ...props,
-  } as NumericTextProps;
+interface FormatNumericTextProps {
+  text: string;
+  format?: NumericFormatProps | PatternFormatProps;
+}
 
-  return renderRtl(<NumericText {...allProps} />);
+const render = (props: FormatNumericTextProps) => {
+  return renderRtl(<span>{formatNumericText(props.text, props.format)}</span>);
 };

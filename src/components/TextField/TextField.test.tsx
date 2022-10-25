@@ -142,6 +142,142 @@ describe('TextField', () => {
       expect(screen.getByDisplayValue('$12 345')).toBeInTheDocument();
       expect(handleChange).not.toHaveBeenCalled();
     });
+
+    it('should handle backspace', async () => {
+      let testValue;
+      const handleChange = jest.fn(
+        (event: React.ChangeEvent<HTMLInputElement>) => {
+          testValue = event.target.value;
+        },
+      );
+
+      render({
+        onChange: handleChange,
+        value: '123',
+        formatting: { number: { suffix: ' 000 NOK', thousandSeparator: ' ' } },
+      });
+
+      expect(screen.getByDisplayValue('123 000 NOK')).toBeInTheDocument();
+
+      const element = screen.getByRole('textbox');
+      await user.click(element);
+      expect(element).toHaveFocus();
+
+      await act(async () => {
+        await user.keyboard('{Backspace}{Backspace}');
+      });
+
+      expect(screen.getByDisplayValue('1 000 NOK')).toBeInTheDocument();
+      expect(handleChange).toHaveBeenCalledTimes(2);
+      expect(testValue).toBe('1');
+
+      await act(async () => {
+        await user.keyboard('{Backspace}');
+      });
+
+      expect(handleChange).toHaveBeenCalledTimes(3);
+      expect(testValue).toBe('');
+    });
+
+    it('should handle negative numbers', async () => {
+      let testValue;
+      const handleChange = jest.fn(
+        (event: React.ChangeEvent<HTMLInputElement>) => {
+          testValue = event.target.value;
+        },
+      );
+
+      render({
+        onChange: handleChange,
+        value: '',
+        formatting: { number: { suffix: ' 000 NOK', thousandSeparator: ' ' } },
+      });
+
+      const element = screen.getByRole('textbox');
+      await user.click(element);
+      expect(element).toHaveFocus();
+
+      await act(async () => {
+        await user.keyboard('-123');
+      });
+
+      expect(screen.getByDisplayValue('-123 000 NOK')).toBeInTheDocument();
+      expect(handleChange).toHaveBeenCalledTimes(4);
+      expect(testValue).toBe('-123');
+
+      await act(async () => {
+        await user.keyboard('-');
+      });
+
+      expect(screen.getByDisplayValue('123 000 NOK')).toBeInTheDocument();
+      expect(handleChange).toHaveBeenCalledTimes(5);
+      expect(testValue).toBe('123');
+    });
+
+    it('should handle "-" in prefix', async () => {
+      let testValue;
+      const handleChange = jest.fn(
+        (event: React.ChangeEvent<HTMLInputElement>) => {
+          testValue = event.target.value;
+        },
+      );
+
+      render({
+        onChange: handleChange,
+        value: '',
+        formatting: { number: { prefix: '- 0 ' } },
+      });
+
+      const element = screen.getByRole('textbox');
+      await user.click(element);
+      expect(element).toHaveFocus();
+
+      await act(async () => {
+        await user.keyboard('1{Backspace}');
+      });
+
+      expect(handleChange).toHaveBeenCalledTimes(2);
+      expect(testValue).toBe('');
+    });
+
+    it('should handle zeros in suffix (v4 & v5 bug)', async () => {
+      let testValue;
+      const handleChange = jest.fn(
+        (event: React.ChangeEvent<HTMLInputElement>) => {
+          testValue = event.target.value;
+        },
+      );
+
+      render({
+        onChange: handleChange,
+        value: '123',
+        formatting: { number: { suffix: ' 000 NOK', thousandSeparator: ' ' } },
+      });
+
+      expect(screen.getByDisplayValue('123 000 NOK')).toBeInTheDocument();
+
+      const element: HTMLInputElement = screen.getByRole('textbox');
+      await user.click(element);
+      expect(element).toHaveFocus();
+
+      element.setSelectionRange(2, 4); // Select '3 ' (v4 bug)
+      await act(async () => {
+        await user.keyboard('5');
+      });
+
+      expect(screen.getByDisplayValue('125 000 NOK')).toBeInTheDocument();
+      expect(handleChange).toHaveBeenCalledTimes(1);
+      expect(testValue).toBe('125');
+
+      element.setSelectionRange(8, 11); // Select 'NOK' (v5 bug)
+      await act(async () => {
+        await user.keyboard('8');
+      });
+
+      expect(screen.getByDisplayValue('1 258 000 NOK')).toBeInTheDocument();
+      expect(handleChange).toHaveBeenCalledTimes(2);
+      expect(testValue).toBe('1258');
+    });
   });
 });
 

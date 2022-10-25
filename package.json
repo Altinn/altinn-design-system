@@ -28,7 +28,7 @@
     "@react-hookz/web": "^16.0.0",
     "leaflet": "^1.8.0",
     "react-leaflet": "^4.0.1",
-    "react-number-format": "^4.9.3"
+    "react-number-format": "^5.0.1"
   },
   "resolutions": {
     "@storybook/react/webpack": "^5"

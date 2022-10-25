@@ -8,6 +8,8 @@ import type {
 } from 'react-number-format';
 import { NumericFormat, PatternFormat } from 'react-number-format';
 
+import { isNumericFormat, isPatternFormat } from '@/utils';
+
 import { InputWrapper } from '../_InputWrapper';
 import type { ReadOnlyVariant } from '../_InputWrapper';
 
@@ -26,18 +28,6 @@ export interface TextFieldProps
 export interface TextFieldFormatting {
   number?: NumericFormatProps | PatternFormatProps;
   align?: 'right' | 'center' | 'left';
-}
-
-function isPatternFormat(
-  numberFormat: NumericFormatProps | PatternFormatProps,
-): numberFormat is PatternFormatProps {
-  return (numberFormat as PatternFormatProps).format !== undefined;
-}
-
-function isNumericFormat(
-  numberFormat: NumericFormatProps | PatternFormatProps,
-): numberFormat is NumericFormatProps {
-  return (numberFormat as PatternFormatProps).format === undefined;
 }
 
 interface ReplaceTargetValueWithUnformattedValueProps {

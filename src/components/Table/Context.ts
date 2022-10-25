@@ -10,7 +10,6 @@ export enum Variant {
 
 export interface ChangeProps {
   selectedValue: string;
-  idCell: number;
 }
 export interface SortProps {
   idCell: number;

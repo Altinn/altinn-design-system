@@ -160,7 +160,7 @@ const Template: ComponentStory<typeof Table> = (args) => {
   return (
     <Table
       selectRows={args.selectRows}
-      onChange={() => handleChange}
+      onChange={handleChange}
       selectedValue={selected}
     >
       <TableHeader>

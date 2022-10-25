@@ -9,10 +9,10 @@ import { Pagination } from '../Pagination';
 
 import { Table } from './Table';
 import { TableHeader } from './TableHeader';
-import { TableCell } from './TableCell';
+import { SortDirection, TableCell } from './TableCell';
 import { TableRow } from './TableRow';
 import { TableBody } from './TableBody';
-import type { ChangeProps } from './Context';
+import type { ChangeProps, SortProps } from './Context';
 import classes from './Table.stories.module.css';
 import { TableFooter } from './TableFooter';
 const figmaLink = ''; // TODO: Add figma link
@@ -118,21 +118,36 @@ const rows = [
     'dnb',
   ),
 ];
+
 const Template: ComponentStory<typeof Table> = (args) => {
   const [selected, setSelected] = useState('');
-  const [selectedSort, setSelectedSort] = useState('');
+  const [selectedSort, setSelectedSort] = useState({
+    idCell: 0,
+    sortDirection: SortDirection.NotActive,
+  });
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [page, setPage] = useState(0);
 
   const handleChange = ({ selectedValue }: ChangeProps) => {
     setSelected(selectedValue);
   };
-  const handleSortChange = ({
-    selectedValue,
-    selectedSortType,
-  }: ChangeProps) => {
-    setSelectedSort(selectedValue);
-    //apikall for å sortere
+  const handleSortChange = ({ idCell, previousSortDirection }: SortProps) => {
+    if (previousSortDirection === SortDirection.Ascending) {
+      setSelectedSort({
+        idCell: idCell,
+        sortDirection: SortDirection.Descending,
+      });
+    } else if (previousSortDirection === SortDirection.Descending) {
+      setSelectedSort({
+        idCell: idCell,
+        sortDirection: SortDirection.Ascending,
+      });
+    } else {
+      setSelectedSort({
+        idCell: idCell,
+        sortDirection: SortDirection.Ascending,
+      });
+    }
   };
 
   const handleChangeRowsPerPage = (
@@ -149,16 +164,26 @@ const Template: ComponentStory<typeof Table> = (args) => {
       selectedValue={selected}
     >
       <TableHeader>
-        <TableRow selectSort={selectedSort}>
+        <TableRow>
           <TableCell
-            sortable={true}
             onChange={handleSortChange}
+            id={1}
+            sortDirecton={
+              selectedSort.idCell === 1
+                ? selectedSort.sortDirection
+                : SortDirection.NotActive
+            }
           >
             Søknadsnr.
           </TableCell>
           <TableCell
-            sortable={true}
+            id={2}
             onChange={handleSortChange}
+            sortDirecton={
+              selectedSort.idCell === 2
+                ? selectedSort.sortDirection
+                : SortDirection.NotActive
+            }
           >
             Produkt
           </TableCell>

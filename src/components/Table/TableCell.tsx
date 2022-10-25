@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import cn from 'classnames';
 
 import classes from './TableCell.module.css';
-import type { ChangeHandler } from './Context';
-import { useSortContext, useTableRowTypeContext, Variant } from './Context';
+import type { SortHandler } from './Context';
+import { useTableRowTypeContext, Variant } from './Context';
 import { ReactComponent as SortIcon } from './sort_arrow.svg';
 
 export interface TableCellProps {
@@ -14,35 +14,33 @@ export interface TableCellProps {
   src?: string;
   alt?: string;
   sortable?: boolean;
-  onChange?: ChangeHandler;
+  onChange?: SortHandler;
+  sortDirecton?: SortDirection;
+  id?: number;
+}
+export enum SortDirection {
+  Descending = 'desc',
+  Ascending = 'asc',
+  NotSortable = 'notSortable',
+  NotActive = 'notActive',
 }
 
 export const TableCell = ({
   children,
   colSpan = 1,
   variant,
-  sortable,
   onChange,
+  sortDirecton = SortDirection.NotSortable,
+  id,
 }: TableCellProps) => {
-  const { selectSort } = useSortContext();
   const { variantStandard } = useTableRowTypeContext();
-  const [sortType, setSortType] = useState('');
 
   const handleChange = () => {
-    if (onChange != undefined && children != undefined) {
-      if (sortType === 'asc') {
-        onChange({
-          selectedValue: children?.toString(),
-          selectedSortType: sortType,
-        });
-        setSortType('desc');
-      } else if (sortType === '' || sortType === 'desc') {
-        onChange({
-          selectedValue: children?.toString(),
-          selectedSortType: sortType,
-        });
-        setSortType('asc');
-      }
+    if (onChange != undefined && id != undefined && sortDirecton != undefined) {
+      onChange({
+        idCell: id,
+        previousSortDirection: sortDirecton,
+      });
     }
   };
   return (
@@ -56,23 +54,25 @@ export const TableCell = ({
         >
           <div
             className={
-              sortable
+              sortDirecton != SortDirection.NotSortable
                 ? cn(classes['container-sortable'])
                 : cn(classes['container'])
             }
             onClick={() => handleChange()}
             onKeyUp={() => handleChange()}
-            role={sortable ? 'button' : undefined}
-            tabIndex={sortable ? 0 : undefined}
+            role={
+              sortDirecton != SortDirection.NotSortable ? 'button' : undefined
+            }
+            tabIndex={sortDirecton != SortDirection.NotSortable ? 0 : undefined}
           >
             <div className={cn(classes['input'])}>{children}</div>
-            {sortable && (
+            {sortDirecton != SortDirection.NotSortable && (
               <SortIcon
                 className={cn(classes['icon'], {
                   [classes['icon-asc']]:
-                    sortType === 'asc' && selectSort === children?.toString(),
+                    sortDirecton === SortDirection.Ascending,
                   [classes['icon-desc']]:
-                    sortType === 'desc' && selectSort === children?.toString(),
+                    sortDirecton === SortDirection.Descending,
                 })}
               ></SortIcon>
             )}

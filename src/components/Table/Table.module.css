@@ -1,0 +1,13 @@
+Table {
+  /* #FFFFFF */
+
+  /* Inside auto layout */
+  background-color: #ffffff;
+  flex: none;
+  order: 3;
+  align-self: stretch;
+  flex-grow: 0;
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 100%;
+}

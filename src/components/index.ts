@@ -17,8 +17,18 @@ export { SearchField } from './SearchField';
 export { ErrorMessage } from './ErrorMessage';
 export type { Location, MapLayer } from './Map';
 export { Map } from './Map';
+export type { ChangeProps } from './Table';
+export {
+  Table,
+  TableBody,
+  TableCell,
+  TableHeader,
+  TableRow,
+  TableFooter,
+} from './Table';
 export { Checkbox } from './Checkbox';
 export { TextArea } from './TextArea';
 export type { IconVariant, ReadOnlyVariant } from './_InputWrapper';
 export { CheckboxGroup } from './CheckboxGroup';
 export { FieldSet, FieldSetSize } from './FieldSet';
+export { Pagination } from './Pagination';

@@ -19,6 +19,7 @@ export const NumericText = ({
   ...rest
 }: NumericTextProps) => (
   <span
+    id={id}
     {...rest}
     data-testid={`${id}-formatted-numeric-text`}
   >

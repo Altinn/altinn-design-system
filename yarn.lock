@@ -20,7 +20,7 @@ __metadata:
     "@babel/core": 7.19.6
     "@mdx-js/react": 2.1.5
     "@radix-ui/react-popover": ^1.0.0
-    "@react-hookz/web": ^15.0.1
+    "@react-hookz/web": ^16.0.0
     "@rollup/plugin-commonjs": 23.0.2
     "@rollup/plugin-image": 3.0.1
     "@rollup/plugin-json": 4.1.0
@@ -2962,9 +2962,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-hookz/web@npm:^15.0.1":
-  version: 15.1.0
-  resolution: "@react-hookz/web@npm:15.1.0"
+"@react-hookz/web@npm:^16.0.0":
+  version: 16.1.0
+  resolution: "@react-hookz/web@npm:16.1.0"
   dependencies:
     "@react-hookz/deep-equal": ^1.0.3
   peerDependencies:
@@ -2974,7 +2974,7 @@ __metadata:
   peerDependenciesMeta:
     js-cookie:
       optional: true
-  checksum: 74854629a0e86d3035f8fec97a618c79c6d8ae5a71513e6a29b717c5142109e2ec33eea835b9250686d27e9fdb66e7ccf72c7e89edf9300596fac450821130cc
+  checksum: 5eb92b94d673e6252b380e1541696895875eefa373dcf94ec809390a3de221572f31280dff1c43cad56db5b59df2eaf7fb9c478d0300614b067ecf0ea7c30163
   languageName: node
   linkType: hard
 

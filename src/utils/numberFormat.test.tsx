@@ -7,7 +7,7 @@ import type {
 
 import { formatNumericText } from './numberFormat';
 
-describe('numericFormat', () => {
+describe('numberFormat', () => {
   it('should render as NumericFormat if format is of type NumericFormatProps', () => {
     render({
       text: '12345.6789',

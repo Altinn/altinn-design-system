@@ -21,16 +21,16 @@ export interface TableCellProps {
 export enum SortDirection {
   Descending = 'desc',
   Ascending = 'asc',
-  Off = 'off',
+  NotSortable = 'notSortable',
+  NotActive = 'notActive',
 }
 
 export const TableCell = ({
   children,
   colSpan = 1,
   variant,
-  sortable,
   onChange,
-  sortDirecton = SortDirection.Off,
+  sortDirecton = SortDirection.NotSortable,
   id,
 }: TableCellProps) => {
   const { variantStandard } = useTableRowTypeContext();
@@ -54,17 +54,19 @@ export const TableCell = ({
         >
           <div
             className={
-              sortable
+              sortDirecton != SortDirection.NotSortable
                 ? cn(classes['container-sortable'])
                 : cn(classes['container'])
             }
             onClick={() => handleChange()}
             onKeyUp={() => handleChange()}
-            role={sortable ? 'button' : undefined}
-            tabIndex={sortable ? 0 : undefined}
+            role={
+              sortDirecton != SortDirection.NotSortable ? 'button' : undefined
+            }
+            tabIndex={sortDirecton != SortDirection.NotSortable ? 0 : undefined}
           >
             <div className={cn(classes['input'])}>{children}</div>
-            {sortable && (
+            {sortDirecton != SortDirection.NotSortable && (
               <SortIcon
                 className={cn(classes['icon'], {
                   [classes['icon-asc']]:

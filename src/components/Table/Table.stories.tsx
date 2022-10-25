@@ -123,7 +123,7 @@ const Template: ComponentStory<typeof Table> = (args) => {
   const [selected, setSelected] = useState('');
   const [selectedSort, setSelectedSort] = useState({
     idCell: 0,
-    sortDirection: SortDirection.Off,
+    sortDirection: SortDirection.NotActive,
   });
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [page, setPage] = useState(0);
@@ -172,7 +172,7 @@ const Template: ComponentStory<typeof Table> = (args) => {
             sortDirecton={
               selectedSort.idCell === 1
                 ? selectedSort.sortDirection
-                : SortDirection.Off
+                : SortDirection.NotActive
             }
           >
             Søknadsnr.
@@ -184,7 +184,7 @@ const Template: ComponentStory<typeof Table> = (args) => {
             sortDirecton={
               selectedSort.idCell === 2
                 ? selectedSort.sortDirection
-                : SortDirection.Off
+                : SortDirection.NotActive
             }
           >
             Produkt

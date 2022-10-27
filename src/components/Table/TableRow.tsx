@@ -52,7 +52,7 @@ export const TableRow = ({
         tabIndex={
           variantStandard === Variant.Body && selectRows ? 0 : undefined
         }
-        onKeyDown={(event) => handleEnter(event)}
+        onKeyUp={(event) => handleEnter(event)}
       >
         {children}
       </tr>

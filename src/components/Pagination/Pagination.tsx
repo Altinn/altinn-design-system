@@ -31,8 +31,11 @@ export const Pagination = ({
   const [numberOfPages, setNumberOfPages] = useState(1);
 
   useEffect(() => {
-    if (numberOfRows < rowsPerPage) setNumberOfPages(1);
-    else setNumberOfPages(Math.ceil(numberOfRows / rowsPerPage));
+    if (numberOfRows < rowsPerPage) {
+      setNumberOfPages(1);
+    } else {
+      setNumberOfPages(Math.ceil(numberOfRows / rowsPerPage));
+    }
   }, [rowsPerPage, numberOfRows]);
 
   const increaseCurrentPage = () => {
@@ -54,20 +57,18 @@ export const Pagination = ({
         ? numberOfRows
         : rowsPerPage * (currentPage + 1);
     return (
-      <p
-        style={{ marginRight: '64px', marginBottom: '0px' }}
+      <span
+        style={{ marginRight: '64px' }}
         data-testid='description-text'
       >
         {`${firstRowNumber}-${lastRowNumber} ${pageDescriptionText} ${numberOfRows}`}
-      </p>
+      </span>
     );
   };
 
   return (
     <div className={cn(classes['pagination-wrapper'])}>
-      <p style={{ marginRight: '26px', marginBottom: '0px' }}>
-        {rowsPerPageText}
-      </p>
+      <span style={{ marginRight: '26px' }}>{rowsPerPageText}</span>
       <select
         style={{ marginRight: '25px' }}
         value={rowsPerPage}
@@ -89,7 +90,7 @@ export const Pagination = ({
           [classes['pagination-icon--disabled']]: currentPage === 0,
         })}
         onClick={() => setCurrentPage(0)}
-        onKeyDown={(event) => {
+        onKeyUp={(event) => {
           if (event.key === 'Enter' || event.key === ' ') {
             setCurrentPage(0);
           }
@@ -102,7 +103,7 @@ export const Pagination = ({
           [classes['pagination-icon--disabled']]: currentPage === 0,
         })}
         onClick={() => decreaseCurrentPage()}
-        onKeyDown={(event) => {
+        onKeyUp={(event) => {
           if (event.key === 'Enter' || event.key === ' ') {
             decreaseCurrentPage();
           }
@@ -115,7 +116,7 @@ export const Pagination = ({
             currentPage === numberOfPages - 1,
         })}
         onClick={() => increaseCurrentPage()}
-        onKeyDown={(event) => {
+        onKeyUp={(event) => {
           if (event.key === 'Enter' || event.key === ' ') {
             increaseCurrentPage();
           }
@@ -128,7 +129,7 @@ export const Pagination = ({
             currentPage === numberOfPages - 1,
         })}
         onClick={() => setCurrentPage(numberOfPages - 1)}
-        onKeyDown={(event) => {
+        onKeyUp={(event) => {
           if (event.key === 'Enter' || event.key === ' ') {
             setCurrentPage(numberOfPages - 1);
           }

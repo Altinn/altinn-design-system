@@ -59,7 +59,11 @@ export const TableCell = ({
                 : cn(classes['container'])
             }
             onClick={() => handleChange()}
-            onKeyUp={() => handleChange()}
+            onKeyUp={(event) => {
+              if (event.key === 'Enter' || event.key === ' ') {
+                handleChange();
+              }
+            }}
             role={
               sortDirecton != SortDirection.NotSortable ? 'button' : undefined
             }

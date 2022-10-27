@@ -1,0 +1,16 @@
+.TableRow {
+  width: 1056px;
+  height: 60px;
+}
+
+.table-row--selected {
+  background-color: #e0daf7;
+  border-top: 1px solid #dde3e5;
+  border-bottom: 1px solid #dde3e5;
+  border-left: 2px solid #011728;
+}
+
+.table-row--body:hover {
+  background-color: #e3f7ff;
+  cursor: pointer;
+}

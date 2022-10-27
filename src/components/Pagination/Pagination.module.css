@@ -1,0 +1,22 @@
+.pagination-icon {
+  fill: rgb(0, 0, 0);
+}
+
+.pagination-icon:not(:last-child) {
+  margin-right: 20px;
+}
+
+.pagination-icon:hover {
+  cursor: pointer;
+}
+
+.pagination-icon--disabled {
+  fill: rgba(0, 0, 0, 0.4);
+  cursor: default !important;
+}
+
+.pagination-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}

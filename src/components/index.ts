@@ -22,3 +22,4 @@ export { TextArea } from './TextArea';
 export type { IconVariant, ReadOnlyVariant } from './_InputWrapper';
 export { CheckboxGroup } from './CheckboxGroup';
 export { FieldSet, FieldSetSize } from './FieldSet';
+export { Select } from './Select';

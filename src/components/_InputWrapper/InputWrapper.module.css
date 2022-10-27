@@ -5,6 +5,7 @@
   --icon-background: transparent;
   background: var(--background);
   border-width: var(--component-input-border_width-default);
+  border-radius: var(--interactive_components-border_radius-normal);
   border-style: solid;
   box-sizing: border-box;
   display: flex;

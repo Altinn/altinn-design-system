@@ -23,7 +23,7 @@
     "add-component": "node scripts/add-component.mjs"
   },
   "dependencies": {
-    "@altinn/figma-design-tokens": "^4.1.0",
+    "@altinn/figma-design-tokens": "^4.2.0",
     "@radix-ui/react-popover": "^1.0.0",
     "@react-hookz/web": "^16.0.0",
     "leaflet": "^1.8.0",

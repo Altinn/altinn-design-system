@@ -85,7 +85,7 @@ __metadata:
     react: 18.2.0
     react-dom: 18.2.0
     react-leaflet: ^4.0.1
-    react-number-format: ^5.0.1
+    react-number-format: ^5.1.1
     rollup: 2.79.1
     rollup-plugin-dts: 4.2.3
     rollup-plugin-peer-deps-external: 2.2.4
@@ -16508,15 +16508,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-number-format@npm:^5.0.1":
-  version: 5.0.1
-  resolution: "react-number-format@npm:5.0.1"
+"react-number-format@npm:^5.1.1":
+  version: 5.1.1
+  resolution: "react-number-format@npm:5.1.1"
   dependencies:
     prop-types: ^15.7.2
   peerDependencies:
     react: ^0.14 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^18.0.0
     react-dom: ^0.14 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^18.0.0
-  checksum: 140c3bcf57b434e25ded93e0191dfaead11d767d7d54909ca163f49bc5837a975b85baf803932e17388d3a674cf1b52cf1d1b4f7c9b8c4f64515c624421c4939
+  checksum: d8f95c3a61f3a017f70459b68de4f2762c6c32fcd3996c3cee2d6f8d5c23e7b3a17de111c54d555e1a4a2a2bd0f98b6e708140146ece3a1db051f561ad19909d
   languageName: node
   linkType: hard
 

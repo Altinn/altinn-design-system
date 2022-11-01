@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@altinn/figma-design-tokens": "^4.1.0",
+    "@navikt/ds-icons": "^1.3.38",
     "@radix-ui/react-popover": "^1.0.0",
     "@react-hookz/web": "^15.0.1",
     "leaflet": "^1.8.0",

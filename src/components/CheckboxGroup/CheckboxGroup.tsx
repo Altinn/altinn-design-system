@@ -1,8 +1,8 @@
 import React, { useEffect, useReducer } from 'react';
 import cn from 'classnames';
 
-import { Checkbox, ErrorMessage } from '@/components';
-import type { CheckboxProps } from '@/components/Checkbox/Checkbox';
+import { Checkbox, ErrorMessage } from '../';
+import type { CheckboxProps } from '../Checkbox/Checkbox';
 
 import classes from './CheckboxGroup.module.css';
 

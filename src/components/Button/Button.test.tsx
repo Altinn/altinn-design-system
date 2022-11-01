@@ -3,7 +3,7 @@ import { render as renderRtl, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import type { ButtonProps } from './Button';
-import { Button, ButtonVariant } from './Button';
+import { ButtonColor, ButtonSize, Button, ButtonVariant } from './Button';
 
 const user = userEvent.setup();
 
@@ -35,7 +35,12 @@ describe('Button', () => {
   });
 
   it('should render as disabled when disabled is true regardless of variant', () => {
-    render({ variant: ButtonVariant.Secondary, disabled: true });
+    render({
+      variant: ButtonVariant.Outline,
+      color: ButtonColor.Primary,
+      size: ButtonSize.Small,
+      disabled: true,
+    });
 
     const button = screen.getByRole('button');
 
@@ -45,7 +50,7 @@ describe('Button', () => {
   it('should not call onClick when disabled', () => {
     const fn = jest.fn();
     render({
-      variant: ButtonVariant.Secondary,
+      variant: ButtonVariant.Outline,
       disabled: true,
       onClick: fn,
     });
@@ -72,6 +77,9 @@ describe('Button', () => {
 
 const render = (props: Partial<ButtonProps> = {}) => {
   const allProps = {
+    variant: ButtonVariant.Filled,
+    color: ButtonColor.Primary,
+    size: ButtonSize.Small,
     ...props,
   };
 

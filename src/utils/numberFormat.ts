@@ -2,7 +2,7 @@ import type {
   NumericFormatProps,
   PatternFormatProps,
 } from 'react-number-format';
-import { numericFormatter, patterFormatter } from 'react-number-format';
+import { numericFormatter, patternFormatter } from 'react-number-format';
 
 export const isPatternFormat = (
   numberFormat: NumericFormatProps | PatternFormatProps,
@@ -23,7 +23,7 @@ export const formatNumericText = (
   if (format && isNumericFormat(format)) {
     return numericFormatter(text, format);
   } else if (format && isPatternFormat(format)) {
-    return patterFormatter(text, format);
+    return patternFormatter(text, format);
   } else {
     return text;
   }

@@ -5,8 +5,7 @@ import { useState } from '@storybook/addons';
 
 import { StoryPage } from '@sb/StoryPage';
 
-import { Button, ButtonVariant } from '../Button';
-import { ButtonColor, ButtonSize } from '../Button/Button';
+import { Button, ButtonVariant, ButtonColor, ButtonSize } from '../Button';
 
 import { PanelVariant } from './Panel';
 import { PopoverPanel } from './PopoverPanel';

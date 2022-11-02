@@ -64,7 +64,7 @@ describe('Button', () => {
     });
   });
 
-  it('should render and icon on the left side of text when given an existing iconName and no iconPlacement', () => {
+  it('should render an icon on the left side of text when given an existing iconName and no iconPlacement', () => {
     render({ iconName: 'Add', children: 'Button text' });
     const icon = screen.getByRole('img');
     expect(
@@ -74,7 +74,7 @@ describe('Button', () => {
     ).toEqual(icon);
   });
 
-  it('should render and icon on the right side of text when given an existing iconName and iconPlacement is right', () => {
+  it('should render an icon on the right side of text when given an existing iconName and iconPlacement is right', () => {
     render({
       iconName: 'Add',
       iconPlacement: 'right',

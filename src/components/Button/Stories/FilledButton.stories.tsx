@@ -4,8 +4,7 @@ import { config } from 'storybook-addon-designs';
 
 import { StoryPage } from '@sb/StoryPage';
 
-import { Button, ButtonVariant } from '..';
-import { ButtonColor } from '../Button';
+import { Button, ButtonVariant, ButtonColor } from '..';
 
 import { ReactComponent as SuccessIcon } from './success.svg';
 

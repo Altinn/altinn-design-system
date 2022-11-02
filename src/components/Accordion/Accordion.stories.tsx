@@ -6,8 +6,7 @@ import cn from 'classnames';
 
 import { StoryPage } from '@sb/StoryPage';
 
-import { Button, ButtonVariant } from '../Button';
-import { ButtonColor, ButtonSize } from '../Button/Button';
+import { Button, ButtonVariant, ButtonColor, ButtonSize } from '../Button';
 
 import { Accordion } from './Accordion';
 import { AccordionHeader } from './AccordionHeader';

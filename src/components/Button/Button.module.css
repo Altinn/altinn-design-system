@@ -15,8 +15,14 @@
 
 .button:focus-visible {
   outline: var(--interactive_components-colors-focus_outline) solid
-    var(--component-button-border_width-default);
-  outline-offset: var(--component-button-border_width-default);
+    var(--border_width-standard);
+  outline-offset: var(--border_width-standard);
+}
+
+.button:focus {
+  outline: var(--interactive_components-colors-focus_outline) solid
+    var(--border_width-standard);
+  outline-offset: var(--border_width-standard);
 }
 
 .button:disabled {
@@ -120,7 +126,7 @@
 }
 
 .button--filled--danger:not(:disabled):active {
-  background: var(--component-button-filled-danger-color-background-pressed);
+  background: var(--colors-red-800);
 }
 
 /* Outline button colors */
@@ -171,7 +177,7 @@
 .button--outline--success:not(:disabled):hover {
   color: var(--colors-green-800);
   fill: var(--colors-green-800);
-  background: rgba(212, 249, 228, 0.4);
+  background: var(--colors-green-300);
 }
 
 .button--outline--success:not(:disabled):active {
@@ -224,7 +230,7 @@
 }
 
 .button--quiet--secondary:not(:disabled):hover {
-  background: rgba(2, 47, 81, 0.1);
+  background: var(--colors-neutral-400);
 }
 
 .button--quiet--secondary:not(:disabled):active {

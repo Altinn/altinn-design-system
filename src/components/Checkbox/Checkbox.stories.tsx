@@ -128,3 +128,14 @@ LongText.parameters = {
     },
   },
 };
+
+export const WithHiddenLabel = Template.bind({});
+WithHiddenLabel.args = { hideLabel: true };
+WithHiddenLabel.parameters = {
+  docs: {
+    description: {
+      story:
+        "This is a checkbox with the `hiddenLabel` property enabled. Use this in table views and other places where there is no need to have a specific, visible label for the checkbox. If the `label` property is set in this case, it will be made available for accessibility tools through the HTML component's `aria-label` attribute.",
+    },
+  },
+};

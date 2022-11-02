@@ -34,6 +34,60 @@ describe('Button', () => {
     });
   });
 
+  Object.values(ButtonColor).forEach((color) => {
+    it(`should render a button with ${color} classname when color is ${color}`, () => {
+      render({ color });
+      const otherVariants = Object.values(ButtonColor).filter(
+        (c) => c !== color,
+      );
+
+      const button = screen.getByRole('button');
+
+      expect(button.classList.contains(`button--${color}`)).toBe(true);
+      otherVariants.forEach((c) => {
+        expect(button.classList.contains(`button--${c}`)).toBe(false);
+      });
+    });
+  });
+
+  Object.values(ButtonSize).forEach((size) => {
+    it(`should render a button with ${size} classname when size is ${size}`, () => {
+      render({ size });
+      const otherVariants = Object.values(ButtonSize).filter((s) => s !== size);
+
+      const button = screen.getByRole('button');
+
+      expect(button.classList.contains(`button--${size}`)).toBe(true);
+      otherVariants.forEach((s) => {
+        expect(button.classList.contains(`button--${s}`)).toBe(false);
+      });
+    });
+  });
+
+  it('should render and icon on the left side of text when given an existing iconName and no iconPlacement', () => {
+    render({ iconName: 'Add', children: 'Button text' });
+    const icon = screen.getByRole('img');
+    expect(
+      screen.getByRole('button', {
+        name: /button text/i,
+      }).firstChild,
+    ).toEqual(icon);
+  });
+
+  it('should render and icon on the right side of text when given an existing iconName and iconPlacement is right', () => {
+    render({
+      iconName: 'Add',
+      iconPlacement: 'right',
+      children: 'Button text',
+    });
+    const icon = screen.getByRole('img');
+    expect(
+      screen.getByRole('button', {
+        name: /button text/i,
+      }).lastChild,
+    ).toEqual(icon);
+  });
+
   it('should render as disabled when disabled is true regardless of variant', () => {
     render({
       variant: ButtonVariant.Outline,

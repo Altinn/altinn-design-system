@@ -29,9 +29,9 @@ export enum ButtonVariant {
 }
 
 interface ButtonCommonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  size: ButtonSize;
   variant: ButtonVariant;
   color: ButtonColor;
+  size?: ButtonSize;
   iconPlacement?: 'right' | 'left';
 }
 
@@ -57,12 +57,12 @@ const renderIcon = (iconName?: string, iconComponent?: JSX.Element) => {
 
 export const Button = ({
   children,
-  size = ButtonSize.Small,
   color = ButtonColor.Primary,
   variant = ButtonVariant.Filled,
+  size = ButtonSize.Small,
+  iconPlacement = 'left',
   iconName,
   svgIconComponent,
-  iconPlacement = 'left',
   type = 'button',
   ...restHTMLProps
 }: PropsWithChildren<ButtonProps>) => {

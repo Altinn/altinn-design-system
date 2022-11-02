@@ -11,6 +11,7 @@ export interface CheckboxProps {
   description?: string;
   disabled?: boolean;
   error?: boolean;
+  hideLabel?: boolean;
   label?: string;
   name?: string;
   onChange: ChangeEventHandler<HTMLInputElement>;
@@ -24,6 +25,7 @@ export const Checkbox = ({
   description,
   disabled,
   error,
+  hideLabel,
   label,
   name,
   onChange,
@@ -33,6 +35,7 @@ export const Checkbox = ({
   const inputId = checkboxId || 'checkbox-' + randomId;
   const labelId = label ? `${inputId}-label` : undefined;
   const descriptionId = description ? `${inputId}-description` : undefined;
+  const showLabel = label && !hideLabel;
 
   return (
     <label
@@ -50,7 +53,8 @@ export const Checkbox = ({
         <span className={classes['checkbox-wrapper']}>
           <input
             aria-describedby={descriptionId}
-            aria-labelledby={labelId}
+            aria-label={!showLabel ? label : undefined}
+            aria-labelledby={showLabel ? labelId : undefined}
             checked={checked ?? false}
             className={classes.checkbox}
             disabled={disabled}
@@ -64,9 +68,9 @@ export const Checkbox = ({
           </span>
         </span>
       )}
-      {(label || description) && (
+      {(showLabel || description) && (
         <span className={classes['label-and-description']}>
-          {label && (
+          {showLabel && (
             <span
               className={classes.label}
               id={`${inputId}-label`}

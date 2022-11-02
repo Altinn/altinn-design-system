@@ -1,6 +1,7 @@
 # altinn-design-system
 
-Design system v2
+Design system v2  
+[designsystem.altinn.studio/](https://designsystem.altinn.studio/)
 
 ## Getting started
 

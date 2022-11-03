@@ -3,7 +3,7 @@
 
   all: initial; /* reset all styles to default, to avoid style overrides/surprises caused by other css (from Design system v1 f.ex) */
   font-family: inherit;
-  border: 0;
+  border: var(--component-button-border_width-default) solid transparent;
   text-align: center;
   box-sizing: border-box;
   letter-spacing: var(--typography-default-letter-spacing);
@@ -19,10 +19,8 @@
   outline-offset: var(--border_width-standard);
 }
 
-.button:focus {
-  outline: var(--interactive_components-colors-focus_outline) solid
-    var(--border_width-standard);
-  outline-offset: var(--border_width-standard);
+.button:focus:not(:focus-visible) {
+  outline: none;
 }
 
 .button:disabled {
@@ -61,23 +59,32 @@
   gap: var(--component-button-space-gap-large);
 }
 
+.button--full-width {
+  width: 100%;
+}
+
+.button--dashed-border {
+  border-style: dashed;
+}
+
+.button--only-icon {
+  padding: 0.5rem;
+}
+
 .button--filled {
   border-radius: 3px;
   color: var(--component-button-filled-color-text-all);
   fill: var(--component-button-filled-color-text-all);
-  border: var(--component-button-border_width-default) solid transparent;
 }
 
 .button--outline {
   border-radius: 3px;
   background-color: transparent;
-  border: var(--component-button-border_width-default) solid transparent;
 }
 
 .button--quiet {
   border-radius: 50px;
   background-color: transparent;
-  border: var(--component-button-border_width-default) solid transparent;
 }
 
 /* Filled button colors */
@@ -127,6 +134,28 @@
 
 .button--filled--danger:not(:disabled):active {
   background: var(--colors-red-800);
+}
+
+.button--filled--inverted {
+  color: var(--colors-blue-900);
+  fill: var(--colors-blue-900);
+  background: var(--colors-white);
+}
+
+.button--filled--inverted:not(:disabled):hover {
+  color: var(--colors-blue-900);
+  fill: var(--colors-blue-900);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.button--filled--inverted:not(:disabled):active {
+  color: var(--colors-white);
+  fill: var(--colors-white);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.button--filled--inverted:focus-visible {
+  outline-color: var(--colors-white);
 }
 
 /* Outline button colors */
@@ -206,6 +235,27 @@
   background: var(--colors-red-500);
 }
 
+.button--outline--inverted {
+  color: var(--colors-white);
+  fill: var(--colors-white);
+  border-color: var(--colors-white);
+  background: transparent;
+}
+
+.button--outline--inverted:not(:disabled):hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.button--outline--inverted:not(:disabled):active {
+  color: var(--colors-blue-900);
+  fill: var(--colors-blue-900);
+  background: var(--colors-white);
+}
+
+.button--outline--inverted:focus-visible {
+  outline-color: var(--colors-white);
+}
+
 /* Quiet button colors */
 .button--quiet--primary {
   color: var(--component-button-quiet-primary-color-text-default);
@@ -273,6 +323,24 @@
   background: var(--colors-red-800);
 }
 
-.button--only-icon {
-  padding: 0.5rem;
+.button--quiet--inverted {
+  color: var(--colors-white);
+  fill: var(--colors-white);
+  background: transparent;
+}
+
+.button--quiet--inverted:not(:disabled):hover {
+  color: var(--colors-blue-900);
+  fill: var(--colors-blue-900);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.button--quiet--inverted:not(:disabled):active {
+  color: var(--colors-blue-900);
+  fill: var(--colors-blue-900);
+  background: var(--colors-white);
+}
+
+.button--quiet--inverted:focus-visible {
+  outline-color: var(--colors-white);
 }

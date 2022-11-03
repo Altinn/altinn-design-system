@@ -1,9 +1,11 @@
 .button {
   --icon-size: var(--component-button-size-icon-small);
+  --button-vertical-padding: var(--component-button-space-padding-x-small);
 
   all: initial; /* reset all styles to default, to avoid style overrides/surprises caused by other css (from Design system v1 f.ex) */
   font-family: inherit;
   border: var(--component-button-border_width-default) solid transparent;
+  padding: 0 var(--button-vertical-padding);
   text-align: center;
   box-sizing: border-box;
   letter-spacing: var(--typography-default-letter-spacing);
@@ -37,7 +39,7 @@
   height: var(--component-button-size-height-small);
   font-size: var(--font_size-400);
   --icon-size: var(--component-button-size-icon-small);
-  padding: 0 var(--component-button-space-padding-x-small);
+  --button-vertical-padding: var(--component-button-space-padding-x-small);
   gap: var(--component-button-space-gap-small);
 }
 
@@ -46,7 +48,7 @@
   min-width: var(--component-button-size-height-medium);
   font-size: var(--font_size-500);
   --icon-size: var(--component-button-size-icon-medium);
-  padding: 0 var(--component-button-space-padding-x-medium);
+  --button-vertical-padding: var(--component-button-space-padding-x-medium);
   gap: var(--component-button-space-gap-medium);
 }
 
@@ -55,7 +57,7 @@
   min-width: var(--component-button-size-height-large);
   font-size: var(--font_size-700);
   --icon-size: var(--component-button-size-icon-large);
-  padding: 0 var(--component-button-space-padding-x-large);
+  --button-vertical-padding: var(--component-button-space-padding-x-large);
   gap: var(--component-button-space-gap-large);
 }
 
@@ -84,6 +86,7 @@
 
 .button--quiet {
   border-radius: 50px;
+  padding: 0 calc(var(--button-vertical-padding) / 3);
   background-color: transparent;
 }
 

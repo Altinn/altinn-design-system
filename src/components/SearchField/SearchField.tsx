@@ -13,12 +13,14 @@ export const SearchField = ({
   id,
   onChange,
   disabled = false,
+  label,
   ...rest
 }: SearchFieldProps) => {
   return (
     <InputWrapper
       disabled={disabled}
       isSearch={true}
+      label={label}
       inputRenderer={({ className, variant }) => {
         const commonProps = {
           id,

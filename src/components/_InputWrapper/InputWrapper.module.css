@@ -84,3 +84,8 @@
 .InputWrapper__icon--disabled {
   opacity: 60%;
 }
+
+.InputWrapper__label {
+  font-weight: bold;
+  padding: 0;
+}

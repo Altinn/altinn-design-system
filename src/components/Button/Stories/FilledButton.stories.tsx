@@ -42,6 +42,20 @@ export default {
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+const WithinContainerTemplate: ComponentStory<typeof Button> = (args) => (
+  <div
+    style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: '500px',
+      height: '300px',
+      border: 'red solid 5px',
+    }}
+  >
+    <Button {...args} />
+  </div>
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
@@ -131,6 +145,21 @@ SecondaryWithIconNoText.args = {
   iconName: 'Close',
 };
 SecondaryWithIconNoText.parameters = {
+  docs: {
+    description: {
+      story: '', // TODO: add story description, supports markdown
+    },
+  },
+};
+
+export const FullWidth = WithinContainerTemplate.bind({});
+FullWidth.args = {
+  color: ButtonColor.Primary,
+  iconName: 'AddCircle',
+  fullWidth: true,
+  children: `Secondary button`,
+};
+FullWidth.parameters = {
   docs: {
     description: {
       story: '', // TODO: add story description, supports markdown

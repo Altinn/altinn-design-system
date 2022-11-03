@@ -20,6 +20,7 @@ export enum ButtonColor {
   Secondary = 'secondary',
   Success = 'success',
   Danger = 'danger',
+  Inverted = 'inverted',
 }
 
 export enum ButtonVariant {
@@ -32,6 +33,8 @@ interface ButtonCommonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant: ButtonVariant;
   color: ButtonColor;
   size?: ButtonSize;
+  fullWidth?: boolean;
+  dashedBorder?: boolean;
   iconPlacement?: 'right' | 'left';
 }
 
@@ -60,6 +63,8 @@ export const Button = ({
   color = ButtonColor.Primary,
   variant = ButtonVariant.Filled,
   size = ButtonSize.Small,
+  fullWidth = false,
+  dashedBorder = false,
   iconPlacement = 'left',
   iconName,
   svgIconComponent,
@@ -74,6 +79,8 @@ export const Button = ({
         classes[`button--${variant}`],
         classes[`button--${color}`],
         classes[`button--${variant}--${color}`],
+        { [classes['button--full-width']]: fullWidth },
+        { [classes['button--dashed-border']]: dashedBorder },
         { [classes[`button--only-icon`]]: !children && iconName },
       )}
       type={type}

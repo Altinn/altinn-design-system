@@ -42,6 +42,20 @@ export default {
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+const WithinContainerTemplate: ComponentStory<typeof Button> = (args) => (
+  <div
+    style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: '500px',
+      height: '300px',
+      border: 'red solid 5px',
+    }}
+  >
+    <Button {...args} />
+  </div>
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
@@ -95,7 +109,7 @@ Danger.parameters = {
   },
 };
 
-export const SuccessWithIcon = Template.bind({});
+export const SuccessWithIcon = WithinContainerTemplate.bind({});
 SuccessWithIcon.args = {
   color: ButtonColor.Success,
   iconName: 'Success',
@@ -131,6 +145,22 @@ SecondaryWithIconNoText.args = {
   iconName: 'Close',
 };
 SecondaryWithIconNoText.parameters = {
+  docs: {
+    description: {
+      story: '', // TODO: add story description, supports markdown
+    },
+  },
+};
+
+export const FullWidthAndDashedBorder = WithinContainerTemplate.bind({});
+FullWidthAndDashedBorder.args = {
+  color: ButtonColor.Primary,
+  iconName: 'AddCircle',
+  fullWidth: true,
+  dashedBorder: true,
+  children: `Secondary button`,
+};
+FullWidthAndDashedBorder.parameters = {
   docs: {
     description: {
       story: '', // TODO: add story description, supports markdown

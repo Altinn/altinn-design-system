@@ -34,6 +34,7 @@ export default [
       /react-number-format/,
       /react-leaflet/,
       /leaflet/,
+      /@navikt\/ds-icons/,
     ],
     plugins: [
       peerDepsExternal(),

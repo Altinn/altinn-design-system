@@ -5,7 +5,7 @@ import { useState } from '@storybook/addons';
 
 import { StoryPage } from '@sb/StoryPage';
 
-import { Button } from '../Button';
+import { Button, ButtonVariant, ButtonColor, ButtonSize } from '../Button';
 
 import { PanelVariant } from './Panel';
 import { PopoverPanel } from './PopoverPanel';
@@ -63,7 +63,14 @@ const Template: ComponentStory<typeof PopoverPanel> = (args) => {
         forceMobileLayout={args.forceMobileLayout}
       >
         <div>Her kommer litt informasjon</div>
-        <Button onClick={handleOnOpenChange}>Lukk</Button>
+        <Button
+          variant={ButtonVariant.Filled}
+          color={ButtonColor.Primary}
+          size={ButtonSize.Small}
+          onClick={handleOnOpenChange}
+        >
+          Lukk
+        </Button>
       </PopoverPanel>
     </div>
   );

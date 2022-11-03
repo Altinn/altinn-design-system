@@ -1,6 +1,6 @@
 {
   "name": "@altinn/altinn-design-system",
-  "version": "0.17.1",
+  "version": "1.0.0",
   "packageManager": "yarn@3.2.4",
   "description": "",
   "author": "Altinn",

@@ -122,7 +122,7 @@ const rows = [
 const Template: ComponentStory<typeof Table> = (args) => {
   const [selected, setSelected] = useState('');
   const [selectedSort, setSelectedSort] = useState({
-    idCell: 0,
+    idCell: '',
     sortDirection: SortDirection.NotActive,
   });
   const [rowsPerPage, setRowsPerPage] = useState(5);
@@ -167,9 +167,9 @@ const Template: ComponentStory<typeof Table> = (args) => {
         <TableRow>
           <TableCell
             onChange={handleSortChange}
-            id={1}
+            id={'Søknadsnr'}
             sortDirecton={
-              selectedSort.idCell === 1
+              selectedSort.idCell === 'Søknadsnr.'
                 ? selectedSort.sortDirection
                 : SortDirection.NotActive
             }
@@ -177,10 +177,10 @@ const Template: ComponentStory<typeof Table> = (args) => {
             Søknadsnr.
           </TableCell>
           <TableCell
-            id={2}
+            id={'Produkt'}
             onChange={handleSortChange}
             sortDirecton={
-              selectedSort.idCell === 2
+              selectedSort.idCell === 'Produkt'
                 ? selectedSort.sortDirection
                 : SortDirection.NotActive
             }

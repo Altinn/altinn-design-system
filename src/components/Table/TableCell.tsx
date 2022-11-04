@@ -16,7 +16,7 @@ export interface TableCellProps {
   sortable?: boolean;
   onChange?: SortHandler;
   sortDirecton?: SortDirection;
-  id?: number;
+  id?: string;
 }
 export enum SortDirection {
   Descending = 'desc',

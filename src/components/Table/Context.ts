@@ -12,7 +12,7 @@ export interface ChangeProps {
   selectedValue: string;
 }
 export interface SortProps {
-  idCell: number;
+  idCell: string;
   previousSortDirection: SortDirection;
 }
 

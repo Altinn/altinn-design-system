@@ -6,7 +6,7 @@ import cn from 'classnames';
 
 import { StoryPage } from '@sb/StoryPage';
 
-import { Button, ButtonVariant } from '../Button';
+import { Button, ButtonVariant, ButtonColor, ButtonSize } from '../Button';
 
 import { Accordion } from './Accordion';
 import { AccordionHeader } from './AccordionHeader';
@@ -67,8 +67,20 @@ const Template: ComponentStory<typeof Accordion> = (args) => {
   const ActionDiv = useActions ? (
     <>
       <div>Example setup</div>
-      <Button variant={ButtonVariant.Primary}>Separat knapp 1</Button>
-      <Button variant={ButtonVariant.Secondary}>Separat knapp 2</Button>
+      <Button
+        variant={ButtonVariant.Filled}
+        color={ButtonColor.Primary}
+        size={ButtonSize.Small}
+      >
+        Separat knapp 1
+      </Button>
+      <Button
+        variant={ButtonVariant.Outline}
+        color={ButtonColor.Primary}
+        size={ButtonSize.Small}
+      >
+        Separat knapp 2
+      </Button>
     </>
   ) : undefined;
 

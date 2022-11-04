@@ -65,7 +65,7 @@ export const Select = (props: SelectProps) => {
   const [activeOption, setActiveOption] = useState<string | undefined>(
     multiple ? undefined : value,
   );
-  const focusedOptionIndex = options.findIndex(
+  const activeOptionIndex = options.findIndex(
     (option) => option.value === activeOption,
   );
 
@@ -87,6 +87,32 @@ export const Select = (props: SelectProps) => {
   }, [onChange, multiple, selectedValues, activeOption]);
 
   const [expanded, setExpanded] = useState<boolean>(false);
+
+  const listboxRef = useRef<HTMLUListElement>(null);
+
+  useEffect(() => {
+    // Ensure that active option is always visible when using keyboard
+    const listboxElement = listboxRef.current;
+    if (listboxElement) {
+      const listboxHeight = listboxElement.offsetHeight;
+      const itemHeight =
+        listboxElement.getElementsByTagName('li')[0].offsetHeight;
+      const scrollPositionTop = listboxElement.scrollTop;
+      const scrollPositionBottom = scrollPositionTop + listboxHeight;
+      const activeOptionPositionTop = activeOptionIndex * itemHeight;
+      const activeOptionPositionBottom = activeOptionPositionTop + itemHeight;
+      const isActiveOptionVisible =
+        activeOptionPositionTop >= scrollPositionTop &&
+        activeOptionPositionBottom <= scrollPositionBottom;
+      if (!isActiveOptionVisible) {
+        if (activeOptionPositionTop < scrollPositionTop) {
+          listboxElement.scrollTop = activeOptionPositionTop; // Scroll up
+        } else {
+          listboxElement.scrollTop = activeOptionPositionBottom - listboxHeight; // Scroll down
+        }
+      }
+    }
+  }, [activeOptionIndex]);
 
   const findOptionFromValue = (v?: string) =>
     options.find((option) => option.value === v) ?? {
@@ -127,25 +153,25 @@ export const Select = (props: SelectProps) => {
     if (activeOption === undefined) {
       setActiveOption(options[0].value);
     } else {
-      const newIndex = focusedOptionIndex + 1;
+      const newIndex = activeOptionIndex + 1;
       if (newIndex >= 0 && newIndex < options.length) {
         setActiveOption(options[newIndex].value);
       }
     }
     setExpanded(true);
-  }, [activeOption, focusedOptionIndex, setActiveOption, options]);
+  }, [activeOption, activeOptionIndex, setActiveOption, options]);
 
   const moveFocusUp = useCallback(() => {
     if (activeOption === undefined) {
       setActiveOption(options[options.length - 1].value);
     } else {
-      const newIndex = focusedOptionIndex - 1;
+      const newIndex = activeOptionIndex - 1;
       if (newIndex >= 0 && newIndex < options.length) {
         setActiveOption(options[newIndex].value);
       }
     }
     setExpanded(true);
-  }, [activeOption, focusedOptionIndex, setActiveOption, options]);
+  }, [activeOption, activeOptionIndex, setActiveOption, options]);
 
   useKeyboardEventListener(
     eventListenerKeys.ArrowDown,
@@ -253,6 +279,7 @@ export const Select = (props: SelectProps) => {
       <ul
         className={classes['select__option-list']}
         id={listboxId}
+        ref={listboxRef}
         role='listbox'
       >
         {options.map((option) => (

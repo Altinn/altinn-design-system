@@ -45,7 +45,7 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           npm version  ${{ github.event.inputs.release_type }}
-          echo "release_version=`v0.18.0`" >> $GITHUB_ENV
+          echo "release_version=v0.18.0" >> $GITHUB_ENV
           git push --follow-tags
 
       - name: Publish npm package

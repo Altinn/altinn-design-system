@@ -3,7 +3,7 @@ import { render as renderRtl, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import type { ButtonProps } from './Button';
-import { Button, ButtonVariant } from './Button';
+import { ButtonColor, ButtonSize, Button, ButtonVariant } from './Button';
 
 const user = userEvent.setup();
 
@@ -34,8 +34,67 @@ describe('Button', () => {
     });
   });
 
+  Object.values(ButtonColor).forEach((color) => {
+    it(`should render a button with ${color} classname when color is ${color}`, () => {
+      render({ color });
+      const otherVariants = Object.values(ButtonColor).filter(
+        (c) => c !== color,
+      );
+
+      const button = screen.getByRole('button');
+
+      expect(button.classList.contains(`button--${color}`)).toBe(true);
+      otherVariants.forEach((c) => {
+        expect(button.classList.contains(`button--${c}`)).toBe(false);
+      });
+    });
+  });
+
+  Object.values(ButtonSize).forEach((size) => {
+    it(`should render a button with ${size} classname when size is ${size}`, () => {
+      render({ size });
+      const otherVariants = Object.values(ButtonSize).filter((s) => s !== size);
+
+      const button = screen.getByRole('button');
+
+      expect(button.classList.contains(`button--${size}`)).toBe(true);
+      otherVariants.forEach((s) => {
+        expect(button.classList.contains(`button--${s}`)).toBe(false);
+      });
+    });
+  });
+
+  it('should render an icon on the left side of text when given an existing iconName and no iconPlacement', () => {
+    render({ iconName: 'Add', children: 'Button text' });
+    const icon = screen.getByRole('img');
+    expect(
+      screen.getByRole('button', {
+        name: /button text/i,
+      }).firstChild,
+    ).toEqual(icon);
+  });
+
+  it('should render an icon on the right side of text when given an existing iconName and iconPlacement is right', () => {
+    render({
+      iconName: 'Add',
+      iconPlacement: 'right',
+      children: 'Button text',
+    });
+    const icon = screen.getByRole('img');
+    expect(
+      screen.getByRole('button', {
+        name: /button text/i,
+      }).lastChild,
+    ).toEqual(icon);
+  });
+
   it('should render as disabled when disabled is true regardless of variant', () => {
-    render({ variant: ButtonVariant.Secondary, disabled: true });
+    render({
+      variant: ButtonVariant.Outline,
+      color: ButtonColor.Primary,
+      size: ButtonSize.Small,
+      disabled: true,
+    });
 
     const button = screen.getByRole('button');
 
@@ -45,7 +104,7 @@ describe('Button', () => {
   it('should not call onClick when disabled', () => {
     const fn = jest.fn();
     render({
-      variant: ButtonVariant.Secondary,
+      variant: ButtonVariant.Outline,
       disabled: true,
       onClick: fn,
     });
@@ -72,6 +131,9 @@ describe('Button', () => {
 
 const render = (props: Partial<ButtonProps> = {}) => {
   const allProps = {
+    variant: ButtonVariant.Filled,
+    color: ButtonColor.Primary,
+    size: ButtonSize.Small,
     ...props,
   };
 

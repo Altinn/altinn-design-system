@@ -1,18 +1,26 @@
 .button {
+  --icon-size: var(--component-button-size-icon-small);
+
   all: initial; /* reset all styles to default, to avoid style overrides/surprises caused by other css (from Design system v1 f.ex) */
   font-family: inherit;
   border: 0;
-  font-size: var(--font_size-300);
-  height: var(--component-button-size-height-small);
   text-align: center;
   box-sizing: border-box;
-  padding: 0 var(--component-button-space-padding-x-small);
   letter-spacing: var(--typography-default-letter-spacing);
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .button:focus-visible {
-  outline: var(--interactive_components-colors-focus_outline) auto
+  outline: var(--interactive_components-colors-focus_outline) solid
+    var(--border_width-standard);
+  outline-offset: var(--border_width-standard);
+}
+
+.button:focus {
+  outline: var(--interactive_components-colors-focus_outline) solid
     var(--border_width-standard);
   outline-offset: var(--border_width-standard);
 }
@@ -22,40 +30,249 @@
   opacity: var(--interactive_components-colors-disabled-opacity);
 }
 
-.button--primary {
-  background: var(--component-button-filled-primary-color-background-default);
-  color: var(--component-button-filled-color-text-all);
+.icon {
+  height: var(--icon-size);
+  width: var(--icon-size);
 }
 
-.button--primary:not(:disabled):hover {
+.button--small {
+  height: var(--component-button-size-height-small);
+  font-size: var(--font_size-400);
+  --icon-size: var(--component-button-size-icon-small);
+  padding: 0 var(--component-button-space-padding-x-small);
+  gap: var(--component-button-space-gap-small);
+}
+
+.button--medium {
+  height: var(--component-button-size-height-medium);
+  min-width: var(--component-button-size-height-medium);
+  font-size: var(--font_size-500);
+  --icon-size: var(--component-button-size-icon-medium);
+  padding: 0 var(--component-button-space-padding-x-medium);
+  gap: var(--component-button-space-gap-medium);
+}
+
+.button--large {
+  height: var(--component-button-size-height-large);
+  min-width: var(--component-button-size-height-large);
+  font-size: var(--font_size-700);
+  --icon-size: var(--component-button-size-icon-large);
+  padding: 0 var(--component-button-space-padding-x-large);
+  gap: var(--component-button-space-gap-large);
+}
+
+.button--filled {
+  border-radius: 3px;
+  color: var(--component-button-filled-color-text-all);
+  fill: var(--component-button-filled-color-text-all);
+  border: var(--component-button-border_width-default) solid transparent;
+}
+
+.button--outline {
+  border-radius: 3px;
+  background-color: transparent;
+  border: var(--component-button-border_width-default) solid transparent;
+}
+
+.button--quiet {
+  border-radius: 50px;
+  background-color: transparent;
+  border: var(--component-button-border_width-default) solid transparent;
+}
+
+/* Filled button colors */
+.button--filled--primary {
+  background: var(--component-button-filled-primary-color-background-default);
+}
+
+.button--filled--primary:not(:disabled):hover {
   background: var(--component-button-filled-primary-color-background-hover);
 }
 
-.button--secondary {
-  background: var(--component-button-outline-primary-color-background-default);
-  box-shadow: 0 0 0 var(--component-button-border_width-default)
-    var(--component-button-outline-primary-color-border-default) inset;
-  color: var(--component-button-outline-primary-color-text-default);
+.button--filled--primary:not(:disabled):active {
+  background: var(--component-button-filled-primary-color-background-pressed);
 }
 
-.button--secondary:not(:disabled):hover {
-  background: var(--component-button-outline-primary-color-background-hover);
+.button--filled--secondary {
+  background: var(--component-button-filled-primary-color-background-pressed);
 }
 
-.button--submit {
+.button--filled--secondary:not(:disabled):hover {
+  background: var(--colors-blue-800);
+}
+
+.button--filled--secondary:not(:disabled):active {
+  background: var(--colors-blue-950);
+}
+
+.button--filled--success {
   background: var(--component-button-filled-success-color-background-default);
-  color: var(--component-button-filled-color-text-all);
 }
 
-.button--submit:not(:disabled):hover {
+.button--filled--success:not(:disabled):hover {
   background: var(--component-button-filled-success-color-background-hover);
 }
 
-.button--cancel {
-  background: var(--component-button-filled-danger-color-background-default);
-  color: var(--component-button-filled-color-text-all);
+.button--filled--success:not(:disabled):active {
+  background: var(--component-button-filled-success-color-background-pressed);
 }
 
-.button--cancel:not(:disabled):hover {
+.button--filled--danger {
+  background: var(--component-button-filled-danger-color-background-default);
+}
+
+.button--filled--danger:not(:disabled):hover {
   background: var(--component-button-filled-danger-color-background-hover);
+}
+
+.button--filled--danger:not(:disabled):active {
+  background: var(--colors-red-800);
+}
+
+/* Outline button colors */
+.button--outline--primary {
+  color: var(--component-button-outline-primary-color-text-default);
+  fill: var(--component-button-outline-primary-color-text-default);
+  border-color: var(--component-button-outline-primary-color-border-default);
+  background: var(--component-button-outline-primary-color-background-default);
+}
+
+.button--outline--primary:not(:disabled):hover {
+  color: var(--colors-blue-800);
+  fill: var(--colors-blue-800);
+  background: var(--component-button-outline-primary-color-background-hover);
+  border-color: var(--component-button-outline-primary-color-border-hover);
+}
+
+.button--outline--primary:not(:disabled):active {
+  color: var(--component-button-outline-primary-color-text-pressed);
+  fill: var(--component-button-outline-primary-color-text-pressed);
+  background: var(--component-button-outline-primary-color-background-pressed);
+}
+
+.button--outline--secondary {
+  color: var(--colors-blue-900);
+  fill: var(--colors-blue-900);
+  background: var(--colors-white);
+  border-color: var(--colors-blue-900);
+}
+
+.button--outline--secondary:not(:disabled):hover {
+  background: var(--colors-blue-200);
+}
+
+.button--outline--secondary:not(:disabled):active {
+  color: var(--colors-white);
+  fill: var(--colors-white);
+  background: var(--colors-blue-900);
+}
+
+.button--outline--success {
+  color: var(--colors-green-700);
+  fill: var(--colors-green-700);
+  background: var(--colors-white);
+  border-color: var(--colors-green-700);
+}
+
+.button--outline--success:not(:disabled):hover {
+  color: var(--colors-green-800);
+  fill: var(--colors-green-800);
+  background: var(--colors-green-300);
+}
+
+.button--outline--success:not(:disabled):active {
+  color: var(--colors-white);
+  fill: var(--colors-white);
+  background: var(--colors-green-700);
+}
+
+.button--outline--danger {
+  color: var(--colors-red-500);
+  fill: var(--colors-red-500);
+  background: var(--colors-white);
+  border-color: var(--colors-red-500);
+}
+
+.button--outline--danger:not(:disabled):hover {
+  color: var(--colors-red-700);
+  fill: var(--colors-red-700);
+  background: var(--colors-red-200);
+  border-color: var(--colors-red-700);
+}
+
+.button--outline--danger:not(:disabled):active {
+  color: var(--colors-white);
+  fill: var(--colors-white);
+  background: var(--colors-red-500);
+}
+
+/* Quiet button colors */
+.button--quiet--primary {
+  color: var(--component-button-quiet-primary-color-text-default);
+  fill: var(--component-button-quiet-primary-color-text-default);
+}
+
+.button--quiet--primary:not(:disabled):hover {
+  color: var(--colors-blue-800);
+  fill: var(--colors-blue-800);
+  background: var(--component-button-quiet-primary-color-background-hover);
+}
+
+.button--quiet--primary:not(:disabled):active {
+  color: var(--component-button-filled-color-text-all);
+  fill: var(--component-button-filled-color-text-all);
+  background: var(--component-button-quiet-primary-color-background-pressed);
+}
+
+.button--quiet--secondary {
+  color: var(--colors-blue-900);
+  fill: var(--colors-blue-900);
+}
+
+.button--quiet--secondary:not(:disabled):hover {
+  background: var(--colors-neutral-400);
+}
+
+.button--quiet--secondary:not(:disabled):active {
+  color: var(--component-button-filled-color-text-all);
+  fill: var(--component-button-filled-color-text-all);
+  background: var(--colors-blue-900);
+}
+
+.button--quiet--success {
+  color: var(--colors-green-700);
+  fill: var(--colors-green-700);
+}
+
+.button--quiet--success:not(:disabled):hover {
+  color: var(--colors-green-800);
+  fill: var(--colors-green-800);
+  background: var(--colors-green-300);
+}
+
+.button--quiet--success:not(:disabled):active {
+  color: var(--component-button-filled-color-text-all);
+  fill: var(--component-button-filled-color-text-all);
+  background: var(--colors-green-900);
+}
+
+.button--quiet--danger {
+  color: var(--colors-red-600);
+  fill: var(--colors-red-600);
+}
+
+.button--quiet--danger:not(:disabled):hover {
+  color: var(--colors-red-800);
+  fill: var(--colors-red-800);
+  background: var(--colors-red-200);
+}
+
+.button--quiet--danger:not(:disabled):active {
+  color: var(--component-button-filled-color-text-all);
+  fill: var(--component-button-filled-color-text-all);
+  background: var(--colors-red-800);
+}
+
+.button--only-icon {
+  padding: 0.5rem;
 }

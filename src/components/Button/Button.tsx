@@ -73,7 +73,7 @@ const Button = (
     type = 'button',
     ...restHTMLProps
   }: PropsWithChildren<ButtonProps>,
-  ref?: React.LegacyRef<HTMLButtonElement> | undefined,
+  ref?: React.Ref<HTMLButtonElement> | undefined,
 ) => {
   return (
     <button

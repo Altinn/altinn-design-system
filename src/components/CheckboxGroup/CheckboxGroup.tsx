@@ -72,7 +72,7 @@ export const CheckboxGroup = ({
   );
 
   const firstRender = useRef(true);
-  const prevCheckedNames = useRef(checkedItems(items));
+  const prevCheckedNames = useRef(checkedNames);
 
   useEffect(() => {
     if (firstRender.current) {
@@ -83,6 +83,7 @@ export const CheckboxGroup = ({
       !arraysEqual(prevCheckedNames.current, checkedNames)
     ) {
       onChange(checkedNames);
+      prevCheckedNames.current = checkedNames;
     }
   }, [checkedNames, onChange, disabled]);
 

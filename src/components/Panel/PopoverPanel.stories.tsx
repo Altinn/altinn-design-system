@@ -56,7 +56,14 @@ const Template: ComponentStory<typeof PopoverPanel> = (args) => {
         side={args.side}
         title={args.title}
         open={open}
-        trigger={<button>Åpne</button>}
+        trigger={
+          <Button
+            variant={ButtonVariant.Filled}
+            color={ButtonColor.Primary}
+          >
+            Åpne
+          </Button>
+        }
         onOpenChange={setOpen}
         showPointer={args.showPointer}
         showIcon={args.showIcon}

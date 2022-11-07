@@ -20,5 +20,5 @@ export { Map } from './Map';
 export { Checkbox } from './Checkbox';
 export { TextArea } from './TextArea';
 export type { IconVariant, ReadOnlyVariant } from './_InputWrapper';
-export { CheckboxGroup } from './CheckboxGroup';
+export { CheckboxGroup, CheckboxGroupVariant } from './CheckboxGroup';
 export { FieldSet, FieldSetSize } from './FieldSet';

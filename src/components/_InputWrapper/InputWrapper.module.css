@@ -86,6 +86,6 @@
 }
 
 .InputWrapper__label {
-  font-weight: bold;
+  font-weight: var(--component-label-font_weight-default);
   padding: 0;
 }

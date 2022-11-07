@@ -1,9 +1,10 @@
-import React, { useEffect, useReducer } from 'react';
+import React, { useEffect, useReducer, useRef } from 'react';
 import cn from 'classnames';
 
 import { Checkbox, FieldSet } from '@/components';
 import type { CheckboxProps } from '@/components/Checkbox/Checkbox';
 import { FieldSetSize } from '@/components/FieldSet/FieldSet';
+import { arraysEqual } from '@/utils/arrayUtils';
 
 import classes from './CheckboxGroup.module.css';
 
@@ -70,10 +71,20 @@ export const CheckboxGroup = ({
     [items],
   );
 
-  useEffect(
-    () => (onChange && !disabled ? onChange(checkedNames) : undefined),
-    [checkedNames, onChange, disabled],
-  );
+  const firstRender = useRef(true);
+  const prevCheckedNames = useRef(checkedItems(items));
+
+  useEffect(() => {
+    if (firstRender.current) {
+      firstRender.current = false;
+    } else if (
+      onChange &&
+      !disabled &&
+      !arraysEqual(prevCheckedNames.current, checkedNames)
+    ) {
+      onChange(checkedNames);
+    }
+  }, [checkedNames, onChange, disabled]);
 
   return (
     <FieldSet

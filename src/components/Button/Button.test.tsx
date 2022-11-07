@@ -3,7 +3,8 @@ import { render as renderRtl, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import type { ButtonProps } from './Button';
-import { ButtonColor, ButtonSize, Button, ButtonVariant } from './Button';
+
+import { ButtonColor, ButtonSize, Button, ButtonVariant } from './';
 
 const user = userEvent.setup();
 

@@ -1,1 +1,6 @@
-export { Button, ButtonVariant, ButtonColor, ButtonSize } from './Button';
+export {
+  default as Button,
+  ButtonVariant,
+  ButtonColor,
+  ButtonSize,
+} from './Button';

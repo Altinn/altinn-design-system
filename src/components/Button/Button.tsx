@@ -1,4 +1,5 @@
 import React, {
+  forwardRef,
   type ButtonHTMLAttributes,
   type PropsWithChildren,
 } from 'react';
@@ -30,8 +31,8 @@ export enum ButtonVariant {
 }
 
 interface ButtonCommonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant: ButtonVariant;
-  color: ButtonColor;
+  variant?: ButtonVariant;
+  color?: ButtonColor;
   size?: ButtonSize;
   fullWidth?: boolean;
   dashedBorder?: boolean;
@@ -58,21 +59,25 @@ const renderIcon = (iconName?: string, iconComponent?: JSX.Element) => {
   }
 };
 
-export const Button = ({
-  children,
-  color = ButtonColor.Primary,
-  variant = ButtonVariant.Filled,
-  size = ButtonSize.Small,
-  fullWidth = false,
-  dashedBorder = false,
-  iconPlacement = 'left',
-  iconName,
-  svgIconComponent,
-  type = 'button',
-  ...restHTMLProps
-}: PropsWithChildren<ButtonProps>) => {
+const Button = (
+  {
+    children,
+    color = ButtonColor.Primary,
+    variant = ButtonVariant.Filled,
+    size = ButtonSize.Small,
+    fullWidth = false,
+    dashedBorder = false,
+    iconPlacement = 'left',
+    iconName,
+    svgIconComponent,
+    type = 'button',
+    ...restHTMLProps
+  }: PropsWithChildren<ButtonProps>,
+  ref?: React.LegacyRef<HTMLButtonElement> | undefined,
+) => {
   return (
     <button
+      ref={ref}
       className={cn(
         classes.button,
         classes[`button--${size}`],
@@ -93,3 +98,5 @@ export const Button = ({
     </button>
   );
 };
+
+export default forwardRef(Button);

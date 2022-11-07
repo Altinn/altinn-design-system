@@ -32,3 +32,4 @@ export type { IconVariant, ReadOnlyVariant } from './_InputWrapper';
 export { CheckboxGroup } from './CheckboxGroup';
 export { FieldSet, FieldSetSize } from './FieldSet';
 export { Pagination } from './Pagination';
+export { Select } from './Select';

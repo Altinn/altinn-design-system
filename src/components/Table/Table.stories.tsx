@@ -157,6 +157,10 @@ const Template: ComponentStory<typeof Table> = (args) => {
     setPage(0);
   };
 
+  const handleChangeInCurrentPage = (newPage: number) => {
+    setPage(newPage);
+  };
+
   return (
     <Table
       selectRows={args.selectRows}
@@ -221,7 +225,7 @@ const Template: ComponentStory<typeof Table> = (args) => {
               rowsPerPage={rowsPerPage}
               onRowsPerPageChange={handleChangeRowsPerPage}
               currentPage={page}
-              setCurrentPage={setPage}
+              setCurrentPage={handleChangeInCurrentPage}
               rowsPerPageText='Rader per side'
               pageDescriptionText='av'
             />

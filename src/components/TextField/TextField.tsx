@@ -23,6 +23,7 @@ export interface TextFieldProps
   readOnly?: boolean | ReadOnlyVariant;
   defaultValue?: string | number;
   formatting?: TextFieldFormatting;
+  label?: string;
 }
 
 export interface TextFieldFormatting {
@@ -87,6 +88,7 @@ export const TextField = ({
   readOnly = false,
   required = false,
   formatting,
+  label,
   ...rest
 }: TextFieldProps) => {
   const handleNumberFormatChange = (
@@ -107,6 +109,7 @@ export const TextField = ({
       isValid={isValid}
       disabled={disabled}
       readOnly={readOnly}
+      label={label}
       inputRenderer={({ className, variant }) => {
         const commonProps = {
           id,

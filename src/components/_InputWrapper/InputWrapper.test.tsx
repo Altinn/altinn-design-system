@@ -34,6 +34,18 @@ describe('InputWrapper', () => {
       render({ isValid: false });
       expect(screen.queryByTestId('input-icon-error')).toBeInTheDocument();
     });
+
+    it('should show label when label is set', () => {
+      render({ label: 'Label is here' });
+      expect(screen.queryByText('Label is here')).toBeInTheDocument();
+    });
+
+    it('should not show label when label is not set', () => {
+      render({ label: undefined });
+      expect(
+        screen.queryByTestId('InputWrapper-label'),
+      ).not.toBeInTheDocument();
+    });
   });
 
   describe('search-icon', () => {

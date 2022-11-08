@@ -145,7 +145,7 @@ const Template: ComponentStory<typeof Table> = (args) => {
     } else {
       setSelectedSort({
         idCell: idCell,
-        sortDirection: SortDirection.Ascending,
+        sortDirection: SortDirection.Descending,
       });
     }
   };
@@ -171,7 +171,7 @@ const Template: ComponentStory<typeof Table> = (args) => {
         <TableRow>
           <TableCell
             onChange={handleSortChange}
-            id={'Søknadsnr'}
+            id={'Søknadsnr.'}
             sortDirecton={
               selectedSort.idCell === 'Søknadsnr.'
                 ? selectedSort.sortDirection

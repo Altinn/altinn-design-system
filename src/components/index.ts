@@ -17,7 +17,7 @@ export { SearchField } from './SearchField';
 export { ErrorMessage } from './ErrorMessage';
 export type { Location, MapLayer } from './Map';
 export { Map } from './Map';
-export type { ChangeProps } from './Table';
+export type { ChangeProps, SortProps } from './Table';
 export {
   Table,
   TableBody,
@@ -25,6 +25,7 @@ export {
   TableHeader,
   TableRow,
   TableFooter,
+  SortDirection,
 } from './Table';
 export { Checkbox } from './Checkbox';
 export { TextArea } from './TextArea';

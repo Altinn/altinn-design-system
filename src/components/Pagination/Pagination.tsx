@@ -13,7 +13,7 @@ export interface PaginationProps {
   rowsPerPage: number;
   onRowsPerPageChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   currentPage: number;
-  setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
+  setCurrentPage: (page: number) => void;
   rowsPerPageText: string;
   pageDescriptionText: string;
 }

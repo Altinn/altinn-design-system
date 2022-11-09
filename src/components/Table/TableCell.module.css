@@ -39,12 +39,12 @@
   margin-left: -5px;
 }
 
-.icon-asc {
+.icon-desc {
   fill: rgb(0, 0, 0);
   margin-left: -5px;
 }
 
-.icon-desc {
+.icon-asc {
   fill: rgb(0, 0, 0);
   transform: rotate(180deg);
   margin-left: -5px;

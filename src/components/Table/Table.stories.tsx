@@ -122,7 +122,7 @@ const rows = [
 const Template: ComponentStory<typeof Table> = (args) => {
   const [selected, setSelected] = useState('');
   const [selectedSort, setSelectedSort] = useState({
-    idCell: 0,
+    idCell: '',
     sortDirection: SortDirection.NotActive,
   });
   const [rowsPerPage, setRowsPerPage] = useState(5);
@@ -145,7 +145,7 @@ const Template: ComponentStory<typeof Table> = (args) => {
     } else {
       setSelectedSort({
         idCell: idCell,
-        sortDirection: SortDirection.Ascending,
+        sortDirection: SortDirection.Descending,
       });
     }
   };
@@ -155,6 +155,10 @@ const Template: ComponentStory<typeof Table> = (args) => {
   ) => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
+  };
+
+  const handleChangeInCurrentPage = (newPage: number) => {
+    setPage(newPage);
   };
 
   return (
@@ -167,9 +171,9 @@ const Template: ComponentStory<typeof Table> = (args) => {
         <TableRow>
           <TableCell
             onChange={handleSortChange}
-            id={1}
+            id={'Søknadsnr.'}
             sortDirecton={
-              selectedSort.idCell === 1
+              selectedSort.idCell === 'Søknadsnr.'
                 ? selectedSort.sortDirection
                 : SortDirection.NotActive
             }
@@ -177,10 +181,10 @@ const Template: ComponentStory<typeof Table> = (args) => {
             Søknadsnr.
           </TableCell>
           <TableCell
-            id={2}
+            id={'Produkt'}
             onChange={handleSortChange}
             sortDirecton={
-              selectedSort.idCell === 2
+              selectedSort.idCell === 'Produkt'
                 ? selectedSort.sortDirection
                 : SortDirection.NotActive
             }
@@ -221,7 +225,7 @@ const Template: ComponentStory<typeof Table> = (args) => {
               rowsPerPage={rowsPerPage}
               onRowsPerPageChange={handleChangeRowsPerPage}
               currentPage={page}
-              setCurrentPage={setPage}
+              setCurrentPage={handleChangeInCurrentPage}
               rowsPerPageText='Rader per side'
               pageDescriptionText='av'
             />

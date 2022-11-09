@@ -4,4 +4,5 @@ export { TableRow } from './TableRow';
 export { TableBody } from './TableBody';
 export { TableCell } from './TableCell';
 export { TableFooter } from './TableFooter';
-export type { ChangeProps } from './Context';
+export type { ChangeProps, SortProps } from './Context';
+export { SortDirection } from './TableCell';

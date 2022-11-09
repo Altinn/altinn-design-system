@@ -56,6 +56,13 @@ describe('TextField', () => {
     expect(handleChange).toHaveBeenCalledTimes(4);
   });
 
+  it('Focuses on input field when label is clicked', async () => {
+    const label = 'Lorem ipsum';
+    render({ label });
+    await user.click(screen.getByText(label));
+    expect(screen.getByRole('textbox')).toHaveFocus();
+  });
+
   describe('number-format-input', () => {
     it('should trigger onPaste when pasting into input', () => {
       const handlePaste = jest.fn();

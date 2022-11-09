@@ -110,6 +110,7 @@ export const TextField = ({
       disabled={disabled}
       readOnly={readOnly}
       label={label}
+      inputId={id}
       inputRenderer={({ className, variant }) => {
         const commonProps = {
           id,

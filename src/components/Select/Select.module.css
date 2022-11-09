@@ -30,11 +30,11 @@
   --arrow-padding: 6px;
   --arrow-size: 14px;
   --field-height-inside: calc(
-    36px - var(--component-input-border_width-default)
+    var(--field-height) - var(--component-input-border_width-default) * 2
   );
   --field-height: 36px;
   --field-width-inside: calc(
-    440px - var(--component-input-border_width-default)
+    var(--field-width) - var(--component-input-border_width-default) * 2
   );
   --field-width: 440px;
   --font_size: 16px;
@@ -64,6 +64,7 @@
   );
   --option_list-number_of_visible_options: 7;
   --option_list-shadow: 1px 1px 3px #00000040;
+  --option_list-z_index: 1;
   --option-outline-focus: none;
   --option-padding_left: 12px;
   --singleselect_field-padding_left: 12px;
@@ -199,6 +200,7 @@
     var(--option-height) * var(--option_list-number_of_visible_options)
   );
   overflow-y: auto;
+  z-index: var(--option_list-z_index);
 }
 
 .select__option-list__option {

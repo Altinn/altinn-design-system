@@ -34,18 +34,6 @@ describe('InputWrapper', () => {
       render({ isValid: false });
       expect(screen.queryByTestId('input-icon-error')).toBeInTheDocument();
     });
-
-    it('should show label when label is set', () => {
-      render({ label: 'Label is here' });
-      expect(screen.queryByText('Label is here')).toBeInTheDocument();
-    });
-
-    it('should not show label when label is not set', () => {
-      render({ label: undefined });
-      expect(
-        screen.queryByTestId('InputWrapper-label'),
-      ).not.toBeInTheDocument();
-    });
   });
 
   describe('search-icon', () => {
@@ -162,11 +150,44 @@ describe('InputWrapper', () => {
       });
     });
   });
+
+  describe('Label', () => {
+    it('should show label when label is set', () => {
+      const label = 'Label is here';
+      render({ label });
+      expect(screen.queryByText(label)).toBeInTheDocument();
+    });
+
+    it('should not show label when label is not set', () => {
+      render({ label: undefined });
+      expect(
+        screen.queryByTestId('InputWrapper-label'),
+      ).not.toBeInTheDocument();
+    });
+
+    it('Attaches label to input element when inputId is not set', () => {
+      const label = 'Label is here';
+      render({ label });
+      expect(screen.getByLabelText(label)).toHaveAttribute('id');
+    });
+
+    it('Attaches label to input element when inputId is set', () => {
+      const inputId = 'some-unique-id';
+      const label = 'Label is here';
+      render({ inputId, label });
+      expect(screen.getByLabelText(label)).toHaveAttribute('id', inputId);
+    });
+  });
 });
 
 const render = (props: Partial<InputWrapperProps> = {}) => {
   const allProps = {
-    inputRenderer: ({ className }) => <input className={className} />,
+    inputRenderer: ({ className, inputId }) => (
+      <input
+        className={className}
+        id={inputId}
+      />
+    ),
     ...props,
   } as InputWrapperProps;
 

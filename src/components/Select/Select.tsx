@@ -12,7 +12,7 @@ export type SelectProps = SingleSelectProps | MultiSelectProps;
 
 export type SingleSelectProps = SelectPropsBase & {
   multiple?: false;
-  onChange?: (value: string) => void;
+  onChange?: SingleOnChangeEvent;
   options: SingleSelectOption[];
   value?: string;
 };
@@ -20,14 +20,16 @@ export type SingleSelectProps = SelectPropsBase & {
 export type MultiSelectProps = SelectPropsBase & {
   deleteButtonLabel?: string;
   multiple: true;
-  onChange?: (value: string[]) => void;
+  onChange?: MultipleOnChangeEvent;
   options: MultiSelectOption[];
   value?: string[];
 };
 
 interface SelectPropsBase {
   disabled?: boolean;
+  hideLabel?: boolean;
   inputId?: string;
+  label?: string;
   error?: boolean;
 }
 
@@ -40,6 +42,9 @@ export type MultiSelectOption = SingleSelectOption & {
   deleteButtonLabel?: string;
 };
 
+type SingleOnChangeEvent = (value: string) => void;
+type MultipleOnChangeEvent = (value: string[]) => void;
+
 const eventListenerKeys = {
   ArrowUp: 'ArrowUp',
   ArrowDown: 'ArrowDown',
@@ -47,8 +52,17 @@ const eventListenerKeys = {
 };
 
 export const Select = (props: SelectProps) => {
-  const { disabled, error, inputId, multiple, onChange, options, value } =
-    props;
+  const {
+    disabled,
+    error,
+    hideLabel,
+    inputId,
+    label,
+    multiple,
+    onChange,
+    options,
+    value,
+  } = props;
   const allValues = options.map((option) => option.value);
   if (allValues.length !== new Set(allValues).size) {
     throw Error('Each value in the option list must be unique.');
@@ -72,19 +86,6 @@ export const Select = (props: SelectProps) => {
   const [usingKeyboard, setUsingKeyboard] = useState<boolean>(false);
   useEventListener('click', () => setUsingKeyboard(false));
   useEventListener('keydown', () => setUsingKeyboard(true));
-
-  const firstRender = useRef(true);
-
-  useEffect(() => {
-    if (firstRender.current) {
-      firstRender.current = false;
-      return;
-    }
-    if (onChange) {
-      if (multiple) onChange(selectedValues);
-      else onChange(activeOption ?? '');
-    }
-  }, [onChange, multiple, selectedValues, activeOption]);
 
   const [expanded, setExpanded] = useState<boolean>(false);
 
@@ -125,12 +126,18 @@ export const Select = (props: SelectProps) => {
       setActiveOption(addedValue);
     }
     setSelectedValues(newValues);
+    onChange && (onChange as MultipleOnChangeEvent)(newValues);
+  };
+
+  const singleChangeHandler = (newValue: string) => {
+    setActiveOption(newValue);
+    setExpanded(false);
+    onChange && (onChange as SingleOnChangeEvent)(newValue);
   };
 
   const addOrRemoveSelectedValue = (activeValue: string) => {
     if (!multiple) {
-      setActiveOption(activeValue);
-      setExpanded(false);
+      singleChangeHandler(activeValue);
     } else if (selectedValues.includes(activeValue)) {
       removeSelection(activeValue);
     } else {
@@ -212,7 +219,8 @@ export const Select = (props: SelectProps) => {
     >
       <InputWrapper
         disabled={disabled}
-        inputRenderer={({ className }) => (
+        inputId={inputId}
+        inputRenderer={({ className, inputId }) => (
           <span className={cn(className, classes['select__field'])}>
             {multiple && (
               <>
@@ -246,6 +254,7 @@ export const Select = (props: SelectProps) => {
             <button
               aria-controls={listboxId}
               aria-expanded={expanded}
+              aria-label={hideLabel ? label : undefined}
               className={classes['select__field__button']}
               disabled={disabled}
               id={inputId}
@@ -274,6 +283,8 @@ export const Select = (props: SelectProps) => {
         )}
         isSearch={false}
         isValid={!error}
+        label={label}
+        noPadding={true}
         readOnly={false}
       />
       <ul

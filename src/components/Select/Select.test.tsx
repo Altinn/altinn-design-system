@@ -255,6 +255,20 @@ describe('Select', () => {
       renderSingleSelect({ inputId });
       expect(screen.getByRole('combobox')).toHaveAttribute('id', inputId);
     });
+
+    it('Focuses on combobox when label is clicked', async () => {
+      const label = 'Lorem ipsum';
+      renderSingleSelect({ label });
+      await act(() => user.click(screen.getByText(label)));
+      expect(screen.getByRole('combobox')).toHaveFocus();
+    });
+
+    it('Hides label, but makes it accessible, if the "hideLabel" property is set', async () => {
+      const label = 'Lorem ipsum';
+      renderSingleSelect({ hideLabel: true, label });
+      expect(screen.queryByRole('label')).toBeFalsy();
+      expect(screen.getByLabelText(label)).toBeTruthy();
+    });
   });
 
   describe('Multiple select', () => {
@@ -623,6 +637,20 @@ describe('Select', () => {
       const inputId = 'some-unique-id';
       renderMultiSelect({ inputId });
       expect(screen.getByRole('combobox')).toHaveAttribute('id', inputId);
+    });
+
+    it('Focuses on combobox when label is clicked', async () => {
+      const label = 'Lorem ipsum';
+      renderMultiSelect({ label });
+      await act(() => user.click(screen.getByText(label)));
+      expect(screen.getByRole('combobox')).toHaveFocus();
+    });
+
+    it('Hides label, but makes it accessible, if the "hideLabel" property is set', async () => {
+      const label = 'Lorem ipsum';
+      renderMultiSelect({ hideLabel: true, label });
+      expect(screen.queryByRole('label')).toBeFalsy();
+      expect(screen.getByLabelText(label)).toBeTruthy();
     });
   });
 });

@@ -30,11 +30,11 @@
   --arrow-padding: 6px;
   --arrow-size: 14px;
   --field-height-inside: calc(
-    36px - var(--component-input-border_width-default)
+    var(--field-height) - var(--component-input-border_width-default) * 2
   );
   --field-height: 36px;
   --field-width-inside: calc(
-    440px - var(--component-input-border_width-default)
+    var(--field-width) - var(--component-input-border_width-default) * 2
   );
   --field-width: 440px;
   --font_size: 16px;

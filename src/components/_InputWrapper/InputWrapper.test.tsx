@@ -149,6 +149,30 @@ describe('InputWrapper', () => {
         expect(textField.classList.contains(`InputWrapper--${v}`)).toBe(false);
       });
     });
+
+    it('Renders with padding class by default', () => {
+      render();
+      const { classList } = screen.getByTestId('InputWrapper');
+      expect(classList).toContain('InputWrapper--with-padding');
+    });
+
+    it('Renders without padding class when "noPadding" property is true', () => {
+      render({ noPadding: true });
+      const { classList } = screen.getByTestId('InputWrapper');
+      expect(classList).not.toContain('InputWrapper--with-padding');
+    });
+
+    it('Renders with focus-effect class by default', () => {
+      render();
+      const { classList } = screen.getByTestId('InputWrapper');
+      expect(classList).toContain('InputWrapper--with-focus-effect');
+    });
+
+    it('Renders without focus-effect class when "noFocusEffect" property is true', () => {
+      render({ noFocusEffect: true });
+      const { classList } = screen.getByTestId('InputWrapper');
+      expect(classList).not.toContain('InputWrapper--with-focus-effect');
+    });
   });
 
   describe('Label', () => {

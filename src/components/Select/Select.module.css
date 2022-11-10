@@ -26,9 +26,9 @@
   --arrow-border_left: 1px solid #022f5180;
   --arrow-color: var(--colors-blue-900);
   --arrow-height_to_width_fraction: calc(8 / 14);
-  --arrow-margin_left: 4px;
-  --arrow-padding: 6px;
+  --arrow-horizontal_padding: 6px;
   --arrow-size: 14px;
+  --arrow_wrapper-margin: 4px;
   --field-height-inside: calc(
     var(--field-height) - var(--component-input-border_width-default) * 2
   );
@@ -68,6 +68,8 @@
   --option-outline-focus: none;
   --option-padding_left: 12px;
   --singleselect_field-padding_left: 12px;
+  --focus_visible-outline: 2px auto
+    var(--interactive_components-colors-focus_outline);
 
   font-size: var(--font_size);
   line-height: var(--line-height);
@@ -87,8 +89,7 @@
 }
 
 .select--using-keyboard {
-  --option-outline-focus: 2px auto
-    var(--interactive_components-colors-focus_outline);
+  --option-outline-focus: var(--focus_visible-outline);
 }
 
 .select__field__button {
@@ -130,11 +131,25 @@
   padding: var(--multiselect_items-padding);
 }
 
+.select--multiple .select__field__button:focus-visible {
+  outline: var(--focus_visible-outline);
+}
+
 .select__field__arrow-wrapper {
+  --arrow-height: calc(
+    var(--arrow-size) * var(--arrow-height_to_width_fraction)
+  );
+  --arrow-vertical_padding: calc(
+    (var(--field-height-inside) - var(--arrow-height)) / 2 -
+      var(--arrow_wrapper-margin)
+  );
   border-left: var(--arrow-border_left);
   box-sizing: border-box;
-  margin-left: var(--arrow-margin_left);
-  padding: var(--arrow-padding);
+  display: flex;
+  margin-bottom: var(--arrow_wrapper-margin);
+  margin-left: var(--arrow_wrapper-margin);
+  margin-top: var(--arrow_wrapper-margin);
+  padding: var(--arrow-vertical_padding) var(--arrow-horizontal_padding);
 }
 
 .select__field__arrow-wrapper__arrow {
@@ -148,22 +163,26 @@
     2.57% 29.13%
   );
   display: inline-block;
-  height: calc(var(--arrow-size) * var(--arrow-height_to_width_fraction));
+  height: var(--arrow-height);
   width: var(--arrow-size);
 }
 
 .select--multiple__field__delete-button {
-  height: var(--delete_cross_box-size);
-  width: var(--delete_cross_box-size);
-  padding: calc((var(--delete_cross_box-size) - var(--delete_cross-size)) / 2);
-  border: none;
-  border-radius: var(--delete_cross_box-border_radius);
   background: none;
+  border-radius: var(--delete_cross_box-border_radius);
+  border: none;
   cursor: var(--interactive_element-cursor);
+  height: var(--delete_cross_box-size);
+  padding: calc((var(--delete_cross_box-size) - var(--delete_cross-size)) / 2);
+  width: var(--delete_cross_box-size);
 }
 
 .select--multiple__field__delete-button:disabled {
   cursor: auto;
+}
+
+.select--multiple__field__delete-button:focus-visible {
+  outline: var(--focus_visible-outline);
 }
 
 .select--multiple__field__delete-button:hover:not(:disabled) {

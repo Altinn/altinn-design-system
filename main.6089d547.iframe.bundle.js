@@ -3558,7 +3558,7 @@ body {
 
 .button--small---WfL7y {
   height: var(--component-button-size-height-small);
-  font-size: var(--font_size-400);
+  font-size: var(--font_size-300);
   --icon-size: var(--component-button-size-icon-small);
   --button-vertical-padding: var(--component-button-space-padding-x-small);
   gap: var(--component-button-space-gap-small);
@@ -3567,7 +3567,7 @@ body {
 .button--medium---FMlU7 {
   height: var(--component-button-size-height-medium);
   min-width: var(--component-button-size-height-medium);
-  font-size: var(--font_size-500);
+  font-size: var(--font_size-400);
   --icon-size: var(--component-button-size-icon-medium);
   --button-vertical-padding: var(--component-button-space-padding-x-medium);
   gap: var(--component-button-space-gap-medium);
@@ -3576,7 +3576,7 @@ body {
 .button--large---ajmmm {
   height: var(--component-button-size-height-large);
   min-width: var(--component-button-size-height-large);
-  font-size: var(--font_size-700);
+  font-size: var(--font_size-600);
   --icon-size: var(--component-button-size-icon-large);
   --button-vertical-padding: var(--component-button-space-padding-x-large);
   gap: var(--component-button-space-gap-large);
@@ -3591,7 +3591,7 @@ body {
 }
 
 .button--only-icon---tO03o {
-  padding: 0.5rem;
+  padding: 0.5rem !important;
 }
 
 .button--filled---o9MD5 {
@@ -3607,7 +3607,7 @@ body {
 
 .button--quiet---OUUmK {
   border-radius: 50px;
-  padding: 0 calc(var(--button-vertical-padding) / 3);
+  padding: 0 calc(var(--button-vertical-padding) * 2 / 3);
   background-color: transparent;
 }
 

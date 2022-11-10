@@ -11,21 +11,21 @@ const figmaLink =
   'https://www.figma.com/file/vpM9dqqQPHqU6ogfKp5tlr/DDS---Core-Components?node-id=7538%3A45627';
 
 const defaultOptions: SingleSelectOption[] = [
-  { displayName: 'Agder', value: 'Agder' },
-  { displayName: 'Innlandet', value: 'Innlandet' },
-  { displayName: 'Møre og Romsdal', value: 'Møre og Romsdal' },
-  { displayName: 'Nordland', value: 'Nordland' },
-  { displayName: 'Oslo', value: 'Oslo' },
-  { displayName: 'Rogaland', value: 'Rogaland' },
-  { displayName: 'Vestfold og Telemark', value: 'Vestfold og Telemark' },
-  { displayName: 'Troms og Finnmark', value: 'Troms og Finnmark' },
-  { displayName: 'Trøndelag', value: 'Trøndelag' },
-  { displayName: 'Vestland', value: 'Vestland' },
-  { displayName: 'Viken', value: 'Viken' },
+  { label: 'Agder', value: 'Agder' },
+  { label: 'Innlandet', value: 'Innlandet' },
+  { label: 'Møre og Romsdal', value: 'Møre og Romsdal' },
+  { label: 'Nordland', value: 'Nordland' },
+  { label: 'Oslo', value: 'Oslo' },
+  { label: 'Rogaland', value: 'Rogaland' },
+  { label: 'Vestfold og Telemark', value: 'Vestfold og Telemark' },
+  { label: 'Troms og Finnmark', value: 'Troms og Finnmark' },
+  { label: 'Trøndelag', value: 'Trøndelag' },
+  { label: 'Vestland', value: 'Vestland' },
+  { label: 'Viken', value: 'Viken' },
 ];
 
 const multipleSelectOptions: MultiSelectOption[] = defaultOptions.map(
-  (option) => ({ ...option, deleteButtonLabel: 'Slett ' + option.displayName }),
+  (option) => ({ ...option, deleteButtonLabel: 'Slett ' + option.label }),
 );
 
 export default {

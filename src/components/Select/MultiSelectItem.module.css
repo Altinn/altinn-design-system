@@ -28,6 +28,11 @@
   background-color: var(--delete_cross_box-color-hover);
 }
 
+.multi-select-item__delete-button:focus-visible {
+  background-color: var(--delete_cross_box-color-hover);
+  outline: var(--focus_visible-outline);
+}
+
 .multi-select-item__delete-button__cross {
   background-color: var(--multiselect_item_delete_cross-color);
   clip-path: var(--delete_cross-clip_path);

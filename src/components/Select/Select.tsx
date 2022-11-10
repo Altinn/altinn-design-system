@@ -34,7 +34,7 @@ interface SelectPropsBase {
 }
 
 export interface SingleSelectOption {
-  displayName: string;
+  label: string;
   value: string;
 }
 
@@ -117,7 +117,7 @@ export const Select = (props: SelectProps) => {
 
   const findOptionFromValue = (v?: string) =>
     options.find((option) => option.value === v) ?? {
-      displayName: '',
+      label: '',
       value: '',
     };
 
@@ -267,10 +267,11 @@ export const Select = (props: SelectProps) => {
                 }
               }}
               role='combobox'
+              value={multiple ? selectedValues : activeOption}
             >
               {!multiple && (
                 <span className={classes['select--single__field__value']}>
-                  {findOptionFromValue(activeOption).displayName}
+                  {findOptionFromValue(activeOption).label}
                 </span>
               )}
               <span className={classes['select__field__arrow-wrapper']}>
@@ -284,6 +285,7 @@ export const Select = (props: SelectProps) => {
         isSearch={false}
         isValid={!error}
         label={label}
+        noFocusEffect={multiple}
         noPadding={true}
         readOnly={false}
       />
@@ -309,8 +311,9 @@ export const Select = (props: SelectProps) => {
             onMouseDown={(event) => event.preventDefault()}
             onKeyDown={(event) => event.preventDefault()}
             role='option'
+            value={option.value}
           >
-            {option.displayName}
+            {option.label}
           </li>
         ))}
       </ul>

@@ -15,7 +15,7 @@
   border-color: var(--border-color);
 }
 
-.InputWrapper:focus-within {
+.InputWrapper--with-focus-effect:focus-within {
   outline: var(--outline-color) auto var(--border_width-thin);
   outline-offset: calc(var(--border_width-thin) + var(--border_width-standard));
 }

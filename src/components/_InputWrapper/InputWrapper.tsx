@@ -19,6 +19,7 @@ export interface InputWrapperProps {
   readOnly?: boolean | ReadOnlyVariant;
   isSearch?: boolean;
   label?: string;
+  noFocusEffect?: boolean;
   noPadding?: boolean;
   inputId?: string;
   inputRenderer: (props: InputRendererProps) => ReactNode;
@@ -32,6 +33,7 @@ export const InputWrapper = ({
   label,
   inputId,
   inputRenderer,
+  noFocusEffect,
   noPadding,
 }: InputWrapperProps) => {
   const randomInputId = useId();
@@ -62,6 +64,7 @@ export const InputWrapper = ({
           classes[`InputWrapper--${variant}`],
           {
             [classes[`InputWrapper--search`]]: isSearch,
+            [classes[`InputWrapper--with-focus-effect`]]: !noFocusEffect,
             [classes[`InputWrapper--with-padding`]]: !noPadding,
           },
         )}

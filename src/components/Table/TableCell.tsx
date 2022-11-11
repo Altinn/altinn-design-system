@@ -84,14 +84,12 @@ export const TableCell = ({
       {(variant == undefined
         ? variantStandard === Variant.Body
         : variant === 'body') && (
-        <>
-          <td
-            {...tableCellProps}
-            className={cn(classes['body-table-cell'], className)}
-          >
-            <div className={cn(classes['input'])}>{children}</div>
-          </td>
-        </>
+        <td
+          {...tableCellProps}
+          className={cn(classes['body-table-cell'], className)}
+        >
+          <div className={cn(classes['input'])}>{children}</div>
+        </td>
       )}
       {variantStandard === Variant.Footer && (
         <td

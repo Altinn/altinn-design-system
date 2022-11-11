@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useId, useRef, useState } from 'react';
 import cn from 'classnames';
+import tokens from '@altinn/figma-design-tokens/dist/tokens.json';
 
 import { InputWrapper } from '@/components/_InputWrapper';
 import { MultiSelectItem } from '@/components/Select/MultiSelectItem';
@@ -90,6 +91,7 @@ export const Select = (props: SelectProps) => {
   const [expanded, setExpanded] = useState<boolean>(false);
 
   const listboxRef = useRef<HTMLUListElement>(null);
+  const selectFieldRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     // Ensure that active option is always visible when using keyboard
@@ -206,6 +208,10 @@ export const Select = (props: SelectProps) => {
 
   const listboxId = useId();
 
+  const width = selectFieldRef.current
+    ? `calc(${selectFieldRef.current.offsetWidth}px + 2 * ${tokens.component.input.border_width.default.value})`
+    : undefined;
+
   return (
     <div
       className={cn(
@@ -221,7 +227,10 @@ export const Select = (props: SelectProps) => {
         disabled={disabled}
         inputId={inputId}
         inputRenderer={({ className, inputId }) => (
-          <span className={cn(className, classes['select__field'])}>
+          <span
+            className={cn(className, classes['select__field'])}
+            ref={selectFieldRef}
+          >
             {multiple && (
               <>
                 <span className={classes['select--multiple__field__values']}>
@@ -254,7 +263,7 @@ export const Select = (props: SelectProps) => {
             <button
               aria-controls={listboxId}
               aria-expanded={expanded}
-              aria-label={hideLabel ? label : undefined}
+              aria-label={label}
               className={classes['select__field__button']}
               disabled={disabled}
               id={inputId}
@@ -294,6 +303,7 @@ export const Select = (props: SelectProps) => {
         id={listboxId}
         ref={listboxRef}
         role='listbox'
+        style={{ width }}
       >
         {options.map((option) => (
           <li

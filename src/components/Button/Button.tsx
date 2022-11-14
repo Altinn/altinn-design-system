@@ -71,12 +71,14 @@ const Button = (
     iconName,
     svgIconComponent,
     type = 'button',
+    className,
     ...restHTMLProps
   }: PropsWithChildren<ButtonProps>,
   ref?: React.Ref<HTMLButtonElement> | undefined,
 ) => {
   return (
     <button
+      {...restHTMLProps}
       ref={ref}
       className={cn(
         classes.button,
@@ -87,9 +89,9 @@ const Button = (
         { [classes['button--full-width']]: fullWidth },
         { [classes['button--dashed-border']]: dashedBorder },
         { [classes[`button--only-icon`]]: !children && iconName },
+        className,
       )}
       type={type}
-      {...restHTMLProps}
     >
       {(iconPlacement === 'left' || !children) &&
         renderIcon(iconName, svgIconComponent)}

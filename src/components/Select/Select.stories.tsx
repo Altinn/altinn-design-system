@@ -4,7 +4,12 @@ import { config } from 'storybook-addon-designs';
 
 import { StoryPage } from '@sb/StoryPage';
 
-import type { MultiSelectOption, SingleSelectOption } from './Select';
+import type {
+  MultiSelectOption,
+  MultiSelectProps,
+  SingleSelectOption,
+  SingleSelectProps,
+} from './Select';
 import { Select } from './Select';
 
 const figmaLink =
@@ -28,6 +33,19 @@ const multipleSelectOptions: MultiSelectOption[] = defaultOptions.map(
   (option) => ({ ...option, deleteButtonLabel: 'Slett ' + option.label }),
 );
 
+const defaultArgs: SingleSelectProps = {
+  label: 'Velg et fylke',
+  multiple: false,
+  options: defaultOptions,
+};
+
+const multipleSelectArgs: MultiSelectProps = {
+  deleteButtonLabel: 'Fjern alle',
+  label: 'Velg ett eller flere fylker',
+  multiple: true,
+  options: multipleSelectOptions,
+};
+
 export default {
   title: `Components/Select`,
   component: Select,
@@ -50,13 +68,14 @@ export default {
       ),
     },
   },
-  args: {
-    options: defaultOptions,
-    multiple: false,
-  },
+  args: defaultArgs,
 } as ComponentMeta<typeof Select>;
 
-const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
+const Template: ComponentStory<typeof Select> = (args) => (
+  <div style={{ width: '440px' }}>
+    <Select {...args} />
+  </div>
+);
 
 export const Single = Template.bind({});
 Single.args = {};
@@ -92,7 +111,7 @@ SingleError.parameters = {
 };
 
 export const Multiple = Template.bind({});
-Multiple.args = { multiple: true, options: multipleSelectOptions };
+Multiple.args = multipleSelectArgs;
 Multiple.parameters = {
   docs: {
     description: {
@@ -103,7 +122,7 @@ Multiple.parameters = {
 };
 
 export const MultipleDisabled = Template.bind({});
-MultipleDisabled.args = { disabled: true };
+MultipleDisabled.args = { ...multipleSelectArgs, disabled: true };
 MultipleDisabled.parameters = {
   docs: {
     description: {
@@ -114,7 +133,7 @@ MultipleDisabled.parameters = {
 };
 
 export const MultipleError = Template.bind({});
-MultipleError.args = { error: true };
+MultipleError.args = { ...multipleSelectArgs, error: true };
 MultipleError.parameters = {
   docs: {
     description: {

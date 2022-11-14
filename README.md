@@ -26,7 +26,7 @@ New components can be added by executing `yarn add-component <ComponentName>`. T
 
 #### Adding new dependencies
 
-When adding new dependencies, you should also add that dependency to the `external` array in `rollup.config.js`. This is done to avoid having the dependency being part of the bundle.
+When adding new dependencies, you should also add that dependency to the `external` array in `rollup.config.mjs`. This is done to avoid having the dependency being part of the bundle.
 
 ### Styling
 

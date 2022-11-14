@@ -72,7 +72,7 @@ __metadata:
     eslint-plugin-prettier: 4.2.1
     eslint-plugin-react: 7.31.10
     eslint-plugin-react-hooks: 4.6.0
-    eslint-plugin-storybook: 0.6.6
+    eslint-plugin-storybook: 0.6.7
     husky: 8.0.2
     identity-obj-proxy: 3.0.0
     jest: 29.3.0
@@ -10340,9 +10340,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-storybook@npm:0.6.6":
-  version: 0.6.6
-  resolution: "eslint-plugin-storybook@npm:0.6.6"
+"eslint-plugin-storybook@npm:0.6.7":
+  version: 0.6.7
+  resolution: "eslint-plugin-storybook@npm:0.6.7"
   dependencies:
     "@storybook/csf": ^0.0.1
     "@typescript-eslint/experimental-utils": ^5.3.0
@@ -10350,7 +10350,7 @@ __metadata:
     ts-dedent: ^2.2.0
   peerDependencies:
     eslint: ">=6"
-  checksum: 94c14db656d9ee28a57948d10d61542a9be9691b81272aeebbc9df45a8bd06054c41d8407d22cc6bd6b7cda11800c89f79cb97a6e65edb671f3663b29d6116ce
+  checksum: ca1af54acbe21708e3afe3f4a82523e6d9ade06e6c88ae980f7abaf56c894da7a9388812c3cd8109944fffeb029ed08e49bce5a661612b780f9604cd02eba337
   languageName: node
   linkType: hard
 

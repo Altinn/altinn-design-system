@@ -75,7 +75,7 @@
     "@typescript-eslint/eslint-plugin": "5.42.1",
     "@typescript-eslint/parser": "5.42.1",
     "@yarnpkg/sdks": "2.6.3",
-    "babel-loader": "8.3.0",
+    "babel-loader": "9.1.0",
     "classnames": "2.3.2",
     "core-js": "3.26.0",
     "css-loader": "6.7.1",

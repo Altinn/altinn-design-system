@@ -102,3 +102,14 @@ Disabled.parameters = {
     },
   },
 };
+
+export const Resizeable = Template.bind({});
+Resizeable.args = { resize: 'both' };
+Resizeable.parameters = {
+  docs: {
+    description: {
+      story:
+        'Textarea with full resize functionality. The `resize` property is set to `both`. It can also be set to `horizontal` or `vertical` to restrict the resizeable direction accordingly.',
+    },
+  },
+};

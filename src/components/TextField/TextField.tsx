@@ -107,6 +107,7 @@ export const TextField = ({
   return (
     <InputWrapper
       isValid={isValid}
+      withErrorIcon
       disabled={disabled}
       readOnly={readOnly}
       label={label}

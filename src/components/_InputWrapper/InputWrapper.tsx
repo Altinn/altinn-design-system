@@ -15,6 +15,7 @@ type InputRendererProps = {
 
 export interface InputWrapperProps {
   isValid?: boolean;
+  withErrorIcon?: boolean;
   disabled?: boolean;
   readOnly?: boolean | ReadOnlyVariant;
   isSearch?: boolean;
@@ -35,6 +36,7 @@ export const InputWrapper = ({
   inputRenderer,
   noFocusEffect,
   noPadding,
+  withErrorIcon,
 }: InputWrapperProps) => {
   const randomInputId = useId();
   const givenOrRandomInputId = inputId ?? randomInputId;
@@ -44,6 +46,7 @@ export const InputWrapper = ({
     disabled,
     isValid,
     isSearch,
+    withErrorIcon,
   });
 
   return (

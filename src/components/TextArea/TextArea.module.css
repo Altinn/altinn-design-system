@@ -1,6 +1,6 @@
 .TextArea {
   font-family: inherit;
-  font-size: var(--component-checkbox-font_size-normal);
+  font-size: var(--component-input-font_size-default);
 }
 
 .TextArea--resize-none {

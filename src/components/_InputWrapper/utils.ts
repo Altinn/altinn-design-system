@@ -22,6 +22,7 @@ interface GetVariantProps {
   disabled?: boolean;
   isValid?: boolean;
   isSearch?: boolean;
+  withErrorIcon?: boolean;
 }
 
 export const getVariant = ({
@@ -29,37 +30,34 @@ export const getVariant = ({
   disabled = false,
   isValid = true,
   isSearch = false,
+  withErrorIcon = false,
 }: GetVariantProps = {}) => {
-  let iconVar = IconVariant.None;
-
-  if (isSearch) {
-    iconVar = IconVariant.Search;
-  }
+  const iconVariant = isSearch ? IconVariant.Search : IconVariant.None;
 
   if (disabled) {
     return {
       variant: InputVariant.Disabled,
-      iconVariant: iconVar,
+      iconVariant,
     };
   } else if (readOnly === true || readOnly === ReadOnlyVariant.ReadOnlyInfo) {
     return {
       variant: InputVariant.ReadOnlyInfo,
-      iconVariant: iconVar,
+      iconVariant,
     };
   } else if (readOnly === ReadOnlyVariant.ReadOnlyConfirm) {
     return {
       variant: InputVariant.ReadOnlyConfirm,
-      iconVariant: iconVar,
+      iconVariant,
     };
   } else if (isValid === false) {
     return {
       variant: InputVariant.Error,
-      iconVariant: IconVariant.Error,
+      iconVariant: withErrorIcon ? IconVariant.Error : IconVariant.None,
     };
   }
 
   return {
     variant: InputVariant.Default,
-    iconVariant: iconVar,
+    iconVariant,
   };
 };

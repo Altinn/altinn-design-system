@@ -5,7 +5,7 @@ import {
   ReadOnlyVariant,
 } from './utils';
 
-describe('Textfield utils', () => {
+describe('InputWrapper utils', () => {
   describe('getVariant', () => {
     it('should return Default inputvariant and no icon by default', () => {
       const result = getVariant();
@@ -47,11 +47,19 @@ describe('Textfield utils', () => {
       });
     });
 
-    it('should return ReadOnlyConfirm inputvariant and Error icon when isValid is false', () => {
-      const result = getVariant({ isValid: false });
+    it('should return Error inputvariant and Error icon when isValid is false and withErrorIcon is true', () => {
+      const result = getVariant({ isValid: false, withErrorIcon: true });
       expect(result).toEqual({
         variant: InputVariant.Error,
         iconVariant: IconVariant.Error,
+      });
+    });
+
+    it('should return Error inputvariant without Error icon when isValid is false and withErrorIcon is false', () => {
+      const result = getVariant({ isValid: false, withErrorIcon: false });
+      expect(result).toEqual({
+        variant: InputVariant.Error,
+        iconVariant: IconVariant.None,
       });
     });
   });

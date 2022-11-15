@@ -20,8 +20,18 @@ describe('InputWrapper', () => {
       expect(screen.queryByTestId('input-icon-error')).not.toBeInTheDocument();
     });
 
+    it('should not show error-icon when isValid is true and withErrorIcon is true', () => {
+      render({ isValid: true, withErrorIcon: true });
+      expect(screen.queryByTestId('input-icon-error')).not.toBeInTheDocument();
+    });
+
     it('should not show error-icon when isValid is true and readOnly is true', () => {
       render({ isValid: true, readOnly: true });
+      expect(screen.queryByTestId('input-icon-error')).not.toBeInTheDocument();
+    });
+
+    it('should not show error-icon when isValid is true, withErrorIcon is true and readOnly is true', () => {
+      render({ isValid: true, readOnly: true, withErrorIcon: true });
       expect(screen.queryByTestId('input-icon-error')).not.toBeInTheDocument();
     });
 
@@ -30,8 +40,23 @@ describe('InputWrapper', () => {
       expect(screen.queryByTestId('input-icon-error')).not.toBeInTheDocument();
     });
 
-    it('should show error-icon when isValid is false', () => {
+    it('should not show error-icon when isValid is true, withErrorIcon is true and disabled is true', () => {
+      render({ isValid: true, disabled: true, withErrorIcon: true });
+      expect(screen.queryByTestId('input-icon-error')).not.toBeInTheDocument();
+    });
+
+    it('should not show error-icon when isValid is false and withErrorIcon is not set', () => {
       render({ isValid: false });
+      expect(screen.queryByTestId('input-icon-error')).not.toBeInTheDocument();
+    });
+
+    it('should not show error-icon when isValid is false and withErrorIcon is false', () => {
+      render({ isValid: false, withErrorIcon: false });
+      expect(screen.queryByTestId('input-icon-error')).not.toBeInTheDocument();
+    });
+
+    it('should show error-icon when isValid is false and withErrorIcon is true', () => {
+      render({ isValid: false, withErrorIcon: true });
       expect(screen.queryByTestId('input-icon-error')).toBeInTheDocument();
     });
   });

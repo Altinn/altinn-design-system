@@ -293,7 +293,7 @@ export const Select = (props: SelectProps) => {
         )}
         isSearch={false}
         isValid={!error}
-        label={label}
+        label={hideLabel ? undefined : label}
         noFocusEffect={multiple}
         noPadding={true}
         readOnly={false}

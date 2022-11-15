@@ -208,7 +208,7 @@ describe('Select', () => {
     it('Hides label, but makes it accessible, if the "hideLabel" property is set', async () => {
       const label = 'Lorem ipsum';
       renderSingleSelect({ hideLabel: true, label });
-      expect(screen.queryByRole('label')).toBeFalsy();
+      expect(screen.queryByText(label)).toBeFalsy();
       expect(screen.getByLabelText(label)).toBeTruthy();
     });
 
@@ -523,7 +523,7 @@ describe('Select', () => {
     it('Hides label, but makes it accessible, if the "hideLabel" property is set', async () => {
       const label = 'Lorem ipsum';
       renderMultiSelect({ hideLabel: true, label });
-      expect(screen.queryByRole('label')).toBeFalsy();
+      expect(screen.queryByText(label)).toBeFalsy();
       expect(screen.getByLabelText(label)).toBeTruthy();
     });
 

@@ -14,53 +14,68 @@ import { TextField } from './TextField';
 const user = userEvent.setup();
 
 describe('TextField', () => {
-  it('should trigger onPaste when pasting into input', () => {
-    const handlePaste = jest.fn();
-    render({
-      onPaste: handlePaste,
+  describe('Default', () => {
+    it('should trigger onPaste when pasting into input', () => {
+      const handlePaste = jest.fn();
+      render({
+        onPaste: handlePaste,
+      });
+
+      const element = screen.getByRole('textbox');
+      const paste = createEvent.paste(element, {
+        clipboardData: {
+          getData: () => 'hello world',
+        },
+      });
+
+      fireEvent(element, paste);
+
+      expect(handlePaste).toHaveBeenCalledTimes(1);
     });
 
-    const element = screen.getByRole('textbox');
-    const paste = createEvent.paste(element, {
-      clipboardData: {
-        getData: () => 'hello world',
-      },
+    it('should trigger onBlur event when field loses focus', async () => {
+      const handleChange = jest.fn();
+      render({ onBlur: handleChange });
+
+      const element = screen.getByRole('textbox');
+      await user.click(element);
+      expect(element).toHaveFocus();
+      await user.tab();
+
+      expect(handleChange).toHaveBeenCalledTimes(1);
     });
 
-    fireEvent(element, paste);
+    it('should trigger onChange event for each keystroke', async () => {
+      const handleChange = jest.fn();
+      render({ onChange: handleChange });
 
-    expect(handlePaste).toHaveBeenCalledTimes(1);
-  });
+      const element = screen.getByRole('textbox');
+      await user.click(element);
+      expect(element).toHaveFocus();
+      await user.keyboard('test');
 
-  it('should trigger onBlur event when field loses focus', async () => {
-    const handleChange = jest.fn();
-    render({ onBlur: handleChange });
+      expect(handleChange).toHaveBeenCalledTimes(4);
+    });
 
-    const element = screen.getByRole('textbox');
-    await user.click(element);
-    expect(element).toHaveFocus();
-    await user.tab();
+    it('Sets given id on input field', () => {
+      const id = 'some-unique-id';
+      render({ id });
+      expect(screen.getByRole('textbox')).toHaveAttribute('id', id);
+    });
 
-    expect(handleChange).toHaveBeenCalledTimes(1);
-  });
+    it('Focuses on input field when label is clicked and id is not given', async () => {
+      const label = 'Lorem ipsum';
+      render({ label });
+      await user.click(screen.getByText(label));
+      expect(screen.getByRole('textbox')).toHaveFocus();
+    });
 
-  it('should trigger onChange event for each keystroke', async () => {
-    const handleChange = jest.fn();
-    render({ onChange: handleChange });
-
-    const element = screen.getByRole('textbox');
-    await user.click(element);
-    expect(element).toHaveFocus();
-    await user.keyboard('test');
-
-    expect(handleChange).toHaveBeenCalledTimes(4);
-  });
-
-  it('Focuses on input field when label is clicked', async () => {
-    const label = 'Lorem ipsum';
-    render({ label });
-    await user.click(screen.getByText(label));
-    expect(screen.getByRole('textbox')).toHaveFocus();
+    it('Focuses on input field when label is clicked and id is given', async () => {
+      const label = 'Lorem ipsum';
+      render({ id: 'some-unique-id', label });
+      await user.click(screen.getByText(label));
+      expect(screen.getByRole('textbox')).toHaveFocus();
+    });
   });
 
   describe('number-format-input', () => {
@@ -84,10 +99,8 @@ describe('TextField', () => {
     });
 
     it('should render as a NumberFormat element if format.number is specified', () => {
-      render({ isValid: true, formatting: { number: { prefix: '$' } } });
-      expect(
-        screen.getByTestId('id-formatted-number-default'),
-      ).toBeInTheDocument();
+      render({ isValid: true, formatting: { number: {} } });
+      expect(screen.getByRole('textbox').inputMode).toBe('numeric');
     });
 
     it('should trigger onBlur event when field loses focus', async () => {
@@ -285,12 +298,31 @@ describe('TextField', () => {
       expect(handleChange).toHaveBeenCalledTimes(2);
       expect(testValue).toBe('1258');
     });
+
+    it('Sets given id on input field', () => {
+      const id = 'some-unique-id';
+      render({ id, formatting: { number: {} } });
+      expect(screen.getByRole('textbox')).toHaveAttribute('id', id);
+    });
+
+    it('Focuses on input field when label is clicked and id is not given', async () => {
+      const label = 'Lorem ipsum';
+      render({ label, formatting: { number: {} } });
+      await user.click(screen.getByText(label));
+      expect(screen.getByRole('textbox')).toHaveFocus();
+    });
+
+    it('Focuses on input field when label is clicked and id is given', async () => {
+      const label = 'Lorem ipsum';
+      render({ id: 'some-unique-id', label, formatting: { number: {} } });
+      await user.click(screen.getByText(label));
+      expect(screen.getByRole('textbox')).toHaveFocus();
+    });
   });
 });
 
 const render = (props: Partial<TextFieldProps> = {}) => {
   const allProps = {
-    id: 'id',
     onChange: jest.fn(),
     ...props,
   } as TextFieldProps;

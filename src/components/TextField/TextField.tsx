@@ -111,9 +111,9 @@ export const TextField = ({
       readOnly={readOnly}
       label={label}
       inputId={id}
-      inputRenderer={({ className, variant }) => {
+      inputRenderer={({ className, variant, inputId }) => {
         const commonProps = {
-          id,
+          id: inputId,
           readOnly: Boolean(readOnly),
           disabled,
           required,
@@ -135,7 +135,7 @@ export const TextField = ({
               {...commonProps}
               {...formatting.number}
               {...rest}
-              data-testid={`${id}-formatted-number-${variant}`}
+              data-testid={`${inputId}-formatted-number-${variant}`}
               onValueChange={handleNumberFormatChange}
               valueIsNumericString={true}
               onKeyDown={(e) =>
@@ -153,7 +153,7 @@ export const TextField = ({
               {...commonProps}
               {...formatting.number}
               {...rest}
-              data-testid={`${id}-formatted-number-${variant}`}
+              data-testid={`${inputId}-formatted-number-${variant}`}
               onValueChange={handleNumberFormatChange}
               valueIsNumericString={true}
             />
@@ -163,7 +163,7 @@ export const TextField = ({
             <input
               {...commonProps}
               {...rest}
-              data-testid={`${id}-${variant}`}
+              data-testid={`${inputId}-${variant}`}
               onChange={onChange}
             />
           );

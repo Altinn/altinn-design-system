@@ -1,6 +1,7 @@
 import React from 'react';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import { config } from 'storybook-addon-designs';
+import { Success as SuccessIconNAV } from '@navikt/ds-icons';
 
 import { StoryPage } from '@sb/StoryPage';
 
@@ -41,12 +42,12 @@ const Template: ComponentStory<typeof SvgIcon> = (args) => (
 
 export const IconFromNavIconLibrary = Template.bind({});
 IconFromNavIconLibrary.args = {
-  iconName: 'Success',
+  svgIconComponent: <SuccessIconNAV />,
 };
 IconFromNavIconLibrary.parameters = {
   docs: {
     description: {
-      story: "`<SvgIcon iconName='Success' />`",
+      story: '`<SvgIcon svgIconComponent: <SuccessIconNAV />`',
     },
   },
 };

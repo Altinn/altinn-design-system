@@ -1,12 +1,13 @@
 import React from 'react';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import { config } from 'storybook-addon-designs';
+import { Success as SuccessIcon } from '@navikt/ds-icons';
 
 import { StoryPage } from '@sb/StoryPage';
 
 import { Button, ButtonVariant, ButtonColor, ButtonSize } from '..';
 
-import { ReactComponent as SuccessIcon } from './success.svg';
+import { ReactComponent as SuccessIconCustom } from './success.svg';
 
 const figmaLink =
   'https://www.figma.com/file/vpM9dqqQPHqU6ogfKp5tlr/DDS---Core-Components?node-id=6691%3A31509';
@@ -113,7 +114,7 @@ Danger.parameters = {
 export const SuccessWithIcon = Template.bind({});
 SuccessWithIcon.args = {
   color: ButtonColor.Success,
-  iconName: 'Success',
+  icon: <SuccessIcon />,
   iconPlacement: 'left',
   children: 'Button',
 };
@@ -128,7 +129,7 @@ SuccessWithIcon.parameters = {
 export const SuccessWithCustomIcon = Template.bind({});
 SuccessWithCustomIcon.args = {
   color: ButtonColor.Success,
-  svgIconComponent: <SuccessIcon />,
+  icon: <SuccessIconCustom />,
   iconPlacement: 'left',
   children: 'Button',
 };
@@ -143,7 +144,7 @@ SuccessWithCustomIcon.parameters = {
 export const SuccessWithIconNoText = Template.bind({});
 SuccessWithIconNoText.args = {
   color: ButtonColor.Success,
-  iconName: 'Success',
+  icon: <SuccessIcon />,
 };
 SuccessWithIconNoText.parameters = {
   docs: {
@@ -156,9 +157,10 @@ SuccessWithIconNoText.parameters = {
 export const FullWidth = WithinContainerTemplate.bind({});
 FullWidth.args = {
   color: ButtonColor.Primary,
-  iconName: 'AddCircle',
+  icon: <SuccessIcon />,
   fullWidth: true,
   children: `Secondary button`,
+  iconPlacement: 'left',
 };
 FullWidth.parameters = {
   docs: {

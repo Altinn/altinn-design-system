@@ -1,6 +1,7 @@
 import React from 'react';
 import { render as renderRtl, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { Success as SuccessIcon } from '@navikt/ds-icons';
 
 import type { ButtonProps } from './Button';
 
@@ -66,7 +67,7 @@ describe('Button', () => {
   });
 
   it('should render an icon on the left side of text when given an existing iconName and no iconPlacement', () => {
-    render({ iconName: 'Add', children: 'Button text' });
+    render({ icon: <SuccessIcon />, children: 'Button text' });
     const icon = screen.getByRole('img');
     expect(
       screen.getByRole('button', {
@@ -77,7 +78,7 @@ describe('Button', () => {
 
   it('should render an icon on the right side of text when given an existing iconName and iconPlacement is right', () => {
     render({
-      iconName: 'Add',
+      icon: <SuccessIcon />,
       iconPlacement: 'right',
       children: 'Button text',
     });

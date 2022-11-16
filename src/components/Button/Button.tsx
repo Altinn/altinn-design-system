@@ -6,7 +6,6 @@ import React, {
 import cn from 'classnames';
 
 import { SvgIcon } from '../SvgIcon';
-import type { IconConditionalProps, IconKey } from '../SvgIcon/SvgIcon';
 
 import classes from './Button.module.css';
 
@@ -30,34 +29,15 @@ export enum ButtonVariant {
   Quiet = 'quiet',
 }
 
-interface ButtonCommonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
   color?: ButtonColor;
   size?: ButtonSize;
   fullWidth?: boolean;
   dashedBorder?: boolean;
+  icon?: React.ReactNode;
   iconPlacement?: 'right' | 'left';
 }
-
-export type ButtonProps = ButtonCommonProps & IconConditionalProps;
-
-const renderIcon = (iconName?: string, iconComponent?: JSX.Element) => {
-  if (iconName && !iconComponent) {
-    return (
-      <SvgIcon
-        iconName={iconName as IconKey}
-        className={cn(classes[`icon`])}
-      />
-    );
-  } else if (!iconName && iconComponent) {
-    return (
-      <SvgIcon
-        svgIconComponent={iconComponent}
-        className={cn(classes[`icon`])}
-      />
-    );
-  }
-};
 
 const Button = (
   {
@@ -68,8 +48,7 @@ const Button = (
     fullWidth = false,
     dashedBorder = false,
     iconPlacement = 'left',
-    iconName,
-    svgIconComponent,
+    icon,
     type = 'button',
     className,
     ...restHTMLProps
@@ -88,15 +67,24 @@ const Button = (
         classes[`button--${variant}--${color}`],
         { [classes['button--full-width']]: fullWidth },
         { [classes['button--dashed-border']]: dashedBorder },
-        { [classes[`button--only-icon`]]: !children && iconName },
+        { [classes[`button--only-icon`]]: !children && icon },
         className,
       )}
       type={type}
     >
-      {(iconPlacement === 'left' || !children) &&
-        renderIcon(iconName, svgIconComponent)}
+      {icon && iconPlacement === 'left' && (
+        <SvgIcon
+          svgIconComponent={icon}
+          className={classes.icon}
+        />
+      )}
       {children}
-      {iconPlacement === 'right' && renderIcon(iconName, svgIconComponent)}
+      {icon && iconPlacement === 'right' && (
+        <SvgIcon
+          svgIconComponent={icon}
+          className={classes.icon}
+        />
+      )}
     </button>
   );
 };

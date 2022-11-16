@@ -1,33 +1,15 @@
 import type { SVGAttributes } from 'react';
-import React, { cloneElement } from 'react';
-import * as Icons from '@navikt/ds-icons';
+import { isValidElement, cloneElement } from 'react';
+import type React from 'react';
 
-export type IconKey = keyof typeof Icons;
+export type IconComponentProps = {
+  svgIconComponent: React.ReactNode;
+};
 
-export type IconConditionalProps =
-  | {
-      iconName?: IconKey;
-      svgIconComponent?: never;
-    }
-  | {
-      iconName?: never;
-      svgIconComponent?: JSX.Element;
-    };
+export type SvgIconProps = IconComponentProps & SVGAttributes<SVGElement>;
 
-export type SvgIconProps = IconConditionalProps & SVGAttributes<SVGElement>;
-
-export const SvgIcon = ({
-  iconName,
-  svgIconComponent,
-  ...rest
-}: SvgIconProps) => {
-  if (iconName) {
-    // eslint-disable-next-line import/namespace
-    const ImportedIcon = Icons[iconName];
-    if (ImportedIcon) {
-      return <ImportedIcon {...rest} />;
-    }
-  } else if (svgIconComponent) {
+export const SvgIcon = ({ svgIconComponent, ...rest }: SvgIconProps) => {
+  if (isValidElement(svgIconComponent)) {
     return cloneElement(svgIconComponent, { ...rest });
   }
   return null;

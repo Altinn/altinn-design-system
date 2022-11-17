@@ -120,7 +120,7 @@ const rows = [
 ];
 
 const Template: ComponentStory<typeof Table> = (args) => {
-  const [selected, setSelected] = useState('');
+  const [selected, setSelected] = useState({});
   const [selectedSort, setSelectedSort] = useState({
     idCell: '',
     sortDirection: SortDirection.NotActive,
@@ -129,6 +129,7 @@ const Template: ComponentStory<typeof Table> = (args) => {
   const [page, setPage] = useState(0);
 
   const handleChange = ({ selectedValue }: ChangeProps) => {
+    console.log(selectedValue);
     setSelected(selectedValue);
   };
   const handleSortChange = ({ idCell, previousSortDirection }: SortProps) => {
@@ -201,7 +202,7 @@ const Template: ComponentStory<typeof Table> = (args) => {
           .map((row) => (
             <TableRow
               key={row.applicationNr}
-              value={row.applicationNr}
+              value={{ applicationNr: row.applicationNr }}
             >
               <TableCell>{row.applicationNr}</TableCell>
               <TableCell>{row.product}</TableCell>

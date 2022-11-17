@@ -1,6 +1,7 @@
 import { createContext, useContext } from 'react';
 
 import type { SortDirection } from './TableCell';
+import type { RowData } from './TableRow';
 
 export enum Variant {
   Header = 'header',
@@ -9,7 +10,7 @@ export enum Variant {
 }
 
 export interface ChangeProps {
-  selectedValue: string;
+  selectedValue: RowData;
 }
 export interface SortProps {
   idCell: string;
@@ -25,7 +26,7 @@ export type SortHandler = ({
 export const TableContext = createContext<
   | {
       selectRows?: boolean;
-      selectedValue?: string;
+      selectedValue?: RowData;
       onChange?: ChangeHandler;
     }
   | undefined

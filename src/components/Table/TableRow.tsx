@@ -9,15 +9,19 @@ import {
   Variant,
 } from './Context';
 
+export interface RowData {
+  [x: string]: string;
+}
+
 export interface TableRowProps {
   children?: React.ReactNode;
-  value?: string;
+  value?: RowData;
   selectSort?: string;
 }
 
 export const TableRow = ({
   children,
-  value = 'no',
+  value,
   selectSort = '',
 }: TableRowProps) => {
   const { variantStandard } = useTableRowTypeContext();
@@ -26,14 +30,20 @@ export const TableRow = ({
     if (
       onChange != undefined &&
       selectRows &&
-      variantStandard === Variant.Body
+      variantStandard === Variant.Body &&
+      value
     ) {
       onChange({ selectedValue: value });
     }
   };
 
   const handleEnter = (event: React.KeyboardEvent<HTMLTableRowElement>) => {
-    if ((event.key === 'Enter' || event.key === ' ') && onChange != undefined) {
+    if (
+      (event.key === 'Enter' || event.key === ' ') &&
+      onChange != undefined &&
+      selectedValue &&
+      value
+    ) {
       onChange({ selectedValue: value });
     }
   };

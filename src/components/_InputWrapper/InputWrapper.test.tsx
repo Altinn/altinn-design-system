@@ -149,12 +149,69 @@ describe('InputWrapper', () => {
         expect(textField.classList.contains(`InputWrapper--${v}`)).toBe(false);
       });
     });
+
+    it('Renders with padding class by default', () => {
+      render();
+      const { classList } = screen.getByTestId('InputWrapper');
+      expect(classList).toContain('InputWrapper--with-padding');
+    });
+
+    it('Renders without padding class when "noPadding" property is true', () => {
+      render({ noPadding: true });
+      const { classList } = screen.getByTestId('InputWrapper');
+      expect(classList).not.toContain('InputWrapper--with-padding');
+    });
+
+    it('Renders with focus-effect class by default', () => {
+      render();
+      const { classList } = screen.getByTestId('InputWrapper');
+      expect(classList).toContain('InputWrapper--with-focus-effect');
+    });
+
+    it('Renders without focus-effect class when "noFocusEffect" property is true', () => {
+      render({ noFocusEffect: true });
+      const { classList } = screen.getByTestId('InputWrapper');
+      expect(classList).not.toContain('InputWrapper--with-focus-effect');
+    });
+  });
+
+  describe('Label', () => {
+    it('should show label when label is set', () => {
+      const label = 'Label is here';
+      render({ label });
+      expect(screen.queryByText(label)).toBeInTheDocument();
+    });
+
+    it('should not show label when label is not set', () => {
+      render({ label: undefined });
+      expect(
+        screen.queryByTestId('InputWrapper-label'),
+      ).not.toBeInTheDocument();
+    });
+
+    it('Attaches label to input element when inputId is not set', () => {
+      const label = 'Label is here';
+      render({ label });
+      expect(screen.getByLabelText(label)).toHaveAttribute('id');
+    });
+
+    it('Attaches label to input element when inputId is set', () => {
+      const inputId = 'some-unique-id';
+      const label = 'Label is here';
+      render({ inputId, label });
+      expect(screen.getByLabelText(label)).toHaveAttribute('id', inputId);
+    });
   });
 });
 
 const render = (props: Partial<InputWrapperProps> = {}) => {
   const allProps = {
-    inputRenderer: ({ className }) => <input className={className} />,
+    inputRenderer: ({ className, inputId }) => (
+      <input
+        className={className}
+        id={inputId}
+      />
+    ),
     ...props,
   } as InputWrapperProps;
 

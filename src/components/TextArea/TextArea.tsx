@@ -19,6 +19,7 @@ export const TextArea = ({
   disabled = false,
   readOnly = false,
   resize = 'none',
+  label,
   ...rest
 }: TextAreaProps) => {
   return (
@@ -26,10 +27,13 @@ export const TextArea = ({
       isValid={isValid}
       disabled={disabled}
       readOnly={readOnly}
-      inputRenderer={({ className }) => {
+      label={label}
+      inputId={rest.id}
+      inputRenderer={({ className, inputId }) => {
         return (
           <textarea
             {...rest}
+            id={inputId}
             disabled={disabled}
             readOnly={Boolean(readOnly)}
             className={cn(

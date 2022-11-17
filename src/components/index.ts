@@ -9,7 +9,7 @@ export {
   AccordionIconVariant,
   AccordionIcon,
 } from './Accordion';
-export { Button, ButtonVariant } from './Button';
+export { Button, ButtonVariant, ButtonColor, ButtonSize } from './Button';
 export { Page, PageHeader, PageContent, PageColor } from './Page';
 export { List, ListItem, BorderStyle } from './List';
 export { TextField } from './TextField';
@@ -30,6 +30,7 @@ export {
 export { Checkbox } from './Checkbox';
 export { TextArea } from './TextArea';
 export type { IconVariant, ReadOnlyVariant } from './_InputWrapper';
-export { CheckboxGroup } from './CheckboxGroup';
+export { CheckboxGroup, CheckboxGroupVariant } from './CheckboxGroup';
 export { FieldSet, FieldSetSize } from './FieldSet';
 export { Pagination } from './Pagination';
+export { Select } from './Select';

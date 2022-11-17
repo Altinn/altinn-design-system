@@ -54,6 +54,13 @@ describe('TextArea', () => {
 
     expect(handleChange).toHaveBeenCalledTimes(4);
   });
+
+  it('Focuses on text area when label is clicked', async () => {
+    const label = 'Lorem ipsum';
+    render({ label });
+    await user.click(screen.getByText(label));
+    expect(screen.getByRole('textbox')).toHaveFocus();
+  });
 });
 
 const render = (props: Partial<TextAreaProps> = {}) => {

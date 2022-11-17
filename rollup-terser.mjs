@@ -28,8 +28,7 @@ function terser(terserOptions = {}) {
       }
 
       const effectiveTerserOptions = { ...defaultOptions, ...terserOptions };
-      const result = await minify(code, effectiveTerserOptions);
-      return result;
+      return await minify(code, effectiveTerserOptions);
     },
   };
 }

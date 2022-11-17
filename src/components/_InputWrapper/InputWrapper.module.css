@@ -3,8 +3,11 @@
   --border-color: var(--component-input-color-border-default);
   --outline-color: var(--component-input-color-outline-focus);
   --icon-background: transparent;
+  --paddingY: 0;
+  --paddingX: 0;
   background: var(--background);
   border-width: var(--component-input-border_width-default);
+  border-radius: var(--interactive_components-border_radius-normal);
   border-style: solid;
   box-sizing: border-box;
   display: flex;
@@ -12,7 +15,7 @@
   border-color: var(--border-color);
 }
 
-.InputWrapper:focus-within {
+.InputWrapper--with-focus-effect:focus-within {
   outline: var(--outline-color) auto var(--border_width-thin);
   outline-offset: calc(var(--border_width-thin) + var(--border_width-standard));
 }
@@ -58,16 +61,20 @@
   flex-direction: row-reverse;
 }
 
-.InputWrapper__field {
+.InputWrapper--with-padding {
   /* Subtract size of border on padding-y, because border is on outer element. Without this, height of entire component will be too big */
   --paddingY: calc(
     var(--component-input-space-padding-y) -
       var(--component-input-border_width-default)
   );
+  --paddingX: var(--component-input-space-padding-x);
+}
+
+.InputWrapper__field {
   box-sizing: border-box;
   border: none;
   outline: none;
-  padding: var(--paddingY) var(--component-input-space-padding-x);
+  padding: var(--paddingY) var(--paddingX);
   width: 100%;
   background: var(--background);
 }
@@ -83,4 +90,9 @@
 
 .InputWrapper__icon--disabled {
   opacity: 60%;
+}
+
+.InputWrapper__label {
+  font-weight: var(--component-label-font_weight-default);
+  padding: 0;
 }

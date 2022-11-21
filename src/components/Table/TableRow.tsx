@@ -20,13 +20,13 @@ export interface TableRowProps
     'onClick' | 'tabIndex' | 'onKeyUp'
   > {
   children?: React.ReactNode;
-  value?: RowData;
+  rowData?: RowData;
   selectSort?: string;
 }
 
 export const TableRow = ({
   children,
-  value,
+  rowData,
   selectSort = '',
   className,
   ...tableRowProps
@@ -38,9 +38,9 @@ export const TableRow = ({
       onChange != undefined &&
       selectRows &&
       variantStandard === Variant.Body &&
-      value
+      rowData
     ) {
-      onChange({ selectedValue: value });
+      onChange({ selectedValue: rowData });
     }
   };
 
@@ -49,12 +49,11 @@ export const TableRow = ({
       (event.key === 'Enter' || event.key === ' ') &&
       onChange != undefined &&
       selectedValue &&
-      value
+      rowData
     ) {
-      onChange({ selectedValue: value });
+      onChange({ selectedValue: rowData });
     }
   };
-
   return (
     <SortContext.Provider value={{ selectSort }}>
       <tr
@@ -62,11 +61,12 @@ export const TableRow = ({
         className={cn(
           classes.TableRow,
           {
-            [classes['table-row--selected']]: value === selectedValue,
+            [classes['table-row--selected']]:
+              JSON.stringify(rowData) === JSON.stringify(selectedValue),
             [classes['table-row--body']]:
               variantStandard === Variant.Body &&
               selectRows &&
-              value !== selectedValue,
+              JSON.stringify(rowData) !== JSON.stringify(selectedValue),
           },
           className,
         )}

@@ -129,7 +129,6 @@ const Template: ComponentStory<typeof Table> = (args) => {
   const [page, setPage] = useState(0);
 
   const handleChange = ({ selectedValue }: ChangeProps) => {
-    console.log(selectedValue);
     setSelected(selectedValue);
   };
   const handleSortChange = ({ idCell, previousSortDirection }: SortProps) => {
@@ -202,7 +201,7 @@ const Template: ComponentStory<typeof Table> = (args) => {
           .map((row) => (
             <TableRow
               key={row.applicationNr}
-              value={{ applicationNr: row.applicationNr }}
+              rowData={{ applicationNr: row.applicationNr }}
             >
               <TableCell>{row.applicationNr}</TableCell>
               <TableCell>{row.product}</TableCell>

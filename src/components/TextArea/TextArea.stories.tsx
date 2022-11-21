@@ -33,7 +33,9 @@ export default {
       ),
     },
   },
-  args: {},
+  args: {
+    label: 'Label',
+  },
 } as ComponentMeta<typeof TextArea>;
 
 const Template: ComponentStory<typeof TextArea> = (args) => (

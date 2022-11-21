@@ -1,3 +1,4 @@
+import type { HTMLProps } from 'react';
 import React from 'react';
 import cn from 'classnames';
 
@@ -13,7 +14,11 @@ export interface RowData {
   [x: string]: string;
 }
 
-export interface TableRowProps {
+export interface TableRowProps
+  extends Omit<
+    HTMLProps<HTMLTableRowElement>,
+    'onClick' | 'tabIndex' | 'onKeyUp'
+  > {
   children?: React.ReactNode;
   value?: RowData;
   selectSort?: string;
@@ -23,6 +28,8 @@ export const TableRow = ({
   children,
   value,
   selectSort = '',
+  className,
+  ...tableRowProps
 }: TableRowProps) => {
   const { variantStandard } = useTableRowTypeContext();
   const { onChange, selectedValue, selectRows } = useTableContext();
@@ -51,13 +58,18 @@ export const TableRow = ({
   return (
     <SortContext.Provider value={{ selectSort }}>
       <tr
-        className={cn(classes.TableRow, {
-          [classes['table-row--selected']]: value === selectedValue,
-          [classes['table-row--body']]:
-            variantStandard === Variant.Body &&
-            selectRows &&
-            value !== selectedValue,
-        })}
+        {...tableRowProps}
+        className={cn(
+          classes.TableRow,
+          {
+            [classes['table-row--selected']]: value === selectedValue,
+            [classes['table-row--body']]:
+              variantStandard === Variant.Body &&
+              selectRows &&
+              value !== selectedValue,
+          },
+          className,
+        )}
         onClick={handleClick}
         tabIndex={
           variantStandard === Variant.Body && selectRows ? 0 : undefined

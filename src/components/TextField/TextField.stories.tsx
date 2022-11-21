@@ -34,6 +34,7 @@ export default {
     },
   },
   args: {
+    label: 'Label',
     id: 'textfield-story',
     formatting: {
       align: 'left',

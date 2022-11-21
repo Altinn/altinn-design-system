@@ -8,8 +8,8 @@ import postcss from 'rollup-plugin-postcss';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import svgr from '@svgr/rollup';
 
-import terser from './rollup-terser';
-import packageJson from './package.json';
+import terser from './rollup-terser.mjs';
+import packageJson from './package.json' assert { type: 'json' };
 
 // css files needs to be bundled
 const altinnFigmaTokensExceptCss = /@altinn\/figma-design-tokens.*(?<!css)$/;
@@ -34,6 +34,7 @@ export default [
       /react-number-format/,
       /react-leaflet/,
       /leaflet/,
+      /@navikt\/ds-icons/,
     ],
     plugins: [
       peerDepsExternal(),

@@ -57,7 +57,17 @@ describe('CheckboxGroup', () => {
     const onChange = jest.fn();
     render({ onChange });
     await act(() => user.click(screen.queryAllByRole('checkbox')[0]));
+    expect(onChange).toHaveBeenCalledTimes(1);
     expect(onChange).toHaveBeenCalledWith([defaultProps.items[0].name]);
+    await act(() => user.click(screen.queryAllByRole('checkbox')[1]));
+    expect(onChange).toHaveBeenCalledTimes(2);
+    expect(onChange).toHaveBeenCalledWith([
+      defaultProps.items[0].name,
+      defaultProps.items[1].name,
+    ]);
+    await act(() => user.click(screen.queryAllByRole('checkbox')[0]));
+    expect(onChange).toHaveBeenCalledTimes(3);
+    expect(onChange).toHaveBeenCalledWith([defaultProps.items[1].name]);
   });
 
   it('Checkboxes should be checked if the "items" prop tells them to be', () => {

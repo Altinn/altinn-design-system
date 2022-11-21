@@ -35,6 +35,7 @@ export default {
   args: {
     id: 'searchfield-story',
     disabled: false,
+    label: 'Label',
   },
   argTypes: {
     onChange: { action: 'Value changed, perform search' },

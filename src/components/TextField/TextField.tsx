@@ -23,6 +23,7 @@ export interface TextFieldProps
   readOnly?: boolean | ReadOnlyVariant;
   defaultValue?: string | number;
   formatting?: TextFieldFormatting;
+  label?: string;
 }
 
 export interface TextFieldFormatting {
@@ -87,6 +88,7 @@ export const TextField = ({
   readOnly = false,
   required = false,
   formatting,
+  label,
   ...rest
 }: TextFieldProps) => {
   const handleNumberFormatChange = (
@@ -107,9 +109,11 @@ export const TextField = ({
       isValid={isValid}
       disabled={disabled}
       readOnly={readOnly}
-      inputRenderer={({ className, variant }) => {
+      label={label}
+      inputId={id}
+      inputRenderer={({ className, variant, inputId }) => {
         const commonProps = {
-          id,
+          id: inputId,
           readOnly: Boolean(readOnly),
           disabled,
           required,
@@ -131,7 +135,7 @@ export const TextField = ({
               {...commonProps}
               {...formatting.number}
               {...rest}
-              data-testid={`${id}-formatted-number-${variant}`}
+              data-testid={`${inputId}-formatted-number-${variant}`}
               onValueChange={handleNumberFormatChange}
               valueIsNumericString={true}
               onKeyDown={(e) =>
@@ -149,7 +153,7 @@ export const TextField = ({
               {...commonProps}
               {...formatting.number}
               {...rest}
-              data-testid={`${id}-formatted-number-${variant}`}
+              data-testid={`${inputId}-formatted-number-${variant}`}
               onValueChange={handleNumberFormatChange}
               valueIsNumericString={true}
             />
@@ -159,7 +163,7 @@ export const TextField = ({
             <input
               {...commonProps}
               {...rest}
-              data-testid={`${id}-${variant}`}
+              data-testid={`${inputId}-${variant}`}
               onChange={onChange}
             />
           );

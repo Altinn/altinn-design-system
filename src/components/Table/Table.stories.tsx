@@ -120,7 +120,7 @@ const rows = [
 ];
 
 const Template: ComponentStory<typeof Table> = (args) => {
-  const [selected, setSelected] = useState('');
+  const [selected, setSelected] = useState({});
   const [selectedSort, setSelectedSort] = useState({
     idCell: '',
     sortDirection: SortDirection.NotActive,
@@ -201,7 +201,7 @@ const Template: ComponentStory<typeof Table> = (args) => {
           .map((row) => (
             <TableRow
               key={row.applicationNr}
-              value={row.applicationNr}
+              rowData={{ applicationNr: row.applicationNr }}
             >
               <TableCell>{row.applicationNr}</TableCell>
               <TableCell>{row.product}</TableCell>

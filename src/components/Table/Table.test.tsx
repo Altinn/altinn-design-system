@@ -19,10 +19,10 @@ const render = (props: Partial<TableProps> = {}) => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          <TableRow value='apple'>
+          <TableRow rowData={{ fruit: 'apple' }}>
             <TableCell>Apple</TableCell>
           </TableRow>
-          <TableRow value='orange'>
+          <TableRow rowData={{ fruit: 'orange' }}>
             <TableCell>Orange</TableCell>
           </TableRow>
         </TableBody>
@@ -30,7 +30,7 @@ const render = (props: Partial<TableProps> = {}) => {
     ),
     onChange: jest.fn(),
     selectRows: true,
-    selectedValue: '',
+    selectedValue: {},
     ...props,
   };
   renderRtl(<Table {...allProps} />);
@@ -44,7 +44,9 @@ describe('Table', () => {
     render({ onChange: handleChange, selectRows: true });
 
     await user.click(screen.getByRole('row', { name: 'Apple' }));
-    expect(handleChange).toHaveBeenCalledWith({ selectedValue: 'apple' });
+    expect(handleChange).toHaveBeenCalledWith({
+      selectedValue: { fruit: 'apple' },
+    });
   });
 });
 
@@ -55,7 +57,9 @@ describe('Table', () => {
 
     await user.keyboard('{Tab}');
     await user.keyboard('{Enter}');
-    expect(handleChange).toHaveBeenCalledWith({ selectedValue: 'apple' });
+    expect(handleChange).toHaveBeenCalledWith({
+      selectedValue: { fruit: 'apple' },
+    });
   });
 });
 

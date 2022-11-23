@@ -5,13 +5,14 @@ import cn from 'classnames';
 import classes from './Table.module.css';
 import type { ChangeHandler } from './Context';
 import { TableContext } from './Context';
+import type { RowData } from './TableRow';
 
 export interface TableProps
   extends Omit<HTMLProps<HTMLTableElement>, 'onChange'> {
   children?: React.ReactNode;
   selectRows?: boolean;
   onChange?: ChangeHandler;
-  selectedValue?: string;
+  selectedValue?: RowData;
 }
 
 export const Table = ({

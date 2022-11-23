@@ -43,6 +43,13 @@ export const TableRow = ({
       onChange({ selectedValue: rowData });
     }
   };
+  const isSelected = () => {
+    if (JSON.stringify(rowData) === JSON.stringify(selectedValue)) {
+      return true;
+    } else {
+      return false;
+    }
+  };
 
   const handleEnter = (event: React.KeyboardEvent<HTMLTableRowElement>) => {
     if (
@@ -61,12 +68,9 @@ export const TableRow = ({
         className={cn(
           classes.TableRow,
           {
-            [classes['table-row--selected']]:
-              JSON.stringify(rowData) === JSON.stringify(selectedValue),
+            [classes['table-row--selected']]: isSelected(),
             [classes['table-row--body']]:
-              variantStandard === Variant.Body &&
-              selectRows &&
-              JSON.stringify(rowData) !== JSON.stringify(selectedValue),
+              variantStandard === Variant.Body && selectRows && !isSelected(),
           },
           className,
         )}

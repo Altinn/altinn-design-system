@@ -18,7 +18,7 @@ describe('useUpdate', () => {
     expect(effect).toHaveBeenCalledTimes(1);
   });
 
-  it('Does not call effect on secend render if there is no dependency change', () => {
+  it('Does not call effect on second render if there is no dependency change', () => {
     const effect = jest.fn();
     renderHook(() => useUpdate(effect, [])).rerender();
     expect(effect).not.toHaveBeenCalled();

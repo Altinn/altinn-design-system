@@ -34,3 +34,4 @@ export { CheckboxGroup, CheckboxGroupVariant } from './CheckboxGroup';
 export { FieldSet, FieldSetSize } from './FieldSet';
 export { Pagination } from './Pagination';
 export { Select } from './Select';
+export { Tabs } from './Tabs';

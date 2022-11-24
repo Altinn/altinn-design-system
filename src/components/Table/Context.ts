@@ -13,13 +13,13 @@ export interface ChangeProps {
   selectedValue: RowData;
 }
 export interface SortProps {
-  idCell: string;
+  sortedColumn: string;
   previousSortDirection: SortDirection;
 }
 
 export type ChangeHandler = ({ selectedValue }: ChangeProps) => void;
 export type SortHandler = ({
-  idCell,
+  sortedColumn,
   previousSortDirection,
 }: SortProps) => void;
 

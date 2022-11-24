@@ -122,7 +122,7 @@ const rows = [
 const Template: ComponentStory<typeof Table> = (args) => {
   const [selected, setSelected] = useState({});
   const [selectedSort, setSelectedSort] = useState({
-    idCell: '',
+    sortedColumn: '',
     sortDirection: SortDirection.NotActive,
   });
   const [rowsPerPage, setRowsPerPage] = useState(5);
@@ -131,20 +131,23 @@ const Template: ComponentStory<typeof Table> = (args) => {
   const handleChange = ({ selectedValue }: ChangeProps) => {
     setSelected(selectedValue);
   };
-  const handleSortChange = ({ idCell, previousSortDirection }: SortProps) => {
+  const handleSortChange = ({
+    sortedColumn,
+    previousSortDirection,
+  }: SortProps) => {
     if (previousSortDirection === SortDirection.Ascending) {
       setSelectedSort({
-        idCell: idCell,
+        sortedColumn: sortedColumn,
         sortDirection: SortDirection.Descending,
       });
     } else if (previousSortDirection === SortDirection.Descending) {
       setSelectedSort({
-        idCell: idCell,
+        sortedColumn: sortedColumn,
         sortDirection: SortDirection.Ascending,
       });
     } else {
       setSelectedSort({
-        idCell: idCell,
+        sortedColumn: sortedColumn,
         sortDirection: SortDirection.Descending,
       });
     }
@@ -171,9 +174,9 @@ const Template: ComponentStory<typeof Table> = (args) => {
         <TableRow>
           <TableCell
             onChange={handleSortChange}
-            id={'Søknadsnr.'}
+            sortKey={'Søknadsnr.'}
             sortDirecton={
-              selectedSort.idCell === 'Søknadsnr.'
+              selectedSort.sortedColumn === 'Søknadsnr.'
                 ? selectedSort.sortDirection
                 : SortDirection.NotActive
             }
@@ -181,10 +184,10 @@ const Template: ComponentStory<typeof Table> = (args) => {
             Søknadsnr.
           </TableCell>
           <TableCell
-            id={'Produkt'}
+            sortKey={'Produkt'}
             onChange={handleSortChange}
             sortDirecton={
-              selectedSort.idCell === 'Produkt'
+              selectedSort.sortedColumn === 'Produkt'
                 ? selectedSort.sortDirection
                 : SortDirection.NotActive
             }

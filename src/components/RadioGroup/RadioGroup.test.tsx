@@ -185,24 +185,24 @@ describe('RadioGroup', () => {
     );
   });
 
-  it('Renders with "vertical" variant class if variant is set too "Vertical"', () => {
+  it('Renders with "vertical" variant class if variant is set to "Vertical"', () => {
     render({ variant: RadioGroupVariant.Vertical });
     expect(screen.getByRole('radiogroup')).toHaveClass('radio-group--vertical');
   });
 
-  it('Renders with "horizontal" variant class if variant is set too "Horizontal"', () => {
+  it('Renders with "horizontal" variant class if variant is set to "Horizontal"', () => {
     render({ variant: RadioGroupVariant.Horizontal });
     expect(screen.getByRole('radiogroup')).toHaveClass(
       'radio-group--horizontal',
     );
   });
 
-  it('Renders with "xsmall" size class if size is set too "Xsmall"', () => {
+  it('Renders with "xsmall" size class if size is set to "Xsmall"', () => {
     render({ size: RadioGroupSize.Xsmall });
     expect(screen.getByRole('radiogroup')).toHaveClass('radio-group--xsmall');
   });
 
-  it('Renders with "small" size class if size is set too "Small"', () => {
+  it('Renders with "small" size class if size is set to "Small"', () => {
     render({ size: RadioGroupSize.Small });
     expect(screen.getByRole('radiogroup')).toHaveClass('radio-group--small');
   });

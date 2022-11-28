@@ -4,8 +4,7 @@ import tokens from '@altinn/figma-design-tokens/dist/tokens.json';
 
 import { InputWrapper } from '@/components/_InputWrapper';
 import { MultiSelectItem } from '@/components/Select/MultiSelectItem';
-import { useKeyboardEventListener } from '@/hooks/useKeyboardEventListener';
-import { useEventListener } from '@/hooks/useEventListener';
+import { useEventListener, useKeyboardEventListener } from '@/hooks';
 
 import classes from './Select.module.css';
 

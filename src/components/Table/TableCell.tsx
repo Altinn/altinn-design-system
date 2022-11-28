@@ -13,7 +13,7 @@ export interface TableCellProps
   variant?: string;
   onChange?: SortHandler;
   sortDirecton?: SortDirection;
-  id?: string;
+  sortKey?: string;
 }
 export enum SortDirection {
   Descending = 'desc',
@@ -27,16 +27,20 @@ export const TableCell = ({
   variant,
   onChange,
   sortDirecton = SortDirection.NotSortable,
-  id,
+  sortKey,
   className,
   ...tableCellProps
 }: TableCellProps) => {
   const { variantStandard } = useTableRowTypeContext();
 
   const handleChange = () => {
-    if (onChange != undefined && id != undefined && sortDirecton != undefined) {
+    if (
+      onChange != undefined &&
+      sortKey != undefined &&
+      sortDirecton != undefined
+    ) {
       onChange({
-        idCell: id,
+        sortedColumn: sortKey,
         previousSortDirection: sortDirecton,
       });
     }

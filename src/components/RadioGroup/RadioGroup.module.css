@@ -1,22 +1,24 @@
-.checkbox-group {
-  --gap-x: var(--component-checkbox-group-space-gap-x-small);
-  --gap-y: var(--component-checkbox-group-space-gap-y-small);
-
+.radio-group {
   column-gap: var(--gap-x);
   display: flex;
   flex-wrap: wrap;
   row-gap: var(--gap-y);
 }
 
-.checkbox-group--compact {
+.radio-group--xsmall {
   --gap-x: var(--component-checkbox-group-space-gap-x-xsmall);
   --gap-y: var(--component-checkbox-group-space-gap-y-xsmall);
 }
 
-.checkbox-group--vertical {
+.radio-group--small {
+  --gap-x: var(--component-checkbox-group-space-gap-x-small);
+  --gap-y: var(--component-checkbox-group-space-gap-y-small);
+}
+
+.radio-group--vertical {
   flex-direction: column;
 }
 
-.checkbox-group--horizontal {
+.radio-group--horizontal {
   flex-direction: row;
 }

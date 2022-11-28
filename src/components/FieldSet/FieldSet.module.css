@@ -22,8 +22,11 @@
 }
 
 .field-set:disabled {
-  --color: var(--component-checkbox-color-text-disabled);
-  --description-color: var(--component-checkbox-color-text-disabled);
+  opacity: var(--interactive_components-colors-disabled-opacity);
+}
+
+.field-set:disabled * {
+  opacity: 1;
 }
 
 .field-set__legend {

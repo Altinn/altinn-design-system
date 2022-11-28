@@ -35,3 +35,7 @@ export { FieldSet, FieldSetSize } from './FieldSet';
 export { Pagination } from './Pagination';
 export { Select } from './Select';
 export { Tabs } from './Tabs';
+export { RadioGroup } from './RadioGroup';
+export type { RadioGroupSize, RadioGroupVariant } from './RadioGroup';
+export { RadioButton } from './RadioButton';
+export type { RadioButtonSize } from './RadioButton';

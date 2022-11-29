@@ -6,7 +6,6 @@ module.exports = {
   moduleNameMapper: {
     '.(css|less|scss)$': 'identity-obj-proxy',
     '\\.svg$': '<rootDir>/__mocks__/svg.ts',
-    '\\.png$': '<rootDir>/__mocks__/png.ts',
     '^@/(.*)$': '<rootDir>/src/$1',
     '^@test/(.*)$': '<rootDir>/test/$1',
   },

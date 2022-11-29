@@ -1,17 +1,17 @@
 import React from 'react';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import { config } from 'storybook-addon-designs';
 
 import { StoryPage } from '@sb/StoryPage';
 
-import { Checkbox } from './Checkbox';
+import { RadioButton, RadioButtonSize } from './RadioButton';
 
 const figmaLink =
-  'https://www.figma.com/file/d1VzAmoVdredZkky139AIT/ADS-3---Komponenter?node-id=190%3A13783';
+  'https://www.figma.com/file/vpM9dqqQPHqU6ogfKp5tlr/DDS---Core-Components?node-id=9066%3A48225&t=xqaYVeY7K7YWkymE-0';
 
 export default {
-  title: `Components/Checkbox`,
-  component: Checkbox,
+  title: `Components/RadioButton`,
+  component: RadioButton,
   parameters: {
     design: config([
       {
@@ -26,33 +26,33 @@ export default {
     docs: {
       page: () => (
         <StoryPage
-          description={`Checkbox for boolean or multiple choice values in forms.
+          description={`This is a radio button. Use it together with other radio buttons with the same name.
                         The component relies on being controlled, which means that it expects the consumer to set its \`checked\` state.
-                        That is why the demonstration in Storybook does not change when clicking.
-                        The \`onChange\` property must be set to trigger this change.`}
+                        The \`onChange\` property must be set to trigger this change.
+                        We recommend using our \`RadioGroup\` component if you need radio buttons,
+                        but this standalone component might be useful if \`RadioGroup\` doesn't match the layout criteria of your use case.
+                        If that is the case, you may also consider contributing to the design system 🙂`}
         />
       ),
     },
   },
   args: {
-    checked: false,
-    compact: false,
-    error: false,
-    label: 'Tekst',
-    readOnly: false,
+    label: 'Label',
+    name: 'label',
+    value: 'label',
   },
-} as ComponentMeta<typeof Checkbox>;
+} as ComponentMeta<typeof RadioButton>;
 
-const Template: ComponentStory<typeof Checkbox> = (args) => (
-  <Checkbox {...args} />
+const Template: ComponentStory<typeof RadioButton> = (args) => (
+  <RadioButton {...args} />
 );
 
-export const Normal = Template.bind({});
-Normal.args = {};
-Normal.parameters = {
+export const Default = Template.bind({});
+Default.args = {};
+Default.parameters = {
   docs: {
     description: {
-      story: 'This is the default checkbox.',
+      story: 'Default radio button.',
     },
   },
 };
@@ -62,7 +62,7 @@ Checked.args = { checked: true };
 Checked.parameters = {
   docs: {
     description: {
-      story: 'This is a checked checkbox.',
+      story: 'Checked radio button.',
     },
   },
 };
@@ -73,17 +73,17 @@ Error.parameters = {
   docs: {
     description: {
       story:
-        'This checkbox is supposed to be used when there is a user input error related to it.',
+        'This radio button is supposed to be used when there is a user input error related to it.',
     },
   },
 };
 
 export const Compact = Template.bind({});
-Compact.args = { compact: true };
+Compact.args = { size: RadioButtonSize.Xsmall };
 Compact.parameters = {
   docs: {
     description: {
-      story: 'This is the compact checkbox.',
+      story: 'This is the compact radio button.',
     },
   },
 };
@@ -94,17 +94,7 @@ Disabled.parameters = {
   docs: {
     description: {
       story:
-        'This is the disabled checkbox. Use this when the user is not supposed to change the value. Remember to make it clear for the user why it can not be changed.',
-    },
-  },
-};
-
-export const ReadOnly = Template.bind({});
-ReadOnly.args = { readOnly: true };
-ReadOnly.parameters = {
-  docs: {
-    description: {
-      story: 'This is the read-only checkbox.',
+        'This is the disabled radio button. Use this when the user is not supposed to check it. Remember to make it clear for the user why it can not be checked. The checked state of this button should only be used when all buttons in the group are disabled.',
     },
   },
 };
@@ -114,7 +104,7 @@ WithDescription.args = { description: 'Lorem ipsum dolor sit amet.' };
 WithDescription.parameters = {
   docs: {
     description: {
-      story: 'This is a checkbox with description.',
+      story: 'This is a radio button with description.',
     },
   },
 };
@@ -140,7 +130,7 @@ WithHiddenLabel.parameters = {
   docs: {
     description: {
       story:
-        "This is a checkbox with the `hiddenLabel` property enabled. Use this in table views and other places where there is no need to have a specific, visible label for the checkbox. If the `label` property is set in this case, it will be made available for accessibility tools through the HTML component's `aria-label` attribute.",
+        "This is a radio button with the `hiddenLabel` property enabled. Use this in table views and other places where there is no need to have a specific, visible label for the button. If the `label` property is set in this case, it will be made available for accessibility tools through the HTML component's `aria-label` attribute.",
     },
   },
 };

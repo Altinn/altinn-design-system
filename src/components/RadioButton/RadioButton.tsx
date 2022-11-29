@@ -7,26 +7,30 @@ import {
   CheckboxRadioTemplateSize,
 } from '@/components/_CheckboxRadioTemplate/CheckboxRadioTemplate';
 
-import classes from './Checkbox.module.css';
+import classes from './RadioButton.module.css';
 
-export interface CheckboxProps {
-  checkboxId?: string;
+export enum RadioButtonSize {
+  Xsmall = 'xsmall',
+  Small = 'small',
+}
+
+export interface RadioButtonProps {
   checked?: boolean;
-  compact?: boolean;
+  className?: string;
   description?: string;
   disabled?: boolean;
   error?: boolean;
   hideLabel?: boolean;
   label?: string;
-  name?: string;
+  name: string;
   onChange: ChangeEventHandler<HTMLInputElement>;
-  readOnly?: boolean;
+  radioId?: string;
+  size?: RadioButtonSize;
+  value: string;
 }
 
-export const Checkbox = ({
-  checkboxId,
+export const RadioButton = ({
   checked,
-  compact,
   description,
   disabled,
   error,
@@ -34,35 +38,36 @@ export const Checkbox = ({
   label,
   name,
   onChange,
-  readOnly,
-}: CheckboxProps) => (
+  radioId,
+  size = RadioButtonSize.Small,
+  value,
+}: RadioButtonProps) => (
   <CheckboxRadioTemplate
     checked={checked}
     className={cn(
-      classes.checkbox,
-      checked && classes['checkbox--checked'],
-      error && classes['checkbox--error'],
-      disabled && classes['checkbox--disabled'],
-      compact && classes['checkbox--compact'],
-      readOnly && classes['checkbox--read-only'],
+      classes.radio,
+      classes[`radio--${size}`],
+      checked && classes['radio--checked'],
+      error && classes['radio--error'],
+      disabled && classes['radio--disabled'],
     )}
     description={description}
     disabled={disabled}
-    hideInput={readOnly}
     hideLabel={hideLabel}
-    inputId={checkboxId}
+    inputId={radioId}
     label={label}
     name={name}
     onChange={onChange}
     size={
-      compact
+      size === RadioButtonSize.Xsmall
         ? CheckboxRadioTemplateSize.Xsmall
         : CheckboxRadioTemplateSize.Small
     }
-    type='checkbox'
+    type='radio'
+    value={value}
   >
-    <span className={classes['visible-box']}>
-      <span className={classes['visible-box__checkmark']} />
+    <span className={classes['visible-button']}>
+      <span className={classes['visible-button__checkmark']} />
     </span>
   </CheckboxRadioTemplate>
 );

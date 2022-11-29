@@ -88,11 +88,6 @@ module.exports = {
       ],
     });
 
-    config.module.rules.push({
-      test: /\.png$/i,
-      type: 'asset/resource'
-    });
-
     config.resolve.alias = {
       ...config.resolve.alias,
       '@': AppSourceDir,

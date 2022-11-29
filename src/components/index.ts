@@ -17,7 +17,7 @@ export { SearchField } from './SearchField';
 export { ErrorMessage } from './ErrorMessage';
 export type { Location, MapLayer } from './Map';
 export { Map } from './Map';
-export type { ChangeProps, SortProps } from './Table';
+export type { ChangeProps, SortProps, RowData } from './Table';
 export {
   Table,
   TableBody,
@@ -35,3 +35,7 @@ export { FieldSet, FieldSetSize } from './FieldSet';
 export { Pagination } from './Pagination';
 export { Select } from './Select';
 export { Tabs } from './Tabs';
+export { RadioGroup } from './RadioGroup';
+export type { RadioGroupSize, RadioGroupVariant } from './RadioGroup';
+export { RadioButton } from './RadioButton';
+export type { RadioButtonSize } from './RadioButton';

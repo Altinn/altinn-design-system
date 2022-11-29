@@ -87,7 +87,7 @@ const render = (props: Partial<CheckboxProps> = {}) => {
 
 const renderAndGetWrapper = (props: Partial<CheckboxProps> = {}): Element => {
   const { container } = render(props);
-  const wrapper = container.querySelector('.wrapper');
+  const wrapper = container.querySelector('.checkbox');
   assert(wrapper !== null);
   return wrapper;
 };

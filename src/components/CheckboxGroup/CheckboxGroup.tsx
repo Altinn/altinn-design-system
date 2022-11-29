@@ -1,11 +1,11 @@
-import React, { useEffect, useReducer, useRef } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import cn from 'classnames';
 
 import { Checkbox, FieldSet } from '@/components';
 import type { CheckboxProps } from '@/components/Checkbox/Checkbox';
 import { FieldSetSize } from '@/components/FieldSet/FieldSet';
 import { areItemsUnique, arraysEqual } from '@/utils/arrayUtils';
-import { useUpdate } from '@/hooks';
+import { usePrevious, useUpdate } from '@/hooks';
 
 import classes from './CheckboxGroup.module.css';
 
@@ -71,25 +71,17 @@ export const CheckboxGroup = ({
     [items],
   );
 
-  const prevCheckedNames = useRef(checkedNames);
+  const prevCheckedNames = usePrevious(checkedNames);
 
   useUpdate(() => {
-    if (
-      onChange &&
+    onChange &&
       !disabled &&
-      !arraysEqual(prevCheckedNames.current, checkedNames)
-    ) {
+      !arraysEqual(prevCheckedNames, checkedNames) &&
       onChange(checkedNames);
-      prevCheckedNames.current = checkedNames;
-    }
   }, [checkedNames, onChange, disabled]);
 
   return (
     <FieldSet
-      className={cn(
-        classes['checkbox-group'],
-        compact && classes['checkbox-group--compact'],
-      )}
       description={description}
       disabled={disabled}
       error={error}
@@ -98,8 +90,9 @@ export const CheckboxGroup = ({
     >
       <div
         className={cn(
-          classes['checkbox-group__list'],
-          classes[`checkbox-group__list--${variant}`],
+          classes['checkbox-group'],
+          classes[`checkbox-group--${variant}`],
+          compact && classes['checkbox-group--compact'],
         )}
       >
         {items.map((item) => (

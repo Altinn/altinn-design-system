@@ -102,6 +102,7 @@ export const Pagination = ({
         className={cn(classes['pagination-icon'], {
           [classes['pagination-icon--disabled']]: currentPage === 0,
         })}
+        data-testid='pagination-previous-icon'
         onClick={() => decreaseCurrentPage()}
         onKeyUp={(event) => {
           if (event.key === 'Enter' || event.key === ' ') {
@@ -115,6 +116,7 @@ export const Pagination = ({
           [classes['pagination-icon--disabled']]:
             currentPage === numberOfPages - 1,
         })}
+        data-testid='pagination-next-icon'
         onClick={() => increaseCurrentPage()}
         onKeyUp={(event) => {
           if (event.key === 'Enter' || event.key === ' ') {

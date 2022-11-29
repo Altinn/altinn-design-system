@@ -74,6 +74,7 @@ export const TableCell = ({
             <div className={cn(classes['input'])}>{children}</div>
             {sortDirecton != SortDirection.NotSortable && (
               <SortIcon
+                data-testid='sort-icon'
                 className={cn(classes['icon'], {
                   [classes['icon-asc']]:
                     sortDirecton === SortDirection.Ascending,

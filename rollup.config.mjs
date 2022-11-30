@@ -2,6 +2,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
 import json from '@rollup/plugin-json';
+import image from '@rollup/plugin-image';
 import dts from 'rollup-plugin-dts';
 import postcss from 'rollup-plugin-postcss';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
@@ -44,6 +45,7 @@ export default [
       svgr({ exportType: 'named' }),
       postcss(),
       terser(),
+      image(),
     ],
   },
   {

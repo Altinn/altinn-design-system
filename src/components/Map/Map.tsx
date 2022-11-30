@@ -1,3 +1,7 @@
+import UrlIcon from 'leaflet/dist/images/marker-icon.png';
+import RetinaUrlIcon from 'leaflet/dist/images/marker-icon-2x.png';
+import ShadowUrlIcon from 'leaflet/dist/images/marker-shadow.png';
+import { icon } from 'leaflet';
 import {
   AttributionControl,
   MapContainer,
@@ -90,8 +94,19 @@ export const Map = ({
 
 type LocationMarkerProps = Pick<MapProps, 'markerLocation'>;
 function LocationMarker({ markerLocation }: LocationMarkerProps) {
+  const markerIcon = icon({
+    iconUrl: UrlIcon,
+    iconRetinaUrl: RetinaUrlIcon,
+    shadowUrl: ShadowUrlIcon,
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+  });
+
   return markerLocation ? (
-    <Marker position={locationToTuple(markerLocation)} />
+    <Marker
+      position={locationToTuple(markerLocation)}
+      icon={markerIcon}
+    />
   ) : null;
 }
 

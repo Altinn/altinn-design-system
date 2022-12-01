@@ -14,6 +14,7 @@ export interface TableCellProps
   onChange?: SortHandler;
   sortDirecton?: SortDirection;
   sortKey?: string;
+  radiobutton?: boolean;
 }
 export enum SortDirection {
   Descending = 'desc',
@@ -29,6 +30,7 @@ export const TableCell = ({
   sortDirecton = SortDirection.NotSortable,
   sortKey,
   className,
+  radiobutton = false,
   ...tableCellProps
 }: TableCellProps) => {
   const { variantStandard } = useTableRowTypeContext();
@@ -52,7 +54,11 @@ export const TableCell = ({
         : variant === 'header') && (
         <th
           {...tableCellProps}
-          className={cn(classes['header-table-cell'], className)}
+          className={
+            radiobutton
+              ? cn(classes['header-table-cell-radiobutton'])
+              : cn(classes['header-table-cell'], className)
+          }
         >
           <div
             className={
@@ -91,9 +97,19 @@ export const TableCell = ({
         : variant === 'body') && (
         <td
           {...tableCellProps}
-          className={cn(classes['body-table-cell'], className)}
+          className={
+            radiobutton
+              ? cn(classes['body-table-cell-radiobutton'])
+              : cn(classes['body-table-cell'], className)
+          }
         >
-          <div className={cn(classes['input'])}>{children}</div>
+          <div
+            className={
+              radiobutton ? cn(classes['radio-button']) : cn(classes['input'])
+            }
+          >
+            {children}
+          </div>
         </td>
       )}
       {variantStandard === Variant.Footer && (

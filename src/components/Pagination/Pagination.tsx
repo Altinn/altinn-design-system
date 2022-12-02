@@ -88,66 +88,46 @@ export const Pagination = ({
       <button
         className={cn(classes['icon-button'])}
         onClick={() => setCurrentPage(0)}
-        onKeyUp={(event) => {
-          if (event.key === 'Enter' || event.key === ' ') {
-            setCurrentPage(0);
-          }
-        }}
         disabled={currentPage !== 0 ? false : true}
         aria-label='Naviger til første side i tabell'
+        data-testid='first-page-icon'
       >
         <FirstPageIcon
           className={cn(classes['pagination-icon'], {
             [classes['pagination-icon--disabled']]: currentPage === 0,
           })}
-          data-testid='first-page-icon'
         />
       </button>
       <button
         className={cn(classes['icon-button'])}
         onClick={() => decreaseCurrentPage()}
-        onKeyUp={(event) => {
-          if (event.key === 'Enter' || event.key === ' ') {
-            decreaseCurrentPage();
-          }
-        }}
         disabled={currentPage !== 0 ? false : true}
         aria-label='Forrige side i tabell'
+        data-testid='pagination-previous-icon'
       >
         <NavigateBeforeIcon
           className={cn(classes['pagination-icon'], {
             [classes['pagination-icon--disabled']]: currentPage === 0,
           })}
-          data-testid='pagination-previous-icon'
         />
       </button>
       <button
         className={cn(classes['icon-button'])}
         onClick={() => increaseCurrentPage()}
-        onKeyUp={(event) => {
-          if (event.key === 'Enter' || event.key === ' ') {
-            increaseCurrentPage();
-          }
-        }}
         disabled={currentPage !== numberOfPages - 1 ? false : true}
         aria-label='Neste side i tabell'
+        data-testid='pagination-next-icon'
       >
         <NavigateNextIcon
           className={cn(classes['pagination-icon'], {
             [classes['pagination-icon--disabled']]:
               currentPage === numberOfPages - 1,
           })}
-          data-testid='pagination-next-icon'
         />
       </button>
       <button
         className={cn(classes['icon-button'])}
         onClick={() => setCurrentPage(numberOfPages - 1)}
-        onKeyUp={(event) => {
-          if (event.key === 'Enter' || event.key === ' ') {
-            setCurrentPage(numberOfPages - 1);
-          }
-        }}
         disabled={currentPage !== numberOfPages - 1 ? false : true}
         aria-label='Naviger til siste side i tabell'
       >

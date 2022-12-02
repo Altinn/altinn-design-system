@@ -1,14 +1,12 @@
 import type { ChangeEvent } from 'react';
 import React, { useEffect, useState } from 'react';
 
-import type { RadioButtonProps } from '@/components/RadioButton/RadioButton';
-import {
-  RadioButton,
-  RadioButtonSize,
-} from '@/components/RadioButton/RadioButton';
-import { FieldSet, FieldSetSize } from '@/components';
+import { RadioButton, RadioButtonSize } from '@/components/RadioButton';
+import { FieldSet, FieldSetSize } from '@/components/FieldSet';
 import { usePrevious, useUpdate } from '@/hooks';
 import { areItemsUnique } from '@/utils/arrayUtils';
+
+import type { RadioButtonProps } from '../RadioButton/RadioButton';
 
 import classes from './RadioGroup.module.css';
 

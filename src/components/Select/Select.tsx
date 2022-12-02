@@ -42,8 +42,8 @@ export type MultiSelectOption = SingleSelectOption & {
   deleteButtonLabel?: string;
 };
 
-type SingleOnChangeEvent = (value: string) => void;
-type MultipleOnChangeEvent = (value: string[]) => void;
+export type SingleOnChangeEvent = (value: string) => void;
+export type MultipleOnChangeEvent = (value: string[]) => void;
 
 const eventListenerKeys = {
   ArrowUp: 'ArrowUp',
@@ -240,8 +240,8 @@ export const Select = (props: SelectProps) => {
                       }
                       disabled={disabled ?? false}
                       key={o.value}
+                      label={o.label}
                       onDeleteButtonClick={() => removeSelection(o.value)}
-                      value={o.value}
                     />
                   ))}
                 </span>

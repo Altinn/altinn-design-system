@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { ErrorMessage } from '@/components';
+import { ErrorMessage } from '@/components/ErrorMessage';
 
 import classes from './FieldSet.module.css';
 

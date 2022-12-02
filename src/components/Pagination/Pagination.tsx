@@ -73,6 +73,7 @@ export const Pagination = ({
         style={{ marginRight: '25px' }}
         value={rowsPerPage}
         onChange={(event) => onRowsPerPageChange(event)}
+        aria-label='rader per side'
       >
         {rowsPerPageOptions.map((optionValue: number) => (
           <option
@@ -84,59 +85,79 @@ export const Pagination = ({
         ))}
       </select>
       {renderPaginationNumbers()}
-      <FirstPageIcon
-        tabIndex={currentPage !== 0 ? 0 : undefined}
-        className={cn(classes['pagination-icon'], {
-          [classes['pagination-icon--disabled']]: currentPage === 0,
-        })}
+      <button
+        className={cn(classes['icon-button'])}
         onClick={() => setCurrentPage(0)}
         onKeyUp={(event) => {
           if (event.key === 'Enter' || event.key === ' ') {
             setCurrentPage(0);
           }
         }}
-        data-testid='first-page-icon'
-      />
-      <NavigateBeforeIcon
-        tabIndex={currentPage !== 0 ? 0 : undefined}
-        className={cn(classes['pagination-icon'], {
-          [classes['pagination-icon--disabled']]: currentPage === 0,
-        })}
-        data-testid='pagination-previous-icon'
+        disabled={currentPage !== 0 ? false : true}
+        aria-label='Naviger til første side i tabell'
+      >
+        <FirstPageIcon
+          className={cn(classes['pagination-icon'], {
+            [classes['pagination-icon--disabled']]: currentPage === 0,
+          })}
+          data-testid='first-page-icon'
+        />
+      </button>
+      <button
+        className={cn(classes['icon-button'])}
         onClick={() => decreaseCurrentPage()}
         onKeyUp={(event) => {
           if (event.key === 'Enter' || event.key === ' ') {
             decreaseCurrentPage();
           }
         }}
-      />
-      <NavigateNextIcon
-        tabIndex={currentPage !== numberOfPages - 1 ? 0 : undefined}
-        className={cn(classes['pagination-icon'], {
-          [classes['pagination-icon--disabled']]:
-            currentPage === numberOfPages - 1,
-        })}
-        data-testid='pagination-next-icon'
+        disabled={currentPage !== 0 ? false : true}
+        aria-label='Forrige side i tabell'
+      >
+        <NavigateBeforeIcon
+          className={cn(classes['pagination-icon'], {
+            [classes['pagination-icon--disabled']]: currentPage === 0,
+          })}
+          data-testid='pagination-previous-icon'
+        />
+      </button>
+      <button
+        className={cn(classes['icon-button'])}
         onClick={() => increaseCurrentPage()}
         onKeyUp={(event) => {
           if (event.key === 'Enter' || event.key === ' ') {
             increaseCurrentPage();
           }
         }}
-      />
-      <LastPageIcon
-        tabIndex={currentPage !== numberOfPages - 1 ? 0 : undefined}
-        className={cn(classes['pagination-icon'], {
-          [classes['pagination-icon--disabled']]:
-            currentPage === numberOfPages - 1,
-        })}
+        disabled={currentPage !== numberOfPages - 1 ? false : true}
+        aria-label='Neste side i tabell'
+      >
+        <NavigateNextIcon
+          className={cn(classes['pagination-icon'], {
+            [classes['pagination-icon--disabled']]:
+              currentPage === numberOfPages - 1,
+          })}
+          data-testid='pagination-next-icon'
+        />
+      </button>
+      <button
+        className={cn(classes['icon-button'])}
         onClick={() => setCurrentPage(numberOfPages - 1)}
         onKeyUp={(event) => {
           if (event.key === 'Enter' || event.key === ' ') {
             setCurrentPage(numberOfPages - 1);
           }
         }}
-      />
+        disabled={currentPage !== numberOfPages - 1 ? false : true}
+        aria-label='Naviger til siste side i tabell'
+      >
+        <LastPageIcon
+          className={cn(classes['pagination-icon'], {
+            [classes['pagination-icon--disabled']]:
+              currentPage === numberOfPages - 1,
+          })}
+        />
+      </button>
     </div>
   );
 };

@@ -80,6 +80,7 @@ export const TableCell = ({
             <div className={cn(classes['input'])}>{children}</div>
             {sortDirecton != SortDirection.NotSortable && (
               <SortIcon
+                aria-label='Sortering'
                 data-testid='sort-icon'
                 className={cn(classes['icon'], {
                   [classes['icon-asc']]:

@@ -46,16 +46,6 @@ export const TableRow = ({
   const isSelected =
     JSON.stringify(rowData) === JSON.stringify(selectedValue) ? true : false;
 
-  const handleEnter = (event: React.KeyboardEvent<HTMLTableRowElement>) => {
-    if (
-      (event.key === 'Enter' || event.key === ' ') &&
-      onChange != undefined &&
-      selectedValue &&
-      rowData
-    ) {
-      onChange({ selectedValue: rowData });
-    }
-  };
   return (
     <SortContext.Provider value={{ selectSort }}>
       <tr
@@ -70,10 +60,6 @@ export const TableRow = ({
           className,
         )}
         onClick={handleClick}
-        tabIndex={
-          variantStandard === Variant.Body && selectRows ? 0 : undefined
-        }
-        onKeyUp={(event) => handleEnter(event)}
       >
         {children}
       </tr>

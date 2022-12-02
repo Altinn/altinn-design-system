@@ -19,7 +19,7 @@ __metadata:
     "@altinn/figma-design-tokens": ^4.3.0
     "@babel/core": 7.20.5
     "@mdx-js/react": 2.1.5
-    "@navikt/ds-icons": ^1.3.38
+    "@navikt/ds-icons": ^2.0.0
     "@radix-ui/react-popover": ^1.0.0
     "@react-hookz/web": ^19.0.0
     "@rollup/plugin-commonjs": 23.0.3
@@ -2972,16 +2972,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@navikt/ds-icons@npm:^1.3.38":
-  version: 1.4.1
-  resolution: "@navikt/ds-icons@npm:1.4.1"
+"@navikt/ds-icons@npm:^2.0.0":
+  version: 2.0.5
+  resolution: "@navikt/ds-icons@npm:2.0.5"
   peerDependencies:
     "@types/react": ^17.0.30 || ^18.0.0
     react: ^17.0.0 || ^18.0.0
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: 6104e7c74e2ca9717cc97d3b77e2591ddb0a8de4a74565d1269e4803907fe8a6cad7d47ba097f180a052711e5dd66c2a348e3663416ae3c2e8d237863b39ea71
+  checksum: 218a3949bf86300c099432a24c2984003d6b9e4321b3f261deaa1ca0e381cb1e6f399b59570e14c860a82ac6553a42101a04b42b86b9f1d24ca93a105c92841b
   languageName: node
   linkType: hard
 

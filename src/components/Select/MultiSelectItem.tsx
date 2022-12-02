@@ -6,17 +6,17 @@ export interface MultiSelectItemProps {
   deleteButtonLabel?: string;
   disabled: boolean;
   onDeleteButtonClick: () => void;
-  value: string;
+  label: string;
 }
 
 export const MultiSelectItem = ({
   deleteButtonLabel,
   disabled,
   onDeleteButtonClick,
-  value,
+  label,
 }: MultiSelectItemProps) => (
   <span className={classes['multi-select-item']}>
-    <span>{value}</span>
+    <span>{label}</span>
     <button
       aria-label={deleteButtonLabel}
       className={classes['multi-select-item__delete-button']}

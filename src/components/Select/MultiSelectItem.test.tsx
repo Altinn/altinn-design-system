@@ -8,17 +8,17 @@ import { MultiSelectItem } from '@/components/Select/MultiSelectItem';
 const user = userEvent.setup();
 
 const onDeleteButtonClick = jest.fn();
-const value = 'Option';
+const label = 'Option';
 const defaultMultiSelectItemProps: MultiSelectItemProps = {
   disabled: false,
   onDeleteButtonClick,
-  value,
+  label,
 };
 
 describe('MultiSelectItem', () => {
   it('Displays given value', () => {
     renderMultiSelectItem();
-    expect(screen.getByText(value)).toBeTruthy();
+    expect(screen.getByText(label)).toBeTruthy();
   });
 
   it('Calls onDeleteButtonClick when delete button is clicked', async () => {

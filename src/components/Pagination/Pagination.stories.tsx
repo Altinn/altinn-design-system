@@ -7,6 +7,14 @@ import { StoryPage } from '@sb/StoryPage';
 import { Pagination } from './Pagination';
 
 const figmaLink = ''; // TODO: Add figma link
+const descriptionText = {
+  rowsPerPage: 'Rader per side',
+  of: 'av',
+  navigateFirstPage: 'Naviger til første side i tabell',
+  previousPage: 'Forrige side i tabell',
+  nextPage: 'Neste side i tabell',
+  navigateLastPage: 'Naviger til siste side i tabell',
+};
 
 export default {
   title: `Components/Pagination`,
@@ -53,6 +61,7 @@ const Template: ComponentStory<typeof Pagination> = (args) => {
       currentPage={page}
       setCurrentPage={setPage}
       onRowsPerPageChange={handleChangeRowsPerPage}
+      descriptionTexts={descriptionText}
     />
   );
 };
@@ -61,8 +70,6 @@ export const Example = Template.bind({});
 Example.args = {
   numberOfRows: 200,
   rowsPerPageOptions: [5, 10, 15, 20],
-  rowsPerPageText: 'Rader per side',
-  pageDescriptionText: 'av',
 };
 Example.parameters = {
   docs: {

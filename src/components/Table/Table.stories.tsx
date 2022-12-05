@@ -1,3 +1,4 @@
+import type { ChangeEvent } from 'react';
 import React, { useState } from 'react';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import { config } from 'storybook-addon-designs';
@@ -6,10 +7,13 @@ import cn from 'classnames';
 import { StoryPage } from '@sb/StoryPage';
 
 import { Pagination } from '../Pagination';
+import { RadioButton } from '../RadioButton';
+import type { DescriptionText } from '../Pagination/Pagination';
 
 import { Table } from './Table';
 import { TableHeader } from './TableHeader';
 import { SortDirection, TableCell } from './TableCell';
+import type { RowData } from './TableRow';
 import { TableRow } from './TableRow';
 import { TableBody } from './TableBody';
 import type { ChangeProps, SortProps } from './Context';
@@ -127,6 +131,14 @@ const Template: ComponentStory<typeof Table> = (args) => {
   });
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [page, setPage] = useState(0);
+  const description: DescriptionText = {
+    rowsPerPage: 'Rader per side',
+    of: 'av',
+    navigateFirstPage: 'Naviger til første side i tabell',
+    previousPage: 'Forrige side i tabell',
+    nextPage: 'Neste side i tabell',
+    navigateLastPage: 'Naviger til siste side i tabell',
+  };
 
   const handleChange = ({ selectedValue }: ChangeProps) => {
     setSelected(selectedValue);
@@ -163,6 +175,17 @@ const Template: ComponentStory<typeof Table> = (args) => {
   const handleChangeInCurrentPage = (newPage: number) => {
     setPage(newPage);
   };
+  const handleRadioButton = (event: ChangeEvent<HTMLInputElement>) => {
+    const value: RowData = { applicationNr: event.target.value };
+    setSelected(value);
+  };
+  const checkSelectedValue = (row: RowData) => {
+    const value: RowData = { applicationNr: row.applicationNr };
+    if (JSON.stringify(selected) == JSON.stringify(value)) {
+      return true;
+    }
+    return false;
+  };
 
   return (
     <Table
@@ -172,6 +195,7 @@ const Template: ComponentStory<typeof Table> = (args) => {
     >
       <TableHeader>
         <TableRow>
+          {args.selectRows && <TableCell radiobutton={true}></TableCell>}
           <TableCell
             onChange={handleSortChange}
             sortKey={'Søknadsnr.'}
@@ -206,6 +230,18 @@ const Template: ComponentStory<typeof Table> = (args) => {
               key={row.applicationNr}
               rowData={{ applicationNr: row.applicationNr }}
             >
+              {args.selectRows && (
+                <TableCell radiobutton={true}>
+                  <RadioButton
+                    name={row.applicationNr}
+                    onChange={(event) => handleRadioButton(event)}
+                    value={row.applicationNr}
+                    checked={checkSelectedValue(row)}
+                    label={row.applicationNr}
+                    hideLabel={true}
+                  ></RadioButton>
+                </TableCell>
+              )}
               <TableCell>{row.applicationNr}</TableCell>
               <TableCell>{row.product}</TableCell>
               <TableCell>{row.status}</TableCell>
@@ -221,7 +257,7 @@ const Template: ComponentStory<typeof Table> = (args) => {
       </TableBody>
       <TableFooter>
         <TableRow>
-          <TableCell colSpan={4}>
+          <TableCell colSpan={5}>
             <Pagination
               numberOfRows={rows.length}
               rowsPerPageOptions={[5, 10, 15, 20]}
@@ -229,8 +265,7 @@ const Template: ComponentStory<typeof Table> = (args) => {
               onRowsPerPageChange={handleChangeRowsPerPage}
               currentPage={page}
               setCurrentPage={handleChangeInCurrentPage}
-              rowsPerPageText='Rader per side'
-              pageDescriptionText='av'
+              descriptionTexts={description}
             />
           </TableCell>
         </TableRow>

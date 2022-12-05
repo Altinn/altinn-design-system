@@ -12,7 +12,7 @@
     "dist"
   ],
   "scripts": {
-    "start": "start-storybook -p 6007",
+    "start": "start-storybook -p 6008",
     "test": "jest --runInBand",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx,.mjs,.cjs",
     "build": "tsc && rollup -c",

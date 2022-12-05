@@ -8,6 +8,7 @@ import { StoryPage } from '@sb/StoryPage';
 
 import { Pagination } from '../Pagination';
 import { RadioButton } from '../RadioButton';
+import type { DescriptionText } from '../Pagination/Pagination';
 
 import { Table } from './Table';
 import { TableHeader } from './TableHeader';
@@ -130,6 +131,14 @@ const Template: ComponentStory<typeof Table> = (args) => {
   });
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [page, setPage] = useState(0);
+  const description: DescriptionText = {
+    rowsPerPage: 'Rader per side',
+    of: 'av',
+    navigateFirstPage: 'Naviger til første side i tabell',
+    previousPage: 'Forrige side i tabell',
+    nextPage: 'Neste side i tabell',
+    navigateLastPage: 'Naviger til siste side i tabell',
+  };
 
   const handleChange = ({ selectedValue }: ChangeProps) => {
     setSelected(selectedValue);
@@ -228,6 +237,8 @@ const Template: ComponentStory<typeof Table> = (args) => {
                     onChange={(event) => handleRadioButton(event)}
                     value={row.applicationNr}
                     checked={checkSelectedValue(row)}
+                    label={row.applicationNr}
+                    hideLabel={true}
                   ></RadioButton>
                 </TableCell>
               )}
@@ -254,8 +265,7 @@ const Template: ComponentStory<typeof Table> = (args) => {
               onRowsPerPageChange={handleChangeRowsPerPage}
               currentPage={page}
               setCurrentPage={handleChangeInCurrentPage}
-              rowsPerPageText='Rader per side'
-              pageDescriptionText='av'
+              descriptionTexts={description}
             />
           </TableCell>
         </TableRow>

@@ -14,8 +14,10 @@ export interface PaginationProps {
   onRowsPerPageChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   currentPage: number;
   setCurrentPage: (page: number) => void;
-  rowsPerPageText: string;
-  pageDescriptionText: string;
+  descriptionTexts: DescriptionText;
+}
+export interface DescriptionText {
+  [x: string]: string;
 }
 
 export const Pagination = ({
@@ -25,10 +27,13 @@ export const Pagination = ({
   onRowsPerPageChange,
   currentPage,
   setCurrentPage,
-  rowsPerPageText,
-  pageDescriptionText,
+  descriptionTexts,
 }: PaginationProps) => {
   const [numberOfPages, setNumberOfPages] = useState(1);
+
+  useEffect(() => {
+    console.log(descriptionTexts);
+  }, [descriptionTexts]);
 
   useEffect(() => {
     if (numberOfRows < rowsPerPage) {
@@ -61,14 +66,16 @@ export const Pagination = ({
         style={{ marginRight: '64px' }}
         data-testid='description-text'
       >
-        {`${firstRowNumber}-${lastRowNumber} ${pageDescriptionText} ${numberOfRows}`}
+        {`${firstRowNumber}-${lastRowNumber} ${descriptionTexts['of']} ${numberOfRows}`}
       </span>
     );
   };
 
   return (
     <div className={cn(classes['pagination-wrapper'])}>
-      <span style={{ marginRight: '26px' }}>{rowsPerPageText}</span>
+      <span style={{ marginRight: '26px' }}>
+        {descriptionTexts['rowsPerPage']}
+      </span>
       <select
         style={{ marginRight: '25px' }}
         value={rowsPerPage}
@@ -89,7 +96,7 @@ export const Pagination = ({
         className={cn(classes['icon-button'])}
         onClick={() => setCurrentPage(0)}
         disabled={currentPage !== 0 ? false : true}
-        aria-label='Naviger til første side i tabell'
+        aria-label={descriptionTexts['navigateFirstPage']}
         data-testid='first-page-icon'
       >
         <FirstPageIcon
@@ -102,7 +109,7 @@ export const Pagination = ({
         className={cn(classes['icon-button'])}
         onClick={() => decreaseCurrentPage()}
         disabled={currentPage !== 0 ? false : true}
-        aria-label='Forrige side i tabell'
+        aria-label={descriptionTexts['previousPage']}
         data-testid='pagination-previous-icon'
       >
         <NavigateBeforeIcon
@@ -115,7 +122,7 @@ export const Pagination = ({
         className={cn(classes['icon-button'])}
         onClick={() => increaseCurrentPage()}
         disabled={currentPage !== numberOfPages - 1 ? false : true}
-        aria-label='Neste side i tabell'
+        aria-label={descriptionTexts['nextPage']}
         data-testid='pagination-next-icon'
       >
         <NavigateNextIcon
@@ -129,7 +136,7 @@ export const Pagination = ({
         className={cn(classes['icon-button'])}
         onClick={() => setCurrentPage(numberOfPages - 1)}
         disabled={currentPage !== numberOfPages - 1 ? false : true}
-        aria-label='Naviger til siste side i tabell'
+        aria-label={descriptionTexts['navigateLastPage']}
       >
         <LastPageIcon
           className={cn(classes['pagination-icon'], {

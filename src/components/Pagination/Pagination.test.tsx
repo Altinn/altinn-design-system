@@ -15,6 +15,14 @@ const render = (props: Partial<PaginationProps> = {}) => {
     />,
   );
 };
+const descriptionText = {
+  rowsPerPage: 'Rader per side',
+  of: 'av',
+  navigateFirstPage: 'Naviger til første side i tabell',
+  previousPage: 'Forrige side i tabell',
+  nextPage: 'Neste side i tabell',
+  navigateLastPage: 'Naviger til siste side i tabell',
+};
 
 const defaultProps: PaginationProps = {
   numberOfRows: 20,
@@ -23,8 +31,7 @@ const defaultProps: PaginationProps = {
   onRowsPerPageChange: jest.fn(),
   currentPage: 1,
   setCurrentPage: jest.fn(),
-  rowsPerPageText: 'Rader per side',
-  pageDescriptionText: 'av',
+  descriptionTexts: descriptionText,
 };
 
 describe('Pagination', () => {
@@ -87,14 +94,14 @@ describe('Pagination', () => {
   });
 
   it('Description text should be rendered correctly', () => {
-    const pageDescriptionText = 'av';
+    const descriptionTexts = descriptionText;
     const currentPage = 2;
     const rowsPerPage = 5;
     const numberOfRows = 100;
 
     render({
       rowsPerPage,
-      pageDescriptionText,
+      descriptionTexts,
       currentPage,
       numberOfRows,
     });

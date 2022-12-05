@@ -100,7 +100,7 @@ export const TableCell = ({
           {...tableCellProps}
           className={
             radiobutton
-              ? cn(classes['body-table-cell-radiobutton'])
+              ? cn(classes['body-table-cell-radiobutton'], className)
               : cn(classes['body-table-cell'], className)
           }
         >

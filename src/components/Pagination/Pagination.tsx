@@ -17,7 +17,12 @@ export interface PaginationProps {
   descriptionTexts: DescriptionText;
 }
 export interface DescriptionText {
-  [x: string]: string;
+  rowsPerPage: string;
+  of: string;
+  navigateFirstPage: string;
+  previousPage: string;
+  nextPage: string;
+  navigateLastPage: string;
 }
 
 export const Pagination = ({
@@ -30,10 +35,6 @@ export const Pagination = ({
   descriptionTexts,
 }: PaginationProps) => {
   const [numberOfPages, setNumberOfPages] = useState(1);
-
-  useEffect(() => {
-    console.log(descriptionTexts);
-  }, [descriptionTexts]);
 
   useEffect(() => {
     if (numberOfRows < rowsPerPage) {

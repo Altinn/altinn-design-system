@@ -16,19 +16,27 @@ const itemInfo = [
   {
     name: 'Item 1',
     textContent: 'Lorem ipsum dolor sit amet.',
+    value: 'item1',
   },
   {
     name: 'Item 2',
     textContent: 'Etiam ac magna pretium, laoreet.',
+    value: 'item2',
   },
   {
     name: 'Item 3',
     textContent: 'Phasellus convallis porta commodo. Vivamus.',
+    value: 'item3',
   },
 ];
 const items: TabItem[] = itemInfo.map((item) => ({
   name: item.name,
   content: <p>{item.textContent}</p>,
+}));
+const itemsWithValues: TabItem[] = itemInfo.map((item) => ({
+  name: item.name,
+  content: <p>{item.textContent}</p>,
+  value: item.value,
 }));
 const defaultProps: TabsProps = {
   items,
@@ -50,8 +58,16 @@ describe('Tabs', () => {
     expect(getTabpanel()).toHaveTextContent(itemInfo[0].textContent);
   });
 
-  it('Initially selects tab given in the activeTab property', () => {
+  it('Initially selects tab with name given in the activeTab property if values are not set', () => {
     render({ activeTab: items[1].name });
+    expectSelected(getTab(1));
+    expectNotSelected(getTab(0));
+    expectNotSelected(getTab(2));
+    expect(getTabpanel()).toHaveTextContent(itemInfo[1].textContent);
+  });
+
+  it('Initially selects tab with value given in the activeTab property if values are set', () => {
+    render({ items: itemsWithValues, activeTab: itemsWithValues[1].value });
     expectSelected(getTab(1));
     expectNotSelected(getTab(0));
     expectNotSelected(getTab(2));
@@ -163,24 +179,49 @@ describe('Tabs', () => {
     expectSelected(getTab(1));
   });
 
-  it('Throws error if item names are not unique', () => {
+  it('Throws error if item values are not set and names are not unique', () => {
     const renderFn = () => {
       render({ items: [...items, { name: items[0].name, content: <p /> }] });
     };
     jest.spyOn(console, 'error').mockImplementation(jest.fn()); // Keeps the console output clean
-    expect(renderFn).toThrow('Each tab name must be unique.');
+    expect(renderFn).toThrow('Each tab value must be unique.');
   });
 
-  it('Throws error if the name given in activeTab is not present in the item list', () => {
+  it('Throws error if item values are set, but not unique', () => {
+    const renderFn = () => {
+      render({
+        items: [
+          ...itemsWithValues,
+          { name: 'Item 4', content: <p />, value: itemsWithValues[0].value },
+        ],
+      });
+    };
+    jest.spyOn(console, 'error').mockImplementation(jest.fn()); // Keeps the console output clean
+    expect(renderFn).toThrow('Each tab value must be unique.');
+  });
+
+  it('Throws error if the value given in activeTab is not present among the item names and item values are not given', () => {
     const renderFn = () => {
       render({ activeTab: 'Some name that is not in the list' });
     };
     jest.spyOn(console, 'error').mockImplementation(jest.fn()); // Keeps the console output clean
-    const error = 'The given active tab name must exist in the list of items.';
+    const error = 'The given active tab value must exist in the list of items.';
     expect(renderFn).toThrow(error);
   });
 
-  it('Switches selected tab when rerendered with a new value in the activeTab property', () => {
+  it('Throws error if the value given in activeTab is not present among the item values if they are given', () => {
+    const renderFn = () => {
+      render({
+        items: itemsWithValues,
+        activeTab: 'Some value that is not in the list',
+      });
+    };
+    jest.spyOn(console, 'error').mockImplementation(jest.fn()); // Keeps the console output clean
+    const error = 'The given active tab value must exist in the list of items.';
+    expect(renderFn).toThrow(error);
+  });
+
+  it('Switches selected tab when rerendered with a new name in the activeTab property and values are not set', () => {
     const { rerender } = render();
     rerender(
       <Tabs
@@ -191,7 +232,19 @@ describe('Tabs', () => {
     expectSelected(getTab(1));
   });
 
-  it("Calls the onChange function with the selected tab's name as a parameter when user selects a tab using the mouse", async () => {
+  it('Switches selected tab when rerendered with a new value in the activeTab property and values are set', () => {
+    const { rerender } = render();
+    rerender(
+      <Tabs
+        {...defaultProps}
+        items={itemsWithValues}
+        activeTab={itemsWithValues[1].value}
+      />,
+    );
+    expectSelected(getTab(1));
+  });
+
+  it("Calls the onChange function with the selected tab's name as a parameter when user selects a tab using the mouse and values are not set", async () => {
     const onChange = jest.fn();
     render({ onChange });
     await act(() => user.click(getTab(1)));
@@ -199,7 +252,15 @@ describe('Tabs', () => {
     expect(onChange).toHaveBeenCalledWith(items[1].name);
   });
 
-  it("Calls the onChange function with the selected tab's name as a parameter when user selects a tab using the enter key", async () => {
+  it("Calls the onChange function with the selected tab's value as a parameter when user selects a tab using the mouse and values are set", async () => {
+    const onChange = jest.fn();
+    render({ items: itemsWithValues, onChange });
+    await act(() => user.click(getTab(1)));
+    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onChange).toHaveBeenCalledWith(itemsWithValues[1].value);
+  });
+
+  it("Calls the onChange function with the selected tab's name as a parameter when user selects a tab using the enter key and values are not set", async () => {
     const onChange = jest.fn();
     render({ onChange });
     await act(() => user.click(getTab(0)));
@@ -209,7 +270,17 @@ describe('Tabs', () => {
     expect(onChange).toHaveBeenCalledWith(items[1].name);
   });
 
-  it("Calls the onChange function with the selected tab's name as a parameter when user selects a tab using the space key", async () => {
+  it("Calls the onChange function with the selected tab's value as a parameter when user selects a tab using the enter key and values are set", async () => {
+    const onChange = jest.fn();
+    render({ items: itemsWithValues, onChange });
+    await act(() => user.click(getTab(0)));
+    await act(() => user.keyboard('{ArrowRight}'));
+    await act(() => user.keyboard('{Enter}'));
+    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onChange).toHaveBeenCalledWith(itemsWithValues[1].value);
+  });
+
+  it("Calls the onChange function with the selected tab's name as a parameter when user selects a tab using the space key and values are not set", async () => {
     const onChange = jest.fn();
     render({ onChange });
     await act(() => user.click(getTab(0)));
@@ -217,6 +288,16 @@ describe('Tabs', () => {
     await act(() => user.keyboard('{Space}'));
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(onChange).toHaveBeenCalledWith(items[1].name);
+  });
+
+  it("Calls the onChange function with the selected tab's value as a parameter when user selects a tab using the space key and values are set", async () => {
+    const onChange = jest.fn();
+    render({ items: itemsWithValues, onChange });
+    await act(() => user.click(getTab(0)));
+    await act(() => user.keyboard('{ArrowRight}'));
+    await act(() => user.keyboard('{Space}'));
+    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onChange).toHaveBeenCalledWith(itemsWithValues[1].value);
   });
 });
 

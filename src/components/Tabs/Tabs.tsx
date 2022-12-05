@@ -12,6 +12,7 @@ export interface TabItem {
   content: React.ReactNode;
   tabId?: string;
   panelId?: string;
+  value?: string;
 }
 
 export interface TabsProps {
@@ -20,33 +21,44 @@ export interface TabsProps {
   onChange?: (name: string) => void;
 }
 
-interface Ids {
-  panelId: string;
-  tabId: string;
-}
+const validId = (str: string) => str.replace(/\s/, '_');
 
 export const Tabs = ({ activeTab, items, onChange }: TabsProps) => {
-  if (!areItemsUnique(items.map(({ name }) => name))) {
-    throw Error('Each tab name must be unique.');
+  const idBase = useId();
+
+  // Generate values for undefined properties
+  const tabs: Required<TabItem>[] = items.map(
+    ({
+      name,
+      content,
+      value: optionalValue,
+      tabId: optionalTabId,
+      panelId: optionalPanelId,
+    }) => {
+      const value = optionalValue ?? name;
+      const tabId = optionalTabId ?? idBase + validId(value) + '-tab';
+      const panelId = optionalPanelId ?? idBase + validId(value) + '-panel';
+      return { name, content, value, tabId, panelId };
+    },
+  );
+
+  if (!areItemsUnique(tabs.map(({ value }) => value))) {
+    throw Error('Each tab value must be unique.');
   }
-  if (
-    activeTab !== undefined &&
-    !items.some(({ name }) => name === activeTab)
-  ) {
-    throw Error('The given active tab name must exist in the list of items.');
+  if (activeTab !== undefined && !tabs.some((tab) => tab.value === activeTab)) {
+    throw Error('The given active tab value must exist in the list of items.');
   }
 
-  const findTabIndexByName = (name: string) =>
-    items.findIndex((item) => item.name === name);
-  const initialTab = activeTab ?? items[0].name;
+  const findTabIndexByValue = (value: string) =>
+    tabs.findIndex((tab) => tab.value === value);
+  const initialTab = activeTab ?? tabs[0].value;
   const [visiblePanel, setVisiblePanel] = useState<string>(initialTab);
   const [focusIndex, setFocusIndex] = useState<number>(
-    findTabIndexByName(initialTab),
+    findTabIndexByValue(initialTab),
   );
   useEffect(() => setVisiblePanel(initialTab), [initialTab]);
   const tablistRef = useRef<HTMLDivElement>(null);
-  const idBase = useId();
-  const lastIndex = items.length - 1;
+  const lastIndex = tabs.length - 1;
 
   useUpdate(() => {
     tablistRef.current
@@ -54,10 +66,10 @@ export const Tabs = ({ activeTab, items, onChange }: TabsProps) => {
       [focusIndex].focus();
   }, [focusIndex]);
 
-  const selectTab = (name: string) => {
-    visiblePanel !== name && onChange && onChange(name);
-    setVisiblePanel(name);
-    setFocusIndex(findTabIndexByName(name));
+  const selectTab = (value: string) => {
+    visiblePanel !== value && onChange && onChange(value);
+    setVisiblePanel(value);
+    setFocusIndex(findTabIndexByValue(value));
   };
 
   const moveFocusRight = () =>
@@ -81,17 +93,6 @@ export const Tabs = ({ activeTab, items, onChange }: TabsProps) => {
       }
     };
 
-  const idFromName = (name: string) => name.replace(/\s/, '_');
-  const idMap = new Map<string, Ids>(
-    items.map((item) => [
-      item.name,
-      {
-        panelId: item.panelId ?? `${idBase}-panel-${idFromName(item.name)}`,
-        tabId: item.tabId ?? `${idBase}-tab-${idFromName(item.name)}`,
-      },
-    ]),
-  );
-
   return (
     <div className={classes.tabs}>
       <div
@@ -99,46 +100,42 @@ export const Tabs = ({ activeTab, items, onChange }: TabsProps) => {
         ref={tablistRef}
         role='tablist'
       >
-        {items.map((item, i) => {
-          const isSelected = item.name === visiblePanel;
-          const ids = idMap.get(item.name);
+        {tabs.map((tab, i) => {
+          const isSelected = tab.value === visiblePanel;
           const className = cn(
             classes['tabs__tablist__tab'],
             isSelected && classes['tabs__tablist__tab--selected'],
           );
           return (
             <button
-              aria-controls={ids?.panelId}
+              aria-controls={tab.panelId}
               aria-selected={isSelected}
               className={className}
-              id={ids?.tabId}
-              key={item.name}
-              onClick={() => selectTab(item.name)}
-              onKeyDown={onKeyDown(item.name)}
+              id={tab.tabId}
+              key={tab.value}
+              onClick={() => selectTab(tab.value)}
+              onKeyDown={onKeyDown(tab.value)}
               role='tab'
               tabIndex={focusIndex === i ? 0 : -1}
             >
-              {item.name}
+              {tab.name}
             </button>
           );
         })}
       </div>
       <hr className={classes['tabs__divider']} />
-      {items.map((item) => {
-        const ids = idMap.get(item.name);
-        return (
-          <div
-            className={classes['tabs__tabpanel']}
-            aria-labelledby={ids?.tabId}
-            hidden={item.name !== visiblePanel}
-            id={ids?.panelId}
-            key={ids?.panelId}
-            role='tabpanel'
-          >
-            {item.content}
-          </div>
-        );
-      })}
+      {tabs.map((tab) => (
+        <div
+          className={classes['tabs__tabpanel']}
+          aria-labelledby={tab.tabId}
+          hidden={tab.value !== visiblePanel}
+          id={tab.panelId}
+          key={tab.panelId}
+          role='tabpanel'
+        >
+          {tab.content}
+        </div>
+      ))}
     </div>
   );
 };

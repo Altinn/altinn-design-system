@@ -42,6 +42,7 @@ export type {
   MultipleOnChangeEvent,
 } from './Select';
 export { Tabs } from './Tabs';
+export type { TabsProps, TabItem } from './Tabs';
 export { RadioGroup } from './RadioGroup';
 export type { RadioGroupSize, RadioGroupVariant } from './RadioGroup';
 export { RadioButton } from './RadioButton';

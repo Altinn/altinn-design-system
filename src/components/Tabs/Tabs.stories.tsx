@@ -30,9 +30,11 @@ export default {
                         It is useful to give a structured view of elements that do not have to be visible all at the same time.
                         Tabs are selected using the mouse or by keyboard navigation. On the keyboard, left and right arrow keys are used to switch focus and the enter or space keys are used to open the focused tab.
                         The component accepts a list of \`TabItem\`s (\`item\` property) consisting of a tab name and some tab panel content.
+                        There is also an optional \`value\` property that defaults to the value given in the \`name\` property.
+                        This may be useful together with the \`activeTab\` and \`onChange\` properties to identify tabs without relying on their name, which may be a dynamic value.
                         It is also possible to specify IDs for the tab and the panel components (they will be generated if not given).
                         The \`activeTab\` property can be used to define which tab should be selected by default. It defaults to the first tab.
-                        The \`onChange\` property optional and can be used to trigger some function the user switches to another tab. It is called with the tab name as a parameter.`}
+                        The \`onChange\` property is optional and can be used to trigger some function when the user switches to another tab. It is called with the tab value as a parameter.`}
         />
       ),
     },

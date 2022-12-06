@@ -44,7 +44,9 @@ export const TableRow = ({
     }
   };
   const isSelected =
-    JSON.stringify(rowData) === JSON.stringify(selectedValue) ? true : false;
+    selectRows &&
+    typeof rowData !== 'undefined' &&
+    JSON.stringify(rowData) === JSON.stringify(selectedValue);
 
   return (
     <SortContext.Provider value={{ selectSort }}>

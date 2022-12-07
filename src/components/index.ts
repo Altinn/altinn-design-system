@@ -47,3 +47,4 @@ export { RadioGroup } from './RadioGroup';
 export type { RadioGroupSize, RadioGroupVariant } from './RadioGroup';
 export { RadioButton } from './RadioButton';
 export type { RadioButtonSize } from './RadioButton';
+export { SvgIcon } from './SvgIcon';

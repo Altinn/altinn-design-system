@@ -29,7 +29,7 @@ export {
 } from './Table';
 export { Checkbox } from './Checkbox';
 export { TextArea } from './TextArea';
-export type { IconVariant, ReadOnlyVariant } from './_InputWrapper';
+export { IconVariant, ReadOnlyVariant } from './_InputWrapper';
 export { CheckboxGroup, CheckboxGroupVariant } from './CheckboxGroup';
 export { FieldSet, FieldSetSize } from './FieldSet';
 export { Pagination } from './Pagination';
@@ -43,8 +43,6 @@ export type {
 } from './Select';
 export { Tabs } from './Tabs';
 export type { TabsProps, TabItem } from './Tabs';
-export { RadioGroup } from './RadioGroup';
-export type { RadioGroupSize, RadioGroupVariant } from './RadioGroup';
-export { RadioButton } from './RadioButton';
-export type { RadioButtonSize } from './RadioButton';
+export { RadioGroup, RadioGroupSize, RadioGroupVariant } from './RadioGroup';
+export { RadioButton, RadioButtonSize } from './RadioButton';
 export { SvgIcon } from './SvgIcon';

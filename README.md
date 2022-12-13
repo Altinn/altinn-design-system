@@ -3,6 +3,22 @@
 Design system v2  
 [designsystem.altinn.studio/](https://designsystem.altinn.studio/)
 
+## How to install
+
+To add the design system to your project, navigate to the directory where your `package.json` file is located and run one of the following commands:
+
+### NPM
+
+```
+npm install @altinn/altinn-design-system
+```
+
+### Yarn
+
+```
+yarn add @altinn/altinn-design-system
+```
+
 ## Getting started
 
 ### Node and Corepack

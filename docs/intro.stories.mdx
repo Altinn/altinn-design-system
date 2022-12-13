@@ -4,18 +4,34 @@ import { Meta } from '@storybook/addon-docs';
 
 # Altinn Design System (v2)
 
+## Hvordan installere
+
+For å legge til designsystemet i ditt prosjekt, naviger til mappen hvor `package.json`-filen befinner seg og kjør en av følgende kommandoer:
+
+### NPM
+
+```
+npm install @altinn/altinn-design-system
+```
+
+### Yarn
+
+```
+yarn add @altinn/altinn-design-system
+```
+
 ## Viktig informasjon om komponentbiblioteket
 
-Dette komponentbiblioteket består av flere React komponenter, og flere av de benytter seg av css variabler, som er design tokens definert i Figma.
-Disse tar utgangspunkt i at `1rem = 16px`. Vi har også et eldre design system som tar utgangspunkt i at `1rem = 10px`, som vi i mange tilfeller må bruke sammen med det nye designsystemet.
+Dette komponentbiblioteket består av flere React-komponenter, og flere av de benytter seg av css-variabler, som er design-tokens definert i Figma.
+Disse tar utgangspunkt i at `1rem = 16px`. Vi har også et eldre designsystem som tar utgangspunkt i at `1rem = 10px`, som vi i mange tilfeller må bruke sammen med det nye designsystemet.
 Derfor gjør vi en transformasjon av Figma tokens som brukes i dette repoet, slik at `1rem = 10px`.
 
-Det er derfor viktig at css variablene og design tokens som skal brukes i prosjektene lastes fra denne pakken `@altinn/altinn-design-system`, og ikke rett fra figma tokens pakken `@altinn/figma-design-tokens`.
+Det er derfor viktig at css-variablene og design-tokens som skal brukes i prosjektene lastes fra pakken `@altinn/altinn-design-system`, og ikke rett fra Figma tokens-pakken `@altinn/figma-design-tokens`.
 
-Den enkleste måten å laste css variablene på er å benytte `AppWrapper` komponenten. Den sørger for å laste inn de transformerte css variablene, samt setter noen andre globale styles vi benytter i design systemet.
-For å benytte de transformerte tokenene i JavaScript, kan du importere de også fra denne pakken: `import {tokens} from '@altinn/altinn-design-system`.
+Den enkleste måten å laste inn css-variablene på er å benytte `AppWrapper`-komponenten. Den sørger for å laste inn de transformerte css-variablene, og setter noen andre globale stilegenskaper som vi benytter i designsystemet.
+For å benytte de transformerte tokenene i JavaScript, kan du importere dem også fra denne pakken: `import {tokens} from '@altinn/altinn-design-system`.
 
-For mer informasjon om hvordan denne transformeringen gjøres kan du se i Readme for dette repoet.
+For mer informasjon om hvordan denne transformasjonen gjøres, kan du se i Readme for dette repoet.
 
 ## Hvordan bruke Storybook
 

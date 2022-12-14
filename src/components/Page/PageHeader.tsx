@@ -22,7 +22,6 @@ export const PageHeader = ({ children, icon }: PageHeaderProps) => {
         classes[`page-header--${color}`],
         classes[`page-header--${size}`],
       )}
-      data-testid='page-header'
     >
       <SvgIcon
         width={iconSize}

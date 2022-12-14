@@ -30,7 +30,7 @@ describe('Page', () => {
       render({ color });
       const otherColors = Object.values(PageColor).filter((c) => c !== color);
 
-      const pageHeader = screen.getByTestId('page-header');
+      const pageHeader = screen.getByRole('banner');
 
       expect(pageHeader.classList.contains(`page-header--${color}`)).toBe(true);
       otherColors.forEach((c) => {
@@ -44,7 +44,7 @@ describe('Page', () => {
       render({ size });
       const otherSizes = Object.values(PageSize).filter((s) => s !== size);
 
-      const pageHeader = screen.getByTestId('page-header');
+      const pageHeader = screen.getByRole('banner');
 
       expect(pageHeader.classList.contains(`page-header--${size}`)).toBe(true);
       otherSizes.forEach((s) => {

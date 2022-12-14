@@ -5,8 +5,14 @@ export enum PageColor {
   Success = 'success',
 }
 
+export enum PageSize {
+  Small = 'small',
+  Medium = 'medium',
+}
+
 export const PageContext = createContext({
   color: PageColor.Primary,
+  size: PageSize.Medium,
 });
 
 export const usePageContext = () => {

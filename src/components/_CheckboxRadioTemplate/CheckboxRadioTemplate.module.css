@@ -16,13 +16,13 @@
 
 .template--xsmall {
   --description-margin_top: var(--component-field_description-space-top-xsmall);
-  --font_size: var(--component-checkbox-font_size-xsmall);
+  --font_size: var(--component-checkbox-font_size-xs);
   --gap: var(--component-checkbox-space-gap-xsmall);
 }
 
 .template--small {
   --description-margin_top: var(--component-field_description-space-top-small);
-  --font_size: var(--component-checkbox-font_size-small);
+  --font_size: var(--component-checkbox-font_size-sm);
   --gap: var(--component-checkbox-space-gap-small);
 }
 

@@ -23,10 +23,9 @@
     "add-component": "node scripts/add-component.mjs"
   },
   "dependencies": {
-    "@altinn/figma-design-tokens": "^4.3.0",
+    "@altinn/figma-design-tokens": "^5.0.0",
     "@navikt/ds-icons": "^2.0.0",
     "@radix-ui/react-popover": "^1.0.0",
-    "@react-hookz/web": "^20.0.0",
     "leaflet": "^1.8.0",
     "react-leaflet": "^4.0.1",
     "react-number-format": "^5.1.1"

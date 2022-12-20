@@ -1,31 +1,3 @@
-/* breakpoints-xs */
-@media only screen and (min-width: 0) {
-  .toggle-button {
-    --toggle_button-font_size: var(--component-toggle_button-font_size-xs);
-  }
-}
-
-/* breakpoints-md */
-@media only screen and (min-width: 768px) {
-  .toggle-button {
-    --toggle_button-font_size: var(--component-toggle_button-font_size-md);
-  }
-}
-
-/* breakpoints-lg */
-@media only screen and (min-width: 960px) {
-  .toggle-button {
-    --toggle_button-font_size: var(--component-toggle_button-font_size-lg);
-  }
-}
-
-/* breakpoints-xl */
-@media only screen and (min-width: 1200px) {
-  .toggle-button {
-    --toggle_button-font_size: var(--component-toggle_button-font_size-xl);
-  }
-}
-
 .toggle-button {
   border-radius: 0;
   border: none;
@@ -34,7 +6,7 @@
   font-family: inherit;
   background-color: var(--component-toggle_button-color-background-inactive);
   color: var(--component-toggle_button-color-text-inactive);
-  font-size: var(--toggle_button-font_size);
+  font-size: var(--component-toggle_button-font_size-sm);
   height: 100%;
 }
 

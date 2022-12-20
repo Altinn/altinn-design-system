@@ -46,7 +46,7 @@
 .button--medium {
   height: var(--component-button-size-height-medium);
   min-width: var(--component-button-size-height-medium);
-  font-size: var(--font_size-400);
+  font-size: var(--font_size-400-breakpoint_md);
   --icon-size: var(--component-button-size-icon-medium);
   --button-vertical-padding: var(--component-button-space-padding-x-medium);
   gap: var(--component-button-space-gap-medium);
@@ -55,7 +55,7 @@
 .button--large {
   height: var(--component-button-size-height-large);
   min-width: var(--component-button-size-height-large);
-  font-size: var(--font_size-600);
+  font-size: var(--font_size-600-breakpoint_md);
   --icon-size: var(--component-button-size-icon-large);
   --button-vertical-padding: var(--component-button-space-padding-x-large);
   gap: var(--component-button-space-gap-large);

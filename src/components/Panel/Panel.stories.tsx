@@ -31,7 +31,7 @@ export default {
     },
   },
   args: {
-    title: 'Panel tittel',
+    title: 'Paneltittel',
     children: <div>Her kommer litt informasjon</div>,
   },
 } as ComponentMeta<typeof Panel>;
@@ -45,7 +45,7 @@ Success.args = {
 Success.parameters = {
   docs: {
     description: {
-      story: 'Success beskrivelse',
+      story: 'Suksessbeskrivelse',
     },
   },
 };
@@ -54,7 +54,7 @@ export const Info = Template.bind({});
 Info.parameters = {
   docs: {
     description: {
-      story: 'Info beskrivelse',
+      story: 'Infobeskrivelse',
     },
   },
 };
@@ -66,7 +66,7 @@ Warning.args = {
 Warning.parameters = {
   docs: {
     description: {
-      story: 'Warning beskrivelse',
+      story: 'Advarselsbeskrivelse',
     },
   },
 };
@@ -78,7 +78,7 @@ Error.args = {
 Error.parameters = {
   docs: {
     description: {
-      story: 'Error beskrivelse',
+      story: 'Feilbeskrivelse',
     },
   },
 };

@@ -74,14 +74,18 @@ export const Pagination = ({
 
   return (
     <div className={cn(classes['pagination-wrapper'])}>
-      <span style={{ marginRight: '26px' }}>
+      <span
+        style={{ marginRight: '26px' }}
+        id='number-of-rows-select'
+        aria-hidden='true'
+      >
         {descriptionTexts['rowsPerPage']}
       </span>
       <select
         style={{ marginRight: '25px' }}
         value={rowsPerPage}
         onChange={(event) => onRowsPerPageChange(event)}
-        aria-label='rader per side'
+        aria-labelledby='number-of-rows-select'
       >
         {rowsPerPageOptions.map((optionValue: number) => (
           <option

@@ -51,6 +51,7 @@ export const TableRow = ({
   return (
     <SortContext.Provider value={{ selectSort }}>
       <tr
+        tabIndex={variantStandard === Variant.Body ? -1 : 0}
         {...tableRowProps}
         className={cn(
           classes.TableRow,

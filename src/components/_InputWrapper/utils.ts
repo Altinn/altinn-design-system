@@ -57,6 +57,7 @@ export const getVariant = ({
       iconVariant: IconVariant.Error,
     };
   }
+
   return {
     variant: InputVariant.Default,
     iconVariant: iconVar,

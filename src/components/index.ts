@@ -9,14 +9,15 @@ export {
   AccordionIconVariant,
   AccordionIcon,
 } from './Accordion';
-export { Button, ButtonVariant } from './Button';
+export { Button, ButtonVariant, ButtonColor, ButtonSize } from './Button';
 export { Page, PageHeader, PageContent, PageColor } from './Page';
 export { List, ListItem, BorderStyle } from './List';
-export { TextField, IconVariant, ReadOnlyVariant } from './TextField';
+export { TextField } from './TextField';
+export { SearchField } from './SearchField';
 export { ErrorMessage } from './ErrorMessage';
 export type { Location, MapLayer } from './Map';
 export { Map } from './Map';
-export type { ChangeProps } from './Table';
+export type { ChangeProps, SortProps, RowData } from './Table';
 export {
   Table,
   TableBody,
@@ -24,6 +25,24 @@ export {
   TableHeader,
   TableRow,
   TableFooter,
+  SortDirection,
 } from './Table';
 export { Checkbox } from './Checkbox';
+export { TextArea } from './TextArea';
+export { IconVariant, ReadOnlyVariant } from './_InputWrapper';
+export { CheckboxGroup, CheckboxGroupVariant } from './CheckboxGroup';
+export { FieldSet, FieldSetSize } from './FieldSet';
 export { Pagination } from './Pagination';
+export { Select } from './Select';
+export type {
+  SelectProps,
+  SingleSelectOption,
+  MultiSelectOption,
+  SingleOnChangeEvent,
+  MultipleOnChangeEvent,
+} from './Select';
+export { Tabs } from './Tabs';
+export type { TabsProps, TabItem } from './Tabs';
+export { RadioGroup, RadioGroupSize, RadioGroupVariant } from './RadioGroup';
+export { RadioButton, RadioButtonSize } from './RadioButton';
+export { SvgIcon } from './SvgIcon';

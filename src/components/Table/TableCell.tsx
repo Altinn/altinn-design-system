@@ -1,3 +1,4 @@
+import type { HTMLProps } from 'react';
 import React from 'react';
 import cn from 'classnames';
 
@@ -6,17 +7,14 @@ import type { SortHandler } from './Context';
 import { useTableRowTypeContext, Variant } from './Context';
 import { ReactComponent as SortIcon } from './sort_arrow.svg';
 
-export interface TableCellProps {
+export interface TableCellProps
+  extends Omit<HTMLProps<HTMLTableCellElement>, 'onChange'> {
   children?: React.ReactNode;
   variant?: string;
-  colSpan?: number;
-  type?: string;
-  src?: string;
-  alt?: string;
-  sortable?: boolean;
   onChange?: SortHandler;
   sortDirecton?: SortDirection;
-  id?: number;
+  sortKey?: string;
+  radiobutton?: boolean;
 }
 export enum SortDirection {
   Descending = 'desc',
@@ -27,18 +25,24 @@ export enum SortDirection {
 
 export const TableCell = ({
   children,
-  colSpan = 1,
   variant,
   onChange,
   sortDirecton = SortDirection.NotSortable,
-  id,
+  sortKey,
+  className,
+  radiobutton = false,
+  ...tableCellProps
 }: TableCellProps) => {
   const { variantStandard } = useTableRowTypeContext();
 
   const handleChange = () => {
-    if (onChange != undefined && id != undefined && sortDirecton != undefined) {
+    if (
+      onChange != undefined &&
+      sortKey != undefined &&
+      sortDirecton != undefined
+    ) {
       onChange({
-        idCell: id,
+        sortedColumn: sortKey,
         previousSortDirection: sortDirecton,
       });
     }
@@ -49,8 +53,12 @@ export const TableCell = ({
         ? variantStandard === Variant.Header
         : variant === 'header') && (
         <th
-          className={cn(classes['header-table-cell'])}
-          colSpan={colSpan}
+          {...tableCellProps}
+          className={
+            radiobutton
+              ? cn(classes['header-table-cell-radiobutton'], className)
+              : cn(classes['header-table-cell'], className)
+          }
         >
           <div
             className={
@@ -59,7 +67,11 @@ export const TableCell = ({
                 : cn(classes['container'])
             }
             onClick={() => handleChange()}
-            onKeyUp={() => handleChange()}
+            onKeyUp={(event) => {
+              if (event.key === 'Enter' || event.key === ' ') {
+                handleChange();
+              }
+            }}
             role={
               sortDirecton != SortDirection.NotSortable ? 'button' : undefined
             }
@@ -68,6 +80,8 @@ export const TableCell = ({
             <div className={cn(classes['input'])}>{children}</div>
             {sortDirecton != SortDirection.NotSortable && (
               <SortIcon
+                aria-label='Sortering'
+                data-testid='sort-icon'
                 className={cn(classes['icon'], {
                   [classes['icon-asc']]:
                     sortDirecton === SortDirection.Ascending,
@@ -82,17 +96,28 @@ export const TableCell = ({
       {(variant == undefined
         ? variantStandard === Variant.Body
         : variant === 'body') && (
-        <>
-          <td
-            className={cn(classes['body-table-cell'])}
-            colSpan={colSpan}
+        <td
+          {...tableCellProps}
+          className={
+            radiobutton
+              ? cn(classes['body-table-cell-radiobutton'], className)
+              : cn(classes['body-table-cell'], className)
+          }
+        >
+          <div
+            className={
+              radiobutton ? cn(classes['radio-button']) : cn(classes['input'])
+            }
           >
-            <div className={cn(classes['input'])}>{children}</div>
-          </td>
-        </>
+            {children}
+          </div>
+        </td>
       )}
       {variantStandard === Variant.Footer && (
-        <td colSpan={colSpan}>
+        <td
+          {...tableCellProps}
+          className={cn(className)}
+        >
           <div className={cn(classes['input'])}>{children}</div>
         </td>
       )}

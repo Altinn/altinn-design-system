@@ -1,6 +1,11 @@
 import type { ChangeEventHandler } from 'react';
-import React, { useId } from 'react';
+import React from 'react';
 import cn from 'classnames';
+
+import {
+  CheckboxRadioTemplate,
+  CheckboxRadioTemplateSize,
+} from '@/components/_CheckboxRadioTemplate/CheckboxRadioTemplate';
 
 import classes from './Checkbox.module.css';
 
@@ -8,8 +13,10 @@ export interface CheckboxProps {
   checkboxId?: string;
   checked?: boolean;
   compact?: boolean;
+  description?: string;
   disabled?: boolean;
   error?: boolean;
+  hideLabel?: boolean;
   label?: string;
   name?: string;
   onChange: ChangeEventHandler<HTMLInputElement>;
@@ -20,45 +27,42 @@ export const Checkbox = ({
   checkboxId,
   checked,
   compact,
+  description,
   disabled,
   error,
+  hideLabel,
   label,
   name,
   onChange,
   readOnly,
-}: CheckboxProps) => {
-  const randomId = useId();
-  const inputId = checkboxId || 'checkbox-' + randomId;
-
-  return (
-    <label
-      className={cn(
-        classes.wrapper,
-        checked && classes['wrapper--checked'],
-        error && classes['wrapper--error'],
-        disabled && classes['wrapper--disabled'],
-        compact && classes['wrapper--compact'],
-        readOnly && classes['wrapper--read-only'],
-      )}
-      htmlFor={inputId}
-    >
-      {!readOnly && (
-        <span className={classes['checkbox-wrapper']}>
-          <input
-            checked={checked ?? false}
-            className={classes.checkbox}
-            disabled={disabled}
-            id={inputId}
-            name={name}
-            onChange={disabled ? undefined : onChange}
-            type='checkbox'
-          />
-          <span className={classes['visible-box']}>
-            <span className={classes['visible-box__checkmark']} />
-          </span>
-        </span>
-      )}
-      {label && <span className={classes.label}>{label}</span>}
-    </label>
-  );
-};
+}: CheckboxProps) => (
+  <CheckboxRadioTemplate
+    checked={checked}
+    className={cn(
+      classes.checkbox,
+      checked && classes['checkbox--checked'],
+      error && classes['checkbox--error'],
+      disabled && classes['checkbox--disabled'],
+      compact && classes['checkbox--compact'],
+      readOnly && classes['checkbox--read-only'],
+    )}
+    description={description}
+    disabled={disabled}
+    hideInput={readOnly}
+    hideLabel={hideLabel}
+    inputId={checkboxId}
+    label={label}
+    name={name}
+    onChange={onChange}
+    size={
+      compact
+        ? CheckboxRadioTemplateSize.Xsmall
+        : CheckboxRadioTemplateSize.Small
+    }
+    type='checkbox'
+  >
+    <span className={classes['visible-box']}>
+      <span className={classes['visible-box__checkmark']} />
+    </span>
+  </CheckboxRadioTemplate>
+);

@@ -10,6 +10,27 @@
   background-color: var(--component-accordion_header-color-background);
 }
 
+/* breakpoints-xs */
+@media only screen and (min-width: 0) {
+  .accordion-header__subtitle {
+    display: none;
+  }
+}
+
+/* breakpoints-sm */
+@media only screen and (min-width: 540px) {
+  .accordion-header__subtitle {
+    opacity: 60%;
+    font-size: 1.4rem;
+    display: block;
+  }
+  .accordion-header--subtitle {
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    padding-right: 0.3rem;
+  }
+}
+
 .accordion-header__title {
   --component-accordion_header_title-spacing-margin_left: 2.5rem;
   --component-accordion_header_title-border_top_style: none;
@@ -31,12 +52,18 @@
   border-right-style: var(
     --component-accordion_header_title-border_right_style
   );
+  text-align: var(--component-accordion_header_title-text-align);
   background-color: var(--component-accordion_header_title-color-background);
   font-size: var(--component-accordion_header_title-font_size);
   font-weight: var(--component-accordion_header_title-font_weight);
   margin-left: var(--component-accordion_header_title-spacing-margin_left);
+  line-height: 16px;
 }
 
 .accordion-header__actions {
-  margin-top: 0.3rem;
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 0.5rem;
+  align-items: center;
+  padding: 0 0.3rem;
 }

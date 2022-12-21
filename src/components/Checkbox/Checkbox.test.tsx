@@ -52,6 +52,13 @@ describe('Checkbox', () => {
     expect(screen.getByText(label)).toBeDefined();
   });
 
+  it('Should not display label text, but still make it accessible, when hideLabel is true', () => {
+    const label = 'Lorem ipsum';
+    render({ hideLabel: true, label });
+    expect(screen.queryByText(label)).toBeFalsy();
+    expect(screen.getByLabelText(label)).toBeTruthy();
+  });
+
   it('Should render checkbox with given checkboxId', () => {
     const checkboxId = 'the-checkbox';
     render({ checkboxId });
@@ -65,6 +72,12 @@ describe('Checkbox', () => {
     const checkbox = screen.getByRole('checkbox');
     expect(checkbox.getAttribute('name')).toEqual(name);
   });
+
+  it('Should display description', () => {
+    const description = 'Lorem ipsum dolor sit amet';
+    render({ description });
+    expect(screen.getByText(description)).toBeDefined();
+  });
 });
 
 const render = (props: Partial<CheckboxProps> = {}) => {
@@ -74,7 +87,7 @@ const render = (props: Partial<CheckboxProps> = {}) => {
 
 const renderAndGetWrapper = (props: Partial<CheckboxProps> = {}): Element => {
   const { container } = render(props);
-  const wrapper = container.querySelector('.wrapper');
+  const wrapper = container.querySelector('.checkbox');
   assert(wrapper !== null);
   return wrapper;
 };

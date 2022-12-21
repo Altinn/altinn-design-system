@@ -6,8 +6,10 @@
     --panel-content-gap: var(--component-panel-space-gap-xs);
     --panel-pointer-width: calc(var(--component-panel-size-icon-xs) / 2);
     --panel-pointer-height: calc(var(--panel-pointer-width) / 2);
-    --panel-body-font_size: var(--component-panel-font_size-body-xs);
-    --panel-header-font_size: var(--component-panel-font_size-header-xs);
+    --panel-body-font_size: var(--component-panel-font_size-body-breakpoint_sm);
+    --panel-header-font_size: var(
+      --component-panel-font_size-header-breakpoint_sm
+    );
   }
 }
 
@@ -19,30 +21,40 @@
     --panel-content-gap: var(--component-panel-space-gap-md);
     --panel-pointer-width: calc(var(--component-panel-size-icon-md) / 2);
     --panel-pointer-height: calc(var(--panel-pointer-width) / 2);
+    --panel-body-font_size: var(--component-panel-font_size-body-breakpoint_sm);
+    --panel-header-font_size: var(
+      --component-panel-font_size-header-breakpoint_sm
+    );
   }
 }
 
 /* breakpoints-md */
 @media only screen and (min-width: 768px) {
   .panel:not(.panel--mobile-layout) {
-    --panel-body-font_size: var(--component-panel-font_size-body-md);
-    --panel-header-font_size: var(--component-panel-font_size-header-md);
+    --panel-body-font_size: var(--component-panel-font_size-body-breakpoint_md);
+    --panel-header-font_size: var(
+      --component-panel-font_size-header-breakpoint_md
+    );
   }
 }
 
 /* breakpoints-lg */
 @media only screen and (min-width: 960px) {
   .panel:not(.panel--mobile-layout) {
-    --panel-body-font_size: var(--component-panel-font_size-body-lg);
-    --panel-header-font_size: var(--component-panel-font_size-header-lg);
+    --panel-body-font_size: var(--component-panel-font_size-body-breakpoint_md);
+    --panel-header-font_size: var(
+      --component-panel-font_size-header-breakpoint_lg
+    );
   }
 }
 
 /* breakpoints-xl */
 @media only screen and (min-width: 1200px) {
   .panel:not(.panel--mobile-layout) {
-    --panel-body-font_size: var(--component-panel-font_size-body-xl);
-    --panel-header-font_size: var(--component-panel-font_size-header-xl);
+    --panel-body-font_size: var(--component-panel-font_size-body-breakpoint_md);
+    --panel-header-font_size: var(
+      --component-panel-font_size-header-breakpoint_lg
+    );
   }
 }
 

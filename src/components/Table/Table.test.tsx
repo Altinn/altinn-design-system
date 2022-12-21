@@ -19,10 +19,10 @@ const render = (props: Partial<TableProps> = {}) => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          <TableRow value='apple'>
+          <TableRow rowData={{ fruit: 'apple' }}>
             <TableCell>Apple</TableCell>
           </TableRow>
-          <TableRow value='orange'>
+          <TableRow rowData={{ fruit: 'orange' }}>
             <TableCell>Orange</TableCell>
           </TableRow>
         </TableBody>
@@ -30,7 +30,7 @@ const render = (props: Partial<TableProps> = {}) => {
     ),
     onChange: jest.fn(),
     selectRows: true,
-    selectedValue: '',
+    selectedValue: {},
     ...props,
   };
   renderRtl(<Table {...allProps} />);
@@ -44,31 +44,9 @@ describe('Table', () => {
     render({ onChange: handleChange, selectRows: true });
 
     await user.click(screen.getByRole('row', { name: 'Apple' }));
-    expect(handleChange).toHaveBeenCalledWith({ selectedValue: 'apple' });
-  });
-});
-
-describe('Table', () => {
-  it('should call handleChange with correct selectedValue when one row is clicked by enter and selectRows is true', async () => {
-    const handleChange = jest.fn();
-    render({ onChange: handleChange, selectRows: true });
-
-    await user.keyboard('{Tab}');
-    await user.keyboard('{Enter}');
-    expect(handleChange).toHaveBeenCalledWith({ selectedValue: 'apple' });
-  });
-});
-
-describe('Table', () => {
-  it('should call handleChange when TableRow is clicked using key press Space and selectRows is true', async () => {
-    const handleChange = jest.fn();
-    render({ onChange: handleChange, selectRows: true });
-
-    const Row = screen.getByRole('row', {
-      name: 'Apple',
+    expect(handleChange).toHaveBeenCalledWith({
+      selectedValue: { fruit: 'apple' },
     });
-    await user.type(Row, '{Space}');
-    expect(handleChange).toHaveBeenCalledTimes(1);
   });
 });
 
@@ -78,30 +56,6 @@ describe('Table', () => {
     render({ onChange: handleChange, selectRows: false });
 
     await user.click(screen.getByRole('row', { name: 'Apple' }));
-    expect(handleChange).toHaveBeenCalledTimes(0);
-  });
-});
-
-describe('Table', () => {
-  it('should not call handleChange when when selectRows is false and TableRow is clicked by enter', async () => {
-    const handleChange = jest.fn();
-    render({ onChange: handleChange, selectRows: false });
-
-    await user.keyboard('{Tab}');
-    await user.keyboard('{Enter}');
-    expect(handleChange).toHaveBeenCalledTimes(0);
-  });
-});
-
-describe('Table', () => {
-  it('should not call handleChange when selectRows is false and TableRow is clicked using key press Space', async () => {
-    const handleChange = jest.fn();
-    render({ onChange: handleChange, selectRows: false });
-
-    const Row = screen.getByRole('row', {
-      name: 'Apple',
-    });
-    await user.type(Row, '{Space}');
     expect(handleChange).toHaveBeenCalledTimes(0);
   });
 });

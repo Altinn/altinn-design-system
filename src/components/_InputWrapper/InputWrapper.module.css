@@ -1,0 +1,98 @@
+.InputWrapper {
+  --background: var(--component-input-color-background-default);
+  --border-color: var(--component-input-color-border-default);
+  --outline-color: var(--component-input-color-outline-focus);
+  --icon-background: transparent;
+  --paddingY: 0;
+  --paddingX: 0;
+  background: var(--background);
+  border-width: var(--component-input-border_width-default);
+  border-radius: var(--interactive_components-border_radius-normal);
+  border-style: solid;
+  box-sizing: border-box;
+  display: flex;
+  align-items: stretch;
+  border-color: var(--border-color);
+}
+
+.InputWrapper--with-focus-effect:focus-within {
+  outline: var(--outline-color) auto var(--border_width-thin);
+  outline-offset: calc(var(--border_width-thin) + var(--border_width-standard));
+}
+
+.InputWrapper--default:hover {
+  --border-color: var(--component-input-color-border-hover);
+}
+
+.InputWrapper--error {
+  --icon-background: var(--component-input-error-color-border-default);
+  --border-color: var(--component-input-error-color-border-default);
+}
+
+.InputWrapper--error:hover {
+  --icon-background: var(--component-input-error-color-border-hover);
+  --border-color: var(--component-input-error-color-border-hover);
+}
+
+.InputWrapper--disabled {
+  --background: repeating-linear-gradient(
+    135deg,
+    #efefef,
+    #efefef 2px,
+    #fff 3px,
+    #fff 5px
+  );
+  --border-color: var(--component-input-disabled-color-border-default);
+}
+
+.InputWrapper--readonly-info {
+  --background: var(--component-input-read_only_info-color-background-default);
+  --border-color: var(--component-input-read_only_info-color-border-default);
+}
+
+.InputWrapper--readonly-confirm {
+  --background: var(
+    --component-input-read_only_confirm-color-background-default
+  );
+  --border-color: var(--component-input-read_only_confirm-color-border-default);
+}
+
+.InputWrapper--search {
+  flex-direction: row-reverse;
+}
+
+.InputWrapper--with-padding {
+  /* Subtract size of border on padding-y, because border is on outer element. Without this, height of entire component will be too big */
+  --paddingY: calc(
+    var(--component-input-space-padding-y) -
+      var(--component-input-border_width-default)
+  );
+  --paddingX: var(--component-input-space-padding-x);
+}
+
+.InputWrapper__field {
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  padding: var(--paddingY) var(--paddingX);
+  width: 100%;
+  background: var(--background);
+}
+
+.InputWrapper__icon {
+  background: var(--icon-background);
+  padding-right: var(--component-input-border_width-focus);
+  padding-left: var(--component-input-border_width-default);
+  display: flex;
+  align-items: center;
+  flex: none;
+}
+
+.InputWrapper__icon--disabled {
+  opacity: 60%;
+}
+
+.InputWrapper__label {
+  font-weight: var(--component-label-font_weight-default);
+  padding: 0;
+}

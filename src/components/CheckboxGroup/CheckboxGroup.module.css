@@ -1,0 +1,22 @@
+.checkbox-group {
+  --gap-x: var(--component-checkbox-group-space-gap-x-small);
+  --gap-y: var(--component-checkbox-group-space-gap-y-small);
+
+  column-gap: var(--gap-x);
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: var(--gap-y);
+}
+
+.checkbox-group--compact {
+  --gap-x: var(--component-checkbox-group-space-gap-x-xsmall);
+  --gap-y: var(--component-checkbox-group-space-gap-y-xsmall);
+}
+
+.checkbox-group--vertical {
+  flex-direction: column;
+}
+
+.checkbox-group--horizontal {
+  flex-direction: row;
+}

@@ -4,8 +4,9 @@ import { config } from 'storybook-addon-designs';
 
 import { StoryPage } from '@sb/StoryPage';
 
+import { ReadOnlyVariant } from '../_InputWrapper';
+
 import { TextField } from './TextField';
-import { ReadOnlyVariant } from './utils';
 
 const figmaLink =
   'https://www.figma.com/file/wnBveAG2ikUspFsQwM3GNE/Altinn-Studio-Apps?node-id=2090%3A6723';
@@ -33,6 +34,7 @@ export default {
     },
   },
   args: {
+    label: 'Label',
     id: 'textfield-story',
     formatting: {
       align: 'left',

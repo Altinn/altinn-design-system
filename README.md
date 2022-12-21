@@ -1,6 +1,23 @@
 # altinn-design-system
 
-Design system v2
+Design system v2  
+[designsystem.altinn.studio/](https://designsystem.altinn.studio/)
+
+## How to install
+
+To add the design system to your project, navigate to the directory where your `package.json` file is located and run one of the following commands:
+
+### NPM
+
+```
+npm install @altinn/altinn-design-system
+```
+
+### Yarn
+
+```
+yarn add @altinn/altinn-design-system
+```
 
 ## Getting started
 
@@ -25,7 +42,7 @@ New components can be added by executing `yarn add-component <ComponentName>`. T
 
 #### Adding new dependencies
 
-When adding new dependencies, you should also add that dependency to the `external` array in `rollup.config.js`. This is done to avoid having the dependency being part of the bundle.
+When adding new dependencies, you should also add that dependency to the `external` array in `rollup.config.mjs`. This is done to avoid having the dependency being part of the bundle.
 
 ### Styling
 

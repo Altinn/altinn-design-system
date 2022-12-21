@@ -10,6 +10,7 @@
   box-sizing: inherit;
   align-items: center;
   font-size: var(--page_header-title-font-size);
+  fill: var(--component-page_header-color);
 }
 
 .page-header--primary {
@@ -22,16 +23,12 @@
   --component-page_header-color: black;
 }
 
-@media only screen and (min-width: 0) {
-  .page-header {
-    --page_header-title-font-size: 18px;
-    --page-header-height: 72px;
-  }
+.page-header--small {
+  --page_header-title-font-size: 18px;
+  --page-header-height: 72px;
 }
 
-@media only screen and (min-width: 768px) {
-  .page-header {
-    --page_header-title-font-size: 28px;
-    --page-header-height: 96px;
-  }
+.page-header--medium {
+  --page_header-title-font-size: 28px;
+  --page-header-height: 96px;
 }

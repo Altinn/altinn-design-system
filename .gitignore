@@ -377,3 +377,4 @@ MigrationBackup/
 
 # JetBrains IntelliJ IDEA
 .idea/
+.vscode/settings.json

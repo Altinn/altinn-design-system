@@ -3,12 +3,12 @@ import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import { config } from 'storybook-addon-designs';
 
 import { StoryPage } from '@sb/StoryPage';
+import { ReactComponent as DataIcon } from '@/assets/Data.svg';
 
-import { PageColor } from './Context';
+import { PageColor, PageSize } from './Context';
 import { PageContent } from './PageContent';
 import { PageHeader } from './PageHeader';
 import { Page } from './Page';
-import { ReactComponent as ClientBold } from './ClientBold.svg';
 
 const figmaLink = ''; // TODO: Add figma link
 
@@ -41,16 +41,22 @@ export default {
 
 const Template: ComponentStory<typeof Page> = (args) => {
   return (
-    <Page color={args.color}>
-      <PageHeader icon={<ClientBold />}>PageHeader</PageHeader>
-      <PageContent>PageContent</PageContent>
-    </Page>
+    <div style={{ width: '600px' }}>
+      <Page
+        color={args.color}
+        size={args.size}
+      >
+        <PageHeader icon={<DataIcon />}>PageHeader</PageHeader>
+        <PageContent>PageContent</PageContent>
+      </Page>
+    </div>
   );
 };
 
 export const Primary = Template.bind({});
 Primary.args = {
   color: PageColor.Primary,
+  size: PageSize.Medium,
 };
 Primary.parameters = {
   docs: {
@@ -63,6 +69,7 @@ Primary.parameters = {
 export const Success = Template.bind({});
 Success.args = {
   color: PageColor.Success,
+  size: PageSize.Medium,
 };
 Success.parameters = {
   docs: {

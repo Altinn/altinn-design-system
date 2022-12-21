@@ -1,24 +1,33 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { usePageContext } from './Context';
+import { SvgIcon } from '../SvgIcon';
+
+import { PageSize, usePageContext } from './Context';
 import classes from './PageHeader.module.css';
-import { PageIcon } from './PageIcon';
 
 export interface PageHeaderProps {
   children?: React.ReactNode;
-  icon?: JSX.Element;
+  icon?: React.ReactNode;
 }
 
 export const PageHeader = ({ children, icon }: PageHeaderProps) => {
-  const { color } = usePageContext();
+  const { color, size } = usePageContext();
+  const iconSize = size === PageSize.Small ? 28 : 40;
 
   return (
     <header
-      className={cn(classes['page-header'], classes[`page-header--${color}`])}
-      data-testid='page-header'
+      className={cn(
+        classes['page-header'],
+        classes[`page-header--${color}`],
+        classes[`page-header--${size}`],
+      )}
     >
-      {icon && <PageIcon icon={icon} />}
+      <SvgIcon
+        width={iconSize}
+        height={iconSize}
+        svgIconComponent={icon}
+      />
       <span>{children}</span>
     </header>
   );

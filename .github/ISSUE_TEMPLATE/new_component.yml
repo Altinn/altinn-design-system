@@ -1,0 +1,76 @@
+name: New component 💠
+description: I need design to specify and create tokens for a new component
+labels: ["ux", "status/ready-for-specification"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please check if we have an issue for the component you are about to add already! 
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the component
+      description: If applicable link to relevant components in other design systems and include screenshots
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        Check if any tasks beneath here are not relevant, if so remove them or add tasks if something is missing
+
+  - type: textarea
+    id: figma
+    attributes:
+      label: Figma
+      value: |
+        _Link to correct placement in our Figma component library._
+        - [ ] Design is fully specified in Figma
+          - [ ] Design component with all relevant states (And think )
+          - [ ] Do a WCAG test of the sketches
+          - [ ] Functionality/animation is described and prototyped if relevant    
+
+  - type: textarea
+    id: tokens
+    attributes:
+      label: Tokens
+      value: |
+        - [ ] Tokens are published and ready for use
+          - [ ] The size is described with tokens
+          - [ ] spacing is described with tokens
+          - [ ] The color of all states are described with tokens
+          - [ ] Border width or styling is described with tokens
+          - [ ] Text size are described with tokens
+
+        ```
+        Replace with size tokens
+
+        Replace with padding
+
+        Replace with colors
+
+        Replace with border width
+
+        Replace with text
+        ```
+
+  - type: textarea
+    id: guidelines
+    attributes: 
+      label: Guidelines
+      value: |
+        _Not necessarry for development to start_
+
+        - [ ] Guidelines are ready
+          - [ ] Write/update guidelines
+          - [ ] Do's and don'ts
+          - [ ] Examples 
+
+  - type: textarea
+    id: svg
+    attributes: 
+      label: SVG
+      value: |
+        - [ ] If there are used any svgs in this component is it available for the developer?
+

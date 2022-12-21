@@ -25,6 +25,7 @@
     "**/*.ts",
     "**/*.tsx",
     "**/*.js",
+    "**/*.mjs",
     "**/.eslintrc.js",
     "scripts/add-component.mjs"
   ]

@@ -4,9 +4,9 @@ import { render as renderRtl, screen } from '@testing-library/react';
 
 import type { AccordionProps } from './Accordion';
 import { Accordion } from './Accordion';
-import { AccordionHeader } from './AccordionHeader';
 import { AccordionContent } from './AccordionContent';
 import { AccordionIconVariant } from './Context';
+import { AccordionHeader } from './AccordionHeader';
 
 const render = (props: Partial<AccordionProps> = {}) => {
   const allProps = {

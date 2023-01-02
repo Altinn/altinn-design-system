@@ -6,8 +6,10 @@ import {
   useMapEvents,
 } from 'react-leaflet';
 import React from 'react';
+import { icon } from 'leaflet';
 
 import classes from './Map.module.css';
+
 import 'leaflet/dist/leaflet.css';
 
 // Default is center of Norway
@@ -40,6 +42,36 @@ export interface MapLayer {
   subdomains?: string[];
 }
 
+/**
+ * It is expected you pass in the default icons when using the Map component, unless you want to provide your own icon.
+ *
+ * Example:
+ *   import Marker from 'leaflet/dist/images/marker-icon.png';
+ *   import RetinaMarker from 'leaflet/dist/images/marker-icon-2x.png';
+ *   import MarkerShadow from 'leaflet/dist/images/marker-shadow.png';
+ *
+ *   <Map ... markerIcon={{
+ *     iconUrl: Marker,
+ *     iconRetinaUrl: RetinaMarker,
+ *     shadowUrl: MarkerShadow,
+ *     iconSize: [25, 41],
+ *     iconAnchor: [12, 41],
+ *   }} />
+ *
+ * This example requires your build system to support image loading (but you can provide the URLs for static icon files
+ * if your build system doesn't support image loading).
+ */
+export interface MapIconOptions {
+  iconUrl: string;
+  iconRetinaUrl?: string | undefined;
+  iconSize?: [number, number] | undefined;
+  iconAnchor?: [number, number] | undefined;
+  shadowUrl?: string | undefined;
+  shadowRetinaUrl?: string | undefined;
+  shadowSize?: [number, number] | undefined;
+  shadowAnchor?: [number, number] | undefined;
+}
+
 export interface MapProps {
   readOnly?: boolean;
   layers?: MapLayer[];
@@ -47,6 +79,7 @@ export interface MapProps {
   zoom?: number;
   markerLocation?: Location;
   onClick?: (location: Location) => void;
+  markerIcon: MapIconOptions;
 }
 
 export const Map = ({
@@ -55,6 +88,7 @@ export const Map = ({
   centerLocation = DefaultCenterLocation,
   zoom = DefaultZoom,
   markerLocation,
+  markerIcon,
   onClick,
 }: MapProps) => {
   return (
@@ -79,7 +113,12 @@ export const Map = ({
         />
       ))}
       <AttributionControl prefix={false} />
-      <LocationMarker markerLocation={markerLocation} />
+      {markerLocation ? (
+        <Marker
+          position={locationToTuple(markerLocation)}
+          icon={icon(markerIcon)}
+        />
+      ) : null}
       <MapClickHandler
         readOnly={readOnly}
         onClick={onClick}
@@ -87,13 +126,6 @@ export const Map = ({
     </MapContainer>
   );
 };
-
-type LocationMarkerProps = Pick<MapProps, 'markerLocation'>;
-function LocationMarker({ markerLocation }: LocationMarkerProps) {
-  return markerLocation ? (
-    <Marker position={locationToTuple(markerLocation)} />
-  ) : null;
-}
 
 function locationToTuple(location: Location): [number, number] {
   return [location.latitude, location.longitude];

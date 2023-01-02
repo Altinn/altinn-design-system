@@ -37,7 +37,6 @@
     "@babel/core": "7.20.7",
     "@mdx-js/react": "2.2.1",
     "@rollup/plugin-commonjs": "24.0.0",
-    "@rollup/plugin-image": "3.0.1",
     "@rollup/plugin-json": "6.0.0",
     "@rollup/plugin-node-resolve": "15.0.1",
     "@rollup/plugin-typescript": "10.0.1",

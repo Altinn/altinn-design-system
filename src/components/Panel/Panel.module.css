@@ -58,6 +58,21 @@
   }
 }
 
+/* print style */
+@media print {
+  .panel {
+    --panel-y-padding: var(--component-panel-space-padding-y-xs);
+    --panel-x-padding: var(--component-panel-space-padding-x-xs);
+    --panel-content-gap: var(--component-panel-space-gap-xs);
+    --panel-pointer-width: calc(var(--component-panel-size-icon-xs) / 2);
+    --panel-pointer-height: calc(var(--panel-pointer-width) / 2);
+    --panel-body-font_size: var(--component-panel-font_size-body-breakpoint_sm);
+    --panel-header-font_size: var(
+      --component-panel-font_size-header-breakpoint_sm
+    );
+  }
+}
+
 .panel {
   width: 100%;
 }

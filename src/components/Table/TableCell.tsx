@@ -59,6 +59,13 @@ export const TableCell = ({
               ? cn(classes['header-table-cell-radiobutton'], className)
               : cn(classes['header-table-cell'], className)
           }
+          aria-sort={
+            sortDirecton === SortDirection.Ascending
+              ? 'ascending'
+              : sortDirecton === SortDirection.Descending
+              ? 'descending'
+              : 'none'
+          }
         >
           <div
             className={

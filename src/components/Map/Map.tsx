@@ -119,9 +119,10 @@ const MapClickHandler = ({ onClick, readOnly }: MapClickHandlerProps) => {
   useMapEvents({
     click: (map) => {
       if (onClick && !readOnly) {
+        const wrappedLatLng = map.latlng.wrap();
         onClick({
-          latitude: map.latlng.lat,
-          longitude: map.latlng.lng,
+          latitude: wrappedLatLng.lat,
+          longitude: wrappedLatLng.lng,
         });
       }
     },

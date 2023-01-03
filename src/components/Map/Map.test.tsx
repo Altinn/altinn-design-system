@@ -147,7 +147,7 @@ async function clickMap(clientX = 0, clientY = 0) {
 }
 
 const render = (props: Partial<MapProps> = {}) => {
-  const allProps = {
+  const allProps: MapProps = {
     readOnly: false,
     layers: undefined,
     centerLocation: {
@@ -159,6 +159,9 @@ const render = (props: Partial<MapProps> = {}) => {
       latitude: 59.2641592,
       longitude: 10.4036248,
     } as Location,
+    markerIcon: {
+      iconUrl: 'marker.png',
+    },
     onClick: jest.fn(),
     ...props,
   };

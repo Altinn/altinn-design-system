@@ -1,5 +1,6 @@
 import { createContext, useContext } from 'react';
 
+import type { ScreenSize } from './Table';
 import type { SortDirection } from './TableCell';
 import type { RowData } from './TableRow';
 
@@ -28,6 +29,7 @@ export const TableContext = createContext<
       selectRows?: boolean;
       selectedValue?: RowData;
       onChange?: ChangeHandler;
+      screenSize?: ScreenSize;
     }
   | undefined
 >(undefined);

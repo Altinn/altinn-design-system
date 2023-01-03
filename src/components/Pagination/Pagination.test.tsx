@@ -2,6 +2,8 @@ import React from 'react';
 import { render as renderRtl, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+import { ScreenSize } from '../Table';
+
 import type { PaginationProps } from './Pagination';
 import { Pagination } from './Pagination';
 
@@ -25,6 +27,7 @@ const descriptionText = {
 };
 
 const defaultProps: PaginationProps = {
+  screenSize: ScreenSize.Laptop,
   numberOfRows: 20,
   rowsPerPageOptions: [5, 10, 15, 20],
   rowsPerPage: 5,

@@ -5,18 +5,21 @@ import { config } from 'storybook-addon-designs';
 import cn from 'classnames';
 
 import { StoryPage } from '@sb/StoryPage';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { tokens } from '@/DesignTokens';
 
 import { Pagination } from '../Pagination';
-import { RadioButton } from '../RadioButton';
+import { RadioButton, RadioButtonSize } from '../RadioButton';
 import type { DescriptionText } from '../Pagination/Pagination';
 
-import { Table } from './Table';
+import { ScreenSize, Table } from './Table';
 import { TableHeader } from './TableHeader';
 import { SortDirection, TableCell } from './TableCell';
 import type { RowData } from './TableRow';
 import { TableRow } from './TableRow';
 import { TableBody } from './TableBody';
 import type { ChangeProps, SortProps } from './Context';
+import { useTableContext } from './Context';
 import classes from './Table.stories.module.css';
 import { TableFooter } from './TableFooter';
 const figmaLink = ''; // TODO: Add figma link
@@ -48,19 +51,50 @@ export default {
   },
 } as ComponentMeta<typeof Table>;
 
+function createMobileData(Saksnr: string, Produkt: string, Status: string) {
+  return {
+    Saksnr,
+    Produkt,
+    Status,
+  };
+}
+
+const rowsMobile = [
+  createMobileData(
+    '20220873',
+    'Embalasje for snacksprodukter',
+    'Under behandling',
+  ),
+  createMobileData(
+    '20220590',
+    'Apparat for rengjøring av sveisesøm',
+    'Registert',
+  ),
+  createMobileData('20220827', 'Logo', 'Besluttet gjeldene'),
+  createMobileData(
+    '20220582',
+    'Modul for handikaprampe, Bunnramme til modul for handikaprampe, Rekkverk til modul for handikaprampe',
+    'Registrert',
+  ),
+  createMobileData('20220408', 'Bil', 'Registert'),
+  createMobileData('200208507', 'Vippesykkel', 'Besluttet gjeldende'),
+  createMobileData('200812696', 'SHELL', 'Besluttet gjeldende'),
+  createMobileData('201106591', 'DNB', 'Registrert'),
+];
+
 function createData(
-  applicationNr: string,
-  product: string,
-  status: string,
-  imageSrc: string,
-  imageAlt: string,
+  Saksnr: string,
+  Produkt: string,
+  Status: string,
+  BildeSrc: string,
+  BildeAlt: string,
 ) {
   return {
-    applicationNr,
-    product,
-    status,
-    imageSrc,
-    imageAlt,
+    Saksnr,
+    Produkt,
+    Status,
+    BildeSrc,
+    BildeAlt,
   };
 }
 
@@ -123,7 +157,26 @@ const rows = [
   ),
 ];
 
+const MobileView = () => {
+  const mobile: boolean = useMediaQuery(`(max-width: ${tokens.BreakpointsSm})`);
+  if (mobile) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+const DecideLayout = () => {
+  const mobile: boolean = MobileView();
+  if (mobile) {
+    return ScreenSize.Mobile;
+  } else {
+    return ScreenSize.Laptop;
+  }
+};
+
 const Template: ComponentStory<typeof Table> = (args) => {
+  const screenSize = DecideLayout();
   const [selected, setSelected] = useState({});
   const [selectedSort, setSelectedSort] = useState({
     sortedColumn: '',
@@ -176,102 +229,162 @@ const Template: ComponentStory<typeof Table> = (args) => {
     setPage(newPage);
   };
   const handleRadioButton = (event: ChangeEvent<HTMLInputElement>) => {
-    const value: RowData = { applicationNr: event.target.value };
+    const value: RowData = { Saksnr: event.target.value };
     setSelected(value);
   };
   const checkSelectedValue = (row: RowData) => {
-    const value: RowData = { applicationNr: row.applicationNr };
+    const value: RowData = { Saksnr: row.Saksnr };
     if (JSON.stringify(selected) == JSON.stringify(value)) {
       return true;
     }
     return false;
   };
+  console.log(rowsMobile);
 
-  return (
-    <Table
-      selectRows={args.selectRows}
-      onChange={handleChange}
-      selectedValue={selected}
-    >
-      <TableHeader>
-        <TableRow>
-          {args.selectRows && <TableCell radiobutton={true}></TableCell>}
-          <TableCell
-            onChange={handleSortChange}
-            sortKey={'Søknadsnr.'}
-            sortDirecton={
-              selectedSort.sortedColumn === 'Søknadsnr.'
-                ? selectedSort.sortDirection
-                : SortDirection.NotActive
-            }
-          >
-            Søknadsnr.
-          </TableCell>
-          <TableCell
-            sortKey={'Produkt'}
-            onChange={handleSortChange}
-            sortDirecton={
-              selectedSort.sortedColumn === 'Produkt'
-                ? selectedSort.sortDirection
-                : SortDirection.NotActive
-            }
-          >
-            Produkt
-          </TableCell>
-          <TableCell>Status</TableCell>
-          <TableCell>Bilde</TableCell>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        {rows
-          .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-          .map((row) => (
-            <TableRow
-              key={row.applicationNr}
-              rowData={{ applicationNr: row.applicationNr }}
+  const isMobile = () => {
+    return (
+      <Table
+        selectRows={args.selectRows}
+        onChange={handleChange}
+        selectedValue={selected}
+        screenSize={ScreenSize.Mobile}
+      >
+        <TableBody>
+          {rowsMobile
+            .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+            .map((row) => (
+              <TableRow
+                key={row.Saksnr}
+                rowData={{ Saksnr: row.Saksnr }}
+              >
+                {args.selectRows && (
+                  <TableCell radiobutton={true}>
+                    <RadioButton
+                      name={row.Saksnr}
+                      onChange={(event) => handleRadioButton(event)}
+                      value={row.Saksnr}
+                      checked={checkSelectedValue(row)}
+                      label={row.Saksnr}
+                      hideLabel={true}
+                      size={RadioButtonSize.Xsmall}
+                    ></RadioButton>
+                  </TableCell>
+                )}
+                <TableCell mobileViewShownProperties={row}></TableCell>
+              </TableRow>
+            ))}
+        </TableBody>
+        <TableFooter>
+          <TableRow>
+            <TableCell colSpan={5}>
+              <Pagination
+                numberOfRows={rows.length}
+                rowsPerPageOptions={[5, 10, 15, 20]}
+                rowsPerPage={rowsPerPage}
+                onRowsPerPageChange={handleChangeRowsPerPage}
+                currentPage={page}
+                setCurrentPage={handleChangeInCurrentPage}
+                descriptionTexts={description}
+                screenSize={ScreenSize.Mobile}
+              />
+            </TableCell>
+          </TableRow>
+        </TableFooter>
+      </Table>
+    );
+  };
+
+  const isLaptop = () => {
+    return (
+      <Table
+        selectRows={args.selectRows}
+        onChange={handleChange}
+        selectedValue={selected}
+        screenSize={ScreenSize.Laptop}
+      >
+        <TableHeader>
+          <TableRow>
+            {args.selectRows && <TableCell radiobutton={true}></TableCell>}
+            <TableCell
+              onChange={handleSortChange}
+              sortKey={'Søknadsnr.'}
+              sortDirecton={
+                selectedSort.sortedColumn === 'Søknadsnr.'
+                  ? selectedSort.sortDirection
+                  : SortDirection.NotActive
+              }
             >
-              {args.selectRows && (
-                <TableCell radiobutton={true}>
-                  <RadioButton
-                    name={row.applicationNr}
-                    onChange={(event) => handleRadioButton(event)}
-                    value={row.applicationNr}
-                    checked={checkSelectedValue(row)}
-                    label={row.applicationNr}
-                    hideLabel={true}
-                  ></RadioButton>
+              Søknadsnr.
+            </TableCell>
+            <TableCell
+              sortKey={'Produkt'}
+              onChange={handleSortChange}
+              sortDirecton={
+                selectedSort.sortedColumn === 'Produkt'
+                  ? selectedSort.sortDirection
+                  : SortDirection.NotActive
+              }
+            >
+              Produkt
+            </TableCell>
+            <TableCell>Status</TableCell>
+            <TableCell>Bilde</TableCell>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {rows
+            .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+            .map((row) => (
+              <TableRow
+                key={row.Saksnr}
+                rowData={{ Saksnr: row.Saksnr }}
+              >
+                {args.selectRows && (
+                  <TableCell radiobutton={true}>
+                    <RadioButton
+                      name={row.Saksnr}
+                      onChange={(event) => handleRadioButton(event)}
+                      value={row.Saksnr}
+                      checked={checkSelectedValue(row)}
+                      label={row.Saksnr}
+                      hideLabel={true}
+                    ></RadioButton>
+                  </TableCell>
+                )}
+                <TableCell>{row.Saksnr}</TableCell>
+                <TableCell>{row.Produkt}</TableCell>
+                <TableCell>{row.Status}</TableCell>
+                <TableCell>
+                  <img
+                    className={cn(classes['checkmark'])}
+                    src={row.BildeSrc}
+                    alt={row.BildeAlt}
+                  ></img>
                 </TableCell>
-              )}
-              <TableCell>{row.applicationNr}</TableCell>
-              <TableCell>{row.product}</TableCell>
-              <TableCell>{row.status}</TableCell>
-              <TableCell>
-                <img
-                  className={cn(classes['checkmark'])}
-                  src={row.imageSrc}
-                  alt={row.imageAlt}
-                ></img>
-              </TableCell>
-            </TableRow>
-          ))}
-      </TableBody>
-      <TableFooter>
-        <TableRow>
-          <TableCell colSpan={5}>
-            <Pagination
-              numberOfRows={rows.length}
-              rowsPerPageOptions={[5, 10, 15, 20]}
-              rowsPerPage={rowsPerPage}
-              onRowsPerPageChange={handleChangeRowsPerPage}
-              currentPage={page}
-              setCurrentPage={handleChangeInCurrentPage}
-              descriptionTexts={description}
-            />
-          </TableCell>
-        </TableRow>
-      </TableFooter>
-    </Table>
-  );
+              </TableRow>
+            ))}
+        </TableBody>
+        <TableFooter>
+          <TableRow>
+            <TableCell colSpan={5}>
+              <Pagination
+                numberOfRows={rows.length}
+                rowsPerPageOptions={[5, 10, 15, 20]}
+                rowsPerPage={rowsPerPage}
+                onRowsPerPageChange={handleChangeRowsPerPage}
+                currentPage={page}
+                setCurrentPage={handleChangeInCurrentPage}
+                descriptionTexts={description}
+                screenSize={ScreenSize.Laptop}
+              />
+            </TableCell>
+          </TableRow>
+        </TableFooter>
+      </Table>
+    );
+  };
+
+  return <>{screenSize === ScreenSize.Mobile ? isMobile() : isLaptop()}</>;
 };
 
 export const BasicTable = Template.bind({});

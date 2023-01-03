@@ -23,5 +23,19 @@
 
 .icon-button {
   background-color: transparent;
+  margin: 5px;
   border: none;
+}
+
+.pagination-wrapper-mobile {
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
 }

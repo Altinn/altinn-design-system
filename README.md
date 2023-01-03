@@ -19,6 +19,26 @@ npm install @altinn/altinn-design-system
 yarn add @altinn/altinn-design-system
 ```
 
+### Linking
+
+If you plan on making any contributions to the design system and develop features/test changes with a more rapid feedback loop, you'll most likely want to link your project to a local clone of `altinn-design-system` instead.
+
+If using `npm link` or `yarn link` works for your project, that'll be the easiest solution. Most likely however, you'll probably want to create local packages for `altinn-design-system` and refer to those in your project `package.json`:
+
+First, in your local `altinn-design-system`:
+
+1. Run `yarn --immutable`, if you haven't already
+2. Run `yarn build`
+3. Run `yarn pack`
+
+Then, in your project:
+
+1. Update the version number for `@altinn/altinn-design-system` to instead point to a path for the `package.tgz` file generated in the steps above. For example: `"@altinn/altinn-design-system": "../altinn-design-system/package.tgz",`
+2. Run `yarn install` (or `npm install`, depending on your project)
+3. Build and/or run your project
+
+Tip: Whenever you re-build and re-pack in `altinn-design-system`, the output filename stays the same (`package.tgz`). This might cause caching issues where your project uses an older `package.tgz`. To force using a newer package, rename it to something else after running `yarn pack` (for example `package2.tgz`). Be sure to run your package manager after every time you pack the design system library.
+
 ## Getting started
 
 ### Node and Corepack

@@ -2,9 +2,6 @@ import type { HTMLProps } from 'react';
 import React from 'react';
 import cn from 'classnames';
 
-import { useMediaQuery } from '@/hooks/useMediaQuery';
-import { tokens } from '@/DesignTokens';
-
 import classes from './Table.module.css';
 import type { ChangeHandler } from './Context';
 import { TableContext } from './Context';

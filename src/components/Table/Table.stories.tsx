@@ -19,7 +19,6 @@ import type { RowData } from './TableRow';
 import { TableRow } from './TableRow';
 import { TableBody } from './TableBody';
 import type { ChangeProps, SortProps } from './Context';
-import { useTableContext } from './Context';
 import classes from './Table.stories.module.css';
 import { TableFooter } from './TableFooter';
 const figmaLink = ''; // TODO: Add figma link

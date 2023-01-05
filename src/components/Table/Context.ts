@@ -29,7 +29,6 @@ export const TableContext = createContext<
       selectRows?: boolean;
       selectedValue?: RowData;
       onChange?: ChangeHandler;
-      screenSize?: ScreenSize;
     }
   | undefined
 >(undefined);

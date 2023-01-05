@@ -157,26 +157,9 @@ const rows = [
   ),
 ];
 
-const MobileView = () => {
-  const mobile: boolean = useMediaQuery(`(max-width: ${tokens.BreakpointsSm})`);
-  if (mobile) {
-    return true;
-  } else {
-    return false;
-  }
-};
-
-const DecideLayout = () => {
-  const mobile: boolean = MobileView();
-  if (mobile) {
-    return ScreenSize.Mobile;
-  } else {
-    return ScreenSize.Laptop;
-  }
-};
-
 const Template: ComponentStory<typeof Table> = (args) => {
-  const screenSize = DecideLayout();
+  const isMobile = useMediaQuery(`(max-width: ${tokens.BreakpointsSm})`);
+  const screenSize = isMobile ? ScreenSize.Mobile : ScreenSize.Laptop;
   const [selected, setSelected] = useState({});
   const [selectedSort, setSelectedSort] = useState({
     sortedColumn: '',
@@ -239,69 +222,14 @@ const Template: ComponentStory<typeof Table> = (args) => {
     }
     return false;
   };
-  console.log(rowsMobile);
 
-  const isMobile = () => {
-    return (
-      <Table
-        selectRows={args.selectRows}
-        onChange={handleChange}
-        selectedValue={selected}
-        screenSize={ScreenSize.Mobile}
-      >
-        <TableBody>
-          {rowsMobile
-            .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-            .map((row) => (
-              <TableRow
-                key={row.Saksnr}
-                rowData={{ Saksnr: row.Saksnr }}
-              >
-                {args.selectRows && (
-                  <TableCell radiobutton={true}>
-                    <RadioButton
-                      name={row.Saksnr}
-                      onChange={(event) => handleRadioButton(event)}
-                      value={row.Saksnr}
-                      checked={checkSelectedValue(row)}
-                      label={row.Saksnr}
-                      hideLabel={true}
-                      size={RadioButtonSize.Xsmall}
-                    ></RadioButton>
-                  </TableCell>
-                )}
-                <TableCell mobileViewShownProperties={row}></TableCell>
-              </TableRow>
-            ))}
-        </TableBody>
-        <TableFooter>
-          <TableRow>
-            <TableCell colSpan={5}>
-              <Pagination
-                numberOfRows={rows.length}
-                rowsPerPageOptions={[5, 10, 15, 20]}
-                rowsPerPage={rowsPerPage}
-                onRowsPerPageChange={handleChangeRowsPerPage}
-                currentPage={page}
-                setCurrentPage={handleChangeInCurrentPage}
-                descriptionTexts={description}
-                screenSize={ScreenSize.Mobile}
-              />
-            </TableCell>
-          </TableRow>
-        </TableFooter>
-      </Table>
-    );
-  };
-
-  const isLaptop = () => {
-    return (
-      <Table
-        selectRows={args.selectRows}
-        onChange={handleChange}
-        selectedValue={selected}
-        screenSize={ScreenSize.Laptop}
-      >
+  return (
+    <Table
+      selectRows={args.selectRows}
+      onChange={handleChange}
+      selectedValue={selected}
+    >
+      {screenSize === ScreenSize.Laptop && (
         <TableHeader>
           <TableRow>
             {args.selectRows && <TableCell radiobutton={true}></TableCell>}
@@ -331,6 +259,8 @@ const Template: ComponentStory<typeof Table> = (args) => {
             <TableCell>Bilde</TableCell>
           </TableRow>
         </TableHeader>
+      )}
+      {screenSize === ScreenSize.Laptop && (
         <TableBody>
           {rows
             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
@@ -364,27 +294,51 @@ const Template: ComponentStory<typeof Table> = (args) => {
               </TableRow>
             ))}
         </TableBody>
-        <TableFooter>
-          <TableRow>
-            <TableCell colSpan={5}>
-              <Pagination
-                numberOfRows={rows.length}
-                rowsPerPageOptions={[5, 10, 15, 20]}
-                rowsPerPage={rowsPerPage}
-                onRowsPerPageChange={handleChangeRowsPerPage}
-                currentPage={page}
-                setCurrentPage={handleChangeInCurrentPage}
-                descriptionTexts={description}
-                screenSize={ScreenSize.Laptop}
-              />
-            </TableCell>
-          </TableRow>
-        </TableFooter>
-      </Table>
-    );
-  };
-
-  return <>{screenSize === ScreenSize.Mobile ? isMobile() : isLaptop()}</>;
+      )}
+      {screenSize === ScreenSize.Mobile && (
+        <TableBody>
+          {rowsMobile
+            .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+            .map((row) => (
+              <TableRow
+                key={row.Saksnr}
+                rowData={{ Saksnr: row.Saksnr }}
+              >
+                {args.selectRows && (
+                  <TableCell radiobutton={true}>
+                    <RadioButton
+                      name={row.Saksnr}
+                      onChange={(event) => handleRadioButton(event)}
+                      value={row.Saksnr}
+                      checked={checkSelectedValue(row)}
+                      label={row.Saksnr}
+                      hideLabel={true}
+                      size={RadioButtonSize.Xsmall}
+                    ></RadioButton>
+                  </TableCell>
+                )}
+                <TableCell mobileViewShownProperties={row}></TableCell>
+              </TableRow>
+            ))}
+        </TableBody>
+      )}
+      <TableFooter>
+        <TableRow>
+          <TableCell colSpan={screenSize === ScreenSize.Mobile ? 2 : 5}>
+            <Pagination
+              numberOfRows={rows.length}
+              rowsPerPageOptions={[5, 10, 15, 20]}
+              rowsPerPage={rowsPerPage}
+              onRowsPerPageChange={handleChangeRowsPerPage}
+              currentPage={page}
+              setCurrentPage={handleChangeInCurrentPage}
+              descriptionTexts={description}
+            />
+          </TableCell>
+        </TableRow>
+      </TableFooter>
+    </Table>
+  );
 };
 
 export const BasicTable = Template.bind({});

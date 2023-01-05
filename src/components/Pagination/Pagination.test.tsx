@@ -27,7 +27,6 @@ const descriptionText = {
 };
 
 const defaultProps: PaginationProps = {
-  screenSize: ScreenSize.Laptop,
   numberOfRows: 20,
   rowsPerPageOptions: [5, 10, 15, 20],
   rowsPerPage: 5,

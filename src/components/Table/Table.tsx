@@ -22,7 +22,6 @@ export interface TableProps
   selectRows?: boolean;
   onChange?: ChangeHandler;
   selectedValue?: RowData;
-  screenSize?: ScreenSize;
 }
 
 export const Table = ({
@@ -31,7 +30,6 @@ export const Table = ({
   onChange,
   selectedValue,
   className,
-  screenSize,
   ...tableProps
 }: TableProps) => {
   return (
@@ -39,9 +37,7 @@ export const Table = ({
       {...tableProps}
       className={cn(classes.Table, className)}
     >
-      <TableContext.Provider
-        value={{ selectRows, onChange, selectedValue, screenSize }}
-      >
+      <TableContext.Provider value={{ selectRows, onChange, selectedValue }}>
         {children}
       </TableContext.Provider>
     </table>

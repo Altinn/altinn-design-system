@@ -83,6 +83,17 @@ describe('FieldSet', () => {
     render({ disabled: false });
     expect(screen.getByRole('group')).toBeEnabled();
   });
+
+  it('Displays legend and description if they are React nodes', () => {
+    const legendText = 'Legend';
+    const descriptionText = 'Description';
+    render({
+      legend: <span>{legendText}</span>,
+      description: <span>{descriptionText}</span>,
+    });
+    expect(screen.getByText(legendText)).toBeInTheDocument();
+    expect(screen.getByText(descriptionText)).toBeInTheDocument();
+  });
 });
 
 const render = (props: Partial<FieldSetProps> = {}) => {

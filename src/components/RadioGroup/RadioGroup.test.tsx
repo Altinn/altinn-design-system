@@ -206,6 +206,14 @@ describe('RadioGroup', () => {
     render({ size: RadioGroupSize.Small });
     expect(screen.getByRole('radiogroup')).toHaveClass('radio-group--small');
   });
+
+  it('Renders all radio buttons with presentation role when the "presentation" property is true', () => {
+    render({ presentation: true });
+    const numberOfRadios = defaultProps.items.length;
+    expect(screen.queryAllByRole('presentation')).toHaveLength(numberOfRadios);
+    expect(screen.queryAllByRole('radio')).toHaveLength(0);
+    expect(screen.queryAllByRole('radiogroup')).toHaveLength(0);
+  });
 });
 
 const render = (props?: Partial<RadioGroupProps>) =>

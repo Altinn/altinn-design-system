@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import React from 'react';
 import cn from 'classnames';
 
@@ -6,12 +7,12 @@ import { ErrorMessage } from '@/components/ErrorMessage';
 import classes from './FieldSet.module.css';
 
 export interface FieldSetProps {
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
-  description?: string;
+  description?: ReactNode;
   disabled?: boolean;
-  error?: React.ReactNode;
-  legend?: string;
+  error?: ReactNode;
+  legend?: ReactNode;
   size?: FieldSetSize;
 }
 

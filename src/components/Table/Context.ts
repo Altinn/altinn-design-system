@@ -3,6 +3,11 @@ import { createContext, useContext } from 'react';
 import type { SortDirection } from './TableCell';
 import type { RowData } from './TableRow';
 
+export enum ScreenSize {
+  Mobile = 'mobile',
+  Laptop = 'laptop',
+}
+
 export enum Variant {
   Header = 'header',
   Body = 'body',
@@ -23,30 +28,19 @@ export type SortHandler = ({
   previousSortDirection,
 }: SortProps) => void;
 
-export const TableContext = createContext<
-  | {
-      selectRows?: boolean;
-      selectedValue?: RowData;
-      onChange?: ChangeHandler;
-    }
-  | undefined
->(undefined);
+export interface TableContextType {
+  selectRows?: boolean;
+  selectedValue?: RowData;
+  onChange?: ChangeHandler;
+  screenSize: ScreenSize;
+}
+
+export const TableContext = createContext<TableContextType>(
+  // The first parameter is required, but we handle this by throwing an error in useTableContext instead.
+  undefined as unknown as TableContextType,
+);
 export const useTableContext = () => {
   const context = useContext(TableContext);
-  if (context === undefined) {
-    throw new Error('useTableContext must be used within a TableContext');
-  }
-  return context;
-};
-
-export const SortContext = createContext<
-  | {
-      selectSort?: string;
-    }
-  | undefined
->(undefined);
-export const useSortContext = () => {
-  const context = useContext(SortContext);
   if (context === undefined) {
     throw new Error('useTableContext must be used within a TableContext');
   }

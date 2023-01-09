@@ -3,12 +3,7 @@ import React from 'react';
 import cn from 'classnames';
 
 import classes from './TableRow.module.css';
-import {
-  SortContext,
-  useTableContext,
-  useTableRowTypeContext,
-  Variant,
-} from './Context';
+import { useTableContext, useTableRowTypeContext, Variant } from './Context';
 
 export interface RowData {
   [x: string]: string;
@@ -21,13 +16,11 @@ export interface TableRowProps
   > {
   children?: React.ReactNode;
   rowData?: RowData;
-  selectSort?: string;
 }
 
 export const TableRow = ({
   children,
   rowData,
-  selectSort = '',
   className,
   ...tableRowProps
 }: TableRowProps) => {
@@ -49,25 +42,21 @@ export const TableRow = ({
     JSON.stringify(rowData) === JSON.stringify(selectedValue);
 
   return (
-    <SortContext.Provider value={{ selectSort }}>
-      <tr
-        tabIndex={variantStandard === Variant.Body ? -1 : 0}
-        {...tableRowProps}
-        className={cn(
-          classes.TableRow,
-          {
-            [classes['table-row--selected']]: isSelected,
-            [classes['table-row--body']]:
-              variantStandard === Variant.Body && selectRows && !isSelected,
-          },
-          className,
-        )}
-        onClick={handleClick}
-      >
-        {children}
-      </tr>
-    </SortContext.Provider>
+    <tr
+      tabIndex={variantStandard === Variant.Body ? -1 : 0}
+      {...tableRowProps}
+      className={cn(
+        classes.TableRow,
+        {
+          [classes['table-row--selected']]: isSelected,
+          [classes['table-row--body']]:
+            variantStandard === Variant.Body && selectRows && !isSelected,
+        },
+        className,
+      )}
+      onClick={handleClick}
+    >
+      {children}
+    </tr>
   );
 };
-
-export default TableRow;

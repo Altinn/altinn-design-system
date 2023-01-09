@@ -20,14 +20,10 @@ const render = (props: Partial<TableProps> = {}) => {
         </TableHeader>
         <TableBody>
           <TableRow rowData={{ fruit: 'apple' }}>
-            <TableCell mobileViewShownProperties={{ Fruit: 'Apple' }}>
-              Apple
-            </TableCell>
+            <TableCell>Apple</TableCell>
           </TableRow>
           <TableRow rowData={{ fruit: 'orange' }}>
-            <TableCell mobileViewShownProperties={{ Fruit: 'Orange' }}>
-              Orange
-            </TableCell>
+            <TableCell>Orange</TableCell>
           </TableRow>
         </TableBody>
       </>

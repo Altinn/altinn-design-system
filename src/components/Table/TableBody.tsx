@@ -26,5 +26,3 @@ export const TableBody = ({
     </TableRowTypeContext.Provider>
   );
 };
-
-export default TableBody;

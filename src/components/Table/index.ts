@@ -7,4 +7,4 @@ export { TableFooter } from './TableFooter';
 export type { ChangeProps, SortProps } from './Context';
 export { SortDirection } from './TableCell';
 export type { RowData } from './TableRow';
-export { ScreenSize } from './Table';
+export { ScreenSize } from './Context';

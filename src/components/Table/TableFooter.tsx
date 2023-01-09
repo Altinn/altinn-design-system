@@ -26,5 +26,3 @@ export const TableFooter = ({
     </TableRowTypeContext.Provider>
   );
 };
-
-export default TableFooter;

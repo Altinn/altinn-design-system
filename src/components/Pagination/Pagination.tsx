@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import cn from 'classnames';
 
-import { useMediaQuery } from '@/hooks/useMediaQuery';
-import { tokens } from '@/DesignTokens';
-
-import { ScreenSize } from '../Table';
-
 import classes from './Pagination.module.css';
 import { ReactComponent as NavigateNextIcon } from './navigate_next.svg';
 import { ReactComponent as NavigateBeforeIcon } from './navigate_before.svg';
@@ -39,8 +34,6 @@ export const Pagination = ({
   setCurrentPage,
   descriptionTexts,
 }: PaginationProps) => {
-  const isMobile = useMediaQuery(`(max-width: ${tokens.BreakpointsSm})`);
-  const screenSize = isMobile ? ScreenSize.Mobile : ScreenSize.Laptop;
   const [numberOfPages, setNumberOfPages] = useState(1);
 
   useEffect(() => {
@@ -87,7 +80,7 @@ export const Pagination = ({
           id='number-of-rows-select'
           aria-hidden='true'
         >
-          {screenSize === ScreenSize.Laptop && descriptionTexts['rowsPerPage']}
+          {descriptionTexts['rowsPerPage']}
         </span>
         <select
           className={cn(classes['select-pagination'])}
@@ -110,7 +103,7 @@ export const Pagination = ({
         <button
           className={cn(classes['icon-button'])}
           onClick={() => setCurrentPage(0)}
-          disabled={currentPage !== 0 ? false : true}
+          disabled={currentPage === 0}
           aria-label={descriptionTexts['navigateFirstPage']}
           data-testid='first-page-icon'
         >
@@ -123,7 +116,7 @@ export const Pagination = ({
         <button
           className={cn(classes['icon-button'])}
           onClick={() => decreaseCurrentPage()}
-          disabled={currentPage !== 0 ? false : true}
+          disabled={currentPage === 0}
           aria-label={descriptionTexts['previousPage']}
           data-testid='pagination-previous-icon'
         >
@@ -136,7 +129,7 @@ export const Pagination = ({
         <button
           className={cn(classes['icon-button'])}
           onClick={() => increaseCurrentPage()}
-          disabled={currentPage !== numberOfPages - 1 ? false : true}
+          disabled={currentPage === numberOfPages - 1}
           aria-label={descriptionTexts['nextPage']}
           data-testid='pagination-next-icon'
         >
@@ -150,7 +143,7 @@ export const Pagination = ({
         <button
           className={cn(classes['icon-button'])}
           onClick={() => setCurrentPage(numberOfPages - 1)}
-          disabled={currentPage !== numberOfPages - 1 ? false : true}
+          disabled={currentPage === numberOfPages - 1}
           aria-label={descriptionTexts['navigateLastPage']}
         >
           <LastPageIcon

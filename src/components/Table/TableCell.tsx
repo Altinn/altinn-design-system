@@ -3,8 +3,8 @@ import React from 'react';
 import cn from 'classnames';
 
 import classes from './TableCell.module.css';
-import type { SortHandler } from './Context';
-import { useTableRowTypeContext, Variant } from './Context';
+import type { SortHandler } from './Toolbox';
+import { useTableRowTypeContext, Variant } from './Toolbox';
 import { ReactComponent as SortIcon } from './sort_arrow.svg';
 
 export interface TableCellProps

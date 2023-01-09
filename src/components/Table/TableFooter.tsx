@@ -3,7 +3,7 @@ import React from 'react';
 import cn from 'classnames';
 
 import classes from './TableFooter.module.css';
-import { Variant, TableRowTypeContext } from './Context';
+import { Variant, TableRowTypeContext } from './Toolbox';
 
 export interface TableFooterProps extends HTMLProps<HTMLTableSectionElement> {
   children?: React.ReactNode;

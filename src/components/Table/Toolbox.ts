@@ -32,7 +32,6 @@ export interface TableContextType {
   selectRows?: boolean;
   selectedValue?: RowData;
   onChange?: ChangeHandler;
-  screenSize: ScreenSize;
 }
 
 export const TableContext = createContext<TableContextType>(

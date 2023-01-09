@@ -3,7 +3,7 @@ import React from 'react';
 import cn from 'classnames';
 
 import classes from './TableRow.module.css';
-import { useTableContext, useTableRowTypeContext, Variant } from './Context';
+import { useTableContext, useTableRowTypeContext, Variant } from './Toolbox';
 
 export interface RowData {
   [x: string]: string;

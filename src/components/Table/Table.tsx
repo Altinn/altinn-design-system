@@ -2,12 +2,9 @@ import type { HTMLProps } from 'react';
 import React from 'react';
 import cn from 'classnames';
 
-import { useMediaQuery } from '@/hooks/useMediaQuery';
-import { tokens } from '@/DesignTokens';
-
 import classes from './Table.module.css';
-import type { ChangeHandler } from './Context';
-import { TableContext, ScreenSize } from './Context';
+import type { ChangeHandler } from './Toolbox';
+import { TableContext } from './Toolbox';
 import type { RowData } from './TableRow';
 
 export interface TableProps
@@ -26,17 +23,12 @@ export const Table = ({
   className,
   ...tableProps
 }: TableProps) => {
-  const isMobile = useMediaQuery(`(max-width: ${tokens.BreakpointsSm})`);
-  const screenSize = isMobile ? ScreenSize.Mobile : ScreenSize.Laptop;
-
   return (
     <table
       {...tableProps}
       className={cn(classes.Table, className)}
     >
-      <TableContext.Provider
-        value={{ selectRows, onChange, selectedValue, screenSize }}
-      >
+      <TableContext.Provider value={{ selectRows, onChange, selectedValue }}>
         {children}
       </TableContext.Provider>
     </table>

@@ -16,7 +16,7 @@ import { SortDirection, TableCell } from './TableCell';
 import type { RowData } from './TableRow';
 import { TableRow } from './TableRow';
 import { TableBody } from './TableBody';
-import type { ChangeProps, SortProps } from './Context';
+import type { ChangeProps, SortProps } from './Toolbox';
 import classes from './Table.stories.module.css';
 import { TableFooter } from './TableFooter';
 

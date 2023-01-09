@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import React, { useEffect, useReducer } from 'react';
 import cn from 'classnames';
 
@@ -25,12 +26,13 @@ export type CheckedNames = string[];
 
 export interface CheckboxGroupProps {
   compact?: boolean;
-  description?: string;
+  description?: ReactNode;
   disabled?: boolean;
-  error?: React.ReactNode;
+  error?: ReactNode;
   items: CheckboxItem[];
-  legend?: string;
+  legend?: ReactNode;
   onChange?: (names: CheckedNames) => void;
+  presentation?: boolean;
   variant?: CheckboxGroupVariant;
 }
 
@@ -59,6 +61,7 @@ export const CheckboxGroup = ({
   items,
   legend,
   onChange,
+  presentation,
   variant = CheckboxGroupVariant.Vertical,
 }: CheckboxGroupProps) => {
   if (!areItemsUnique(items.map((item) => item.name))) {
@@ -113,6 +116,7 @@ export const CheckboxGroup = ({
                 name: item.name,
               });
             }}
+            presentation={presentation}
           />
         ))}
       </div>

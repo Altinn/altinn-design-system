@@ -4,7 +4,7 @@ import cn from 'classnames';
 
 import classes from './TableCell.module.css';
 import type { SortHandler } from './Toolbox';
-import { useTableRowTypeContext, Variant } from './Toolbox';
+import { useTableRowTypeContext, Variant, SortDirection } from './Toolbox';
 import { ReactComponent as SortIcon } from './sort_arrow.svg';
 
 export interface TableCellProps
@@ -13,26 +13,18 @@ export interface TableCellProps
   variant?: string;
   onChange?: SortHandler;
   sortDirection?: SortDirection;
-  sortKey?: string;
   radiobutton?: boolean;
 }
-export enum SortDirection {
-  Descending = 'desc',
-  Ascending = 'asc',
-  NotSortable = 'notSortable',
-  NotActive = 'notActive',
-}
 
-export const TableCell = ({
+export function TableCell({
   children,
   variant,
   onChange,
   sortDirection = SortDirection.NotSortable,
-  sortKey,
   className,
   radiobutton = false,
   ...tableCellProps
-}: TableCellProps) => {
+}: TableCellProps) {
   const { variantStandard } = useTableRowTypeContext();
 
   const isVariant = (checkIf: Variant): boolean => {
@@ -44,14 +36,13 @@ export const TableCell = ({
   };
 
   const handleChange = () => {
-    if (
-      onChange != undefined &&
-      sortKey != undefined &&
-      sortDirection != undefined
-    ) {
+    if (onChange != undefined && sortDirection != undefined) {
       onChange({
-        sortedColumn: sortKey,
-        previousSortDirection: sortDirection,
+        next:
+          sortDirection === SortDirection.Descending
+            ? SortDirection.Ascending
+            : SortDirection.Descending,
+        previous: sortDirection,
       });
     }
   };
@@ -139,4 +130,4 @@ export const TableCell = ({
       )}
     </>
   );
-};
+}

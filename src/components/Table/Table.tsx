@@ -3,34 +3,33 @@ import React from 'react';
 import cn from 'classnames';
 
 import classes from './Table.module.css';
-import type { ChangeHandler } from './Toolbox';
+import type { ChangeHandler, TableContextType } from './Toolbox';
 import { TableContext } from './Toolbox';
-import type { RowData } from './TableRow';
 
-export interface TableProps
+export interface TableProps<T>
   extends Omit<HTMLProps<HTMLTableElement>, 'onChange'> {
   children?: React.ReactNode;
   selectRows?: boolean;
-  onChange?: ChangeHandler;
-  selectedValue?: RowData;
+  onChange?: ChangeHandler<T>;
+  selectedValue?: T;
 }
 
-export const Table = ({
+export function Table<T>({
   children,
   selectRows = false,
   onChange,
   selectedValue,
   className,
   ...tableProps
-}: TableProps) => {
+}: TableProps<T>) {
+  const ctx: TableContextType<T> = { selectRows, onChange, selectedValue };
+
   return (
     <table
       {...tableProps}
       className={cn(classes.Table, className)}
     >
-      <TableContext.Provider value={{ selectRows, onChange, selectedValue }}>
-        {children}
-      </TableContext.Provider>
+      <TableContext.Provider value={ctx}>{children}</TableContext.Provider>
     </table>
   );
-};
+}

@@ -1,8 +1,5 @@
 import { createContext, useContext } from 'react';
 
-import type { SortDirection } from './TableCell';
-import type { RowData } from './TableRow';
-
 export enum ScreenSize {
   Mobile = 'mobile',
   Laptop = 'laptop',
@@ -14,37 +11,44 @@ export enum Variant {
   Footer = 'footer',
 }
 
-export interface ChangeProps {
-  selectedValue: RowData;
+export enum SortDirection {
+  Descending = 'desc',
+  Ascending = 'asc',
+  NotSortable = 'notSortable',
+  NotActive = 'notActive',
 }
+
+export interface ChangeProps<T> {
+  selectedValue: T;
+}
+
 export interface SortProps {
-  sortedColumn: string;
-  previousSortDirection: SortDirection;
+  next: SortDirection;
+  previous: SortDirection;
 }
 
-export type ChangeHandler = ({ selectedValue }: ChangeProps) => void;
-export type SortHandler = ({
-  sortedColumn,
-  previousSortDirection,
-}: SortProps) => void;
+export type ChangeHandler<T> = ({ selectedValue }: ChangeProps<T>) => void;
+export type SortHandler = ({ previous }: SortProps) => void;
 
-export interface TableContextType {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export interface TableContextType<T = any> {
   selectRows?: boolean;
-  selectedValue?: RowData;
-  onChange?: ChangeHandler;
+  selectedValue?: T;
+  onChange?: ChangeHandler<T>;
 }
 
 export const TableContext = createContext<TableContextType>(
   // The first parameter is required, but we handle this by throwing an error in useTableContext instead.
   undefined as unknown as TableContextType,
 );
-export const useTableContext = () => {
-  const context = useContext(TableContext);
+
+export function useTableContext<T>() {
+  const context = useContext<TableContextType<T>>(TableContext);
   if (context === undefined) {
     throw new Error('useTableContext must be used within a TableContext');
   }
   return context;
-};
+}
 
 export const TableRowTypeContext = createContext({
   variantStandard: Variant.Body,

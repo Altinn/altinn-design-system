@@ -5,27 +5,23 @@ import cn from 'classnames';
 import classes from './TableRow.module.css';
 import { useTableContext, useTableRowTypeContext, Variant } from './Toolbox';
 
-export interface RowData {
-  [x: string]: string;
-}
-
-export interface TableRowProps
+export interface TableRowProps<T>
   extends Omit<
     HTMLProps<HTMLTableRowElement>,
     'onClick' | 'tabIndex' | 'onKeyUp'
   > {
   children?: React.ReactNode;
-  rowData?: RowData;
+  rowData?: T;
 }
 
-export const TableRow = ({
+export function TableRow<T>({
   children,
   rowData,
   className,
   ...tableRowProps
-}: TableRowProps) => {
+}: TableRowProps<T>) {
   const { variantStandard } = useTableRowTypeContext();
-  const { onChange, selectedValue, selectRows } = useTableContext();
+  const { onChange, selectedValue, selectRows } = useTableContext<T>();
   const handleClick = () => {
     if (
       onChange != undefined &&
@@ -59,4 +55,4 @@ export const TableRow = ({
       {children}
     </tr>
   );
-};
+}

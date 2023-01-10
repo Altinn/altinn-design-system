@@ -17,7 +17,7 @@ export { SearchField } from './SearchField';
 export { ErrorMessage } from './ErrorMessage';
 export type { Location, MapLayer } from './Map';
 export { Map } from './Map';
-export type { ChangeProps, SortProps, RowData } from './Table';
+export type { ChangeProps, SortProps } from './Table';
 export {
   Table,
   TableBody,

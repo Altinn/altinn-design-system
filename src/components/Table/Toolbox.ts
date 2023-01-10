@@ -1,10 +1,5 @@
 import { createContext, useContext } from 'react';
 
-export enum ScreenSize {
-  Mobile = 'mobile',
-  Laptop = 'laptop',
-}
-
 export enum Variant {
   Header = 'header',
   Body = 'body',

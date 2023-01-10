@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import cn from 'classnames';
 
+import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { tokens } from '@/DesignTokens';
+
 import classes from './Pagination.module.css';
 import { ReactComponent as NavigateNextIcon } from './navigate_next.svg';
 import { ReactComponent as NavigateBeforeIcon } from './navigate_before.svg';
@@ -34,6 +37,7 @@ export const Pagination = ({
   setCurrentPage,
   descriptionTexts,
 }: PaginationProps) => {
+  const isMobile = useMediaQuery(`(max-width: ${tokens.BreakpointsSm})`);
   const [numberOfPages, setNumberOfPages] = useState(1);
 
   useEffect(() => {
@@ -80,7 +84,7 @@ export const Pagination = ({
           id='number-of-rows-select'
           aria-hidden='true'
         >
-          {descriptionTexts['rowsPerPage']}
+          {!isMobile && descriptionTexts['rowsPerPage']}
         </span>
         <select
           className={cn(classes['select-pagination'])}

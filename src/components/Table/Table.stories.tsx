@@ -187,6 +187,12 @@ const ResponsiveTemplate: ComponentStory<typeof ResponsiveTable> = () => {
       status: 'Status',
       image: 'BIlde',
     },
+    showColumnsMobile: {
+      product: true,
+      caseNum: true,
+      image: false,
+      status: true,
+    },
     columnSort: {
       onSortChange: ({ column, next }) => {
         setSortColumn(column);

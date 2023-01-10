@@ -26,7 +26,6 @@ export {
   TableRow,
   TableFooter,
   SortDirection,
-  ScreenSize,
 } from './Table';
 export { Checkbox } from './Checkbox';
 export { TextArea } from './TextArea';

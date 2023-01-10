@@ -6,4 +6,3 @@ export { TableCell } from './TableCell';
 export { TableFooter } from './TableFooter';
 export type { ChangeProps, SortProps } from './Toolbox';
 export { SortDirection } from './Toolbox';
-export { ScreenSize } from './Toolbox';

@@ -18,7 +18,7 @@ import classes from './TableCell.module.css';
 export interface ResponsiveTableConfig<T> {
   rows: T[];
   headers: { [Col in keyof T]: string | JSX.Element };
-  showColumnsMobile?: { [Col in keyof T]: boolean };
+  showColumnsMobile?: (keyof T)[];
   /**
    * Custom per-cell rendering. All cells will render their content directly by default (assumed to be string, number
    * or some simple scalar type). If need to override how each cell is rendered, you can supply a render function here.
@@ -101,7 +101,10 @@ function MobileTable<T>({ config }: ResponsiveTableProps<T>) {
               )}
               <TableCell key={`${value}-data`}>
                 {columns.map((column) => {
-                  if (showColumnsMobile && !showColumnsMobile[column]) {
+                  if (
+                    showColumnsMobile &&
+                    !showColumnsMobile.includes(column)
+                  ) {
                     return;
                   }
 

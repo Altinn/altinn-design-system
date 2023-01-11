@@ -185,14 +185,9 @@ const ResponsiveTemplate: ComponentStory<typeof ResponsiveTable> = () => {
       caseNum: 'Søknadsnr.',
       product: 'Produkt',
       status: 'Status',
-      image: 'BIlde',
+      image: 'Bilde',
     },
-    showColumnsMobile: {
-      product: true,
-      caseNum: true,
-      image: false,
-      status: true,
-    },
+    showColumnsMobile: ['product', 'caseNum', 'status'],
     columnSort: {
       onSortChange: ({ column, next }) => {
         setSortColumn(column);
@@ -203,7 +198,7 @@ const ResponsiveTemplate: ComponentStory<typeof ResponsiveTable> = () => {
       currentDirection: sortDirection,
     },
     renderCell: {
-      image: (imageObj: MyExampleTableData['image']) => (
+      image: (imageObj) => (
         <img
           className={cn(classes['checkmark'])}
           src={imageObj.src}

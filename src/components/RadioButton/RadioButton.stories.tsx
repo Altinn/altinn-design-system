@@ -32,6 +32,7 @@ export default {
                         We recommend using our \`RadioGroup\` component if you need radio buttons,
                         but this standalone component might be useful if \`RadioGroup\` doesn't match the layout criteria of your use case.
                         If that is the case, you may also consider contributing to the design system 🙂`}
+          deprecationWarning={`Use RadioButton from @digdir/design-system-react instead.`}
         />
       ),
     },

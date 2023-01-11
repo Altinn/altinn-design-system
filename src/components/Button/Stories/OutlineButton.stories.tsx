@@ -30,6 +30,7 @@ export default {
       page: () => (
         <StoryPage
           description={`TODO: Add a description (supports markdown)`}
+          deprecationWarning={`Use Button from @digdir/design-system-react instead.`}
         />
       ),
     },

@@ -24,6 +24,9 @@ export interface CheckboxProps {
   readOnly?: boolean;
 }
 
+/*
+ * @deprecated Use Checkbox from @digdir/design-system-react instead.
+ */
 export const Checkbox = ({
   checkboxId,
   checked,

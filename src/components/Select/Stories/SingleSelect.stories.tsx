@@ -27,6 +27,7 @@ export default {
       page: () => (
         <StoryPage
           description={`This is a select box. It only allows one option to be selected, like \`<select>\` in html. It has an \`onChange\` property hat accepts a function which will receive the selected value each time it is changed.`}
+          deprecationWarning={`Use Select from @digdir/design-system-react instead.`}
         />
       ),
     },

@@ -9,6 +9,9 @@ export interface ErrorMessageProps {
   ariaLabel?: string;
 }
 
+/*
+ * @deprecated Use ErrorMessage from @digdir/design-system-react instead.
+ */
 export const ErrorMessage = ({
   id,
   children,

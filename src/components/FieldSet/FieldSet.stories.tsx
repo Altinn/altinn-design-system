@@ -26,6 +26,7 @@ export default {
       page: () => (
         <StoryPage
           description={`Field set component to use as a wrapper for groups of form elements.`}
+          deprecationWarning={`Use FieldSet from @digdir/design-system-react instead.`}
         />
       ),
     },

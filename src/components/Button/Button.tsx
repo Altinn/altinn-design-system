@@ -39,6 +39,9 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   iconPlacement?: 'right' | 'left';
 }
 
+/*
+ * @deprecated Use Button from @digdir/design-system-react instead.
+ */
 const Button = (
   {
     children,

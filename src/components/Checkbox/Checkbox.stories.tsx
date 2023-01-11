@@ -30,6 +30,7 @@ export default {
                         The component relies on being controlled, which means that it expects the consumer to set its \`checked\` state.
                         That is why the demonstration in Storybook does not change when clicking.
                         The \`onChange\` property must be set to trigger this change.`}
+          deprecationWarning={`Use Checkbox from @digdir/design-system-react instead.`}
         />
       ),
     },

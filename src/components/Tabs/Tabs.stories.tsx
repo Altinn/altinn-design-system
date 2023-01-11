@@ -35,6 +35,7 @@ export default {
                         It is also possible to specify IDs for the tab and the panel components (they will be generated if not given).
                         The \`activeTab\` property can be used to define which tab should be selected by default. It defaults to the first tab.
                         The \`onChange\` property is optional and can be used to trigger some function when the user switches to another tab. It is called with the tab value as a parameter.`}
+          deprecationWarning={`Use Tabs from @digdir/design-system-react instead.`}
         />
       ),
     },

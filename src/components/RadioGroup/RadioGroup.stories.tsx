@@ -29,6 +29,7 @@ export default {
           description={`Group of radio buttons for use cases where the user is supposed to select one and ony one value from a short list.
                         It behaves similarly to channel presets on radios, hence its name.
                         Its \`onChange\` property can be set to a function that will be called with the checked value each time it changes.`}
+          deprecationWarning={`Use RadioGroup from @digdir/design-system-react instead.`}
         />
       ),
     },

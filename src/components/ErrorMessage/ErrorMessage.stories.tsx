@@ -29,6 +29,7 @@ export default {
           description={
             'Simple error-message suitable to be shown in table views'
           }
+          deprecationWarning={`Use ErrorMessage from @digdir/design-system-react instead.`}
         />
       ),
     },

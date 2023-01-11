@@ -53,6 +53,9 @@ const reducer = (state: CheckedNames, action: ReducerAction) => {
 const checkedItems = (items: CheckboxItem[]) =>
   items.filter(({ checked }) => checked).map(({ name }) => name);
 
+/*
+ * @deprecated Use CheckboxGroup from @digdir/design-system-react instead.
+ */
 export const CheckboxGroup = ({
   compact,
   description,

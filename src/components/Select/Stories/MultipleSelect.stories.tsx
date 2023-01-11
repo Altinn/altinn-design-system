@@ -46,6 +46,7 @@ export default {
       page: () => (
         <StoryPage
           description={`This is a select box with the possibility to choose multiple values, like \`<select multiple>\` in html. It has an \`onChange\` property hat accepts a function which will receive a list of the selected values each time it is changed.'`}
+          deprecationWarning={`Use Select from @digdir/design-system-react instead.`}
         />
       ),
     },

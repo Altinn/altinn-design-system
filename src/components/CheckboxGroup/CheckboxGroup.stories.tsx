@@ -30,6 +30,9 @@ export default {
             'Group of checkboxes for use cases where the user should be able to choose multiple answers from a list of given values. ' +
             "Its `onChange` prop can be set to a function that will be called with a list of the selected checkboxes' names each time something changes."
           }
+          deprecationWarning={
+            'Use CheckboxGroup from @digdir/design-system-react instead.'
+          }
         />
       ),
     },

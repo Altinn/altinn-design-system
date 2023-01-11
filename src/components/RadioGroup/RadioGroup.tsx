@@ -39,6 +39,9 @@ export interface RadioGroupProps {
   variant?: RadioGroupVariant;
 }
 
+/*
+ * @deprecated Use RadioGroup from @digdir/design-system-react instead.
+ */
 export const RadioGroup = ({
   description,
   disabled,

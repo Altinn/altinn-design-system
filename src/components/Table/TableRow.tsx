@@ -3,36 +3,25 @@ import React from 'react';
 import cn from 'classnames';
 
 import classes from './TableRow.module.css';
-import {
-  SortContext,
-  useTableContext,
-  useTableRowTypeContext,
-  Variant,
-} from './Context';
+import { useTableContext, useTableRowTypeContext, Variant } from './Toolbox';
 
-export interface RowData {
-  [x: string]: string;
-}
-
-export interface TableRowProps
+export interface TableRowProps<T>
   extends Omit<
     HTMLProps<HTMLTableRowElement>,
     'onClick' | 'tabIndex' | 'onKeyUp'
   > {
   children?: React.ReactNode;
-  rowData?: RowData;
-  selectSort?: string;
+  rowData?: T;
 }
 
-export const TableRow = ({
+export function TableRow<T>({
   children,
   rowData,
-  selectSort = '',
   className,
   ...tableRowProps
-}: TableRowProps) => {
+}: TableRowProps<T>) {
   const { variantStandard } = useTableRowTypeContext();
-  const { onChange, selectedValue, selectRows } = useTableContext();
+  const { onChange, selectedValue, selectRows } = useTableContext<T>();
   const handleClick = () => {
     if (
       onChange != undefined &&
@@ -49,25 +38,21 @@ export const TableRow = ({
     JSON.stringify(rowData) === JSON.stringify(selectedValue);
 
   return (
-    <SortContext.Provider value={{ selectSort }}>
-      <tr
-        tabIndex={variantStandard === Variant.Body ? -1 : 0}
-        {...tableRowProps}
-        className={cn(
-          classes.TableRow,
-          {
-            [classes['table-row--selected']]: isSelected,
-            [classes['table-row--body']]:
-              variantStandard === Variant.Body && selectRows && !isSelected,
-          },
-          className,
-        )}
-        onClick={handleClick}
-      >
-        {children}
-      </tr>
-    </SortContext.Provider>
+    <tr
+      tabIndex={variantStandard === Variant.Body ? -1 : 0}
+      {...tableRowProps}
+      className={cn(
+        classes.TableRow,
+        {
+          [classes['table-row--selected']]: isSelected,
+          [classes['table-row--body']]:
+            variantStandard === Variant.Body && selectRows && !isSelected,
+        },
+        className,
+      )}
+      onClick={handleClick}
+    >
+      {children}
+    </tr>
   );
-};
-
-export default TableRow;
+}

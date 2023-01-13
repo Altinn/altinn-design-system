@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import cn from 'classnames';
 
+import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { tokens } from '@/DesignTokens';
+
 import classes from './Pagination.module.css';
 import { ReactComponent as NavigateNextIcon } from './navigate_next.svg';
 import { ReactComponent as NavigateBeforeIcon } from './navigate_before.svg';
@@ -34,6 +37,7 @@ export const Pagination = ({
   setCurrentPage,
   descriptionTexts,
 }: PaginationProps) => {
+  const isMobile = useMediaQuery(`(max-width: ${tokens.BreakpointsSm})`);
   const [numberOfPages, setNumberOfPages] = useState(1);
 
   useEffect(() => {
@@ -64,7 +68,7 @@ export const Pagination = ({
         : rowsPerPage * (currentPage + 1);
     return (
       <span
-        style={{ marginRight: '64px' }}
+        className={cn(classes['description-text'])}
         data-testid='description-text'
       >
         {`${firstRowNumber}-${lastRowNumber} ${descriptionTexts['of']} ${numberOfRows}`}
@@ -74,82 +78,86 @@ export const Pagination = ({
 
   return (
     <div className={cn(classes['pagination-wrapper'])}>
-      <span
-        style={{ marginRight: '26px' }}
-        id='number-of-rows-select'
-        aria-hidden='true'
-      >
-        {descriptionTexts['rowsPerPage']}
-      </span>
-      <select
-        style={{ marginRight: '25px' }}
-        value={rowsPerPage}
-        onChange={(event) => onRowsPerPageChange(event)}
-        aria-labelledby='number-of-rows-select'
-      >
-        {rowsPerPageOptions.map((optionValue: number) => (
-          <option
-            key={optionValue}
-            value={optionValue}
-          >
-            {optionValue}
-          </option>
-        ))}
-      </select>
-      {renderPaginationNumbers()}
-      <button
-        className={cn(classes['icon-button'])}
-        onClick={() => setCurrentPage(0)}
-        disabled={currentPage !== 0 ? false : true}
-        aria-label={descriptionTexts['navigateFirstPage']}
-        data-testid='first-page-icon'
-      >
-        <FirstPageIcon
-          className={cn(classes['pagination-icon'], {
-            [classes['pagination-icon--disabled']]: currentPage === 0,
-          })}
-        />
-      </button>
-      <button
-        className={cn(classes['icon-button'])}
-        onClick={() => decreaseCurrentPage()}
-        disabled={currentPage !== 0 ? false : true}
-        aria-label={descriptionTexts['previousPage']}
-        data-testid='pagination-previous-icon'
-      >
-        <NavigateBeforeIcon
-          className={cn(classes['pagination-icon'], {
-            [classes['pagination-icon--disabled']]: currentPage === 0,
-          })}
-        />
-      </button>
-      <button
-        className={cn(classes['icon-button'])}
-        onClick={() => increaseCurrentPage()}
-        disabled={currentPage !== numberOfPages - 1 ? false : true}
-        aria-label={descriptionTexts['nextPage']}
-        data-testid='pagination-next-icon'
-      >
-        <NavigateNextIcon
-          className={cn(classes['pagination-icon'], {
-            [classes['pagination-icon--disabled']]:
-              currentPage === numberOfPages - 1,
-          })}
-        />
-      </button>
-      <button
-        className={cn(classes['icon-button'])}
-        onClick={() => setCurrentPage(numberOfPages - 1)}
-        disabled={currentPage !== numberOfPages - 1 ? false : true}
-        aria-label={descriptionTexts['navigateLastPage']}
-      >
-        <LastPageIcon
-          className={cn(classes['pagination-icon'], {
-            [classes['pagination-icon--disabled']]:
-              currentPage === numberOfPages - 1,
-          })}
-        />
-      </button>
+      <div className={cn(classes['pagination-wrapper-row'])}>
+        <span
+          style={{ marginRight: '26px' }}
+          id='number-of-rows-select'
+          aria-hidden='true'
+        >
+          {!isMobile && descriptionTexts['rowsPerPage']}
+        </span>
+        <select
+          className={cn(classes['select-pagination'])}
+          value={rowsPerPage}
+          onChange={(event) => onRowsPerPageChange(event)}
+          aria-labelledby='number-of-rows-select'
+        >
+          {rowsPerPageOptions.map((optionValue: number) => (
+            <option
+              key={optionValue}
+              value={optionValue}
+            >
+              {optionValue}
+            </option>
+          ))}
+        </select>
+        {renderPaginationNumbers()}
+      </div>
+      <div className={cn(classes['pagination-wrapper-row'])}>
+        <button
+          className={cn(classes['icon-button'])}
+          onClick={() => setCurrentPage(0)}
+          disabled={currentPage === 0}
+          aria-label={descriptionTexts['navigateFirstPage']}
+          data-testid='first-page-icon'
+        >
+          <FirstPageIcon
+            className={cn(classes['pagination-icon'], {
+              [classes['pagination-icon--disabled']]: currentPage === 0,
+            })}
+          />
+        </button>
+        <button
+          className={cn(classes['icon-button'])}
+          onClick={() => decreaseCurrentPage()}
+          disabled={currentPage === 0}
+          aria-label={descriptionTexts['previousPage']}
+          data-testid='pagination-previous-icon'
+        >
+          <NavigateBeforeIcon
+            className={cn(classes['pagination-icon'], {
+              [classes['pagination-icon--disabled']]: currentPage === 0,
+            })}
+          />
+        </button>
+        <button
+          className={cn(classes['icon-button'])}
+          onClick={() => increaseCurrentPage()}
+          disabled={currentPage === numberOfPages - 1}
+          aria-label={descriptionTexts['nextPage']}
+          data-testid='pagination-next-icon'
+        >
+          <NavigateNextIcon
+            className={cn(classes['pagination-icon'], {
+              [classes['pagination-icon--disabled']]:
+                currentPage === numberOfPages - 1,
+            })}
+          />
+        </button>
+        <button
+          className={cn(classes['icon-button'])}
+          onClick={() => setCurrentPage(numberOfPages - 1)}
+          disabled={currentPage === numberOfPages - 1}
+          aria-label={descriptionTexts['navigateLastPage']}
+        >
+          <LastPageIcon
+            className={cn(classes['pagination-icon'], {
+              [classes['pagination-icon--disabled']]:
+                currentPage === numberOfPages - 1,
+            })}
+          />
+        </button>
+      </div>
     </div>
   );
 };

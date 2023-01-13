@@ -9,7 +9,11 @@ import { TableCell } from './TableCell';
 import { TableHeader } from './TableHeader';
 import { TableRow } from './TableRow';
 
-const render = (props: Partial<TableProps> = {}) => {
+interface TestRow {
+  fruit: string;
+}
+
+const render = (props: Partial<TableProps<TestRow>> = {}) => {
   const allProps = {
     children: (
       <>
@@ -30,7 +34,7 @@ const render = (props: Partial<TableProps> = {}) => {
     ),
     onChange: jest.fn(),
     selectRows: true,
-    selectedValue: {},
+    selectedValue: { fruit: '' },
     ...props,
   };
   renderRtl(<Table {...allProps} />);
@@ -43,7 +47,7 @@ describe('Table', () => {
     const handleChange = jest.fn();
     render({ onChange: handleChange, selectRows: true });
 
-    await user.click(screen.getByRole('row', { name: 'Apple' }));
+    await user.click(screen.getAllByText('Apple')[0]);
     expect(handleChange).toHaveBeenCalledWith({
       selectedValue: { fruit: 'apple' },
     });
@@ -55,7 +59,7 @@ describe('Table', () => {
     const handleChange = jest.fn();
     render({ onChange: handleChange, selectRows: false });
 
-    await user.click(screen.getByRole('row', { name: 'Apple' }));
+    await user.click(screen.getAllByText('Apple')[0]);
     expect(handleChange).toHaveBeenCalledTimes(0);
   });
 });

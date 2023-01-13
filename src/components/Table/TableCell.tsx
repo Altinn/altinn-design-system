@@ -3,8 +3,8 @@ import React from 'react';
 import cn from 'classnames';
 
 import classes from './TableCell.module.css';
-import type { SortHandler } from './Context';
-import { useTableRowTypeContext, Variant } from './Context';
+import type { SortHandler } from './Toolbox';
+import { useTableRowTypeContext, Variant, SortDirection } from './Toolbox';
 import { ReactComponent as SortIcon } from './sort_arrow.svg';
 
 export interface TableCellProps
@@ -12,46 +12,48 @@ export interface TableCellProps
   children?: React.ReactNode;
   variant?: string;
   onChange?: SortHandler;
-  sortDirecton?: SortDirection;
-  sortKey?: string;
+  sortDirection?: SortDirection;
   radiobutton?: boolean;
 }
-export enum SortDirection {
-  Descending = 'desc',
-  Ascending = 'asc',
-  NotSortable = 'notSortable',
-  NotActive = 'notActive',
-}
 
-export const TableCell = ({
+export function TableCell({
   children,
   variant,
   onChange,
-  sortDirecton = SortDirection.NotSortable,
-  sortKey,
+  sortDirection = SortDirection.NotSortable,
   className,
   radiobutton = false,
   ...tableCellProps
-}: TableCellProps) => {
+}: TableCellProps) {
   const { variantStandard } = useTableRowTypeContext();
+
+  const isVariant = (checkIf: Variant): boolean => {
+    if (variant === undefined) {
+      return variantStandard === checkIf;
+    }
+
+    return variant === checkIf;
+  };
 
   const handleChange = () => {
     if (
       onChange != undefined &&
-      sortKey != undefined &&
-      sortDirecton != undefined
+      sortDirection != undefined &&
+      sortDirection != SortDirection.NotSortable
     ) {
       onChange({
-        sortedColumn: sortKey,
-        previousSortDirection: sortDirecton,
+        next:
+          sortDirection === SortDirection.Descending
+            ? SortDirection.Ascending
+            : SortDirection.Descending,
+        previous: sortDirection,
       });
     }
   };
+
   return (
     <>
-      {(variant == undefined
-        ? variantStandard === Variant.Header
-        : variant === 'header') && (
+      {isVariant(Variant.Header) && (
         <th
           {...tableCellProps}
           className={
@@ -60,16 +62,16 @@ export const TableCell = ({
               : cn(classes['header-table-cell'], className)
           }
           aria-sort={
-            sortDirecton === SortDirection.Ascending
+            sortDirection === SortDirection.Ascending
               ? 'ascending'
-              : sortDirecton === SortDirection.Descending
+              : sortDirection === SortDirection.Descending
               ? 'descending'
               : 'none'
           }
         >
           <div
             className={
-              sortDirecton != SortDirection.NotSortable
+              sortDirection != SortDirection.NotSortable
                 ? cn(classes['container-sortable'])
                 : cn(classes['container'])
             }
@@ -80,29 +82,29 @@ export const TableCell = ({
               }
             }}
             role={
-              sortDirecton != SortDirection.NotSortable ? 'button' : undefined
+              sortDirection != SortDirection.NotSortable ? 'button' : undefined
             }
-            tabIndex={sortDirecton != SortDirection.NotSortable ? 0 : undefined}
+            tabIndex={
+              sortDirection != SortDirection.NotSortable ? 0 : undefined
+            }
           >
             <div className={cn(classes['input'])}>{children}</div>
-            {sortDirecton != SortDirection.NotSortable && (
+            {sortDirection != SortDirection.NotSortable && (
               <SortIcon
                 aria-label='Sortering'
                 data-testid='sort-icon'
                 className={cn(classes['icon'], {
                   [classes['icon-asc']]:
-                    sortDirecton === SortDirection.Ascending,
+                    sortDirection === SortDirection.Ascending,
                   [classes['icon-desc']]:
-                    sortDirecton === SortDirection.Descending,
+                    sortDirection === SortDirection.Descending,
                 })}
               ></SortIcon>
             )}
           </div>
         </th>
       )}
-      {(variant == undefined
-        ? variantStandard === Variant.Body
-        : variant === 'body') && (
+      {isVariant(Variant.Body) && (
         <td
           {...tableCellProps}
           className={
@@ -110,17 +112,19 @@ export const TableCell = ({
               ? cn(classes['body-table-cell-radiobutton'], className)
               : cn(classes['body-table-cell'], className)
           }
+          style={{ padding: '0px' }}
         >
           <div
             className={
               radiobutton ? cn(classes['radio-button']) : cn(classes['input'])
             }
           >
+            {' '}
             {children}
           </div>
         </td>
       )}
-      {variantStandard === Variant.Footer && (
+      {isVariant(Variant.Footer) && (
         <td
           {...tableCellProps}
           className={cn(className)}
@@ -130,6 +134,4 @@ export const TableCell = ({
       )}
     </>
   );
-};
-
-export default TableCell;
+}

@@ -3,7 +3,7 @@ import React from 'react';
 import cn from 'classnames';
 
 import classes from './TableHeader.module.css';
-import { Variant, TableRowTypeContext } from './Context';
+import { Variant, TableRowTypeContext } from './Toolbox';
 
 export interface TableHeaderProps extends HTMLProps<HTMLTableSectionElement> {
   children?: React.ReactNode;

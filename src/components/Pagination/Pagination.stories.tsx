@@ -4,10 +4,16 @@ import { config } from 'storybook-addon-designs';
 
 import { StoryPage } from '@sb/StoryPage';
 
+import type { DescriptionText } from './Pagination';
 import { Pagination } from './Pagination';
 
 const figmaLink = ''; // TODO: Add figma link
-const descriptionText = {
+
+/**
+ * Do not use these directly. They are exported here for re-use in Storyboard, but you should supply your own
+ * when working with Pagination.
+ */
+export const descriptionTexts: DescriptionText = {
   rowsPerPage: 'Rader per side',
   of: 'av',
   navigateFirstPage: 'Naviger til første side i tabell',
@@ -61,7 +67,7 @@ const Template: ComponentStory<typeof Pagination> = (args) => {
       currentPage={page}
       setCurrentPage={setPage}
       onRowsPerPageChange={handleChangeRowsPerPage}
-      descriptionTexts={descriptionText}
+      descriptionTexts={descriptionTexts}
     />
   );
 };

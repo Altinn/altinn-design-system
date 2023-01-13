@@ -16,7 +16,6 @@
 
 .body-table-cell {
   text-align: left;
-  padding: 8px;
   border-top: 1px solid #dde3e5;
   max-width: 300px;
   margin: 20px 0 20px 0;
@@ -65,4 +64,14 @@
   fill: rgb(0, 0, 0);
   transform: rotate(180deg);
   margin-left: -5px;
+}
+
+.header {
+  color: #4b5563;
+  font-weight: 600;
+  margin: 10px 10px 10px 0;
+}
+
+.property {
+  margin: 10px 10px 10px 0;
 }

@@ -3,7 +3,7 @@ import React from 'react';
 import cn from 'classnames';
 
 import classes from './TableBody.module.css';
-import { Variant, TableRowTypeContext } from './Context';
+import { Variant, TableRowTypeContext } from './Toolbox';
 
 export interface TableBodyProps extends HTMLProps<HTMLTableSectionElement> {
   children?: React.ReactNode;
@@ -26,5 +26,3 @@ export const TableBody = ({
     </TableRowTypeContext.Provider>
   );
 };
-
-export default TableBody;

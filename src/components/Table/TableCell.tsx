@@ -36,7 +36,11 @@ export function TableCell({
   };
 
   const handleChange = () => {
-    if (onChange != undefined && sortDirection != undefined) {
+    if (
+      onChange != undefined &&
+      sortDirection != undefined &&
+      sortDirection != SortDirection.NotSortable
+    ) {
       onChange({
         next:
           sortDirection === SortDirection.Descending

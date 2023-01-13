@@ -9,7 +9,11 @@ import { TableCell } from './TableCell';
 import { TableHeader } from './TableHeader';
 import { TableRow } from './TableRow';
 
-const render = (props: Partial<TableProps> = {}) => {
+interface TestRow {
+  fruit: string;
+}
+
+const render = (props: Partial<TableProps<TestRow>> = {}) => {
   const allProps = {
     children: (
       <>
@@ -30,7 +34,7 @@ const render = (props: Partial<TableProps> = {}) => {
     ),
     onChange: jest.fn(),
     selectRows: true,
-    selectedValue: {},
+    selectedValue: { fruit: '' },
     ...props,
   };
   renderRtl(<Table {...allProps} />);

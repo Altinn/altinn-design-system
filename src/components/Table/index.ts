@@ -6,3 +6,5 @@ export { TableCell } from './TableCell';
 export { TableFooter } from './TableFooter';
 export type { ChangeProps, SortProps } from './Toolbox';
 export { SortDirection } from './Toolbox';
+export { ResponsiveTable } from './ResponsiveTable';
+export type { ResponsiveTableConfig } from './ResponsiveTable';

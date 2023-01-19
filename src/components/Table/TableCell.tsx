@@ -112,14 +112,12 @@ export function TableCell({
               ? cn(classes['body-table-cell-radiobutton'], className)
               : cn(classes['body-table-cell'], className)
           }
-          style={{ padding: '0px' }}
         >
           <div
             className={
               radiobutton ? cn(classes['radio-button']) : cn(classes['input'])
             }
           >
-            {' '}
             {children}
           </div>
         </td>

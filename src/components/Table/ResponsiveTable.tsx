@@ -99,7 +99,10 @@ function MobileTable<T>({ config }: ResponsiveTableProps<T>) {
                   ></RadioButton>
                 </TableCell>
               )}
-              <TableCell key={`${value}-data`}>
+              <TableCell
+                key={`${value}-data`}
+                style={{ padding: '0px' }}
+              >
                 {columns.map((column) => {
                   if (
                     showColumnsMobile &&

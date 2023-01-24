@@ -39,7 +39,6 @@ export function TableRow<T>({
 
   return (
     <tr
-      tabIndex={variantStandard === Variant.Body ? -1 : 0}
       {...tableRowProps}
       className={cn(
         classes.TableRow,

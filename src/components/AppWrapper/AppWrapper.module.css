@@ -3,14 +3,3 @@
 html {
   font-family: var(--font_family-default), sans-serif;
 }
-
-/* old design system dependency rules */
-/* these rules should be removed when we are rid of the old design system dependency, ref https://github.com/Altinn/altinn-design-system/issues/15 */
-html {
-  font-size: 62.5%;
-}
-
-body {
-  font-size: 1.6rem;
-}
-/* old design system dependency rules end*/

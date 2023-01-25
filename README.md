@@ -19,6 +19,12 @@ npm install @altinn/altinn-design-system
 yarn add @altinn/altinn-design-system
 ```
 
+### Prerequisites
+
+As of version **0.27**, this design system is no longer compatible with [the old design system](https://github.com/Altinn/DesignSystem).
+This is because the old design system sets the `rem` unit to `10px`, while the default is `16px`, and this is also the unit expected by the Figma tokens.
+In older versions, these tokens are converted to match the `rem` unit of the old design system.
+
 ### Linking
 
 If you plan on making any contributions to the design system and develop features/test changes with a more rapid feedback loop, you'll most likely want to link your project to a local clone of `altinn-design-system` instead.
@@ -83,20 +89,6 @@ The design tokens live in a [separate repository](https://github.com/Altinn/figm
 ![figma tokens usage diagam](./docs/figma-tokens-diagram.svg)
 
 When using these tokens in this project, we are also transforming the values a bit, to stay compatible with our old design system. The long term goal is to get rid of the dependency to the old design system, so we no longer have to do this transformation. For more information about this, see the below explaination `rem` values.
-
-### `rem` values
-
-The design system currently has a dependency that redefines the base value of the `rem` unit (usually this corresponds to `16px`, but it is redefined so that `1rem` = `10px`). Since the design tokens from [figma-design-tokens](https://github.com/Altinn/figma-design-tokens) are defined in the assumption that `1rem` should be `16px`, the token values are recalculated automatically so that they maintain their expected pixel dimensions even though the `rem`/`px` ratio is different.
-
-In the future we plan to remove this dependency that maps `1rem` to `10px`, which should simplify integration with different tools that might assume `1rem` = `16px` (e.g. Figma).
-
-This means that CSS within the design system should avoid using `rem` values directly. Instead, always use token values (via CSS variables or JSON), which will be recalculated to the correct `rem`/`px` ratio. _**This is also true for applications that consume this design system.**_
-
-TL;DR: don't define `rem` values in code; they should always come from design tokens.
-
-The diagram below explains the transformation of `rem` values:
-
-![rem calculation flow diagram](./docs/rem-ratio.svg)
 
 ## Code style
 

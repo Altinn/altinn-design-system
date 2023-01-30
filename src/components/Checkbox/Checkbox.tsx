@@ -44,12 +44,12 @@ export const Checkbox = ({
   <CheckboxRadioTemplate
     checked={checked}
     className={cn(
-      classes.checkbox,
-      checked && classes['checkbox--checked'],
-      error && classes['checkbox--error'],
-      disabled && classes['checkbox--disabled'],
-      compact && classes['checkbox--compact'],
-      readOnly && classes['checkbox--read-only'],
+      classes['altinn-checkbox'],
+      checked && classes['altinn-checkbox--checked'],
+      error && classes['altinn-checkbox--error'],
+      disabled && classes['altinn-checkbox--disabled'],
+      compact && classes['altinn-checkbox--compact'],
+      readOnly && classes['altinn-checkbox--read-only'],
     )}
     description={description}
     disabled={disabled}
@@ -67,8 +67,8 @@ export const Checkbox = ({
     }
     type='checkbox'
   >
-    <span className={classes['visible-box']}>
-      <span className={classes['visible-box__checkmark']} />
+    <span className={classes['altinn-visible-box']}>
+      <span className={classes['altinn-visible-box__checkmark']} />
     </span>
   </CheckboxRadioTemplate>
 );

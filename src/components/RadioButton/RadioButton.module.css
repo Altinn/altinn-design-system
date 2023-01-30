@@ -1,4 +1,4 @@
-.radio {
+.altinn-radio {
   /* Internal variables */
   --radio-background_color: var(--component-checkbox-color-background-default);
   --radio-border_color: var(--component-checkbox-color-border-default);
@@ -12,41 +12,45 @@
   --input_box-size: var(--radio-size);
 }
 
-.radio--small {
+.altinn-radio--small {
   --radio-size: var(--component-checkbox-size-width-small);
 }
 
-.radio--xsmall {
+.altinn-radio--xsmall {
   --radio-size: var(--component-checkbox-size-width-xsmall);
 }
 
-.radio--error {
+.altinn-radio--error {
   --radio-background_color: var(--component-checkbox-color-background-error);
   --radio-border_color: var(--component-checkbox-color-border-error);
 }
 
-.radio--checked {
+.altinn-radio--checked {
   --radio-checkmark-display: inline-block;
 }
 
-.radio--checked:not(.radio--disabled, .radio--error) {
+.altinn-radio--checked:not(.altinn-radio--disabled, .altinn-radio--error) {
   --radio-border_color: var(--component-checkbox-color-border-checked);
 }
 
-.radio:not(.radio--disabled, .radio--checked):hover {
+.altinn-radio:not(.altinn-radio--disabled, .altinn-radio--checked):hover {
   --radio-background_color: var(--component-checkbox-color-background-hover);
 }
 
-.radio:not(.radio--disabled, .radio--error, .radio--checked):hover {
+.altinn-radio:not(
+    .altinn-radio--disabled,
+    .altinn-radio--error,
+    .altinn-radio--checked
+  ):hover {
   --radio-border_color: var(--component-checkbox-color-border-hover);
 }
 
-.radio--disabled.radio--checked {
+.altinn-radio--disabled.altinn-radio--checked {
   --radio-background_color: var(--component-checkbox-color-border-disabled);
   --radio-border_color: transparent;
 }
 
-.visible-button {
+.altinn-visible-button {
   background-color: var(--radio-background_color);
   border-color: var(--radio-border_color);
   border-radius: 50%;
@@ -58,7 +62,7 @@
   width: var(--radio-size);
 }
 
-.visible-button__checkmark {
+.altinn-visible-button__checkmark {
   --radio-checkmark-size: 80%;
   background-color: var(--radio-checkmark-color);
   border-radius: 50%;

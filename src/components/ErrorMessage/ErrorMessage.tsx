@@ -1,5 +1,4 @@
 import React from 'react';
-import cn from 'classnames';
 
 import classes from './ErrorMessage.module.css';
 
@@ -23,7 +22,7 @@ export const ErrorMessage = ({
       aria-label={ariaLabel}
       id={id}
       role='alertdialog'
-      className={cn(classes['error-message-wrapper'])}
+      className={classes['altinn-error-message-wrapper']}
     >
       {children}
     </div>

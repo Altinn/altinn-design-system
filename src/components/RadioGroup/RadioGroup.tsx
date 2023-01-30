@@ -92,9 +92,9 @@ export const RadioGroup = ({
     >
       <div
         className={[
-          classes['radio-group'],
-          classes[`radio-group--${variant}`],
-          classes[`radio-group--${size}`],
+          classes['altinn-radio-group'],
+          classes[`altinn-radio-group--${variant}`],
+          classes[`altinn-radio-group--${size}`],
         ].join(' ')}
         role={presentation ? undefined : 'radiogroup'}
       >

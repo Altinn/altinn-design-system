@@ -1,4 +1,4 @@
-.error-message-wrapper {
+.altinn-error-message-wrapper {
   color: var(--component-error_message-color-text);
   font-size: var(--component-error_message-font_size-xs);
 }

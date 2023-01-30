@@ -173,11 +173,15 @@ describe('Select', () => {
 
     it('Gets correct state according to keyboard/mouse navigation', async () => {
       renderSingleSelect();
-      expect(getRoot().classList).not.toContain('select--using-keyboard');
+      expect(getRoot().classList).not.toContain(
+        'altinn-select--using-keyboard',
+      );
       await act(() => user.tab());
-      expect(getRoot().classList).toContain('select--using-keyboard');
+      expect(getRoot().classList).toContain('altinn-select--using-keyboard');
       await act(() => user.click(document.body));
-      expect(getRoot().classList).not.toContain('select--using-keyboard');
+      expect(getRoot().classList).not.toContain(
+        'altinn-select--using-keyboard',
+      );
     });
 
     it('Throws an error if there are duplicate values', () => {
@@ -488,11 +492,15 @@ describe('Select', () => {
 
     it('Gets correct state according to keyboard/mouse navigation', async () => {
       renderMultiSelect();
-      expect(getRoot().classList).not.toContain('select--using-keyboard');
+      expect(getRoot().classList).not.toContain(
+        'altinn-select--using-keyboard',
+      );
       await act(() => user.tab());
-      expect(getRoot().classList).toContain('select--using-keyboard');
+      expect(getRoot().classList).toContain('altinn-select--using-keyboard');
       await act(() => user.click(document.body));
-      expect(getRoot().classList).not.toContain('select--using-keyboard');
+      expect(getRoot().classList).not.toContain(
+        'altinn-select--using-keyboard',
+      );
     });
 
     it('Throws an error if there are duplicate values', () => {

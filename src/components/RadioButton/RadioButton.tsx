@@ -50,11 +50,11 @@ export const RadioButton = ({
   <CheckboxRadioTemplate
     checked={checked}
     className={cn(
-      classes.radio,
-      classes[`radio--${size}`],
-      checked && classes['radio--checked'],
-      error && classes['radio--error'],
-      disabled && classes['radio--disabled'],
+      classes['altinn-radio'],
+      classes[`altinn-radio--${size}`],
+      checked && classes['altinn-radio--checked'],
+      error && classes['altinn-radio--error'],
+      disabled && classes['altinn-radio--disabled'],
     )}
     description={description}
     disabled={disabled}
@@ -72,8 +72,8 @@ export const RadioButton = ({
     type='radio'
     value={value}
   >
-    <span className={classes['visible-button']}>
-      <span className={classes['visible-button__checkmark']} />
+    <span className={classes['altinn-visible-button']}>
+      <span className={classes['altinn-visible-button__checkmark']} />
     </span>
   </CheckboxRadioTemplate>
 );

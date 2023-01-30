@@ -15,15 +15,17 @@ export const MultiSelectItem = ({
   onDeleteButtonClick,
   label,
 }: MultiSelectItemProps) => (
-  <span className={classes['multi-select-item']}>
+  <span className={classes['altinn-multi-select-item']}>
     <span>{label}</span>
     <button
       aria-label={deleteButtonLabel}
-      className={classes['multi-select-item__delete-button']}
+      className={classes['altinn-multi-select-item__delete-button']}
       disabled={disabled}
       onClick={onDeleteButtonClick}
     >
-      <span className={classes['multi-select-item__delete-button__cross']} />
+      <span
+        className={classes['altinn-multi-select-item__delete-button__cross']}
+      />
     </button>
   </span>
 );

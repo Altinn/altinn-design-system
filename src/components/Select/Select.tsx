@@ -217,11 +217,11 @@ export const Select = (props: SelectProps) => {
   return (
     <div
       className={cn(
-        classes.select,
-        classes['select--' + (multiple ? 'multiple' : 'single')],
-        expanded && classes['select--expanded'],
-        disabled && classes['select--disabled'],
-        usingKeyboard && classes['select--using-keyboard'],
+        classes['altinn-select'],
+        classes['altinn-select--' + (multiple ? 'multiple' : 'single')],
+        expanded && classes['altinn-select--expanded'],
+        disabled && classes['altinn-select--disabled'],
+        usingKeyboard && classes['altinn-select--using-keyboard'],
       )}
       data-testid='select-root'
     >
@@ -230,12 +230,14 @@ export const Select = (props: SelectProps) => {
         inputId={inputId}
         inputRenderer={({ className, inputId }) => (
           <span
-            className={cn(className, classes['select__field'])}
+            className={cn(className, classes['altinn-select__field'])}
             ref={selectFieldRef}
           >
             {multiple && (
               <>
-                <span className={classes['select--multiple__field__values']}>
+                <span
+                  className={classes['altinn-select--multiple__field__values']}
+                >
                   {selectedValues.map(findOptionFromValue).map((o) => (
                     <MultiSelectItem
                       deleteButtonLabel={
@@ -250,13 +252,17 @@ export const Select = (props: SelectProps) => {
                 </span>
                 <button
                   aria-label={props.deleteButtonLabel}
-                  className={classes['select--multiple__field__delete-button']}
+                  className={
+                    classes['altinn-select--multiple__field__delete-button']
+                  }
                   disabled={!selectedValues.length || disabled}
                   onClick={() => removeAllSelections()}
                 >
                   <span
                     className={
-                      classes['select--multiple__field__delete-button__cross']
+                      classes[
+                        'altinn-select--multiple__field__delete-button__cross'
+                      ]
                     }
                   />
                 </button>
@@ -266,7 +272,7 @@ export const Select = (props: SelectProps) => {
               aria-controls={listboxId}
               aria-expanded={expanded}
               aria-label={label}
-              className={classes['select__field__button']}
+              className={classes['altinn-select__field__button']}
               disabled={disabled}
               id={inputId}
               onBlur={() => setExpanded(false)}
@@ -281,13 +287,17 @@ export const Select = (props: SelectProps) => {
               value={multiple ? selectedValues : activeOption}
             >
               {!multiple && (
-                <span className={classes['select--single__field__value']}>
+                <span
+                  className={classes['altinn-select--single__field__value']}
+                >
                   {findOptionFromValue(activeOption).label}
                 </span>
               )}
-              <span className={classes['select__field__arrow-wrapper']}>
+              <span className={classes['altinn-select__field__arrow-wrapper']}>
                 <span
-                  className={classes['select__field__arrow-wrapper__arrow']}
+                  className={
+                    classes['altinn-select__field__arrow-wrapper__arrow']
+                  }
                 />
               </span>
             </button>
@@ -301,7 +311,7 @@ export const Select = (props: SelectProps) => {
         readOnly={false}
       />
       <ul
-        className={classes['select__option-list']}
+        className={classes['altinn-select__option-list']}
         id={listboxId}
         ref={listboxRef}
         role='listbox'
@@ -311,12 +321,14 @@ export const Select = (props: SelectProps) => {
           <li
             aria-selected={isOptionSelected(option.value)}
             className={cn(
-              classes['select__option-list__option'],
+              classes['altinn-select__option-list__option'],
               isOptionSelected(option.value) &&
-                classes['select__option-list__option--selected'],
+                classes['altinn-select__option-list__option--selected'],
               multiple &&
                 isOptionActive(option.value) &&
-                classes['select--multiple__option-list__option--focused'],
+                classes[
+                  'altinn-select--multiple__option-list__option--focused'
+                ],
             )}
             key={option.value}
             onClick={() => addOrRemoveSelectedValue(option.value)}

@@ -63,14 +63,14 @@ const Button = (
       {...restHTMLProps}
       ref={ref}
       className={cn(
-        classes.button,
-        classes[`button--${size}`],
-        classes[`button--${variant}`],
-        classes[`button--${color}`],
-        classes[`button--${variant}--${color}`],
-        { [classes['button--full-width']]: fullWidth },
-        { [classes['button--dashed-border']]: dashedBorder },
-        { [classes[`button--only-icon`]]: !children && icon },
+        classes['altinn-button'],
+        classes[`altinn-button--${size}`],
+        classes[`altinn-button--${variant}`],
+        classes[`altinn-button--${color}`],
+        classes[`altinn-button--${variant}--${color}`],
+        { [classes['altinn-button--full-width']]: fullWidth },
+        { [classes['altinn-button--dashed-border']]: dashedBorder },
+        { [classes[`altinn-button--only-icon`]]: !children && icon },
         className,
       )}
       type={type}

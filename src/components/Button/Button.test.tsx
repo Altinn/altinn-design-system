@@ -14,10 +14,10 @@ describe('Button', () => {
     render({ variant: undefined });
     const button = screen.getByRole('button');
 
-    expect(button.classList.contains('button--primary')).toBe(true);
-    expect(button.classList.contains('button--secondary')).toBe(false);
-    expect(button.classList.contains('button--submit')).toBe(false);
-    expect(button.classList.contains('button--cancel')).toBe(false);
+    expect(button.classList.contains('altinn-button--primary')).toBe(true);
+    expect(button.classList.contains('altinn-button--secondary')).toBe(false);
+    expect(button.classList.contains('altinn-button--submit')).toBe(false);
+    expect(button.classList.contains('altinn-button--cancel')).toBe(false);
   });
 
   Object.values(ButtonVariant).forEach((variant) => {
@@ -29,9 +29,9 @@ describe('Button', () => {
 
       const button = screen.getByRole('button');
 
-      expect(button.classList.contains(`button--${variant}`)).toBe(true);
+      expect(button.classList.contains(`altinn-button--${variant}`)).toBe(true);
       otherVariants.forEach((v) => {
-        expect(button.classList.contains(`button--${v}`)).toBe(false);
+        expect(button.classList.contains(`altinn-button--${v}`)).toBe(false);
       });
     });
   });
@@ -45,9 +45,9 @@ describe('Button', () => {
 
       const button = screen.getByRole('button');
 
-      expect(button.classList.contains(`button--${color}`)).toBe(true);
+      expect(button.classList.contains(`altinn-button--${color}`)).toBe(true);
       otherVariants.forEach((c) => {
-        expect(button.classList.contains(`button--${c}`)).toBe(false);
+        expect(button.classList.contains(`altinn-button--${c}`)).toBe(false);
       });
     });
   });
@@ -59,9 +59,9 @@ describe('Button', () => {
 
       const button = screen.getByRole('button');
 
-      expect(button.classList.contains(`button--${size}`)).toBe(true);
+      expect(button.classList.contains(`altinn-button--${size}`)).toBe(true);
       otherVariants.forEach((s) => {
-        expect(button.classList.contains(`button--${s}`)).toBe(false);
+        expect(button.classList.contains(`altinn-button--${s}`)).toBe(false);
       });
     });
   });

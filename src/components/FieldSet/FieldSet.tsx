@@ -36,21 +36,25 @@ export const FieldSet = ({
   return (
     <fieldset
       className={cn(
-        classes['field-set'],
-        classes[`field-set--${size}`],
+        classes['altinn-field-set'],
+        classes[`altinn-field-set--${size}`],
         className,
       )}
       disabled={disabled}
     >
       {legend && (
-        <legend className={classes['field-set__legend']}>{legend}</legend>
+        <legend className={classes['altinn-field-set__legend']}>
+          {legend}
+        </legend>
       )}
       {description && (
-        <p className={classes['field-set__description']}>{description}</p>
+        <p className={classes['altinn-field-set__description']}>
+          {description}
+        </p>
       )}
-      <div className={classes['field-set__content']}>{children}</div>
+      <div className={classes['altinn-field-set__content']}>{children}</div>
       {error && (
-        <div className={classes['field-set__error-message']}>
+        <div className={classes['altinn-field-set__error-message']}>
           <ErrorMessage>{error}</ErrorMessage>
         </div>
       )}

@@ -1,24 +1,24 @@
-.radio-group {
+.altinn-radio-group {
   column-gap: var(--gap-x);
   display: flex;
   flex-wrap: wrap;
   row-gap: var(--gap-y);
 }
 
-.radio-group--xsmall {
+.altinn-radio-group--xsmall {
   --gap-x: var(--component-checkbox-group-space-gap-x-xsmall);
   --gap-y: var(--component-checkbox-group-space-gap-y-xsmall);
 }
 
-.radio-group--small {
+.altinn-radio-group--small {
   --gap-x: var(--component-checkbox-group-space-gap-x-small);
   --gap-y: var(--component-checkbox-group-space-gap-y-small);
 }
 
-.radio-group--vertical {
+.altinn-radio-group--vertical {
   flex-direction: column;
 }
 
-.radio-group--horizontal {
+.altinn-radio-group--horizontal {
   flex-direction: row;
 }

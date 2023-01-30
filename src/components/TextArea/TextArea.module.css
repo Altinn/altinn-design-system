@@ -1,20 +1,20 @@
-.TextArea {
+.altinn-TextArea {
   font-family: inherit;
   font-size: var(--component-checkbox-font_size-sm);
 }
 
-.TextArea--resize-none {
+.altinn-TextArea--resize-none {
   resize: none;
 }
 
-.TextArea--resize-both {
+.altinn-TextArea--resize-both {
   resize: both;
 }
 
-.TextArea--resize-horizontal {
+.altinn-TextArea--resize-horizontal {
   resize: horizontal;
 }
 
-.TextArea--resize-vertical {
+.altinn-TextArea--resize-vertical {
   resize: vertical;
 }

@@ -112,7 +112,7 @@ const render = (props: Partial<CheckboxProps> = {}) => {
 
 const renderAndGetWrapper = (props: Partial<CheckboxProps> = {}): Element => {
   const { container } = render(props);
-  const wrapper = container.querySelector('.checkbox');
+  const wrapper = container.querySelector('.altinn-checkbox');
   assert(wrapper !== null);
   return wrapper;
 };

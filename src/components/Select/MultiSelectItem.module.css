@@ -1,4 +1,4 @@
-.multi-select-item {
+.altinn-multi-select-item {
   --border-radius: calc(var(--multiselect_item-height) / 2);
   align-items: center;
   background-color: var(--multiselect_item-background_color);
@@ -11,7 +11,7 @@
   padding-left: var(--multiselect_item-space_left);
 }
 
-.multi-select-item__delete-button {
+.altinn-multi-select-item__delete-button {
   background-color: transparent;
   border-bottom-right-radius: inherit;
   border-top-right-radius: inherit;
@@ -24,16 +24,16 @@
   width: var(--multiselect_item-height);
 }
 
-.multi-select-item__delete-button:not(:disabled):hover {
+.altinn-multi-select-item__delete-button:not(:disabled):hover {
   background-color: var(--delete_cross_box-color-hover);
 }
 
-.multi-select-item__delete-button:focus-visible {
+.altinn-multi-select-item__delete-button:focus-visible {
   background-color: var(--delete_cross_box-color-hover);
   outline: var(--focus_visible-outline);
 }
 
-.multi-select-item__delete-button__cross {
+.altinn-multi-select-item__delete-button__cross {
   background-color: var(--multiselect_item_delete_cross-color);
   clip-path: var(--delete_cross-clip_path);
   display: inline-block;

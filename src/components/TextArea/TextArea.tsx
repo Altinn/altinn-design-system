@@ -41,8 +41,8 @@ export const TextArea = ({
             readOnly={Boolean(readOnly)}
             className={cn(
               className,
-              classes['TextArea'],
-              classes[`TextArea--resize-${resize}`],
+              classes['altinn-TextArea'],
+              classes[`altinn-TextArea--resize-${resize}`],
             )}
           />
         );

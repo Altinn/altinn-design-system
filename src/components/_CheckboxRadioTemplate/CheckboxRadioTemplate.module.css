@@ -1,4 +1,4 @@
-.template {
+.altinn-template {
   --cursor: pointer;
   --description-color: var(--component-field_description-color-text-default);
   --label-color: var(--component-checkbox-color-text-default);
@@ -14,41 +14,41 @@
   opacity: var(--opacity);
 }
 
-.template--xsmall {
+.altinn-template--xsmall {
   --description-margin_top: var(--component-field_description-space-top-xsmall);
   --font_size: var(--component-checkbox-font_size-xs);
   --gap: var(--component-checkbox-space-gap-xsmall);
 }
 
-.template--small {
+.altinn-template--small {
   --description-margin_top: var(--component-field_description-space-top-small);
   --font_size: var(--component-checkbox-font_size-sm);
   --gap: var(--component-checkbox-space-gap-small);
 }
 
-.template:not(.template--disabled):hover {
+.altinn-template:not(.altinn-template--disabled):hover {
   --label-color: var(--component-checkbox-color-text-hover);
 }
 
-.template--disabled {
+.altinn-template--disabled {
   --cursor: auto;
   --opacity: var(--interactive_components-colors-disabled-opacity);
 }
 
-.template__input-wrapper {
+.altinn-template__input-wrapper {
   display: inline-block;
   height: var(--input_box-size);
   position: relative;
 }
 
-.template__input-wrapper__input {
+.altinn-template__input-wrapper__input {
   height: 0;
   opacity: 0;
   position: absolute;
   width: 0;
 }
 
-.template__input-wrapper__visible-box {
+.altinn-template__input-wrapper__visible-box {
   display: inline-block;
   flex: 0 0 var(--input_box-size);
   height: var(--input_box-size);
@@ -56,7 +56,7 @@
   width: var(--input_box-size);
 }
 
-.template__label-and-description {
+.altinn-template__label-and-description {
   display: inline-flex;
   flex-direction: column;
   gap: var(--description-margin_top);
@@ -70,22 +70,22 @@
   );
 }
 
-.template__label-and-description__label {
+.altinn-template__label-and-description__label {
   color: var(--label-color);
 }
 
-.template__label-and-description__description {
+.altinn-template__label-and-description__description {
   color: var(--description-color);
 }
 
 @supports not selector(:has(:focus-visible)) {
-  .template:not(.template--disabled):focus-within {
+  .altinn-template:not(.altinn-template--disabled):focus-within {
     outline: 2px solid var(--interactive_components-colors-focus_outline);
     outline-offset: 2px;
   }
 }
 
-.template:not(.template--disabled):has(:focus-visible) {
+.altinn-template:not(.altinn-template--disabled):has(:focus-visible) {
   outline: 2px solid var(--interactive_components-colors-focus_outline);
   outline-offset: 2px;
 }

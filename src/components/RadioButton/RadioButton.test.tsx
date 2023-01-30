@@ -31,19 +31,19 @@ describe('RadioButton', () => {
   it('Is not checked by default', () => {
     const wrapper = renderAndGetWrapper();
     expect(screen.getByRole('radio')).not.toBeChecked();
-    expect(wrapper).not.toHaveClass('radio--checked');
+    expect(wrapper).not.toHaveClass('altinn-radio--checked');
   });
 
   it('Is checked if the "checked" prop is true', () => {
     const wrapper = renderAndGetWrapper({ checked: true });
     expect(screen.getByRole('radio')).toBeChecked();
-    expect(wrapper).toHaveClass('radio--checked');
+    expect(wrapper).toHaveClass('altinn-radio--checked');
   });
 
   it('Is not checked if the "checked" prop is false', () => {
     const wrapper = renderAndGetWrapper({ checked: false });
     expect(screen.getByRole('radio')).not.toBeChecked();
-    expect(wrapper).not.toHaveClass('radio--checked');
+    expect(wrapper).not.toHaveClass('altinn-radio--checked');
   });
 
   it('Calls onChange when user clicks', async () => {
@@ -90,39 +90,39 @@ describe('RadioButton', () => {
 
   it('Renders with correct classes by default', () => {
     const wrapper = renderAndGetWrapper();
-    expect(wrapper).toHaveClass('radio--small');
-    expect(wrapper).not.toHaveClass('radio--error');
-    expect(wrapper).not.toHaveClass('radio--disabled');
+    expect(wrapper).toHaveClass('altinn-radio--small');
+    expect(wrapper).not.toHaveClass('altinn-radio--error');
+    expect(wrapper).not.toHaveClass('altinn-radio--disabled');
   });
 
   it('Renders with "xsmall" size class by if size is set to "Xsmall"', () => {
     const wrapper = renderAndGetWrapper({ size: RadioButtonSize.Xsmall });
-    expect(wrapper).toHaveClass('radio--xsmall');
+    expect(wrapper).toHaveClass('altinn-radio--xsmall');
   });
 
   it('Renders with "small" size class by if size is set to "Small"', () => {
     const wrapper = renderAndGetWrapper({ size: RadioButtonSize.Small });
-    expect(wrapper).toHaveClass('radio--small');
+    expect(wrapper).toHaveClass('altinn-radio--small');
   });
 
   it('Renders with "error" class if the "error" property is true', () => {
     const wrapper = renderAndGetWrapper({ error: true });
-    expect(wrapper).toHaveClass('radio--error');
+    expect(wrapper).toHaveClass('altinn-radio--error');
   });
 
   it('Renders withot "error" class if the "error" property is false', () => {
     const wrapper = renderAndGetWrapper({ error: false });
-    expect(wrapper).not.toHaveClass('radio--error');
+    expect(wrapper).not.toHaveClass('altinn-radio--error');
   });
 
   it('Renders with "disabled" class if the "disabled" property is true', () => {
     const wrapper = renderAndGetWrapper({ disabled: true });
-    expect(wrapper).toHaveClass('radio--disabled');
+    expect(wrapper).toHaveClass('altinn-radio--disabled');
   });
 
   it('Renders without "disabled" class if the "disabled" property is false', () => {
     const wrapper = renderAndGetWrapper({ disabled: false });
-    expect(wrapper).not.toHaveClass('radio--disabled');
+    expect(wrapper).not.toHaveClass('altinn-radio--disabled');
   });
 
   it.each([false, undefined])(
@@ -160,7 +160,7 @@ const renderAndGetWrapper = (
   props: Partial<RadioButtonProps> = {},
 ): Element => {
   const { container } = render(props);
-  const wrapper = container.querySelector('.radio');
+  const wrapper = container.querySelector('.altinn-radio');
   assert(wrapper !== null);
   return wrapper;
 };

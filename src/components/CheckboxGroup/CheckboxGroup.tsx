@@ -97,9 +97,9 @@ export const CheckboxGroup = ({
     >
       <div
         className={cn(
-          classes['checkbox-group'],
-          classes[`checkbox-group--${variant}`],
-          compact && classes['checkbox-group--compact'],
+          classes['altinn-checkbox-group'],
+          classes[`altinn-checkbox-group--${variant}`],
+          compact && classes['altinn-checkbox-group--compact'],
         )}
       >
         {items.map((item) => (

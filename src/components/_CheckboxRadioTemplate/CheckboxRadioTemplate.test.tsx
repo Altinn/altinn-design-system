@@ -57,28 +57,28 @@ describe('CheckboxRadioTemplate', () => {
   it('Renders with "xsmall" class if size is set to "Xsmall"', () => {
     const size = CheckboxRadioTemplateSize.Xsmall;
     const wrapper = renderAndGetWrapper({ size });
-    expect(wrapper).toHaveClass('template--xsmall');
+    expect(wrapper).toHaveClass('altinn-template--xsmall');
   });
 
   it('Renders with "small" class if size is set to "Small"', () => {
     const size = CheckboxRadioTemplateSize.Small;
     const wrapper = renderAndGetWrapper({ size });
-    expect(wrapper).toHaveClass('template--small');
+    expect(wrapper).toHaveClass('altinn-template--small');
   });
 
   it('Does not render with "disabled" class by default', () => {
     const wrapper = renderAndGetWrapper();
-    expect(wrapper).not.toHaveClass('template--disabled');
+    expect(wrapper).not.toHaveClass('altinn-template--disabled');
   });
 
   it('Renders with "disabled" class if the "disabled" property is true', () => {
     const wrapper = renderAndGetWrapper({ disabled: true });
-    expect(wrapper).toHaveClass('template--disabled');
+    expect(wrapper).toHaveClass('altinn-template--disabled');
   });
 
   it('Does not render with "disabled" class if the "disabled" property is false', () => {
     const wrapper = renderAndGetWrapper({ disabled: false });
-    expect(wrapper).not.toHaveClass('template--disabled');
+    expect(wrapper).not.toHaveClass('altinn-template--disabled');
   });
 });
 
@@ -95,7 +95,7 @@ const renderAndGetWrapper = (
   props: Partial<CheckboxRadioTemplateProps> = {},
 ): Element => {
   const { container } = render(props);
-  const wrapper = container.querySelector('.template');
+  const wrapper = container.querySelector('.altinn-template');
   assert(wrapper !== null);
   return wrapper;
 };

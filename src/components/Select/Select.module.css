@@ -1,4 +1,4 @@
-.select {
+.altinn-select {
   --delete_cross_box-border_radius: var(
     --interactive_components-border_radius-normal
   );
@@ -72,24 +72,24 @@
   position: relative;
 }
 
-.select--disabled {
+.altinn-select--disabled {
   --interactive_element-cursor: auto;
   opacity: var(--interactive_components-colors-disabled-opacity);
 }
 
-.select--expanded {
+.altinn-select--expanded {
   --delete_cross-color: var(--delete_cross-color-active);
 }
 
-.select:not(.select--expanded) .select__option-list {
+.altinn-select:not(.altinn-select--expanded) .altinn-select__option-list {
   display: none;
 }
 
-.select--using-keyboard {
+.altinn-select--using-keyboard {
   --option-outline-focus: var(--focus_visible-outline);
 }
 
-.select__field__button {
+.altinn-select__field__button {
   background: transparent;
   border: 0;
   cursor: var(--interactive_element-cursor);
@@ -98,13 +98,13 @@
   padding: 0;
 }
 
-.select__field {
+.altinn-select__field {
   display: inline-flex;
   padding: 0;
 }
 
-.select--multiple .select__field,
-.select--single .select__field__button {
+.altinn-select--multiple .altinn-select__field,
+.altinn-select--single .altinn-select__field__button {
   align-items: center;
   display: inline-flex;
   flex-direction: row;
@@ -115,13 +115,13 @@
   width: 100%;
 }
 
-.select--single__field__value {
+.altinn-select--single__field__value {
   flex: 1;
   padding-left: var(--singleselect_field-padding_left);
   text-align: left;
 }
 
-.select--multiple__field__values {
+.altinn-select--multiple__field__values {
   display: inline-flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -130,11 +130,11 @@
   padding: var(--multiselect_items-padding);
 }
 
-.select--multiple .select__field__button:focus-visible {
+.altinn-select--multiple .altinn-select__field__button:focus-visible {
   outline: var(--focus_visible-outline);
 }
 
-.select__field__arrow-wrapper {
+.altinn-select__field__arrow-wrapper {
   --arrow-height: calc(
     var(--arrow-size) * var(--arrow-height_to_width_fraction)
   );
@@ -153,7 +153,7 @@
   padding: var(--arrow-vertical_padding) var(--arrow-horizontal_padding);
 }
 
-.select__field__arrow-wrapper__arrow {
+.altinn-select__field__arrow-wrapper__arrow {
   background-color: var(--arrow-color);
   clip-path: polygon(
     11.72% 9.93%,
@@ -168,7 +168,7 @@
   width: var(--arrow-size);
 }
 
-.select--multiple__field__delete-button {
+.altinn-select--multiple__field__delete-button {
   background: none;
   border-radius: var(--delete_cross_box-border_radius);
   border: none;
@@ -178,25 +178,25 @@
   width: var(--delete_cross_box-size);
 }
 
-.select--multiple__field__delete-button:disabled {
+.altinn-select--multiple__field__delete-button:disabled {
   cursor: auto;
 }
 
-.select--multiple__field__delete-button:focus-visible {
+.altinn-select--multiple__field__delete-button:focus-visible {
   outline: var(--focus_visible-outline);
 }
 
-.select--multiple__field__delete-button:hover:not(:disabled) {
+.altinn-select--multiple__field__delete-button:hover:not(:disabled) {
   background-color: var(--delete_cross_box-color-hover);
   --delete_cross-color: var(--delete_cross-color-hover);
 }
 
-.select--multiple__field__delete-button:disabled {
+.altinn-select--multiple__field__delete-button:disabled {
   --delete_cross-color: var(--delete_cross-color-disabled);
   background-color: transparent;
 }
 
-.select--multiple__field__delete-button__cross {
+.altinn-select--multiple__field__delete-button__cross {
   background-color: var(--delete_cross-color);
   clip-path: var(--delete_cross-clip_path);
   display: inline-block;
@@ -204,7 +204,7 @@
   width: var(--delete_cross-size);
 }
 
-.select__option-list {
+.altinn-select__option-list {
   background-color: var(--option_list-background_color);
   border-radius: var(--option_list-border_radius);
   border: var(--option_list-border);
@@ -222,7 +222,7 @@
   z-index: var(--option_list-z_index);
 }
 
-.select__option-list__option {
+.altinn-select__option-list__option {
   background-color: var(--option-background_color-default);
   border-color: var(--option-border_color);
   border-style: solid;
@@ -242,18 +242,18 @@
   white-space: nowrap;
 }
 
-.select__option-list__option:hover {
+.altinn-select__option-list__option:hover {
   background-color: var(--option-background_color-hover);
 }
 
-.select__option-list__option--selected {
+.altinn-select__option-list__option--selected {
   background-color: var(--option-background_color-selected);
 }
 
-.select__option-list__option--selected:hover {
+.altinn-select__option-list__option--selected:hover {
   background-color: var(--option-background_color-selected-hover);
 }
 
-.select--multiple__option-list__option--focused {
+.altinn-select--multiple__option-list__option--focused {
   outline: var(--option-outline-focus);
 }

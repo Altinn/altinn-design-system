@@ -180,31 +180,37 @@ describe('RadioGroup', () => {
   it('Renders with "vertical" variant class and "small" size classname by default', () => {
     render();
     expect(screen.getByRole('radiogroup')).toHaveClass(
-      'radio-group--vertical',
-      'radio-group--small',
+      'altinn-radio-group--vertical',
+      'altinn-radio-group--small',
     );
   });
 
   it('Renders with "vertical" variant class if variant is set to "Vertical"', () => {
     render({ variant: RadioGroupVariant.Vertical });
-    expect(screen.getByRole('radiogroup')).toHaveClass('radio-group--vertical');
+    expect(screen.getByRole('radiogroup')).toHaveClass(
+      'altinn-radio-group--vertical',
+    );
   });
 
   it('Renders with "horizontal" variant class if variant is set to "Horizontal"', () => {
     render({ variant: RadioGroupVariant.Horizontal });
     expect(screen.getByRole('radiogroup')).toHaveClass(
-      'radio-group--horizontal',
+      'altinn-radio-group--horizontal',
     );
   });
 
   it('Renders with "xsmall" size class if size is set to "Xsmall"', () => {
     render({ size: RadioGroupSize.Xsmall });
-    expect(screen.getByRole('radiogroup')).toHaveClass('radio-group--xsmall');
+    expect(screen.getByRole('radiogroup')).toHaveClass(
+      'altinn-radio-group--xsmall',
+    );
   });
 
   it('Renders with "small" size class if size is set to "Small"', () => {
     render({ size: RadioGroupSize.Small });
-    expect(screen.getByRole('radiogroup')).toHaveClass('radio-group--small');
+    expect(screen.getByRole('radiogroup')).toHaveClass(
+      'altinn-radio-group--small',
+    );
   });
 
   it('Renders all radio buttons with presentation role when the "presentation" property is true', () => {
@@ -230,12 +236,12 @@ const getWrapper = (index: number) => document.querySelectorAll('label')[index];
 
 const expectChecked = (index: number) => {
   expect(getRadioButton(index)).toBeChecked();
-  expect(getWrapper(index)).toHaveClass('radio--checked');
+  expect(getWrapper(index)).toHaveClass('altinn-radio--checked');
 };
 
 const expectNotChecked = (index: number) => {
   expect(getRadioButton(index)).not.toBeChecked();
-  expect(getWrapper(index)).not.toHaveClass('radio--checked');
+  expect(getWrapper(index)).not.toHaveClass('altinn-radio--checked');
 };
 
 const expectOneChecked = (index: number) => {

@@ -21,18 +21,18 @@
 @media only screen and (min-width: 540px) {
   .accordion-header__subtitle {
     opacity: 60%;
-    font-size: 0.875rem;
+    font-size: 0.9rem;
     display: block;
   }
   .accordion-header--subtitle {
-    padding-top: 0.1875rem;
-    padding-bottom: 0.1875rem;
-    padding-right: 0.1875rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    padding-right: 0.2rem;
   }
 }
 
 .accordion-header__title {
-  --component-accordion_header_title-spacing-margin_left: 1.5625rem;
+  --component-accordion_header_title-spacing-margin_left: 1.6rem;
   --component-accordion_header_title-border_top_style: none;
   --component-accordion_header_title-border_bottom_style: none;
   --component-accordion_header_title-border_right_style: none;
@@ -63,7 +63,7 @@
 .accordion-header__actions {
   display: grid;
   grid-auto-flow: column;
-  column-gap: 0.3125rem;
+  column-gap: 0.3rem;
   align-items: center;
-  padding: 0 0.1875rem;
+  padding: 0 0.2rem;
 }

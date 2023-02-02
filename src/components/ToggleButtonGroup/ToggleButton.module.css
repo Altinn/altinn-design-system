@@ -16,5 +16,5 @@
 }
 
 .toggle-button:not(.toggle-button--selected):hover {
-  background-color: var(--colors-blue-300);
+  background-color: var(--colors-blue-200);
 }

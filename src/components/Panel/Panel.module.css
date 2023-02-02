@@ -106,7 +106,7 @@
 
 .panel__content-wrapper--error,
 .panel__pointer--error {
-  background-color: var(--colors-red-300);
+  background-color: var(--colors-red-200);
 }
 
 .panel__content-wrapper {

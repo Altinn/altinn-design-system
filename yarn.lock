@@ -16,7 +16,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@altinn/altinn-design-system@workspace:."
   dependencies:
-    "@altinn/figma-design-tokens": ^6.0.0
+    "@altinn/figma-design-tokens": ^6.0.1
     "@babel/core": 7.20.12
     "@mdx-js/react": 2.2.1
     "@navikt/ds-icons": ^2.0.0
@@ -103,10 +103,10 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@altinn/figma-design-tokens@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "@altinn/figma-design-tokens@npm:6.0.0"
-  checksum: 110cc1095a4e271427297be988049137556362354a8190c8a11618c8d34edf5f7f8982edacdbd2fe4b0f9775675c911fd7f05f1a4b8d75db41dd0f78c65be921
+"@altinn/figma-design-tokens@npm:^6.0.1":
+  version: 6.0.1
+  resolution: "@altinn/figma-design-tokens@npm:6.0.1"
+  checksum: f87abb0d8e2c070987f7d37eddfc40a6f206ef307d7edc108eeb79cb3f734fcae434b28a89111d23d4c2d85d386d4cd0fc001175a70f773d3f3de7b943804afd
   languageName: node
   linkType: hard
 

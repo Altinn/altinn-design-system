@@ -10,7 +10,7 @@ export {
   AccordionIcon,
 } from './Accordion';
 export { Button, ButtonVariant, ButtonColor, ButtonSize } from './Button';
-export { Page, PageHeader, PageContent, PageColor } from './Page';
+export { Page, PageHeader, PageContent, PageColor, PageSize } from './Page';
 export { List, ListItem, BorderStyle } from './List';
 export { TextField } from './TextField';
 export { SearchField } from './SearchField';

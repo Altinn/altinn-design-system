@@ -51,7 +51,7 @@ const eventListenerKeys = {
   Enter: 'Enter',
 };
 
-/*
+/**
  * @deprecated Use Select from @digdir/design-system-react instead.
  */
 export const Select = (props: SelectProps) => {

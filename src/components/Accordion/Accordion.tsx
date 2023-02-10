@@ -11,7 +11,7 @@ export interface AccordionProps {
   iconVariant?: AccordionIconVariant;
 }
 
-/*
+/**
  * @deprecated Use Accordion from @digdir/design-system-react instead.
  */
 export const Accordion = ({

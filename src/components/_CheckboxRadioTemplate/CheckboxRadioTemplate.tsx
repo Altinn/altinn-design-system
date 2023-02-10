@@ -1,4 +1,4 @@
-/*
+/**
  * This is an internal component used for the Checkbox and RadioButton components,
  * as they have several similarities.
  */

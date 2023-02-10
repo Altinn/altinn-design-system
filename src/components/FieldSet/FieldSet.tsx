@@ -21,7 +21,7 @@ export enum FieldSetSize {
   Small = 'small',
 }
 
-/*
+/**
  * @deprecated Use FieldSet from @digdir/design-system-react instead.
  */
 export const FieldSet = ({

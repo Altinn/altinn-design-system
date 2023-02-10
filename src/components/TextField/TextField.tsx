@@ -80,7 +80,7 @@ const numericKeyDown = (
   }
 };
 
-/*
+/**
  * @deprecated Use TextField from @digdir/design-system-react instead.
  */
 export const TextField = ({

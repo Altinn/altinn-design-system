@@ -23,7 +23,7 @@ export interface TabsProps {
 
 const validId = (str: string) => str.replace(/\s/, '_');
 
-/*
+/**
  * @deprecated Use Tabs from @digdir/design-system-react instead.
  */
 export const Tabs = ({ activeTab, items, onChange }: TabsProps) => {

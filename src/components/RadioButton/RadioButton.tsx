@@ -30,7 +30,7 @@ export interface RadioButtonProps {
   value: string;
 }
 
-/*
+/**
  * @deprecated Use RadioButton from @digdir/design-system-react instead.
  */
 export const RadioButton = ({

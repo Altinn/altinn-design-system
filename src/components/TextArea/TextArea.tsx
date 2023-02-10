@@ -14,7 +14,7 @@ export interface TextAreaProps
   resize?: 'none' | 'both' | 'horizontal' | 'vertical';
 }
 
-/*
+/**
  * @deprecated Use TextArea from @digdir/design-system-react instead.
  */
 export const TextArea = ({

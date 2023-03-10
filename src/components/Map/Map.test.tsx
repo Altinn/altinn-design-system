@@ -34,14 +34,15 @@ describe('Map', () => {
       await clickMap();
 
       expect(handleMapClicked).toHaveBeenCalledWith({
-        latitude: 59.265880628258095,
-        longitude: 10.37109375,
+        latitude: 59.26415891525691,
+        longitude: 10.403623580932617,
       } as Location);
     });
 
     it('should call onClick with longitude between 180 and -180 even when map is wrapped', async () => {
       const handleMapClicked = jest.fn();
       render({
+        flyToZoomLevel: 4,
         onClick: handleMapClicked,
       });
 

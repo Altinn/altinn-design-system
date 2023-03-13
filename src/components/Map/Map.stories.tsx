@@ -1,6 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import { config } from 'storybook-addon-designs';
+import { useArgs } from '@storybook/client-api';
+import Marker from 'leaflet/dist/images/marker-icon.png';
+import RetinaMarker from 'leaflet/dist/images/marker-icon-2x.png';
+import MarkerShadow from 'leaflet/dist/images/marker-shadow.png';
 
 import { StoryPage } from '@sb/StoryPage';
 
@@ -34,19 +38,23 @@ export default {
 } as ComponentMeta<typeof Map>;
 
 const Template: ComponentStory<typeof Map> = (args) => {
-  const [markerLocation, setMarkerLocation] = useState<Location | undefined>(
-    args.markerLocation,
-  );
+  const [, updateArgs] = useArgs();
 
   const mapClicked = (location: Location) => {
-    setMarkerLocation(location);
+    updateArgs({ ...args, markerLocation: location });
     console.log(`Map clicked at [${location.latitude},${location.longitude}]`);
   };
 
   return (
     <Map
       {...args}
-      markerLocation={markerLocation}
+      markerIcon={{
+        iconUrl: Marker,
+        iconRetinaUrl: RetinaMarker,
+        shadowUrl: MarkerShadow,
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+      }}
       onClick={mapClicked}
     />
   );

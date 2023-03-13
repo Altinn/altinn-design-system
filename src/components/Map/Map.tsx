@@ -106,16 +106,15 @@ export const Map = ({
   }, [markerLocation]);
 
   useEffect(() => {
-      if (!map && !validMarkerLocation && !flyToZoomLevel) {
-         return;
-      }
-       map.flyTo(
+    if (map && validMarkerLocation && flyToZoomLevel) {
+      map.flyTo(
         {
           lat: validMarkerLocation.latitude,
           lng: validMarkerLocation.longitude,
         },
         flyToZoomLevel,
       );
+    }
   }, [map, validMarkerLocation, flyToZoomLevel]);
 
   return (

@@ -24,8 +24,8 @@ export const PageHeader = ({ children, icon }: PageHeaderProps) => {
       )}
     >
       <SvgIcon
-        width={iconSize}
-        height={iconSize}
+        min-width={iconSize}
+        min-height={iconSize}
         svgIconComponent={icon}
       />
       <span>{children}</span>

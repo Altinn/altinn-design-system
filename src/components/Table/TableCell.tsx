@@ -93,12 +93,13 @@ export function TableCell({
               <SortIcon
                 aria-label='Sortering'
                 data-testid='sort-icon'
-                className={cn(classes['icon'], {
-                  [classes['icon-asc']]:
-                    sortDirection === SortDirection.Ascending,
-                  [classes['icon-desc']]:
-                    sortDirection === SortDirection.Descending,
-                })}
+                className={
+                  sortDirection == SortDirection.NotActive
+                    ? cn(classes['icon'])
+                    : sortDirection == SortDirection.Ascending
+                    ? cn(classes['icon-asc'])
+                    : cn(classes['icon-desc'])
+                }
               ></SortIcon>
             )}
           </div>

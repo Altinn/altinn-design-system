@@ -9,6 +9,9 @@ export interface ListProps {
   borderStyle?: BorderStyle;
 }
 
+/**
+ * @deprecated Use List from @digdir/design-system-react instead.
+ */
 export const List = ({
   children,
   borderStyle = BorderStyle.Solid,

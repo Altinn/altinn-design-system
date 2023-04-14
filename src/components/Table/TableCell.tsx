@@ -95,10 +95,10 @@ export function TableCell({
                 data-testid='sort-icon'
                 className={
                   sortDirection == SortDirection.NotActive
-                    ? cn(classes['icon'])
+                    ? classes.icon
                     : sortDirection == SortDirection.Ascending
-                    ? cn(classes['icon-asc'])
-                    : cn(classes['icon-desc'])
+                    ? classes['icon-asc']
+                    : classes['icon-desc']
                 }
               ></SortIcon>
             )}

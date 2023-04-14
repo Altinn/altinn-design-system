@@ -11,6 +11,9 @@ export interface ToggleButtonGroupProps {
   selectedValue: string;
 }
 
+/**
+ * @deprecated Use ToggleButtonGroup from @digdir/design-system-react instead.
+ */
 export const ToggleButtonGroup = ({
   children,
   onChange,

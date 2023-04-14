@@ -14,6 +14,9 @@ export interface TableProps<T>
   selectedValue?: T;
 }
 
+/**
+ * @deprecated Use Table from @digdir/design-system-react instead.
+ */
 export function Table<T>({
   children,
   selectRows = false,

@@ -107,7 +107,7 @@
     "ts-jest": "29.0.5",
     "tslib": "2.5.0",
     "typescript": "5.0.4",
-    "webpack": "5.75.0",
+    "webpack": "5.76.0",
     "yargs": "17.6.2"
   },
   "peerDependencies": {

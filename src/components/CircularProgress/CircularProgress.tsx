@@ -43,6 +43,7 @@ export const CircularProgress = ({
       <svg
         className={classes.svg}
         viewBox='0 0 35.8 35.8'
+        aria-hidden={true}
       >
         <Circle
           stroke={tokens.ColorsBlue200}

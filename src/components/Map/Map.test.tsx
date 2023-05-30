@@ -26,62 +26,45 @@ describe('Map', () => {
 
   describe('Click map', () => {
     it('should call onClick with correct coordinates when map is clicked', async () => {
-      const handleMapClicked = jest.fn();
-      render({
-        onClick: handleMapClicked,
-      });
-
+      const onClick = jest.fn();
+      render({ onClick });
       await clickMap();
-
-      expect(handleMapClicked).toHaveBeenCalledWith({
+      expect(onClick).toHaveBeenCalledWith({
         latitude: 59.26415891525691,
         longitude: 10.403623580932617,
-      } as Location);
+      } satisfies Location);
     });
 
     it('should call onClick with longitude between 180 and -180 even when map is wrapped', async () => {
-      const handleMapClicked = jest.fn();
-      render({
-        flyToZoomLevel: 4,
-        onClick: handleMapClicked,
-      });
-
-      // Click so that the world is wrapped
-      await clickMap(2500, 0);
-
-      expect(handleMapClicked).toHaveBeenCalledWith({
+      const onClick = jest.fn();
+      render({ flyToZoomLevel: 4, onClick });
+      await clickMap(2500, 0); // Click so that the world is wrapped
+      expect(onClick).toHaveBeenCalledWith({
         latitude: 59.265880628258095,
         longitude: -129.90234375,
-      } as Location);
+      } satisfies Location);
     });
 
     it('should not call onClick when readOnly is true and map is clicked', async () => {
-      const handleMapClicked = jest.fn();
-      render({
-        onClick: handleMapClicked,
-        readOnly: true,
-      });
-
+      const onClick = jest.fn();
+      render({ onClick, readOnly: true });
       await clickMap();
-
-      expect(handleMapClicked).not.toHaveBeenCalled();
+      expect(onClick).not.toHaveBeenCalled();
     });
 
     it('should get different coordinates when map is clicked at different location', async () => {
-      const mapClicked = jest.fn();
-      render({
-        onClick: mapClicked,
-      });
+      const onClick = jest.fn();
+      render({ onClick });
 
       // First click
       await clickMap();
-      expect(mapClicked).toBeCalledTimes(1);
-      const firstLocation = mapClicked.mock.calls[0][0] as Location;
+      expect(onClick).toHaveBeenCalledTimes(1);
+      const firstLocation: Location = onClick.mock.calls[0][0];
 
       // Second click at different location
       await clickMap(50, 50);
-      expect(mapClicked).toBeCalledTimes(2);
-      const secondLocation = mapClicked.mock.calls[1][0] as Location;
+      expect(onClick).toHaveBeenCalledTimes(2);
+      const secondLocation: Location = onClick.mock.calls[1][0];
 
       expect(firstLocation.latitude).not.toBe(secondLocation.latitude);
       expect(firstLocation.longitude).not.toBe(secondLocation.longitude);
@@ -133,7 +116,7 @@ function getLink(name: string) {
 }
 
 async function clickMap(clientX = 0, clientY = 0) {
-  const firstMapLayer = screen.getAllByRole('presentation')[0];
+  const firstMapLayer = screen.getAllByRole('img')[0];
   await user.pointer([
     {
       pointerName: 'mouse',

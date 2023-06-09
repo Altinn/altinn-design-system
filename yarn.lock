@@ -18,6 +18,7 @@ __metadata:
   dependencies:
     "@altinn/figma-design-tokens": ^6.0.1
     "@babel/core": 7.22.1
+    "@digdir/design-system-react": 0.14.0
     "@mdx-js/react": 2.3.0
     "@navikt/ds-icons": ^2.0.0
     "@radix-ui/react-popover": ^1.0.0
@@ -82,7 +83,6 @@ __metadata:
     react: 18.2.0
     react-dom: 18.2.0
     react-leaflet: ^4.2.1
-    react-number-format: ^5.1.1
     rollup: 3.23.0
     rollup-plugin-dts: 5.3.0
     rollup-plugin-peer-deps-external: 2.2.4
@@ -3224,6 +3224,30 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@digdir/design-system-react@npm:0.14.0":
+  version: 0.14.0
+  resolution: "@digdir/design-system-react@npm:0.14.0"
+  dependencies:
+    "@altinn/figma-design-tokens": ^6.0.1
+    "@digdir/design-system-tokens": ^0.1.3
+    "@floating-ui/react": 0.24.1
+    "@navikt/aksel-icons": ^3.2.4
+    "@navikt/ds-icons": ^2.3.0
+    react-number-format: 5.2.2
+  peerDependencies:
+    react: ">=16.8"
+    react-dom: ">=16.8"
+  checksum: 3d6e7ac6cbd4631578a68c55e469fcce1032383d79dac7e2face874b9e338af8c13a476346ca9a9f11c6d3b1ffead425132872689328c47e8d88ec35352b05bc
+  languageName: node
+  linkType: hard
+
+"@digdir/design-system-tokens@npm:^0.1.3":
+  version: 0.1.3
+  resolution: "@digdir/design-system-tokens@npm:0.1.3"
+  checksum: 17d5905880971d4863b5cda6cd3c7bf03ebfce4f0e1899db9788254abd23bb9e0091f0be6a5d51d1f23ac3f3c5c9bca244faeeb9f1cf91858b2eac8a59d802f2
+  languageName: node
+  linkType: hard
+
 "@discoveryjs/json-ext@npm:^0.5.3":
   version: 0.5.7
   resolution: "@discoveryjs/json-ext@npm:0.5.7"
@@ -3326,6 +3350,20 @@ __metadata:
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
   checksum: c5dd02b7babf9c26d5e11b8ebe58411131b37844f7d6362a767cd1eedfb506ca6db3228fb192e0a5822c9289a5b500e2ef31e069dce28a0fbec4722f22bcdd95
+  languageName: node
+  linkType: hard
+
+"@floating-ui/react@npm:0.24.1":
+  version: 0.24.1
+  resolution: "@floating-ui/react@npm:0.24.1"
+  dependencies:
+    "@floating-ui/react-dom": ^2.0.0
+    aria-hidden: ^1.1.3
+    tabbable: ^6.0.1
+  peerDependencies:
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+  checksum: 89e525412a5f71be1437ce74a3a76f4a6c771074e1dca62dddf11062dd9eca7b967091906c369427a0c8f9c9a7c6c7ae06525917e6809d60d832443a4acfc3f3
   languageName: node
   linkType: hard
 
@@ -3853,7 +3891,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@navikt/ds-icons@npm:^2.0.0":
+"@navikt/aksel-icons@npm:^3.2.4":
+  version: 3.4.2
+  resolution: "@navikt/aksel-icons@npm:3.4.2"
+  checksum: d58da59cb6b31bfe54a1f83c17481c2d629ef62f11956ec9adc6615c2a5f1cf2efe0370ff2b8de70a5c9492e5bdb23594b89a38d269f090a512b7a1abe9b2960
+  languageName: node
+  linkType: hard
+
+"@navikt/ds-icons@npm:^2.0.0, @navikt/ds-icons@npm:^2.3.0":
   version: 2.9.8
   resolution: "@navikt/ds-icons@npm:2.9.8"
   peerDependencies:
@@ -8232,6 +8277,15 @@ __metadata:
     "@types/react":
       optional: true
   checksum: cd8047a0113d5ecc11bce1616ae2772abcb0a6e1da5a70cbfc3555e8da063b0416d62cced3e704b6d424cbf408c1fc21225d69723cd62c3f1f0cf3b41d674c2b
+  languageName: node
+  linkType: hard
+
+"aria-hidden@npm:^1.1.3":
+  version: 1.2.3
+  resolution: "aria-hidden@npm:1.2.3"
+  dependencies:
+    tslib: ^2.0.0
+  checksum: 7d7d211629eef315e94ed3b064c6823d13617e609d3f9afab1c2ed86399bb8e90405f9bdd358a85506802766f3ecb468af985c67c846045a34b973bcc0289db9
   languageName: node
   linkType: hard
 
@@ -18941,7 +18995,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-number-format@npm:^5.1.1":
+"react-number-format@npm:5.2.2":
   version: 5.2.2
   resolution: "react-number-format@npm:5.2.2"
   dependencies:
@@ -21031,6 +21085,13 @@ __metadata:
     "@pkgr/utils": ^2.3.1
     tslib: ^2.5.0
   checksum: 8a9560e5d8f3d94dc3cf5f7b9c83490ffa30d320093560a37b88f59483040771fd1750e76b9939abfbb1b5a23fd6dfbae77f6b338abffe7cae7329cd9b9bb86b
+  languageName: node
+  linkType: hard
+
+"tabbable@npm:^6.0.1":
+  version: 6.1.2
+  resolution: "tabbable@npm:6.1.2"
+  checksum: 1e2d9af4f172a3793f491bab10263c26903c2be6a5c4ab723d69d1ba2054828d22a50add9ba7fc42735468871d40054d906fa4f0a9dc2fbd4feff875e84c1a89
   languageName: node
   linkType: hard
 

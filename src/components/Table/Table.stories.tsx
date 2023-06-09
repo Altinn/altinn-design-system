@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import { config } from 'storybook-addon-designs';
 import cn from 'classnames';
+import { RadioButton } from '@digdir/design-system-react';
 
 import { StoryPage } from '@sb/StoryPage';
 import type { ResponsiveTableConfig } from '@/components/Table/ResponsiveTable';
@@ -11,7 +12,6 @@ import type { MyExampleTableData } from '@/components/Table/ExampleData';
 import { getExampleTableRows } from '@/components/Table/ExampleData';
 
 import { Pagination } from '../Pagination';
-import { RadioButton } from '../RadioButton';
 
 import { Table } from './Table';
 import { TableHeader } from './TableHeader';

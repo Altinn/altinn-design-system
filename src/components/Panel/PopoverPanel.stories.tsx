@@ -2,10 +2,14 @@ import React from 'react';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import { config } from 'storybook-addon-designs';
 import { useState } from '@storybook/addons';
+import {
+  Button,
+  ButtonVariant,
+  ButtonColor,
+  ButtonSize,
+} from '@digdir/design-system-react';
 
 import { StoryPage } from '@sb/StoryPage';
-
-import { Button, ButtonVariant, ButtonColor, ButtonSize } from '../Button';
 
 import { PanelVariant } from './Panel';
 import { PopoverPanel } from './PopoverPanel';

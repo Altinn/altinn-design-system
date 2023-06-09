@@ -1,6 +1,5 @@
 import React from 'react';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import { config } from 'storybook-addon-designs';
 import { Success as SuccessIconNAV } from '@navikt/ds-icons';
 
 import { StoryPage } from '@sb/StoryPage';
@@ -9,22 +8,10 @@ import { SvgIcon } from '..';
 
 import { ReactComponent as SuccessIcon } from './success.svg';
 
-const figmaLink = ''; // TODO: Add figma link
-
 export default {
   title: `Components/SvgIcon`,
   component: SvgIcon,
   parameters: {
-    design: config([
-      {
-        type: 'figma',
-        url: figmaLink,
-      },
-      {
-        type: 'link',
-        url: figmaLink,
-      },
-    ]),
     docs: {
       page: () => (
         <StoryPage

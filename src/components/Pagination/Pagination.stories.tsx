@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import { config } from 'storybook-addon-designs';
 
 import { StoryPage } from '@sb/StoryPage';
 
 import type { DescriptionText } from './Pagination';
 import { Pagination } from './Pagination';
-
-const figmaLink = ''; // TODO: Add figma link
 
 /**
  * Do not use these directly. They are exported here for re-use in Storyboard, but you should supply your own
@@ -26,16 +23,6 @@ export default {
   title: `Components/Pagination`,
   component: Pagination,
   parameters: {
-    design: config([
-      {
-        type: 'figma',
-        url: figmaLink,
-      },
-      {
-        type: 'link',
-        url: figmaLink,
-      },
-    ]),
     docs: {
       page: () => (
         <StoryPage

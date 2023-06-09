@@ -1,6 +1,5 @@
 import React from 'react';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import { config } from 'storybook-addon-designs';
 
 import { StoryPage } from '@sb/StoryPage';
 import { ReactComponent as DataIcon } from '@/assets/Data.svg';
@@ -10,22 +9,10 @@ import { PageContent } from './PageContent';
 import { PageHeader } from './PageHeader';
 import { Page } from './Page';
 
-const figmaLink = ''; // TODO: Add figma link
-
 export default {
   title: `Components/Page`,
   component: Page,
   parameters: {
-    design: config([
-      {
-        type: 'figma',
-        url: figmaLink,
-      },
-      {
-        type: 'link',
-        url: figmaLink,
-      },
-    ]),
     docs: {
       page: () => (
         <StoryPage

@@ -16,7 +16,6 @@ module.exports = {
     '@storybook/addon-a11y',
     'storybook-addon-turbo-build',
     'storybook-dark-mode',
-    'storybook-addon-designs',
   ],
   core: {
     builder: 'webpack5',

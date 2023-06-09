@@ -24,11 +24,11 @@
   },
   "dependencies": {
     "@altinn/figma-design-tokens": "^6.0.1",
+    "@digdir/design-system-react": "0.14.0",
     "@navikt/ds-icons": "^2.0.0",
     "@radix-ui/react-popover": "^1.0.0",
     "leaflet": "^1.9.4",
-    "react-leaflet": "^4.2.1",
-    "react-number-format": "^5.1.1"
+    "react-leaflet": "^4.2.1"
   },
   "resolutions": {
     "@storybook/react/webpack": "^5",

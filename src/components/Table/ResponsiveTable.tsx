@@ -1,9 +1,8 @@
 import React from 'react';
+import { RadioButton } from '@digdir/design-system-react';
 
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { tokens } from '@/DesignTokens';
-
-import { RadioButton } from '../RadioButton';
 
 import type { SortProps } from './Toolbox';
 import { SortDirection } from './Toolbox';

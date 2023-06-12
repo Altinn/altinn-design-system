@@ -20,7 +20,6 @@ export const descriptionTexts: DescriptionText = {
 };
 
 export default {
-  title: `Components/Pagination`,
   component: Pagination,
   parameters: {
     docs: {

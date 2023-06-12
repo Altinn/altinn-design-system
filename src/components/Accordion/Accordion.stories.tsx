@@ -18,7 +18,6 @@ import classes from './Accordion.stories.module.css';
 import { AccordionIconVariant } from './Context';
 
 export default {
-  title: `Components/Accordion`,
   component: Accordion,
   subcomponents: { AccordionHeader, AccordionContent },
   parameters: {

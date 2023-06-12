@@ -7,7 +7,6 @@ import { StoryPage } from '@sb/StoryPage';
 import { SearchField } from './SearchField';
 
 export default {
-  title: `Components/SearchField`,
   component: SearchField,
   parameters: {
     docs: {

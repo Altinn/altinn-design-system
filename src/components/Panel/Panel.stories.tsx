@@ -6,7 +6,6 @@ import { StoryPage } from '@sb/StoryPage';
 import { Panel, PanelVariant } from './Panel';
 
 export default {
-  title: `Components/Panel`,
   component: Panel,
   parameters: {
     docs: {

@@ -9,7 +9,6 @@ import { BorderStyle } from './Context';
 import classes from './List.stories.modules.css';
 
 export default {
-  title: `Components/List`,
   component: List,
   parameters: {
     docs: {

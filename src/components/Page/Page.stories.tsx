@@ -10,7 +10,6 @@ import { PageHeader } from './PageHeader';
 import { Page } from './Page';
 
 export default {
-  title: `Components/Page`,
   component: Page,
   parameters: {
     docs: {

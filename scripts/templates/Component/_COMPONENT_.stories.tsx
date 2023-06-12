@@ -1,27 +1,14 @@
 import React from 'react';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import { config } from 'storybook-addon-designs';
 
 import { StoryPage } from '@sb/StoryPage';
 
 import { _COMPONENT_ } from './_COMPONENT_';
 
-const figmaLink = ''; // TODO: Add figma link
-
 export default {
   title: `Components/_COMPONENT_`,
   component: _COMPONENT_,
   parameters: {
-    design: config([
-      {
-        type: 'figma',
-        url: figmaLink,
-      },
-      {
-        type: 'link',
-        url: figmaLink,
-      },
-    ]),
     docs: {
       page: () => (
         <StoryPage

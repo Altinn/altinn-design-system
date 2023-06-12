@@ -1,6 +1,5 @@
 import React from 'react';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import { config } from 'storybook-addon-designs';
 import { useState } from '@storybook/addons';
 import {
   Button,
@@ -14,22 +13,10 @@ import { StoryPage } from '@sb/StoryPage';
 import { PanelVariant } from './Panel';
 import { PopoverPanel } from './PopoverPanel';
 
-const figmaLink = ''; // TODO: Add figma link
-
 export default {
   title: `Components/Panel/PopoverPanel`,
   component: PopoverPanel,
   parameters: {
-    design: config([
-      {
-        type: 'figma',
-        url: figmaLink,
-      },
-      {
-        type: 'link',
-        url: figmaLink,
-      },
-    ]),
     docs: {
       page: () => (
         <StoryPage

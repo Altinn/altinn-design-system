@@ -1,29 +1,15 @@
 import React from 'react';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import { config } from 'storybook-addon-designs';
 import { useArgs } from '@storybook/client-api';
 
 import { StoryPage } from '@sb/StoryPage';
 
 import { SearchField } from './SearchField';
 
-const figmaLink =
-  'https://www.figma.com/file/wnBveAG2ikUspFsQwM3GNE/Altinn-Studio-Apps?node-id=2090%3A6723';
-
 export default {
   title: `Components/SearchField`,
   component: SearchField,
   parameters: {
-    design: config([
-      {
-        type: 'figma',
-        url: figmaLink,
-      },
-      {
-        type: 'link',
-        url: figmaLink,
-      },
-    ]),
     docs: {
       page: () => (
         <StoryPage

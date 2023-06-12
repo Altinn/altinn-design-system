@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import { config } from 'storybook-addon-designs';
 import { useArgs } from '@storybook/client-api';
 import cn from 'classnames';
 import {
@@ -18,23 +17,11 @@ import { AccordionContent } from './AccordionContent';
 import classes from './Accordion.stories.module.css';
 import { AccordionIconVariant } from './Context';
 
-const figmaLink = ''; // TODO: Add figma link
-
 export default {
   title: `Components/Accordion`,
   component: Accordion,
   subcomponents: { AccordionHeader, AccordionContent },
   parameters: {
-    design: config([
-      {
-        type: 'figma',
-        url: figmaLink,
-      },
-      {
-        type: 'link',
-        url: figmaLink,
-      },
-    ]),
     docs: {
       page: () => (
         <StoryPage

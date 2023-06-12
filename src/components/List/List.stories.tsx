@@ -1,6 +1,5 @@
 import React from 'react';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import { config } from 'storybook-addon-designs';
 
 import { StoryPage } from '@sb/StoryPage';
 
@@ -9,22 +8,10 @@ import { ListItem } from './ListItem';
 import { BorderStyle } from './Context';
 import classes from './List.stories.modules.css';
 
-const figmaLink = ''; // TODO: Add figma link
-
 export default {
   title: `Components/List`,
   component: List,
   parameters: {
-    design: config([
-      {
-        type: 'figma',
-        url: figmaLink,
-      },
-      {
-        type: 'link',
-        url: figmaLink,
-      },
-    ]),
     docs: {
       page: () => (
         <StoryPage

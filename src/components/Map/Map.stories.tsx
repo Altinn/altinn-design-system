@@ -1,6 +1,5 @@
 import React from 'react';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import { config } from 'storybook-addon-designs';
 import { useArgs } from '@storybook/client-api';
 import Marker from 'leaflet/dist/images/marker-icon.png';
 import RetinaMarker from 'leaflet/dist/images/marker-icon-2x.png';
@@ -11,23 +10,11 @@ import { StoryPage } from '@sb/StoryPage';
 import type { Location } from './Map';
 import { Map } from './Map';
 
-const figmaLink = '';
-
 export default {
   title: `Components/Map`,
   component: Map,
   parameters: {
     layout: 'fullscreen',
-    design: config([
-      {
-        type: 'figma',
-        url: figmaLink,
-      },
-      {
-        type: 'link',
-        url: figmaLink,
-      },
-    ]),
     docs: {
       page: () => <StoryPage description={`Map component`} />,
     },

@@ -9,7 +9,6 @@ import { SvgIcon } from '..';
 import { ReactComponent as SuccessIcon } from './success.svg';
 
 export default {
-  title: `Components/SvgIcon`,
   component: SvgIcon,
   parameters: {
     docs: {

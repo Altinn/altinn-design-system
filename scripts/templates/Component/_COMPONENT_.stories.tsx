@@ -6,7 +6,6 @@ import { StoryPage } from '@sb/StoryPage';
 import { _COMPONENT_ } from './_COMPONENT_';
 
 export default {
-  title: `Components/_COMPONENT_`,
   component: _COMPONENT_,
   parameters: {
     docs: {

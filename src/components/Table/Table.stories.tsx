@@ -22,7 +22,6 @@ import classes from './Table.stories.module.css';
 import { TableFooter } from './TableFooter';
 
 export default {
-  title: `Components/Table`,
   component: Table,
   parameters: {
     docs: {

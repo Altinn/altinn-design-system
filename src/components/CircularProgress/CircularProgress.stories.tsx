@@ -6,7 +6,6 @@ import { StoryPage } from '@sb/StoryPage';
 import { CircularProgress } from './CircularProgress';
 
 export default {
-  title: `Components/CircularProgress`,
   component: CircularProgress,
   parameters: {
     docs: {

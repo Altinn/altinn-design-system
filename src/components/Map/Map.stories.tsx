@@ -11,7 +11,6 @@ import type { Location } from './Map';
 import { Map } from './Map';
 
 export default {
-  title: `Components/Map`,
   component: Map,
   parameters: {
     layout: 'fullscreen',

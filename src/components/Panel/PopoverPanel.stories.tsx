@@ -14,7 +14,6 @@ import { PanelVariant } from './Panel';
 import { PopoverPanel } from './PopoverPanel';
 
 export default {
-  title: `Components/Panel/PopoverPanel`,
   component: PopoverPanel,
   parameters: {
     docs: {

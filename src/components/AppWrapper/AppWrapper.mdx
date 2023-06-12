@@ -1,15 +1,16 @@
 import { Meta } from '@storybook/addon-docs';
+import * as AppWrapperStories from './AppWrapper.stories';
 
-<Meta title='Components/AppWrapper' />
+<Meta of={AppWrapperStories} />
 
 # AppWrapper
 
-AppWrapper sørger for å laste eksterne globale styles (f.eks css variabler som kommer fra Figma Tokens),
-og setter noen globale styles (f.eks font-family).
+AppWrapper sørger for å laste eksterne globale styles (f.eks. CSS-variabler som kommer fra Figma Tokens),
+og setter noen globale styles (f.eks. font-family).
 
 For å få andre komponenter til å virke som de skal du derfor bruke AppWrapper.
 
-Denne komponenten bør lastes kun én gang, og så høyt opp i React treet som mulig.
+Denne komponenten bør lastes kun én gang, og så høyt opp i React-treet som mulig.
 
 ```jsx
 import { AppWrapper } from '@altinn/altinn-design-system';

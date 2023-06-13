@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_altinn_altinn_design_system=self.webpackChunk_altinn_altinn_design_system||[]).push([[745],{"./node_modules/react-dom/client.js":(s,e,n)=>{var t=n("./node_modules/react-dom/index.js");if(!0)e.createRoot=t.createRoot,e.hydrateRoot=t.hydrateRoot;else var a}}]);

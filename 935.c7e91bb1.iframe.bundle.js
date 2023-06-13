@@ -1,0 +1,1 @@
+"use strict";(()=>{(self.webpackChunk_altinn_altinn_design_system=self.webpackChunk_altinn_altinn_design_system||[]).push([[935],{"./node_modules/@storybook/addon-docs/dist/DocsRenderer-EYKKDMVH.mjs":(e,n,s)=>{s.d(n,{DocsRenderer:()=>d.r});var d=s("./node_modules/@storybook/addon-docs/dist/chunk-PCJTTTQV.mjs")}}]);})();

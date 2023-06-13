@@ -5,8 +5,6 @@ import { StoryPage } from '@sb/StoryPage';
 
 import { List } from './List';
 import { ListItem } from './ListItem';
-import { BorderStyle } from './Context';
-import classes from './List.stories.modules.css';
 
 export default {
   component: List,
@@ -27,7 +25,7 @@ export default {
 
 const Template: ComponentStory<typeof List> = (args) => {
   return (
-    <div className={classes['container']}>
+    <div>
       <List borderStyle={args.borderStyle}>
         <ListItem>List Item 1</ListItem>
         <ListItem>List Item 2</ListItem>
@@ -39,7 +37,7 @@ const Template: ComponentStory<typeof List> = (args) => {
 
 export const Solid = Template.bind({});
 Solid.args = {
-  borderStyle: BorderStyle.Solid,
+  borderStyle: 'solid',
 };
 Solid.parameters = {
   docs: {
@@ -51,7 +49,7 @@ Solid.parameters = {
 
 export const Dashed = Template.bind({});
 Dashed.args = {
-  borderStyle: BorderStyle.Dashed,
+  borderStyle: 'dashed',
 };
 Dashed.parameters = {
   docs: {

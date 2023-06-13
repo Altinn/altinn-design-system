@@ -2,7 +2,7 @@ export { Panel, PanelVariant, PopoverPanel } from './Panel';
 export { CircularProgress } from './CircularProgress';
 export { AppWrapper } from './AppWrapper';
 export { Page, PageHeader, PageContent, PageColor, PageSize } from './Page';
-export { List, ListItem, BorderStyle } from './List';
+export { List, ListItem } from './List';
 export { SearchField } from './SearchField';
 export type { Location, MapLayer } from './Map';
 export { Map } from './Map';

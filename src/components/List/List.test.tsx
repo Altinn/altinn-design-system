@@ -4,39 +4,36 @@ import { render as renderRtl, screen } from '@testing-library/react';
 import type { ListProps } from './List';
 import { List } from './List';
 import { ListItem } from './ListItem';
-import { BorderStyle } from './Context';
 
 const render = (props: Partial<ListProps> = {}) => {
-  const allProps = {
+  const allProps: ListProps = {
     children: (
       <>
-        <ListItem>AccordionHeader</ListItem>
+        <ListItem>Test</ListItem>
       </>
     ),
     ...props,
   };
-  renderRtl(<List {...allProps} />);
+  return renderRtl(<List {...allProps} />);
 };
 
+const borderStyles: ListProps['borderStyle'][] = [undefined, 'solid'];
+
 describe('List', () => {
-  it('should render a List and ListItem with solid border style when "borderStyle" is not set', () => {
-    render();
-    const List = screen.getByRole('list');
-    expect(List.classList.contains('list--solid')).toBe(true);
-    expect(List.classList.contains('list--dashed')).toBe(false);
-  });
+  it.each(borderStyles)(
+    'Renders a list with solid border when "borderStyle" is %s',
+    (borderStyle) => {
+      render({ borderStyle });
+      const list = screen.getByRole('list');
+      expect(list).toHaveClass('solid');
+      expect(list).not.toHaveClass('dashed');
+    },
+  );
 
-  it('should render a List and ListItem with solid border style when "borderStyle" is solid', () => {
-    render({ borderStyle: BorderStyle.Solid });
-    const List = screen.getByRole('list');
-    expect(List.classList.contains('list--solid')).toBe(true);
-    expect(List.classList.contains('list--dashed')).toBe(false);
-  });
-
-  it('should render a List and ListItem with dashed border style when "borderStyle" is dashed', () => {
-    render({ borderStyle: BorderStyle.Dashed });
-    const List = screen.getByRole('list');
-    expect(List.classList.contains('list--solid')).toBe(false);
-    expect(List.classList.contains('list--dashed')).toBe(true);
+  it('Renders a list with dashed border when "borderStyle" is dashed', () => {
+    render({ borderStyle: 'dashed' });
+    const list = screen.getByRole('list');
+    expect(list).toHaveClass('dashed');
+    expect(list).not.toHaveClass('solid');
   });
 });

@@ -1,1 +1,0 @@
-"use strict";(()=>{(self.webpackChunk_altinn_altinn_design_system=self.webpackChunk_altinn_altinn_design_system||[]).push([[332],{"./node_modules/@altinn/figma-design-tokens/dist/tokens.json":n=>{n.exports={}}}]);})();

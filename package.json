@@ -77,7 +77,7 @@
     "@yarnpkg/sdks": "2.7.1",
     "babel-loader": "9.1.2",
     "classnames": "2.3.2",
-    "core-js": "3.30.2",
+    "core-js": "3.31.0",
     "css-loader": "6.8.1",
     "eslint": "8.42.0",
     "eslint-config-prettier": "8.8.0",

@@ -6285,21 +6285,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/react-docgen-typescript-plugin@npm:1.0.6--canary.9.cd77847.0":
-  version: 1.0.6--canary.9.cd77847.0
-  resolution: "@storybook/react-docgen-typescript-plugin@npm:1.0.6--canary.9.cd77847.0"
+"@storybook/react-docgen-typescript-plugin@npm:1.0.6--canary.9.f9c48c0.0":
+  version: 1.0.6--canary.9.f9c48c0.0
+  resolution: "@storybook/react-docgen-typescript-plugin@npm:1.0.6--canary.9.f9c48c0.0"
   dependencies:
+    "@storybook/react-docgen-typescript": ^2.2.4-next.1
     debug: ^4.1.1
     endent: ^2.0.1
     find-cache-dir: ^3.3.1
     flat-cache: ^3.0.4
     micromatch: ^4.0.2
-    react-docgen-typescript: ^2.2.2
     tslib: ^2.0.0
   peerDependencies:
     typescript: ">= 4.x"
     webpack: ">= 4"
-  checksum: 8f155cc34cb7d1f124c42b125b760fb58b4ba2ed2eaf109f363411f1c3b0cc6f3cb6dc15c1fa073bd6c0ec5e98b51ab24ff92def54505043f7a2a297a33a77af
+  checksum: bc11d10dcf2d9383a58e0d46115a2d433a0efe8ebe182aa608f5fb81d16404f2b101200dcfec5ec0fa3684c1b48707f9cad6ac315aa5438f0d2d9641ee7a95d6
+  languageName: node
+  linkType: hard
+
+"@storybook/react-docgen-typescript@npm:^2.2.4-next.1":
+  version: 2.2.4-next.1
+  resolution: "@storybook/react-docgen-typescript@npm:2.2.4-next.1"
+  peerDependencies:
+    typescript: ">= 4.3.x"
+  checksum: 246bfd9e3a88baee0530bf13dde8a7c28663dabdd14e96764cce1e2b477c6c4b483749a041dbc9621e93b09cee5276cb3ebea7328e05b18ed334e70b9bf86ad2
   languageName: node
   linkType: hard
 
@@ -16734,15 +16743,6 @@ __metadata:
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
   checksum: e432b7cb0df57e8f0bcdc3b012d2e93fcbcb6092c9e0f85654788d5ebfc4442536d8cc35b2418061ba3c4afb8b7788cc101c606d86a1732407921de7a9244c8d
-  languageName: node
-  linkType: hard
-
-"react-docgen-typescript@npm:^2.2.2":
-  version: 2.2.2
-  resolution: "react-docgen-typescript@npm:2.2.2"
-  peerDependencies:
-    typescript: ">= 4.3.x"
-  checksum: a9826459ea44e818f21402728dd47f5cae60bd936574cefd4f90ad101ff3eebacd67b6e017b793309734ce62c037aa3072dbc855d2b0e29bad1a38cbf5bac115
   languageName: node
   linkType: hard
 

@@ -23,7 +23,7 @@ __metadata:
     "@babel/preset-typescript": ^7.22.5
     "@digdir/design-system-react": 0.15.0
     "@mdx-js/react": 2.3.0
-    "@navikt/ds-icons": ^2.0.0
+    "@navikt/ds-icons": ^3.0.0
     "@radix-ui/react-popover": ^1.0.0
     "@rollup/plugin-commonjs": 25.0.1
     "@rollup/plugin-json": 6.0.0
@@ -4711,7 +4711,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@navikt/ds-icons@npm:^2.0.0, @navikt/ds-icons@npm:^2.3.0":
+"@navikt/ds-icons@npm:^2.3.0":
   version: 2.9.8
   resolution: "@navikt/ds-icons@npm:2.9.8"
   peerDependencies:
@@ -4721,6 +4721,19 @@ __metadata:
     "@types/react":
       optional: true
   checksum: 37788d056c41cf8450c5ec837449c6f967652f1880ffc267bcee45be7f02a27234061305ef4365a2bef3d35004b9e808df854fe7336498b9cbd1ebaa13b95a5e
+  languageName: node
+  linkType: hard
+
+"@navikt/ds-icons@npm:^3.0.0":
+  version: 3.4.3
+  resolution: "@navikt/ds-icons@npm:3.4.3"
+  peerDependencies:
+    "@types/react": ^17.0.30 || ^18.0.0
+    react: ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+  checksum: 3b5f917c65ea4ca6296075dcc5b91e4c2ebdd8146731fc58ab6ea2d7fcad7f6dfa8b63d550717c862a0dc889c6dc1a7dd04bf8ac84b6b88c6d75b94d4127f199
   languageName: node
   linkType: hard
 

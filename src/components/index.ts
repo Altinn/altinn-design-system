@@ -1,5 +1,8 @@
 export { Panel, PanelVariant, PopoverPanel } from './Panel';
-export { CircularProgress } from './CircularProgress';
+export {
+  CircularProgress,
+  type CircularProgressProps,
+} from './CircularProgress';
 export { AppWrapper } from './AppWrapper';
 export { Page, PageHeader, PageContent, PageColor, PageSize } from './Page';
 export { List, ListItem } from './List';

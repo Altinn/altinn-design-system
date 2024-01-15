@@ -1,7 +1,9 @@
 # Design system for Altinn
-[designsystem.altinn.studio/](https://designsystem.altinn.studio/)
 
-⚠️ This library is used for components that are unique for Altinn. We have moved reusable core components that can be used in multiple products and situations to our [common design system](https://digdir.github.io/designsystem/?path=/story/introduksjon--page). We will continue to develop reusable components in the [common design system](https://digdir.github.io/designsystem/?path=/story/introduksjon--page).
+https://designsystem.altinn.studio
+
+⚠️ This library is used for components that are unique for Altinn. We have moved reusable core components that can be used in multiple products and situations to [designsystemet.no](https://www.designsystemet.no).
+We will continue to develop reusable components there.
 
 
 ## How to install

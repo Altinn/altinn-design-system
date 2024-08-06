@@ -20,7 +20,7 @@ const DefaultCenterLocation: Location = {
 };
 const DefaultZoom = 4;
 
-// Default zoom level that should be used when when flying to new markerLocation
+// Default zoom level that should be used when flying to new markerLocation
 const DefaultFlyToZoomLevel = 16;
 
 // Default map layers from Kartverket
@@ -30,7 +30,7 @@ const DefaultMapLayers: MapLayer[] = [
     attribution: 'Data © <a href="https://www.kartverket.no/">Kartverket</a>',
   },
   {
-    url: 'https://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=norgeskart_bakgrunn2&zoom={z}&x={x}&y={y}',
+    url: 'https://cache.kartverket.no/v1/wmts/1.0.0/topo/default/webmercator/{z}/{y}/{x}.png',
     attribution: 'Data © <a href="https://www.kartverket.no/">Kartverket</a>',
   },
 ];

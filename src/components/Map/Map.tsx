@@ -20,7 +20,7 @@ const DefaultCenterLocation: Location = {
 };
 const DefaultZoom = 4;
 
-// Default zoom level that should be used when flying to new markerLocation
+// Default zoom level that should be used when flying to the new markerLocation
 const DefaultFlyToZoomLevel = 16;
 
 // Default map layer from Kartverket

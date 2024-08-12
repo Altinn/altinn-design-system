@@ -26,8 +26,13 @@ const DefaultFlyToZoomLevel = 16;
 // Default map layer from Kartverket
 const DefaultMapLayers: MapLayer[] = [
   {
+    url: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+    attribution:
+      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>',
+  },
+  {
     url: 'https://cache.kartverket.no/v1/wmts/1.0.0/topo/default/webmercator/{z}/{y}/{x}.png',
-    attribution: 'Data © <a href="https://www.kartverket.no/">Kartverket</a>',
+    attribution: '&copy; <a href="https://www.kartverket.no/">Kartverket</a>',
   },
 ];
 

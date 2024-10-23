@@ -68,7 +68,7 @@
     "@testing-library/user-event": "14.4.3",
     "@types/jest": "29.5.2",
     "@types/leaflet": "1.9.3",
-    "@types/node": "18.16.18",
+    "@types/node": "20.16.13",
     "@types/react": "18.2.13",
     "@types/responselike": "1.0.0",
     "@types/testing-library__jest-dom": "5.14.6",

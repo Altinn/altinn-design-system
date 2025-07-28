@@ -67,7 +67,7 @@ jobs:
         run: yarn build-storybook
 
       - name: Deploy Storybook
-        uses: JamesIves/github-pages-deploy-action@v4.4.2
+        uses: JamesIves/github-pages-deploy-action@6c2d9db40f9296374acc17b90404b6e8864128c8 # v4.7.3
         with:
           branch: gh-pages
           folder: storybook-static # Source folder (output from build step)

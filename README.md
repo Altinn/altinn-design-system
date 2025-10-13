@@ -1,10 +1,7 @@
-# Design system for Altinn
 
-https://designsystem.altinn.studio
-
-⚠️ This library is used for components that are unique for Altinn. We have moved reusable core components that can be used in multiple products and situations to [designsystemet.no](https://www.designsystemet.no).
-We will continue to develop reusable components there.
-
+> [!WARNING]
+> This design system is DEPRECATED and not maintained!  
+> Use [designsystemet.no](https://designsystemet.no/en) instead.
 
 ## How to install
 
